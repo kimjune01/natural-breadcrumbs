@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Base.astro';
+import Repl from '../../components/Repl';
+---
+
+<Layout title="🍞 Baez, Fritz, Leinster 2011 — A Characterization of Entropy">
+  <main>
+
+    <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
+
+    <h1>A Characterization of Entropy in Terms of Information Loss</h1>
+    <p class="text-gray-400 text-sm mb-6">Baez, Fritz, Leinster · 2011 · <a href="https://arxiv.org/abs/1106.1791">arXiv:1106.1791</a></p>
+
+    <p class="text-sm text-gray-500 mb-6">Assumes you've seen <a href="/natural-breadcrumbs/fritz-2020/">Markov categories</a>. 5 minutes.</p>
+
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon entropy</a> is the <strong>only</strong> way to measure information loss that respects composition. There is no other choice.</p>
+    </div>
+
+    <!-- What's information loss -->
+    <h3>Information loss</h3>
+    <p>When a stochastic function processes a distribution, some information is lost. The question is: how do you <em>measure</em> that loss? Shannon defined entropy in 1948. Baez, Fritz, and Leinster proved that Shannon's definition is the only one that satisfies three natural properties.</p>
+
+    <Repl client:load initialCode={`import math
+
+def entropy(dist):
+    """Shannon entropy: H(p) = -sum(p * log2(p))"""
+    return -sum(p * math.log2(p) for p in dist.values() if p > 0)
+
+# Uniform distribution: maximum entropy (maximum surprise)
+uniform = {1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25}
+print(f"Uniform over 4: H = {entropy(uniform):.2f} bits")
+
+# Certain outcome: zero entropy (no surprise)
+certain = {1: 1.0}
+print(f"Certain:        H = {entropy(certain):.2f} bits")
+
+# Biased coin: between 0 and 1
+biased = {"H": 0.9, "T": 0.1}
+print(f"Biased coin:    H = {entropy(biased):.2f} bits")
+
+# Fair coin: exactly 1 bit
+fair = {"H": 0.5, "T": 0.5}
+print(f"Fair coin:      H = {entropy(fair):.2f} bits")
+
+print()
+print("More surprise = more entropy.")
+print("Certain = 0 bits. Fair coin = 1 bit.")
+`} />
+
+    <!-- Functoriality -->
+    <h3>Functoriality — the key constraint</h3>
+    <p>The paper's theorem: Shannon entropy is the <em>unique</em> measure of information loss that is <strong>functorial</strong>. Functorial means: the loss of a composite equals the sum of the losses of the parts.</p>
+    <p>If you process data in two steps, the total information lost is the loss from step 1 plus the loss from step 2. No other definition of "loss" has this property (up to a constant factor).</p>
+
+    <Repl client:load initialCode={`import math
+
+def entropy(dist):
+    return -sum(p * math.log2(p) for p in dist.values() if p > 0)
+
+# Two-step processing
+# Step 1: 4 outcomes -> 2 outcomes (merge pairs)
+input_dist = {1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25}
+
+def step1(d):
+    """Merge 1,2 -> A and 3,4 -> B"""
+    return {"A": d.get(1,0) + d.get(2,0), "B": d.get(3,0) + d.get(4,0)}
+
+# Step 2: 2 outcomes -> 1 outcome (collapse everything)
+def step2(d):
+    """Collapse to single outcome"""
+    return {"X": 1.0}
+
+after1 = step1(input_dist)
+after2 = step2(after1)
+
+h_before = entropy(input_dist)
+h_after1 = entropy(after1)
+h_after2 = entropy(after2)
+
+loss1 = h_before - h_after1
+loss2 = h_after1 - h_after2
+total = h_before - h_after2
+
+print(f"H(input) = {h_before:.2f} bits")
+print(f"H(after step 1) = {h_after1:.2f} bits")
+print(f"H(after step 2) = {h_after2:.2f} bits")
+print()
+print(f"Loss in step 1: {loss1:.2f} bits")
+print(f"Loss in step 2: {loss2:.2f} bits")
+print(f"Total loss: {total:.2f} bits")
+print(f"Sum of parts: {loss1 + loss2:.2f} bits")
+print()
+print(f"Functorial: total = sum of parts? {abs(total - (loss1 + loss2)) < 0.001} ✓")
+print("Shannon entropy is the ONLY measure with this property.")
+`} />
+
+    <!-- Data processing inequality -->
+    <h3>Data processing inequality</h3>
+    <p>A corollary: information can only decrease through processing. You can't create information by computing — you can only lose it or preserve it. This is the <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">data processing inequality</a> (DPI), proved categorically.</p>
+    <p>In the pipeline: each stage loses information. Perceive injects new bits to compensate. Without injection, the pipeline dies — that's <code>closed_loop_budget_negative</code> in the Lean artifact.</p>
+
+    <Repl client:load initialCode={`import math
+
+def entropy(dist):
+    return -sum(p * math.log2(p) for p in dist.values() if p > 0)
+
+# Data processing inequality: H(output) <= H(input)
+# Processing can't create information.
+
+input_dist = {1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4}
+
+def lossy(d):
+    """Merge 1,2 and 3,4"""
+    return {"low": d[1]+d[2], "high": d[3]+d[4]}
+
+def lossless(d):
+    """Relabel without merging"""
+    return {"a": d[1], "b": d[2], "c": d[3], "d": d[4]}
+
+h_in = entropy(input_dist)
+h_lossy = entropy(lossy(input_dist))
+h_lossless = entropy(lossless(input_dist))
+
+print(f"H(input)    = {h_in:.3f} bits")
+print(f"H(lossy)    = {h_lossy:.3f} bits  (lost {h_in - h_lossy:.3f})")
+print(f"H(lossless) = {h_lossless:.3f} bits  (lost {h_in - h_lossless:.3f})")
+print()
+print(f"DPI: H(output) <= H(input)?")
+print(f"  lossy:    {h_lossy:.3f} <= {h_in:.3f}? {h_lossy <= h_in + 0.001} ✓")
+print(f"  lossless: {h_lossless:.3f} <= {h_in:.3f}? {h_lossless <= h_in + 0.001} ✓")
+print()
+print("You can't gain bits by computing. Only lose or preserve.")
+`} />
+
+    <!-- Uniqueness -->
+    <h3>The uniqueness theorem</h3>
+    <p>The paper's main result (Theorem 4): any function F that assigns a real number to a morphism in FinProb (finite probability distributions) and satisfies:</p>
+    <ol>
+      <li><strong>Functoriality</strong> — F(g ∘ f) = F(f) + F(g)</li>
+      <li><strong>Convex linearity</strong> — F respects mixtures of distributions</li>
+      <li><strong>Continuity</strong> — small changes in probabilities → small changes in F</li>
+    </ol>
+    <p>...must be F(f) = c · (H(input) − H(output)) for some constant c ≥ 0. That's Shannon entropy, up to scale. There is no other option.</p>
+
+    <Repl client:load initialCode={`import math
+
+def entropy(dist):
+    return -sum(p * math.log2(p) for p in dist.values() if p > 0)
+
+# The uniqueness theorem says:
+# F(f) = c * (H(input) - H(output))  for some constant c >= 0
+#
+# Let's verify with c = 1 (natural units = bits)
+
+input_dist = {1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25}
+
+def merge_pairs(d):
+    return {"A": d[1]+d[2], "B": d[3]+d[4]}
+
+h_in = entropy(input_dist)
+h_out = entropy(merge_pairs(input_dist))
+info_loss = h_in - h_out
+
+print(f"H(input)  = {h_in:.2f} bits")
+print(f"H(output) = {h_out:.2f} bits")
+print(f"F(f) = H(in) - H(out) = {info_loss:.2f} bits")
+print()
+print("This is the ONLY measure (up to scale) that is:")
+print("  1. Functorial (composable)")
+print("  2. Convex-linear (respects mixtures)")
+print("  3. Continuous")
+print()
+print("Shannon didn't choose entropy. The axioms forced it.")
+`} />
+
+    <!-- Pipeline connection -->
+    <h3>Where this lives in the pipeline</h3>
+    <p>The pipeline has an information budget. Each stage loses entropy: Filter gates, Attend selects, Consolidate compresses. DPI says loss accumulates — no stage can recover what a previous stage lost. The budget balances only if Perceive injects enough new bits each cycle.</p>
+    <p>The uniqueness theorem means there's only one way to measure this budget. Shannon entropy isn't a convention. It's forced by functoriality — the same compositionality that makes <a href="/natural-breadcrumbs/staton-2025/">Hoare logic</a> work in <a href="/natural-breadcrumbs/fritz-2020/">FinStoch</a>.</p>
+
+    <!-- Notation -->
+    <h3>Notation reference</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="py-2 pr-4">Paper</th>
+            <th class="py-2 pr-4">Python</th>
+            <th class="py-2">Meaning</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono">
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">H(p)</td><td class="pr-4 text-green-300">-sum(p*log2(p))</td><td class="font-sans">Shannon entropy</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">F(f) = c(H(p)−H(q))</td><td class="pr-4 text-green-300">h_in - h_out</td><td class="font-sans">Information loss of morphism f</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">FinProb</td><td class="pr-4 text-green-300"># dicts summing to 1</td><td class="font-sans">Category of finite probability distributions</td></tr>
+          <tr><td class="py-2 pr-4">DPI</td><td class="pr-4 text-green-300">h_out &lt;= h_in</td><td class="font-sans">Data processing inequality</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Neighbors -->
+    <h3>Neighbors</h3>
+
+    <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
+    <ul>
+      <li>→ <a href="/natural-breadcrumbs/fritz-2020/">Fritz 2020</a> — the Markov category where entropy lives</li>
+      <li>→ <a href="/natural-breadcrumbs/staton-2025/">Staton 2025</a> — Hoare logic in the same category</li>
+      <li>→ <a href="/natural-breadcrumbs/sato-2023/">Sato, Katsumata 2023</a> — divergences as enrichment on the category</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
+    <ul>
+      <li>→ <a href="https://june.kim/the-natural-framework">The Natural Framework</a> — the information budget</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
+    <ul>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon entropy</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">Data processing inequality</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Information_theory">Information theory</a></li>
+      <li>→ <a href="https://en.wikipedia.org/wiki/Functor">Functor</a></li>
+    </ul>
+
+    <!-- Translation notes -->
+    <h3>Translation notes</h3>
+    <p>All examples use finite distributions with explicit probabilities. The paper's theorem holds over FinProb (finite probability distributions with morphisms that preserve total mass). The uniqueness result requires all three axioms — dropping any one allows other measures. Every example is <strong class="text-green-400">Simplified</strong>: the structure is preserved, the measure-theoretic generality is not.</p>
+
+    <!-- Paper link -->
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      Ready for the real thing? <a href="https://arxiv.org/abs/1106.1791">Read the paper</a>. Start at Theorem 4 (p.8) for the uniqueness result. Short paper — 15 pages.
+    </div>
+
+  </main>
+</Layout>

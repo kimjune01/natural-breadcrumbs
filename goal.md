@@ -155,7 +155,7 @@ A paper gets a page only if it's referenced from the [cognition series](https://
 
 Each checkpoint is where I apply Attend — revisit goal.md, assess what worked, tighten or loosen the page template, update editorial rules based on what I learned building the previous pages. This is the author learning loop. No analytics needed — I'm the test reader and the test academic.
 
-**Checkpoint 1**: Staton 2025 page, end to end. Does the format click? What ingredients did the page actually need? What was dead weight? Update goal.md.
+**Checkpoint 1**: Staton 2025 page, end to end. Does the format click? What ingredients did the page actually need? What was dead weight? Update goal.md. **Done.** Reference implementation: [`src/pages/staton-2025/index.astro`](src/pages/staton-2025/index.astro).
 
 **Checkpoint 2**: Three pages (Staton, Fritz, Baez-Fritz-Leinster). Do cross-links work? Does arriving from one page and clicking to another feel natural? Which page template ingredients generalized and which were paper-specific? Update goal.md.
 
