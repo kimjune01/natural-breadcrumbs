@@ -5,11 +5,21 @@ let pyodidePromise: Promise<any> | null = null;
 
 function getPyodide(): Promise<any> {
   if (!pyodidePromise) {
-    pyodidePromise = (async () => {
-      // @ts-ignore
-      const mod = await import('https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.mjs');
-      return mod.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.5/full/' });
-    })();
+    pyodidePromise = new Promise((resolve, reject) => {
+      if ((window as any).loadPyodide) {
+        (window as any).loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.5/full/' })
+          .then(resolve).catch(reject);
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.js';
+      script.onload = () => {
+        (window as any).loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.5/full/' })
+          .then(resolve).catch(reject);
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
   }
   return pyodidePromise;
 }

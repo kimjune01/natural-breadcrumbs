@@ -32,6 +32,9 @@ importers:
       astro:
         specifier: ^6.0.8
         version: 6.0.8(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(yaml@2.8.3)
+      biwascheme:
+        specifier: ^0.8.3
+        version: 0.8.3
       codemirror:
         specifier: ^6.0.2
         version: 6.0.2
@@ -900,6 +903,10 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  biwascheme@0.8.3:
+    resolution: {integrity: sha512-cQq4c5gzW3ymVRON+WR+MJk09RvGXS8WVnD5w5i8AXJy7chQ7tp0Yd6R79xtP7iRsHgpbAz235Xd/xvvhKmEIw==}
+    hasBin: true
+
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
@@ -1560,6 +1567,9 @@ packages:
 
   oniguruma-to-es@4.3.5:
     resolution: {integrity: sha512-Zjygswjpsewa0NLTsiizVuMQZbp0MDyM6lIt66OxsF21npUDlzpHi1Mgb/qhQdkb+dWFTzJmFbEWdvZgRho8eQ==}
+
+  optparse@1.0.5:
+    resolution: {integrity: sha512-WfnNWLS3vr8omCm8nKYKaRbapuy6pEbx1O0B+eP5sUf/a++sT9/h8PflqBoHsY9N+YdzUT12T8snXigq13QpJg==}
 
   p-limit@7.3.0:
     resolution: {integrity: sha512-7cIXg/Z0M5WZRblrsOla88S4wAK+zOQQWeBYfV3qJuJXMr+LnbYjaadrFaS0JILfEDPVqHyKnZ1Z/1d6J9VVUw==}
@@ -2940,6 +2950,10 @@ snapshots:
 
   baseline-browser-mapping@2.10.10: {}
 
+  biwascheme@0.8.3:
+    dependencies:
+      optparse: 1.0.5
+
   boolbase@1.0.0: {}
 
   browserslist@4.28.1:
@@ -3928,6 +3942,8 @@ snapshots:
       oniguruma-parser: 0.12.1
       regex: 6.1.0
       regex-recursion: 6.0.2
+
+  optparse@1.0.5: {}
 
   p-limit@7.3.0:
     dependencies:

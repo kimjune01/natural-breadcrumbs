@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Base.astro';
 import Repl from '../../components/Repl';
+import SchemeRepl from '../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Staton 2025 — Program Logics via Distributive Monoidal Categories">
@@ -106,6 +107,23 @@ for x in range(1, 6):
 print()
 print("Try: change sub1 to 'lambda y: y - 5'")
 print("     and see where Q breaks.")
+`} />
+
+    <SchemeRepl client:load initialCode={`; COMP rule in Scheme — composition IS the language
+(define (compose f g) (lambda (x) (g (f x))))
+
+(define double (lambda (x) (* x 2)))
+(define sub1   (lambda (x) (- x 1)))
+
+(define pipeline (compose double sub1))
+
+; {x > 0} double;sub1 {z > 0}
+(display (pipeline 1)) (newline)  ; 1
+(display (pipeline 2)) (newline)  ; 3
+(display (pipeline 3)) (newline)  ; 5
+
+; Composition is a first-class operation.
+; No loops, no mutation. Just functions composed.
 `} />
 
     <!-- 4. WHILE -->
@@ -238,6 +256,25 @@ print("ContractPreserving f Q  ↔  {⊤} f {Q}")
 print("That's the bridge theorem.")
 `} />
 
+    <SchemeRepl client:load initialCode={`; Contract = predicate on outputs, checked for all inputs.
+; That's {⊤} f {Q} — Hoare triple with trivial precondition.
+
+(define (contract-preserving? f Q inputs)
+  (every (lambda (x)
+    (every (lambda (y) (Q y))
+           (map car (f x))))  ; check every output
+  inputs))
+
+; f: always return |x|, with probability 1
+(define (f x) (list (cons (abs x) 1.0)))
+
+; Q: output is non-negative
+(define Q (lambda (y) (>= y 0)))
+
+(display (contract-preserving? f Q '(-3 -1 0 1 3)))
+; #t — holds for all inputs. That's {⊤} f {Q}.
+`} />
+
     <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Exact.</strong> The Lean proof computes the same equivalence. <a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Hoare/Bridge.lean">Bridge.lean</a></p>
 
     <!-- 8. Stoch is an imperative category -->
@@ -273,6 +310,33 @@ print()
 print("This composition is what makes COMP work for")
 print("stochastic pipelines. The handshake chains")
 print("through the bind — same as your Lean proof.")
+`} />
+
+    <SchemeRepl client:load initialCode={`; Kleisli composition in Scheme
+; A distribution is a list of (value . probability) pairs.
+
+(define (kleisli f g)
+  (lambda (x)
+    (apply append
+      (map (lambda (pair)
+        (let ((y (car pair)) (py (cdr pair)))
+          (map (lambda (qpair)
+            (cons (car qpair) (* py (cdr qpair))))
+          (g y))))
+      (f x)))))
+
+; f: 50% stay, 50% increment
+(define (f x) (list (cons x 0.5) (cons (+ x 1) 0.5)))
+
+; g: double with certainty
+(define (g y) (list (cons (* y 2) 1.0)))
+
+; Compose
+(define h (kleisli f g))
+
+(display (h 3))
+; ((6 . 0.5) (8 . 0.5))
+; Same result. Composition is the structure.
 `} />
 
     <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> The paper works over arbitrary measurable spaces and continuous distributions. The Python uses finite dicts. The composition law is the same; the generality is not. <a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Kleisli.lean">Kleisli.lean</a></p>
@@ -331,9 +395,9 @@ print("through the bind — same as your Lean proof.")
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul>
-      <li>→ <a href="/natural-breadcrumbs/fritz-2020/">Fritz 2020</a> — the category (FinStoch) where these rules hold</li>
-      <li>→ <a href="/natural-breadcrumbs/gaboardi-2021/">Gaboardi 2021</a> — Hoare triples with grades (track side effects)</li>
-      <li>→ <a href="/natural-breadcrumbs/kura-2026/">Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
+      <li>→ <a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — the category (FinStoch) where these rules hold</li>
+      <li>→ <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> — Hoare triples with grades (track side effects)</li>
+      <li>→ <a href="/natural-breadcrumbs/kura-2026/">🍞 Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
