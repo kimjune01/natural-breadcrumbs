@@ -1,0 +1,200 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <style>
+      @import "tailwindcss";
+
+
+      /* Practical Typography defaults */
+      @layer base {
+        html {
+          font-size: 19px;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+          font-kerning: normal;
+        }
+
+        body {
+          font-family: 'Charter', 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+          line-height: 1.4;
+          color: #d4d4d8;
+          background: #18181b;
+        }
+
+        /* Light mode — toggled via .light class on html */
+        :root.light {
+          body {
+            color: #27272a;            /* zinc-800 */
+            background: #fafaf9;       /* stone-50 */
+          }
+          h1, h2, h3, h4 { color: #18181b; }
+          a, a:visited, a:link { color: inherit !important; background: #e7e5e4 !important; }
+          a:hover, a:visited:hover { color: #09090b !important; background: #d6d3d1 !important; }
+          code:not(pre code) {
+            background: #f0f0f0;
+            color: #18181b;
+          }
+          pre {
+            background: #f5f5f4 !important; /* stone-100 */
+            color: #1c1917 !important;      /* stone-900 */
+          }
+          pre code, .font-mono {
+            color: #166534 !important;      /* green-800 — readable on light bg */
+          }
+          table th { color: #3f3f46; }
+          table td { color: #27272a; }
+          table td.font-mono, table .text-green-300 {
+            color: #166534 !important;      /* green-800 */
+          }
+          table .text-gray-300, table .text-gray-400, table .text-gray-500 {
+            color: #52525b !important;      /* zinc-600 */
+          }
+          .bg-zinc-800 {
+            background: #f5f5f4 !important; /* stone-100 */
+          }
+          .bg-zinc-900 {
+            background: #fafaf9 !important;
+          }
+          .bg-zinc-950 {
+            background: #e7e5e4 !important; /* stone-200 */
+          }
+          .text-gray-400, .text-gray-500 { color: #52525b !important; }
+          .text-gray-300 { color: #3f3f46 !important; }
+          .text-green-300 { color: #166534 !important; }
+          .text-blue-300 { color: #1e40af !important; }
+          .text-yellow-300 { color: #a16207 !important; }
+          .text-green-400 { color: #15803d !important; }
+          .border-zinc-700, .border-zinc-800 { border-color: #d6d3d1 !important; }
+          blockquote { border-color: #d4d4d8; color: #52525b; }
+          ::selection { background: #bbf7d0; color: #09090b; }
+        }
+
+        /* Paragraph spacing: space between, no indent */
+        p {
+          margin-bottom: 0.75em;
+          max-width: 65ch;             /* ~65 chars — within 45-90 range */
+        }
+
+        /* Headings: sans-serif contrast — styled inline via Astro, CSS just handles color/spacing */
+        h1, h2, h3, h4 {
+          color: #fafafa;
+          letter-spacing: -0.01em;
+          line-height: 1.2;
+        }
+
+        h1 { font-size: 1.6rem; margin-bottom: 0.5em; }
+        h2 { font-size: 1.25rem; margin-top: 1.8em; margin-bottom: 0.5em; }
+        h3 { font-size: 1.1rem; margin-top: 1.4em; margin-bottom: 0.4em; }
+
+        /* Links handled in is:global style block below */
+
+        /* Code: monospace stays monospace */
+        code, pre {
+          font-family: 'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+          font-size: 0.85em;
+        }
+
+        pre {
+          line-height: 1.5;
+        }
+
+        code:not(pre code) {
+          background: #27272a;
+          padding: 0.1em 0.3em;
+          border-radius: 3px;
+        }
+
+        /* Tables */
+        table {
+          font-size: 0.9em;
+          border-collapse: collapse;
+        }
+
+        th {
+          font-family: system-ui, -apple-system, sans-serif;
+          font-weight: 600;
+          text-align: left;
+        }
+
+        td, th {
+          padding: 0.4em 0.8em 0.4em 0;
+          vertical-align: top;
+        }
+
+        /* Blockquotes */
+        blockquote {
+          font-style: italic;
+          border-left: 3px solid #3f3f46;
+          padding-left: 1em;
+          color: #a1a1aa;
+        }
+
+        /* Lists */
+        ul, ol {
+          padding-left: 1.5em;
+          margin-bottom: 0.75em;
+        }
+        li {
+          margin-bottom: 0.25em;
+        }
+
+        /* Small caps for abbreviations */
+        abbr {
+          font-variant: small-caps;
+          letter-spacing: 0.05em;
+        }
+
+        /* Selection */
+        ::selection {
+          background: #365314;
+          color: #fafafa;
+        }
+      }
+    </style>
+    <style is:global>
+      h1, h2, h3, h4 { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif !important; font-weight: 500 !important; }
+      a, a:visited, a:link { color: inherit !important; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
+      a:hover, a:visited:hover { color: #fafafa !important; background: #3f3f46; }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div class="max-w-3xl mx-auto px-6 py-10">
+      <button id="theme-toggle" style="position:fixed;top:1rem;right:1rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle dark/light mode">☀︎</button>
+      <slot />
+      <footer class="mt-16 pt-6 border-t border-zinc-800 text-sm text-gray-500">
+        Python runs in your browser via <a href="https://pyodide.org">Pyodide</a>.
+      </footer>
+    </div>
+    <script is:inline>
+      (function() {
+        const html = document.documentElement;
+        const btn = document.getElementById('theme-toggle');
+        // Init from localStorage or system preference
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light' || (!stored && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          html.classList.add('light');
+        }
+        function update() {
+          const isLight = html.classList.contains('light');
+          btn.textContent = isLight ? '☾' : '☀︎';
+        }
+        update();
+        btn.addEventListener('click', function() {
+          html.classList.toggle('light');
+          localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
+          update();
+        });
+      })();
+    </script>
+  </body>
+</html>
