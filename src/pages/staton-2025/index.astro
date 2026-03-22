@@ -10,7 +10,7 @@ import SchemeRepl from '../../components/SchemeRepl';
     <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>Program Logics via Distributive Monoidal Categories</h1>
-    <p class="text-gray-400 text-sm mb-6">Bonchi, Di Lavore, Román, Staton · 2025 · <a href="https://arxiv.org/abs/2507.18238">arXiv:2507.18238</a></p>
+    <p class="text-gray-400 text-sm mb-6">Bonchi, Di Lavore, Román, Staton · 2025 · <a href="https://arxiv.org/abs/2507.18238"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:2507.18238</a></p>
 
     <p class="text-sm text-gray-500 mb-6">No prerequisites. This is the entry point.</p>
 
@@ -29,7 +29,7 @@ import SchemeRepl from '../../components/SchemeRepl';
       <span class="text-gray-400">assert</span> <span class="text-green-300">Q</span>
     </div>
 
-    <p>"If P holds before running c, then Q holds after." That's a <a href="https://en.wikipedia.org/wiki/Hoare_logic">Hoare triple</a>: <code>{'{P}'} c {'{Q}'}</code>. If the precondition doesn't hold, the triple says nothing — it's vacuously satisfied.</p>
+    <p>"If P holds before running c, then Q holds after." That's a <a href="https://en.wikipedia.org/wiki/Hoare_logic">🅦 Hoare triple</a>: <code>{'{P}'} c {'{Q}'}</code>. If the precondition doesn't hold, the triple says nothing — it's vacuously satisfied.</p>
 
     <Repl client:load initialCode={`# {P} c {Q} — if P holds before, Q holds after.
 
@@ -109,7 +109,9 @@ print("Try: change sub1 to 'lambda y: y - 5'")
 print("     and see where Q breaks.")
 `} />
 
-    <SchemeRepl client:load initialCode={`; COMP rule in Scheme — composition IS the language
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+      <SchemeRepl client:load initialCode={`; COMP rule — composition IS the language
 (define (compose f g) (lambda (x) (g (f x))))
 
 (define double (lambda (x) (* x 2)))
@@ -117,14 +119,11 @@ print("     and see where Q breaks.")
 
 (define pipeline (compose double sub1))
 
-; {x > 0} double;sub1 {z > 0}
-(display (pipeline 1)) (newline)  ; 1
-(display (pipeline 2)) (newline)  ; 3
-(display (pipeline 3)) (newline)  ; 5
-
-; Composition is a first-class operation.
-; No loops, no mutation. Just functions composed.
+(display (pipeline 1)) (newline)
+(display (pipeline 2)) (newline)
+(display (pipeline 3)) (newline)
 `} />
+    </details>
 
     <!-- 4. WHILE -->
     <h3>WHILE — loop invariants</h3>
@@ -179,7 +178,7 @@ for x in range(0, 8):
 
     <!-- 6. Copy and discard -->
     <h3>Copy and discard — the structure underneath</h3>
-    <p>An <a href="https://en.wikipedia.org/wiki/Distributive_category">imperative category</a> has two special operations per type: <strong>copy</strong> (ν) and <strong>discard</strong> (ε). A morphism is <strong>deterministic</strong> if it commutes with copy. This is how Fritz (2020) distinguishes deterministic from stochastic morphisms — and why your pipeline's Filter must be deterministic but Attend must not.</p>
+    <p>An <a href="https://en.wikipedia.org/wiki/Distributive_category">🅦 imperative category</a> has two special operations per type: <strong>copy</strong> (ν) and <strong>discard</strong> (ε). A morphism is <strong>deterministic</strong> if it commutes with copy. This is how Fritz (2020) distinguishes deterministic from stochastic morphisms — and why your pipeline's Filter must be deterministic but Attend must not.</p>
 
     <Repl client:load initialCode={`# Copy: ν(x) = (x, x) — duplicate the state
 # Discard: ε(x) = None — throw it away
@@ -256,26 +255,32 @@ print("ContractPreserving f Q  ↔  {⊤} f {Q}")
 print("That's the bridge theorem.")
 `} />
 
-    <SchemeRepl client:load initialCode={`; Contract = predicate on outputs, checked for all inputs.
-; That's {⊤} f {Q} — Hoare triple with trivial precondition.
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+      <SchemeRepl client:load initialCode={`; Contract = predicate on all outputs. {⊤} f {Q}.
 
 (define (contract-preserving? f Q inputs)
   (every (lambda (x)
     (every (lambda (y) (Q y))
-           (map car (f x))))  ; check every output
+           (map car (f x))))
   inputs))
 
-; f: always return |x|, with probability 1
 (define (f x) (list (cons (abs x) 1.0)))
-
-; Q: output is non-negative
 (define Q (lambda (y) (>= y 0)))
 
 (display (contract-preserving? f Q '(-3 -1 0 1 3)))
-; #t — holds for all inputs. That's {⊤} f {Q}.
 `} />
+    </details>
 
-    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Exact.</strong> The Lean proof computes the same equivalence. <a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Hoare/Bridge.lean">Bridge.lean</a></p>
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">Lean proof</summary>
+      <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm"><code><span class="text-blue-300">theorem</span> contract_is_triple [Monad M] [Support M]
+    {'{'}f : Kernel M α β{'}'} {'{'}Q : Contract β{'}'}
+    : ContractPreserving f Q ↔ Triple (<span class="text-green-300">fun _ => True</span>) f Q</code></pre>
+      <p class="text-xs text-gray-500"><a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Hoare/Bridge.lean">Bridge.lean</a></p>
+    </details>
+
+    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Exact.</strong></p>
 
     <!-- 8. Stoch is an imperative category -->
     <h3>The punchline — Corollary 76</h3>
@@ -312,9 +317,9 @@ print("stochastic pipelines. The handshake chains")
 print("through the bind — same as your Lean proof.")
 `} />
 
-    <SchemeRepl client:load initialCode={`; Kleisli composition in Scheme
-; A distribution is a list of (value . probability) pairs.
-
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+      <SchemeRepl client:load initialCode={`; Kleisli composition
 (define (kleisli f g)
   (lambda (x)
     (apply append
@@ -325,21 +330,23 @@ print("through the bind — same as your Lean proof.")
           (g y))))
       (f x)))))
 
-; f: 50% stay, 50% increment
 (define (f x) (list (cons x 0.5) (cons (+ x 1) 0.5)))
-
-; g: double with certainty
 (define (g y) (list (cons (* y 2) 1.0)))
-
-; Compose
-(define h (kleisli f g))
-
-(display (h 3))
-; ((6 . 0.5) (8 . 0.5))
-; Same result. Composition is the structure.
+(display ((kleisli f g) 3))
 `} />
+    </details>
 
-    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> The paper works over arbitrary measurable spaces and continuous distributions. The Python uses finite dicts. The composition law is the same; the generality is not. <a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Kleisli.lean">Kleisli.lean</a></p>
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">Lean proof</summary>
+      <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm"><code><span class="text-blue-300">theorem</span> forward_triple [Monad M] [LawfulMonad M] [Support M]
+    {'{'}I : InterfaceTypes{'}'} {'{'}p : Pipeline M I{'}'}
+    (t : PipelineTriples M I p) (policy : I.policy)
+    : Triple t.P_raw (p.forwardKernel policy) t.Q_ranked :=
+  four_stage_comp t.h_perceive t.h_cache t.h_filter (t.h_attend policy)</code></pre>
+      <p class="text-xs text-gray-500"><a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Hoare/Comp.lean">Comp.lean</a></p>
+    </details>
+
+    <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> Finite dicts, not measurable spaces. Same composition law.</p>
 
     <!-- Notation table -->
     <h3>Notation reference</h3>
@@ -395,24 +402,24 @@ print("through the bind — same as your Lean proof.")
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul>
-      <li>→ <a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — the category (FinStoch) where these rules hold</li>
-      <li>→ <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> — Hoare triples with grades (track side effects)</li>
-      <li>→ <a href="/natural-breadcrumbs/kura-2026/">🍞 Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
+      <li><a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — the category (FinStoch) where these rules hold</li>
+      <li><a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> — Hoare triples with grades (track side effects)</li>
+      <li><a href="/natural-breadcrumbs/kura-2026/">🍞 Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
     <ul>
-      <li>→ <a href="https://june.kim/ambient-category">Ambient Category</a> — why Stoch is the right setting for the pipeline</li>
-      <li>→ <a href="https://june.kim/the-handshake">The Handshake</a> — the composition argument in prose</li>
+      <li><a href="https://june.kim/ambient-category"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Ambient Category</a> — why Stoch is the right setting for the pipeline</li>
+      <li><a href="https://june.kim/the-handshake"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Handshake</a> — the composition argument in prose</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Hoare_logic">Hoare logic</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Weakest_precondition">Weakest precondition</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Loop_invariant">Loop invariant</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Stochastic_matrix">Stochastic matrix</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Kleisli_category">Kleisli category</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Hoare_logic">🅦 Hoare logic</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Weakest_precondition">🅦 Weakest precondition</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Loop_invariant">🅦 Loop invariant</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Stochastic_matrix">🅦 Stochastic matrix</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Kleisli_category">🅦 Kleisli category</a></li>
     </ul>
 
     <!-- Translation notes -->
@@ -422,7 +429,7 @@ print("through the bind — same as your Lean proof.")
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
-      Ready for the real thing? <a href="https://arxiv.org/abs/2507.18238">Read the paper</a> (52 pages). Start at Section 5.1 (p.20) for correctness triples, Corollary 76 (p.19) for why Stoch qualifies.
+      Ready for the real thing? <a href="https://arxiv.org/abs/2507.18238"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a> (52 pages). Start at Section 5.1 (p.20) for correctness triples, Corollary 76 (p.19) for why Stoch qualifies.
     </div>
 
   </main>

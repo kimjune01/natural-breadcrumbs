@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Base.astro';
 import Repl from '../../components/Repl';
+import SchemeRepl from '../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Baez, Fritz, Leinster 2011 — A Characterization of Entropy">
@@ -9,22 +10,41 @@ import Repl from '../../components/Repl';
     <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
 
     <h1>A Characterization of Entropy in Terms of Information Loss</h1>
-    <p class="text-gray-400 text-sm mb-6">Baez, Fritz, Leinster · 2011 · <a href="https://arxiv.org/abs/1106.1791">arXiv:1106.1791</a></p>
+    <p class="text-gray-400 text-sm mb-6">Baez, Fritz, Leinster · 2011 · <a href="https://arxiv.org/abs/1106.1791"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:1106.1791</a></p>
 
     <p class="text-sm text-gray-500 mb-6">Assumes you've seen <a href="/natural-breadcrumbs/fritz-2020/">🍞 Markov categories</a>. 5 minutes.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
-      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon entropy</a> is the <strong>only</strong> way to measure information loss that respects composition. There is no other choice.</p>
+      <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">🅦 Shannon entropy</a> is the <strong>only</strong> way to measure information loss that respects composition. There is no other choice.</p>
     </div>
 
     <!-- What's information loss -->
     <h3>Information loss</h3>
     <p>When a stochastic function processes a distribution, some information is lost. The question is: how do you <em>measure</em> that loss? Shannon defined entropy in 1948. Baez, Fritz, and Leinster proved that Shannon's definition is the only one that satisfies three natural properties.</p>
 
-    <Repl client:load initialCode={`import math
+    <SchemeRepl client:load initialCode={`; Shannon entropy: H(p) = -Σ p·log₂(p)
+(define (log2 x) (/ (log x) (log 2)))
+
+(define (entropy probs)
+  (- (apply + (map (lambda (p)
+    (if (> p 0) (* p (log2 p)) 0))
+  probs))))
+
+(display "Uniform over 4: H = ")
+(display (entropy '(0.25 0.25 0.25 0.25)))
+(newline)
+(display "Fair coin:      H = ")
+(display (entropy '(0.5 0.5)))
+(newline)
+(display "Certain:        H = ")
+(display (entropy '(1.0)))
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
 
 def entropy(dist):
-    """Shannon entropy: H(p) = -sum(p * log2(p))"""
     return -sum(p * math.log2(p) for p in dist.values() if p > 0)
 
 # Uniform distribution: maximum entropy (maximum surprise)
@@ -47,6 +67,7 @@ print()
 print("More surprise = more entropy.")
 print("Certain = 0 bits. Fair coin = 1 bit.")
 `} />
+    </details>
 
     <!-- Functoriality -->
     <h3>Functoriality — the key constraint</h3>
@@ -97,7 +118,7 @@ print("Shannon entropy is the ONLY measure with this property.")
 
     <!-- Data processing inequality -->
     <h3>Data processing inequality</h3>
-    <p>A corollary: information can only decrease through processing. You can't create information by computing — you can only lose it or preserve it. This is the <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">data processing inequality</a> (DPI), proved categorically.</p>
+    <p>A corollary: information can only decrease through processing. You can't create information by computing — you can only lose it or preserve it. This is the <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">🅦 data processing inequality</a> (DPI), proved categorically.</p>
     <p>In the pipeline: each stage loses information. Perceive injects new bits to compensate. Without injection, the pipeline dies — that's <code>closed_loop_budget_negative</code> in the Lean artifact.</p>
 
     <Repl client:load initialCode={`import math
@@ -204,22 +225,22 @@ print("Shannon didn't choose entropy. The axioms forced it.")
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul>
-      <li>→ <a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — the Markov category where entropy lives</li>
-      <li>→ <a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> — Hoare logic in the same category</li>
-      <li>→ <a href="/natural-breadcrumbs/sato-2023/">🍞 Sato, Katsumata 2023</a> — divergences as enrichment on the category</li>
+      <li><a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — the Markov category where entropy lives</li>
+      <li><a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> — Hoare logic in the same category</li>
+      <li><a href="/natural-breadcrumbs/sato-2023/">🍞 Sato, Katsumata 2023</a> — divergences as enrichment on the category</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
     <ul>
-      <li>→ <a href="https://june.kim/the-natural-framework">The Natural Framework</a> — the information budget</li>
+      <li><a href="https://june.kim/the-natural-framework"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Natural Framework</a> — the information budget</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon entropy</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">Data processing inequality</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Information_theory">Information theory</a></li>
-      <li>→ <a href="https://en.wikipedia.org/wiki/Functor">Functor</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">🅦 Shannon entropy</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Data_processing_inequality">🅦 Data processing inequality</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Information_theory">🅦 Information theory</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Functor">🅦 Functor</a></li>
     </ul>
 
     <!-- Translation notes -->
@@ -228,7 +249,7 @@ print("Shannon didn't choose entropy. The axioms forced it.")
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
-      Ready for the real thing? <a href="https://arxiv.org/abs/1106.1791">Read the paper</a>. Start at Theorem 4 (p.8) for the uniqueness result. Short paper — 15 pages.
+      Ready for the real thing? <a href="https://arxiv.org/abs/1106.1791"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at Theorem 4 (p.8) for the uniqueness result. Short paper — 15 pages.
     </div>
 
   </main>
