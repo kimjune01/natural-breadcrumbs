@@ -46,9 +46,10 @@ export default function Repl({ initialCode }: { initialCode?: string }) {
     setOutput('');
     try {
       pyodide.runPython(`
-import sys, io
+import sys, io, random, time
 sys.stdout = io.StringIO()
 sys.stderr = io.StringIO()
+random.seed(int(time.time() * 1000) % 2**32)
 `);
       await pyodide.runPythonAsync(code);
       const stdout = pyodide.runPython('sys.stdout.getvalue()');

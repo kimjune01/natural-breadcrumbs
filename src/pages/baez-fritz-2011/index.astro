@@ -196,7 +196,7 @@ print("The only functorial, convex-linear, continuous measure.")
     <!-- Pipeline connection -->
     <h3>Where this lives in the pipeline</h3>
     <p>The pipeline has an information budget. Each stage loses entropy: Filter gates, Attend selects, Consolidate compresses. DPI says loss accumulates — no stage can recover what a previous stage lost. The budget balances only if Perceive injects enough new bits each cycle.</p>
-    <p>The uniqueness theorem means there's only one way to measure this budget. Shannon entropy isn't a convention. It's forced by functoriality — the same compositionality that makes <a href="/natural-breadcrumbs/staton-2025/">Hoare logic</a> work in <a href="/natural-breadcrumbs/fritz-2020/">🍞 FinStoch</a>.</p>
+    <p>The uniqueness theorem means there's only one way to measure this budget. Shannon entropy isn't a convention. It's forced by functoriality — the same compositionality that makes <a href="/natural-breadcrumbs/staton-2025/">🍞 Hoare logic</a> work in <a href="/natural-breadcrumbs/fritz-2020/">🍞 FinStoch</a>.</p>
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -243,7 +243,8 @@ print("The only functorial, convex-linear, continuous measure.")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>All examples use finite distributions with explicit probabilities. The paper's theorem holds over FinProb (finite probability distributions with morphisms that preserve total mass). The uniqueness result requires all three axioms — dropping any one allows other measures. Every example is <strong class="text-green-400">Simplified</strong>: the structure is preserved, the measure-theoretic generality is not.</p>
+    <p>All examples use finite distributions with explicit probabilities. The paper's theorem holds over FinProb (finite probability distributions with morphisms that preserve total mass). For example: the DPI example on this page merges four outcomes into two and checks that entropy decreases. In the paper, the same inequality applies to a noisy communication channel transmitting continuous signals — the entropy of the received signal is always less than or equal to the entropy of the transmitted signal, regardless of the channel's noise model. The inequality is identical. The distributions are not.</p>
+    <p>The uniqueness result requires all three axioms — dropping any one allows other measures. Every example is <strong class="text-green-400">Simplified</strong>.</p>
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

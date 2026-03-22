@@ -256,7 +256,7 @@ print("just_square loses the sign — not recoverable")
     <!-- The pipeline connection -->
     <h3>Where this lives in the pipeline</h3>
     <p>The Natural Framework's pipeline is a Kleisli composition in FinStoch. Each stage — Perceive, Cache, Filter, Attend, Remember — is a morphism in this category. Filter is deterministic (copy-natural). Attend is stochastic (must be, by the <a href="https://en.wikipedia.org/wiki/Pigeonhole_principle">🅦 pigeonhole argument</a>). The informativeness preorder tracks how much information survives each stage.</p>
-    <p>This is the ambient category. Everything else — <a href="/natural-breadcrumbs/staton-2025/">Hoare logic</a>, <a href="/natural-breadcrumbs/baez-fritz-2011/">entropy</a>, <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 graded types</a> — lives on top of it.</p>
+    <p>This is the ambient category. Everything else — <a href="/natural-breadcrumbs/staton-2025/">🍞 Hoare logic</a>, <a href="/natural-breadcrumbs/baez-fritz-2011/">🍞 entropy</a>, <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 graded types</a> — lives on top of it.</p>
 
     <!-- Notation -->
     <h3>Notation reference</h3>
@@ -307,7 +307,8 @@ print("just_square loses the sign — not recoverable")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>All examples use finite dicts as distributions over small sets. Fritz's paper works over arbitrary measurable spaces, Borel categories, and continuous distributions. The copy-naturality test is exact for the finite case. The informativeness preorder example is a simplified illustration — the full definition involves almost-sure factorization, not pointwise equality. Every example is <strong class="text-green-400">Simplified</strong> unless marked otherwise.</p>
+    <p>All examples use finite dicts as distributions over small sets. Fritz's paper works over arbitrary measurable spaces, Borel categories, and continuous distributions. For example: the copy-naturality test on this page checks a function over a handful of integers. In the paper, the same test applies to a Gaussian process over ℝ — infinite-dimensional, continuous, and requiring measure theory to state. The structure (does copying commute?) is identical. The generality is not.</p>
+    <p>The informativeness preorder example is a simplified illustration — the full definition involves almost-sure factorization, not pointwise equality. Every example is <strong class="text-green-400">Simplified</strong> unless marked otherwise.</p>
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

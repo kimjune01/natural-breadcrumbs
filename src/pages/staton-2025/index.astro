@@ -424,8 +424,8 @@ print("through the bind — same as your Lean proof.")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>All Python examples on this page use finite dicts as probability distributions. The paper works over arbitrary measurable spaces, continuous distributions, and the full subdistribution monad on StdBorel. The composition laws are the same; the generality is not. Every example is tagged <strong class="text-green-400">Simplified</strong> unless marked otherwise — the structure is preserved, the measure theory is dropped.</p>
-    <p>The bridge theorem section is tagged <strong class="text-green-400">Exact</strong> — the Python computes the same equivalence the Lean proof verifies.</p>
+    <p>All Python examples on this page use finite dicts as probability distributions. The paper works over arbitrary measurable spaces, continuous distributions, and the full subdistribution monad on StdBorel. For example: the WHILE rule on this page counts down from 10 to 0 using integers. In the paper, the same rule applies to a probabilistic loop over continuous state spaces — a particle filter updating a belief distribution until convergence. The invariant structure (P survives each iteration) is identical. The state space is not.</p>
+    <p>The bridge theorem section is tagged <strong class="text-green-400">Exact</strong> — the Python computes the same equivalence the Lean proof verifies. Every other example is <strong class="text-green-400">Simplified</strong>.</p>
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
