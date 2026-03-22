@@ -41,18 +41,42 @@ export default function SchemeRepl({ initialCode }: { initialCode?: string }) {
     setOutput('');
     try {
       let out = '';
+      const origPuts = BiwaScheme.Port?.current_output?.put_string;
+      const origDisplay = (BiwaScheme as any).display;
+
+      // Capture display/newline output via both callback and port
       const interp = new BiwaScheme.Interpreter((msg: string) => {
-        out += msg;
+        if (msg !== undefined && msg !== null) out += String(msg);
       });
+
+      // Also hook the output port for display/newline
+      if (BiwaScheme.Port && BiwaScheme.Port.current_output) {
+        BiwaScheme.Port.current_output.put_string = (s: string) => { out += s; };
+      }
+
       const result = await new Promise<any>((resolve, reject) => {
-        interp.evaluate(code, (res: any) => resolve(res), (err: any) => reject(err));
+        try {
+          interp.evaluate(code, (res: any) => {
+            resolve(res);
+          });
+        } catch(e) {
+          reject(e);
+        }
       });
-      const resultStr = result !== undefined && result !== BiwaScheme.undef
-        ? BiwaScheme.to_write(result)
-        : '';
-      setOutput(out + (resultStr ? (out ? '\n' : '') + '=> ' + resultStr : '') || '(no output)');
+
+      let resultStr = '';
+      try {
+        if (result !== undefined && result !== null && result !== BiwaScheme.undef) {
+          resultStr = typeof BiwaScheme.to_write === 'function'
+            ? BiwaScheme.to_write(result)
+            : String(result);
+        }
+      } catch(_) {}
+
+      const finalOutput = out + (resultStr ? (out ? '\n' : '') + '=> ' + resultStr : '');
+      setOutput(finalOutput || '(no output)');
     } catch (e: any) {
-      setOutput(`Error: ${e.message || e}`);
+      setOutput(`Error: ${e.message || String(e)}`);
     }
     setRunning(false);
   }

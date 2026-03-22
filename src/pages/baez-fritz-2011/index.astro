@@ -74,85 +74,82 @@ print("Certain = 0 bits. Fair coin = 1 bit.")
     <p>The paper's theorem: Shannon entropy is the <em>unique</em> measure of information loss that is <strong>functorial</strong>. Functorial means: the loss of a composite equals the sum of the losses of the parts.</p>
     <p>If you process data in two steps, the total information lost is the loss from step 1 plus the loss from step 2. No other definition of "loss" has this property (up to a constant factor).</p>
 
-    <Repl client:load initialCode={`import math
+    <SchemeRepl client:load initialCode={`; Functoriality: loss of composite = sum of losses
+(define (log2 x) (/ (log x) (log 2)))
+
+(define (entropy probs)
+  (- (apply + (map (lambda (p)
+    (if (> p 0) (* p (log2 p)) 0)) probs))))
+
+; Step 1: 4 uniform -> 2 uniform (merge pairs). Loss = 1 bit.
+; Step 2: 2 uniform -> 1 certain. Loss = 1 bit.
+; Total: 2 bits = 1 + 1. Functorial.
+
+(define h-before (entropy '(0.25 0.25 0.25 0.25)))
+(define h-after1 (entropy '(0.5 0.5)))
+(define h-after2 (entropy '(1.0)))
+
+(display "H(input) = ") (display h-before) (newline)
+(display "H(step1) = ") (display h-after1) (newline)
+(display "H(step2) = ") (display h-after2) (newline)
+(display "Loss 1 = ") (display (- h-before h-after1)) (newline)
+(display "Loss 2 = ") (display (- h-after1 h-after2)) (newline)
+(display "Total  = ") (display (- h-before h-after2)) (newline)
+; Total = Loss 1 + Loss 2. That's functoriality.
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
 
 def entropy(dist):
     return -sum(p * math.log2(p) for p in dist.values() if p > 0)
 
-# Two-step processing
-# Step 1: 4 outcomes -> 2 outcomes (merge pairs)
 input_dist = {1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25}
+after1 = {"A": 0.5, "B": 0.5}
+after2 = {"X": 1.0}
 
-def step1(d):
-    """Merge 1,2 -> A and 3,4 -> B"""
-    return {"A": d.get(1,0) + d.get(2,0), "B": d.get(3,0) + d.get(4,0)}
-
-# Step 2: 2 outcomes -> 1 outcome (collapse everything)
-def step2(d):
-    """Collapse to single outcome"""
-    return {"X": 1.0}
-
-after1 = step1(input_dist)
-after2 = step2(after1)
-
-h_before = entropy(input_dist)
-h_after1 = entropy(after1)
-h_after2 = entropy(after2)
-
-loss1 = h_before - h_after1
-loss2 = h_after1 - h_after2
-total = h_before - h_after2
-
-print(f"H(input) = {h_before:.2f} bits")
-print(f"H(after step 1) = {h_after1:.2f} bits")
-print(f"H(after step 2) = {h_after2:.2f} bits")
-print()
-print(f"Loss in step 1: {loss1:.2f} bits")
-print(f"Loss in step 2: {loss2:.2f} bits")
-print(f"Total loss: {total:.2f} bits")
-print(f"Sum of parts: {loss1 + loss2:.2f} bits")
-print()
-print(f"Functorial: total = sum of parts? {abs(total - (loss1 + loss2)) < 0.001} ✓")
-print("Shannon entropy is the ONLY measure with this property.")
+h0, h1, h2 = entropy(input_dist), entropy(after1), entropy(after2)
+print(f"Loss 1: {h0-h1:.2f}, Loss 2: {h1-h2:.2f}, Total: {h0-h2:.2f}")
+print(f"Functorial: {h0-h2:.2f} = {(h0-h1)+(h1-h2):.2f} ✓")
 `} />
+    </details>
 
     <!-- Data processing inequality -->
     <h3>Data processing inequality</h3>
     <p>A corollary: information can only decrease through processing. You can't create information by computing — you can only lose it or preserve it. This is the <a href="https://en.wikipedia.org/wiki/Data_processing_inequality">🅦 data processing inequality</a> (DPI), proved categorically.</p>
     <p>In the pipeline: each stage loses information. Perceive injects new bits to compensate. Without injection, the pipeline dies — that's <code>closed_loop_budget_negative</code> in the Lean artifact.</p>
 
-    <Repl client:load initialCode={`import math
+    <SchemeRepl client:load initialCode={`; DPI: H(output) <= H(input). Always.
+(define (log2 x) (/ (log x) (log 2)))
+
+(define (entropy probs)
+  (- (apply + (map (lambda (p)
+    (if (> p 0) (* p (log2 p)) 0)) probs))))
+
+(define h-in (entropy '(0.1 0.2 0.3 0.4)))
+(define h-lossy (entropy '(0.3 0.7)))  ; merge 1,2 and 3,4
+
+(display "H(input) = ") (display h-in) (newline)
+(display "H(lossy) = ") (display h-lossy) (newline)
+(display "Lost: ") (display (- h-in h-lossy)) (newline)
+; H(output) <= H(input). You can't gain bits by computing.
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
 
 def entropy(dist):
     return -sum(p * math.log2(p) for p in dist.values() if p > 0)
 
-# Data processing inequality: H(output) <= H(input)
-# Processing can't create information.
+h_in = entropy({1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4})
+h_lossy = entropy({"low": 0.3, "high": 0.7})
 
-input_dist = {1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4}
-
-def lossy(d):
-    """Merge 1,2 and 3,4"""
-    return {"low": d[1]+d[2], "high": d[3]+d[4]}
-
-def lossless(d):
-    """Relabel without merging"""
-    return {"a": d[1], "b": d[2], "c": d[3], "d": d[4]}
-
-h_in = entropy(input_dist)
-h_lossy = entropy(lossy(input_dist))
-h_lossless = entropy(lossless(input_dist))
-
-print(f"H(input)    = {h_in:.3f} bits")
-print(f"H(lossy)    = {h_lossy:.3f} bits  (lost {h_in - h_lossy:.3f})")
-print(f"H(lossless) = {h_lossless:.3f} bits  (lost {h_in - h_lossless:.3f})")
-print()
-print(f"DPI: H(output) <= H(input)?")
-print(f"  lossy:    {h_lossy:.3f} <= {h_in:.3f}? {h_lossy <= h_in + 0.001} ✓")
-print(f"  lossless: {h_lossless:.3f} <= {h_in:.3f}? {h_lossless <= h_in + 0.001} ✓")
-print()
-print("You can't gain bits by computing. Only lose or preserve.")
+print(f"H(input) = {h_in:.3f}, H(lossy) = {h_lossy:.3f}")
+print(f"Lost: {h_in - h_lossy:.3f} bits. DPI holds ✓")
 `} />
+    </details>
 
     <!-- Uniqueness -->
     <h3>The uniqueness theorem</h3>
@@ -164,36 +161,37 @@ print("You can't gain bits by computing. Only lose or preserve.")
     </ol>
     <p>...must be F(f) = c · (H(input) − H(output)) for some constant c ≥ 0. That's Shannon entropy, up to scale. There is no other option.</p>
 
-    <Repl client:load initialCode={`import math
+    <SchemeRepl client:load initialCode={`; Uniqueness: F(f) = c · (H(input) - H(output))
+; Shannon entropy is the ONLY such F (up to scale).
+(define (log2 x) (/ (log x) (log 2)))
+
+(define (entropy probs)
+  (- (apply + (map (lambda (p)
+    (if (> p 0) (* p (log2 p)) 0)) probs))))
+
+(define h-in  (entropy '(0.25 0.25 0.25 0.25)))
+(define h-out (entropy '(0.5 0.5)))
+(define F (- h-in h-out))
+
+(display "F(f) = H(in) - H(out) = ") (display F) (newline)
+; This is the ONLY measure that is:
+; 1. Functorial  2. Convex-linear  3. Continuous
+; Shannon didn't choose entropy. The axioms forced it.
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
 
 def entropy(dist):
     return -sum(p * math.log2(p) for p in dist.values() if p > 0)
 
-# The uniqueness theorem says:
-# F(f) = c * (H(input) - H(output))  for some constant c >= 0
-#
-# Let's verify with c = 1 (natural units = bits)
-
-input_dist = {1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25}
-
-def merge_pairs(d):
-    return {"A": d[1]+d[2], "B": d[3]+d[4]}
-
-h_in = entropy(input_dist)
-h_out = entropy(merge_pairs(input_dist))
-info_loss = h_in - h_out
-
-print(f"H(input)  = {h_in:.2f} bits")
-print(f"H(output) = {h_out:.2f} bits")
-print(f"F(f) = H(in) - H(out) = {info_loss:.2f} bits")
-print()
-print("This is the ONLY measure (up to scale) that is:")
-print("  1. Functorial (composable)")
-print("  2. Convex-linear (respects mixtures)")
-print("  3. Continuous")
-print()
-print("Shannon didn't choose entropy. The axioms forced it.")
+h_in = entropy({1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25})
+h_out = entropy({"A": 0.5, "B": 0.5})
+print(f"F(f) = {h_in:.2f} - {h_out:.2f} = {h_in - h_out:.2f} bits")
+print("The only functorial, convex-linear, continuous measure.")
 `} />
+    </details>
 
     <!-- Pipeline connection -->
     <h3>Where this lives in the pipeline</h3>
