@@ -233,28 +233,22 @@ print(f"    deterministic would give 1 ✗")
     <Repl client:load initialCode={`# ContractPreserving f Q  =  {⊤} f {Q}
 # They're the same thing.
 
-def contract_preserving(f, Q, inputs):
-    """Every input, every output in support satisfies Q."""
-    for x in inputs:
-        dist = f(x)
-        for y, prob in dist.items():
-            if prob > 0:
-                assert Q(y), f"Contract violated: f({x}) -> {y}"
+support = lambda d: {k for k, v in d.items() if v > 0}
 
-def hoare_top_Q(f, Q, inputs):
-    """{⊤} f {Q} — precondition is True, check all inputs."""
-    for x in inputs:  # ⊤ means every input qualifies
-        dist = f(x)
-        for y, prob in dist.items():
-            if prob > 0:
-                assert Q(y), f"Postcondition violated: f({x}) -> {y}"
+contract_ok = lambda f, Q, xs: all(
+    Q(y) for x in xs for y in support(f(x))
+)
+
+hoare_top_Q = lambda f, Q, xs: all(  # {⊤} f {Q}
+    Q(y) for x in xs for y in support(f(x))
+)
 
 # Same function, same check, same result.
 f = lambda x: {abs(x): 0.7, abs(x)+1: 0.3}
 Q = lambda y: y >= 0
 
-contract_preserving(f, Q, range(-5, 6))
-hoare_top_Q(f, Q, range(-5, 6))
+assert contract_ok(f, Q, range(-5, 6))
+assert hoare_top_Q(f, Q, range(-5, 6))
 print("Both passed — they're the same check.")
 print()
 print("ContractPreserving f Q  ↔  {⊤} f {Q}")
@@ -291,29 +285,21 @@ print("That's the bridge theorem.")
     <!-- 8. Stoch is an imperative category -->
     <h3>The punchline — Corollary 76</h3>
     <p>Stoch (stochastic matrices) is a <strong>posetal imperative category</strong>. That means every Hoare rule in Section 5 holds there as a theorem. Hoare triples aren't an engineering choice — they're forced by the category.</p>
+    <p>A stochastic function takes an input and returns a probability distribution over outputs. <a href="https://en.wikipedia.org/wiki/Kleisli_category">🅦 Kleisli composition</a> chains two such functions: run the first, then for each possible output run the second, weighting by probability. This is how stochastic pipelines compose — and it's the composition that makes the COMP rule work.</p>
 
     <Repl client:load initialCode={`# Stoch = Kleisli category of the subdistribution monad
 # Morphisms are stochastic functions: X -> Distribution(Y)
 
-def f(x):
-    """70% stay, 30% increment"""
-    return {x: 0.7, x+1: 0.3}
+f = lambda x: {x: 0.7, x+1: 0.3}      # 70% stay, 30% increment
+g = lambda y: {y*2: 1.0}                # always double
 
-def g(y):
-    """Always double"""
-    return {y*2: 1.0}
+# Kleisli composition: marginalize the intermediate
+kleisli = lambda f, g: lambda x: {
+    z: sum(py * g(y).get(z, 0) for y, py in f(x).items())
+    for z in {z for y in f(x) for z in g(y)}
+}
 
-# Kleisli composition: compose stochastic functions
-def kleisli_comp(f, g):
-    def composed(x):
-        result = {}
-        for y, py in f(x).items():
-            for z, pz in g(y).items():
-                result[z] = result.get(z, 0) + py * pz
-        return result
-    return composed
-
-h = kleisli_comp(f, g)
+h = kleisli(f, g)
 print(f"  f(3) = {f(3)}")
 print(f"  g(3) = {g(3)}")
 print(f"  (f >=> g)(3) = {h(3)}")
