@@ -19,7 +19,7 @@ import SchemeRepl from '../../components/SchemeRepl';
     </div>
 
     <!-- 1. Subobjects and monomorphisms -->
-    <h3>Subobjects &mdash; the categorical notion of "subset"</h3>
+    <h3>Subobjects: the categorical notion of "subset"</h3>
     <p>In set theory, a subset is defined by membership. In category theory, a <strong>subobject</strong> is an equivalence class of monomorphisms (injective arrows). A monomorphism <code>m : a &rarr; b</code> is an arrow that can be cancelled on the left: if <code>m &middot; g = m &middot; g'</code> then <code>g = g'</code>. Two monos into the same object are equivalent when they factor through each other via an isomorphism.</p>
 
     <SchemeRepl client:load initialCode={`; Monomorphism: injective function (cancellable on the left).
@@ -242,7 +242,7 @@ print("Law of excluded middle FAILS.")
     <p class="text-sm text-gray-400">The sieve calculation is correct for this two-object category. General presheaf topoi require computing sieves over arbitrary diagrams.</p>
 
     <!-- 5. Intuitionistic logic -->
-    <h3>Intuitionistic logic &mdash; no excluded middle</h3>
+    <h3>Intuitionistic logic: no excluded middle</h3>
     <p>The internal logic of a topos is <strong>intuitionistic</strong>. All the standard logical connectives exist: conjunction (&and;) via products, disjunction (&or;) via coproducts, implication (&rArr;) via exponentials. But the law of excluded middle (<code>p &or; &not;p = true</code>) does not hold in general. A proposition is "true" only when you can construct a proof. Double negation does not collapse: <code>&not;&not;p</code> does not imply <code>p</code>. This makes topoi a natural home for constructive mathematics and computation.</p>
 
     <SchemeRepl client:load initialCode={`; Intuitionistic logic: Heyting algebra on Ω.

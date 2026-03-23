@@ -20,7 +20,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 
     <!-- What's information loss -->
     <h3>Information loss</h3>
-    <p>When a stochastic function processes a distribution, some information is lost. The question is: how do you <em>measure</em> that loss? Shannon defined entropy in 1948. Baez, Fritz, and Leinster proved that Shannon's definition is the only one that satisfies three natural properties.</p>
+    <p>When a stochastic function processes a distribution, some information is lost. The question is: how do you <em>measure</em> that loss? <a href="https://en.wikipedia.org/wiki/Claude_Shannon">🅦 Shannon</a> defined entropy in 1948. Baez, Fritz, and Leinster proved that Shannon's definition is the only one that satisfies three natural properties.</p>
 
     <SchemeRepl client:load initialCode={`; Shannon entropy: H(p) = -Σ p·log₂(p)
 (define (log2 x) (/ (log x) (log 2)))

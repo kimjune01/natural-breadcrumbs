@@ -7,7 +7,7 @@ import Layout from '../layouts/Base.astro';
 
     <h1 class="text-3xl font-bold mb-2">🍞 Natural Breadcrumbs</h1>
 
-    <p class="text-lg text-gray-300 mb-6">Applied category theory and programming language theory are converging on the same structures from different directions. This site maps the translations — with runnable code.</p>
+    <p class="text-lg text-gray-300 mb-6">Applied category theory and programming language theory are converging on the same structures from different directions. This site maps the translations, with runnable code.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-6" style="display:flex;gap:2em;flex-wrap:wrap;">
       <div style="flex:1;min-width:200px;">
@@ -26,75 +26,11 @@ assert Q(z)</pre>
       </div>
     </div>
 
-    <p class="text-gray-300 mb-8">Same structure. Different notation. Each paper below gets a page that shows both — plus code you can run.</p>
-
-    <!-- SVG: Full pipeline with feedback -->
-    <div class="flex justify-center my-6">
-      <svg viewBox="0 0 500 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
-        <!-- Forward pipeline boxes -->
-        <!-- Perceive -->
-        <rect x="10" y="40" width="80" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="50" y="63" text-anchor="middle" fill="currentColor" font-size="10">Perceive</text>
-
-        <!-- Cache -->
-        <rect x="110" y="40" width="60" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="140" y="63" text-anchor="middle" fill="currentColor" font-size="10">Cache</text>
-
-        <!-- Filter -->
-        <rect x="190" y="40" width="60" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="220" y="63" text-anchor="middle" fill="currentColor" font-size="10">Filter</text>
-
-        <!-- Attend -->
-        <rect x="270" y="40" width="65" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="302" y="63" text-anchor="middle" fill="currentColor" font-size="10">Attend</text>
-
-        <!-- Remember -->
-        <rect x="355" y="40" width="75" height="36" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="392" y="63" text-anchor="middle" fill="currentColor" font-size="10">Remember</text>
-
-        <!-- Forward wires with labels -->
-        <!-- raw -->
-        <line x1="90" y1="58" x2="110" y2="58" stroke="currentColor" stroke-width="1.5"/>
-        <text x="100" y="50" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.45">raw</text>
-
-        <!-- encoded -->
-        <line x1="170" y1="58" x2="190" y2="58" stroke="currentColor" stroke-width="1.5"/>
-        <text x="180" y="50" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.45">encoded</text>
-
-        <!-- indexed -->
-        <line x1="250" y1="58" x2="270" y2="58" stroke="currentColor" stroke-width="1.5"/>
-        <text x="260" y="50" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.45">indexed</text>
-
-        <!-- ranked -->
-        <line x1="335" y1="58" x2="355" y2="58" stroke="currentColor" stroke-width="1.5"/>
-        <text x="345" y="50" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.45">ranked</text>
-
-        <!-- persisted output -->
-        <line x1="430" y1="58" x2="460" y2="58" stroke="currentColor" stroke-width="1.5"/>
-        <text x="460" y="50" text-anchor="end" fill="currentColor" font-size="7" fill-opacity="0.45">persisted</text>
-
-        <!-- Feedback loop: Remember -> down -> left -> up into Attend -->
-        <!-- Down from Remember -->
-        <line x1="392" y1="76" x2="392" y2="130" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <!-- Left along bottom -->
-        <line x1="392" y1="130" x2="302" y2="130" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <!-- Up into Attend (second input) -->
-        <line x1="302" y1="130" x2="302" y2="76" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3"/>
-
-        <!-- Consolidate label -->
-        <text x="347" y="145" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">Consolidate</text>
-
-        <!-- policy label on the feedback wire -->
-        <text x="347" y="124" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.45">policy</text>
-
-        <!-- Two-input indicator on Attend: small dot where policy enters -->
-        <circle cx="302" cy="76" r="2.5" fill="currentColor" fill-opacity="0.4"/>
-      </svg>
-    </div>
+    <p class="text-gray-300 mb-8">Same structure. Different notation. Each paper below gets a page that shows both.</p>
 
     <hr class="border-zinc-700 mb-8"/>
 
-    <h2 class="text-xl font-semibold mb-4">The papers</h2>
+    <h2 class="text-xl font-semibold mb-4">Papers</h2>
     <p class="text-gray-400 mb-4">Each paper has a 🍞 page that translates its key ideas into diagrams and runnable code.</p>
 
     <div class="overflow-x-auto">
@@ -227,10 +163,10 @@ assert Q(z)</pre>
 
     <hr class="border-zinc-700 my-8"/>
 
-    <h2 class="text-xl font-semibold mb-4">What is this</h2>
+    <h2 class="text-xl font-semibold mb-4">Three ways in</h2>
     <p class="text-gray-400 mb-4">An interactive companion to a <a href="https://june.kim/framework-lexicon" class="underline hover:text-gray-200">research project</a> connecting several academic communities working on the same problem with different vocabulary.</p>
     <ul class="text-gray-400 space-y-1 mb-4 list-disc pl-5">
-      <li>A <a href="https://github.com/kimjune01/natural-framework" class="underline hover:text-gray-200">Lean 4 proof</a> machine-checks the connections — <a href="/natural-breadcrumbs/lean/">read the proof file by file</a></li>
+      <li>A <a href="https://github.com/kimjune01/natural-framework" class="underline hover:text-gray-200">Lean 4 proof</a> machine-checks the connections (<a href="/natural-breadcrumbs/lean/">read the proof file by file</a>)</li>
       <li>A <a href="https://june.kim/framework-lexicon" class="underline hover:text-gray-200">vocabulary table</a> maps terms across communities (for the researchers)</li>
       <li><strong>This site</strong> — the same ideas, in code you can run (for everyone else)</li>
     </ul>

@@ -15,12 +15,12 @@ import SchemeRepl from '../../components/SchemeRepl';
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/milewski-16/">&#x1F35E; Ch16 (Adjunctions)</a>, Ch20 (Ends and Coends). 12 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
-      <p class="text-lg" style="max-width:none">"All concepts are Kan extensions" (Mac Lane). Given functors K : I &rarr; A and D : I &rarr; C, the <strong>right Kan extension</strong> Ran<sub>K</sub>D : A &rarr; C is the best approximation of D along K. It answers: how do you extend a functor defined on a subcategory to the whole category? Limits, colimits, and adjunctions are all special cases.</p>
+      <p class="text-lg" style="max-width:none">"All concepts are Kan extensions" (<a href="https://en.wikipedia.org/wiki/Saunders_Mac_Lane">Mac Lane</a>). Given functors K : I &rarr; A and D : I &rarr; C, the <strong>right Kan extension</strong> Ran<sub>K</sub>D : A &rarr; C is the best approximation of D along K. It answers: how do you extend a functor defined on a subcategory to the whole category? Limits, colimits, and adjunctions are all special cases.</p>
     </div>
 
     <!-- 1. The problem: extending a functor -->
     <h3>The problem: extending a functor</h3>
-    <p>You have a functor D : I &rarr; C that maps a small category I into C. You also have a functor K : I &rarr; A that embeds I into a larger category A. You want to extend D to all of A, not just the image of K. The Kan extension is the universal solution: the best functor A &rarr; C that approximates D, given K.</p>
+    <p>You have a functor D : I &rarr; C that maps a small category I into C. You also have a functor K : I &rarr; A that embeds I into a larger category A. You want to extend D to all of A, not just the image of K. The <a href="https://en.wikipedia.org/wiki/Kan_extension">🅦 Kan extension</a> is the universal solution: the best functor A &rarr; C that approximates D, given K.</p>
 
     <SchemeRepl client:load initialCode={`; Setup: I is a small subcategory, A is the full category.
 ; K embeds I into A.  D maps I into values (our target).

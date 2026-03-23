@@ -62,7 +62,7 @@ print(square_then_show(3))  # val=9
 
     <!-- 2. The Yoneda bijection -->
     <h3>The Yoneda bijection: one value determines everything</h3>
-    <p>A natural transformation <code>&alpha;</code> from <code>Hom(a, &ndash;)</code> to a functor <code>F</code> is a polymorphic function: for every <code>x</code>, it takes an <code>(a &rarr; x)</code> and returns an <code>F x</code>. The Yoneda lemma says: every such natural transformation is determined by a single element of <code>F(a)</code>. To recover it, apply <code>&alpha;</code> to the identity morphism. To go the other way, take an element of <code>F(a)</code> and <code>fmap</code> any function over it.</p>
+    <p>A natural transformation <code>&alpha;</code> from <code>Hom(a, &ndash;)</code> to a functor <code>F</code> is a polymorphic function: for every <code>x</code>, it takes an <code>(a &rarr; x)</code> and returns an <code>F x</code>. The <a href="https://en.wikipedia.org/wiki/Yoneda_lemma">🅦 Yoneda lemma</a> says: every such natural transformation is determined by a single element of <code>F(a)</code>. To recover it, apply <code>&alpha;</code> to the identity morphism. To go the other way, take an element of <code>F(a)</code> and <code>fmap</code> any function over it.</p>
 
     <!-- SVG: Yoneda bijection diagram -->
     <div class="flex justify-center my-6">

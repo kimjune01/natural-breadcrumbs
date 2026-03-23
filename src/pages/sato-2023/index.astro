@@ -19,7 +19,7 @@ import SchemeRepl from '../../components/SchemeRepl';
     </div>
 
     <h3>Divergences as distance</h3>
-    <p>A <a href="https://en.wikipedia.org/wiki/Divergence_(statistics)">🅦 divergence</a> measures how different two distributions are. KL divergence, total variation, Rényi divergence — all are ways to ask "how far apart are these?" Sato and Katsumata showed that putting a divergence on a monad's outputs gives you a metric on the entire Kleisli category. The distance between two programs is the worst-case divergence of their outputs.</p>
+    <p>A <a href="https://en.wikipedia.org/wiki/Divergence_(statistics)">🅦 divergence</a> measures how different two distributions are. KL divergence, <a href="https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures">🅦 total variation</a>, <a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy">🅦 Rényi divergence</a> — all are ways to ask "how far apart are these?" Sato and Katsumata showed that putting a divergence on a monad's outputs gives you a metric on the entire Kleisli category. The distance between two programs is the worst-case divergence of their outputs.</p>
 
     <!-- SVG: Divergence as enrichment -->
     <div class="flex justify-center my-6">
@@ -80,7 +80,7 @@ print(f"D(p || q) = {kl(p, q):.4f} bits")
     </details>
 
     <h3>Enrichment — metric on morphisms</h3>
-    <p>The key insight: a divergence on the monad lifts to a divergence on Kleisli arrows. Two stochastic functions f, g : X → D(Y) are "close" if their output distributions are close for every input. This turns the hom-sets of the Kleisli category into metric spaces.</p>
+    <p>The insight: a divergence on the monad lifts to a divergence on Kleisli arrows. Two stochastic functions f, g : X → D(Y) are "close" if their output distributions are close for every input. This turns the hom-sets of the Kleisli category into metric spaces.</p>
     <p>A non-expanding morphism doesn't increase distance. That's the data processing inequality for metrics — processing can't make programs more distinguishable than they already are.</p>
 
     <SchemeRepl client:load initialCode={`; Distance between two morphisms:

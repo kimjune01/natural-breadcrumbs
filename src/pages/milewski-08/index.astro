@@ -175,7 +175,7 @@ print(bimap_either(lambda x: x*2, lambda x: x+100, Right(7)))
 
     <!-- 3. Maybe from bifunctors -->
     <h3>Maybe from bifunctors: algebraic data types are functorial</h3>
-    <p>Here is the key insight. <code>Maybe a = Either () a</code>. The <code>()</code> is a constant (the Const functor), and <code>a</code> is the identity functor. Since Either is a bifunctor and both Const and Identity are functors, the composite is automatically a functor. Every ADT built from sums and products inherits its functor instance for free.</p>
+    <p><code>Maybe a = Either () a</code>. The <code>()</code> is a constant (the Const functor), and <code>a</code> is the identity functor. Since Either is a bifunctor and both Const and Identity are functors, the composite is automatically a functor. Every ADT built from sums and products inherits its functor instance for free.</p>
 
     <SchemeRepl client:load initialCode={`; Maybe = Either(Const(()), Identity(a))
 ; Nothing = Left(())    Just(x) = Right(x)

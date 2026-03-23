@@ -15,7 +15,7 @@ import SchemeRepl from '../../components/SchemeRepl';
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/milewski-17/">🍞 Ch17 (Monads)</a>, <a href="/natural-breadcrumbs/milewski-16/">🍞 Ch16 (Adjunctions)</a>. 12 min.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
-      <p class="text-lg" style="max-width:none">A <strong>Lawvere theory</strong> is a category whose objects are natural numbers (powers of a generic object) and whose morphisms are n-ary operations. A <strong>model</strong> is a product-preserving functor L &rarr; Set. Every algebraic structure (monoids, groups, rings) is a model of some Lawvere theory. Every finitary monad arises from a Lawvere theory, and every Lawvere theory induces a monad. Lawvere theories compose better than monads: they have coproducts and tensor products where monads have no generic composition recipe.</p>
+      <p class="text-lg" style="max-width:none">A <strong><a href="https://en.wikipedia.org/wiki/Lawvere_theory">🅦 Lawvere theory</a></strong> is a category whose objects are natural numbers (powers of a generic object) and whose morphisms are n-ary operations. A <strong>model</strong> is a product-preserving functor L &rarr; Set. Every algebraic structure (monoids, groups, rings) is a model of some Lawvere theory. Every finitary monad arises from a Lawvere theory, and every Lawvere theory induces a monad. Lawvere theories compose better than monads: they have coproducts and tensor products where monads have no generic composition recipe.</p>
     </div>
 
     <!-- SVG: Lawvere theory — objects as powers, morphisms as n-ary operations -->
@@ -62,7 +62,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 
     <!-- 1. From universal algebra to categories -->
     <h3>From universal algebra to categories</h3>
-    <p>Universal algebra describes algebraic structures by their <strong>operations</strong> and <strong>arities</strong>. A monoid has a binary operation (arity 2) and a unit (arity 0). A group adds a unary inverse (arity 1). Lawvere's insight: encode these arities categorically. Objects are natural numbers 0, 1, 2, 3, ... representing powers of a generic object. Morphisms n &rarr; 1 are n-ary operations. The whole theory lives in a single category.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Universal_algebra">🅦 Universal algebra</a> describes algebraic structures by their <strong>operations</strong> and <strong>arities</strong>. A monoid has a binary operation (arity 2) and a unit (arity 0). A group adds a unary inverse (arity 1). Lawvere's insight: encode these arities categorically. Objects are natural numbers 0, 1, 2, 3, ... representing powers of a generic object. Morphisms n &rarr; 1 are n-ary operations. The whole theory lives in a single category.</p>
 
     <SchemeRepl client:load initialCode={`; A Lawvere theory is built from F^op (opposite of finite sets).
 ; Objects = natural numbers (0, 1, 2, 3, ...)

@@ -96,7 +96,7 @@ print(f"eval(f2, True):  {my_eval((f2, True))}")
 
     <!-- 2. Currying -->
     <h3>Currying: the adjunction</h3>
-    <p>Currying is the heart of this chapter. A function of two arguments <code>(a × b) → c</code> can always be rewritten as a function that takes one argument and returns a function: <code>a → (b → c)</code>. This is not a trick. It is a natural isomorphism. The two forms carry exactly the same information, and you can convert between them losslessly.</p>
+    <p>Currying is the heart of this chapter. A function of two arguments <code>(a × b) → c</code> can always be rewritten as a function that takes one argument and returns a function: <code>a → (b → c)</code>. This is a natural isomorphism: the two forms carry the same information.</p>
 
     <SchemeRepl client:load initialCode={`; curry : ((a × b) → c) → (a → (b → c))
 ; uncurry : (a → (b → c)) → ((a × b) → c)

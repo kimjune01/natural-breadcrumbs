@@ -20,7 +20,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 
     <!-- 1. Open games -->
     <h3>Open games — games with interfaces</h3>
-    <p>An <strong>open game</strong> has inputs (what the player observes) and outputs (what the player does), plus a coplay channel that carries consequences back. Think of it as a function with a feedback wire. Games compose by wiring outputs to inputs — the same pattern as sequential composition of programs.</p>
+    <p>An <strong>open game</strong> has inputs (what the player observes) and outputs (what the player does), plus a coplay channel that carries consequences back. Think of it as a function with a feedback wire. Games compose by wiring outputs to inputs, the same pattern as sequential composition of programs.</p>
 
     <!-- SVG: Single open game — right-pointing triangle: base left (input), tip right (output) -->
     <div class="flex justify-center my-6">
@@ -161,7 +161,7 @@ print(f"seller('high') = {seller('high')}")
 
     <!-- 3. Composing games -->
     <h3>Composing games — sequential play</h3>
-    <p>Two open games compose when the first player's action becomes the second player's observation. The composite game's equilibrium condition is: each player plays optimally given what they observe. This mirrors COMP from Hoare logic — the "handshake" is now the action/observation interface.</p>
+    <p>Two open games compose when the first player's action becomes the second player's observation. The composite game's equilibrium condition: each player plays optimally given what they observe.</p>
 
     <!-- SVG: Two composition modes side by side -->
     <div class="flex justify-center my-6 gap-8 flex-wrap">
@@ -256,7 +256,7 @@ print(f"seller('high') = {seller('high')}")
 
     <!-- 4. Nash equilibrium as predicate -->
     <h3>Nash equilibrium as a compositional predicate</h3>
-    <p>Here's the punchline. An equilibrium is a <strong>predicate on strategy profiles</strong>: "no player can improve by deviating." Hedges shows this predicate is compositional — if each sub-game satisfies it given its context, the whole game does too. Equilibrium composes like a Hoare postcondition.</p>
+    <p>Here's the punchline. An equilibrium is a <strong>predicate on strategy profiles</strong>: "no player can improve by deviating" (<a href="/natural-breadcrumbs/nordstrom-06/">🎲 what is Nash equilibrium?</a>). Hedges shows this predicate is compositional: if each sub-game satisfies it given its context, the whole game does too. Equilibrium is a postcondition.</p>
 
     <!-- SVG: Nash equilibrium — deviation check -->
     <div class="flex justify-center my-6">
@@ -358,7 +358,7 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
 
     <!-- 5. Why compositionality matters -->
     <h3>Why compositionality matters for games</h3>
-    <p>Classical game theory defines equilibrium globally — over the entire strategy profile at once. Hedges decomposes it. Each sub-game checks equilibrium locally, given its interface. When you wire sub-games together, the local checks compose into a global guarantee. This is the same pattern as Staton's COMP rule: local postconditions chain into a global one.</p>
+    <p>Classical game theory checks equilibrium over the entire strategy profile at once. Hedges decomposes it: each sub-game checks locally, given its interface. Wire the sub-games together and the local checks compose into a global guarantee.</p>
 
     <!-- SVG: Compositional equilibrium — local checks compose -->
     <div class="flex justify-center my-6">
@@ -459,7 +459,7 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>All examples use pure strategies over finite action spaces. The paper works with mixed strategies, continuous spaces, and open games as morphisms in a symmetric monoidal category with a coplay (contravariant) channel. For example: the Nash equilibrium check on this page iterates over two players with two actions each. In the paper, the same construction applies to a network of open games composed via string diagrams — where equilibrium is verified by checking each node's selection function against the continuation induced by all downstream nodes. The compositionality is identical. The string-diagrammatic machinery is not.</p>
+    <p>All examples use pure strategies over finite action spaces. The paper works with mixed strategies, continuous spaces, and open games as morphisms in a <a href="https://en.wikipedia.org/wiki/Symmetric_monoidal_category">🅦 symmetric monoidal category</a> with a coplay (contravariant) channel. For example: the Nash equilibrium check on this page iterates over two players with two actions each. In the paper, the same construction applies to a network of open games composed via <a href="https://en.wikipedia.org/wiki/String_diagram">🅦 string diagrams</a> — where equilibrium is verified by checking each node's selection function against the continuation induced by all downstream nodes. The compositionality is identical. The string-diagrammatic machinery is not.</p>
 
     <h3>Watch</h3>
     <p class="text-gray-400 text-sm mb-4">Bartosz Milewski explains open games and compositional game theory:</p>
@@ -471,7 +471,7 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
       Ready for the real thing? <a href="https://arxiv.org/abs/1603.04641"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for open games, §5 for the compositionality theorem.
     </div>
 
-    <p class="text-sm text-gray-500 mt-6">Framework connection: The compositional equilibrium pattern — local postconditions chaining into a global guarantee — is the same structure as the Natural Framework pipeline's handshake. (<a href="https://june.kim/the-handshake">The Handshake</a>)</p>
+    <p class="text-sm text-gray-500 mt-6"><a href="https://june.kim/the-handshake">The Handshake</a></p>
 
   </main>
 </Layout>

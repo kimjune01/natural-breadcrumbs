@@ -115,7 +115,7 @@ print(f"dagger (transpose):\\n{dagger}")
     </details>
 
     <h3>Bayesian inversion from the dagger</h3>
-    <p>Given a prior state π and a channel f, the Bayesian inverse f†_π is the unique channel such that the joint distribution factors correctly: π ⊗ f = f†_π ⊗ (f applied to π). In the quantum case, this is Petz recovery.</p>
+    <p>Given a prior state π and a channel f, the Bayesian inverse f†_π is the unique channel such that the joint distribution factors correctly: π ⊗ f = f†_π ⊗ (f applied to π). In the quantum case, this is <a href="https://en.wikipedia.org/wiki/Petz_recovery_map">Petz recovery</a>.</p>
 
     <SchemeRepl client:load initialCode={`; Bayesian inversion via dagger and prior
 ; f†_π(b) = Bayes' rule with prior π
