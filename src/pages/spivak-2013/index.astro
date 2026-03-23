@@ -21,6 +21,63 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h3>Boxes and ports</h3>
     <p>A box has typed input ports and typed output ports. It's an interface specification — no implementation yet. Think of a function signature without the body.</p>
 
+    <!-- SVG: Wiring diagram — two boxes composed -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 500 220" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Outer box (the composite) -->
+        <rect x="20" y="10" width="460" height="200" rx="10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6,3" stroke-opacity="0.3"/>
+        <text x="250" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">composite wiring diagram</text>
+
+        <!-- Box A -->
+        <rect x="60" y="50" width="120" height="70" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+        <text x="120" y="90" text-anchor="middle" fill="currentColor" font-size="13">Filter</text>
+
+        <!-- Box B -->
+        <rect x="280" y="50" width="120" height="70" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+        <text x="340" y="90" text-anchor="middle" fill="currentColor" font-size="13">Attend</text>
+
+        <!-- Input ports on A (left side, small circles) -->
+        <circle cx="60" cy="70" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <circle cx="60" cy="100" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <text x="48" y="73" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">indexed</text>
+        <text x="48" y="103" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">policy</text>
+
+        <!-- Input wires -->
+        <line x1="25" y1="70" x2="57" y2="70" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="25" y1="100" x2="57" y2="100" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- Output port on A -->
+        <circle cx="180" cy="85" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <text x="210" y="78" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.5">selected</text>
+
+        <!-- Wire from A to B -->
+        <line x1="183" y1="85" x2="277" y2="70" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- Input ports on B -->
+        <circle cx="280" cy="70" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <circle cx="280" cy="100" r="3" fill="currentColor" fill-opacity="0.4"/>
+        <text x="268" y="103" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">policy</text>
+
+        <!-- Policy wire splits: input goes to both A and B -->
+        <line x1="25" y1="100" x2="25" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+        <line x1="25" y1="145" x2="265" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+        <line x1="265" y1="145" x2="265" y2="100" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+        <line x1="265" y1="100" x2="277" y2="100" stroke="currentColor" stroke-width="1.5"/>
+
+        <!-- Output port on B -->
+        <circle cx="400" cy="85" r="3" fill="currentColor" fill-opacity="0.4"/>
+
+        <!-- Output wire -->
+        <line x1="403" y1="85" x2="475" y2="85" stroke="currentColor" stroke-width="1.5"/>
+        <text x="472" y="78" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">ranked</text>
+
+        <!-- Type annotations on ports -->
+        <text x="120" y="42" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">types must match</text>
+      </svg>
+    </div>
+
+    <p>Boxes compose by wiring outputs to inputs. The types constrain which wirings are legal — you can't plug a "ranked" output into an "indexed" input. The composite is itself a box, with its own input and output ports. This is operadic composition: boxes all the way down.</p>
+
     <SchemeRepl client:load initialCode={`; A box is a typed interface: input ports -> output ports
 ; We represent a box as (name inputs outputs)
 
