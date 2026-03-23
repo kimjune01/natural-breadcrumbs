@@ -21,6 +21,40 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h3>Lenses: forward and backward</h3>
     <p>A lens is a pair: a <strong>get</strong> (forward pass, observation) and a <strong>put</strong> (backward pass, update). In the Bayesian setting, get is a likelihood channel and put is the Bayesian inverse — the posterior update given new evidence.</p>
 
+    <!-- SVG: Bayesian lens -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 420 160" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Lens box -->
+        <rect x="130" y="20" width="160" height="110" rx="8" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1.5"/>
+        <text x="210" y="80" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.3">Bayesian Lens</text>
+
+        <!-- Forward pass: prior --> observation (inference) -->
+        <line x1="15" y1="50" x2="130" y2="50" stroke="#4ade80" stroke-width="1.5"/>
+        <polygon points="125,46 135,50 125,54" fill="#4ade80"/>
+        <text x="15" y="42" fill="#4ade80" font-size="11" fill-opacity="0.7">prior</text>
+        <text x="155" y="50" fill="#4ade80" font-size="10">predict</text>
+        <line x1="290" y1="50" x2="405" y2="50" stroke="#4ade80" stroke-width="1.5"/>
+        <polygon points="400,46 410,50 400,54" fill="#4ade80"/>
+        <text x="355" y="42" fill="#4ade80" font-size="11" fill-opacity="0.7">observation</text>
+
+        <!-- Backward pass: observation --> posterior (learning) -->
+        <line x1="405" y1="100" x2="290" y2="100" stroke="#60a5fa" stroke-width="1.5"/>
+        <polygon points="295,96 285,100 295,104" fill="#60a5fa"/>
+        <text x="355" y="118" fill="#60a5fa" font-size="11" fill-opacity="0.7">evidence</text>
+        <text x="155" y="106" fill="#60a5fa" font-size="10">update</text>
+        <line x1="130" y1="100" x2="15" y2="100" stroke="#60a5fa" stroke-width="1.5"/>
+        <polygon points="20,96 10,100 20,104" fill="#60a5fa"/>
+        <text x="15" y="118" fill="#60a5fa" font-size="11" fill-opacity="0.7">posterior</text>
+
+        <!-- Labels for directions -->
+        <text x="70" y="38" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.5">inference &#x2192;</text>
+        <text x="70" y="130" text-anchor="middle" fill="#60a5fa" font-size="9" fill-opacity="0.5">&#x2190; learning</text>
+
+        <!-- Caption -->
+        <text x="210" y="155" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">forward: predict from beliefs. backward: Bayesian update.</text>
+      </svg>
+    </div>
+
     <SchemeRepl client:load initialCode={`; A Bayesian lens: (forward, backward)
 ; Forward: prior -> observation distribution
 ; Backward: (prior, observation) -> posterior

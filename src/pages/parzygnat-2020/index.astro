@@ -61,6 +61,30 @@ print("Quantum version: replace vectors with density matrices.")
     <h3>The dagger — reversing channels</h3>
     <p>A dagger category has an involution † that reverses morphisms: if f: A → B then f†: B → A. For quantum channels, the dagger is the adjoint (conjugate transpose). For classical channels with a reference state, the dagger recovers Bayesian inversion.</p>
 
+    <!-- SVG: Bayesian inversion — forward f and backward f† -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 380 130" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Object A -->
+        <circle cx="60" cy="60" r="28" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <text x="60" y="65" text-anchor="middle" fill="currentColor" font-size="15">A</text>
+        <!-- Object B -->
+        <circle cx="300" cy="60" r="28" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <text x="300" y="65" text-anchor="middle" fill="currentColor" font-size="15">B</text>
+        <!-- Forward arrow f: A -> B (top) -->
+        <line x1="88" y1="42" x2="265" y2="42" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="265,38 273,42 265,46" fill="currentColor"/>
+        <text x="180" y="35" text-anchor="middle" fill="currentColor" font-size="12">f</text>
+        <text x="180" y="22" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">prior &#x2192; posterior</text>
+        <!-- Backward dagger arrow f†: B -> A (bottom, highlighted) -->
+        <line x1="272" y1="78" x2="95" y2="78" stroke="#ef4444" stroke-width="2"/>
+        <polygon points="95,74 87,78 95,82" fill="#ef4444"/>
+        <text x="180" y="92" text-anchor="middle" fill="#ef4444" font-size="12">f&#x2020;</text>
+        <text x="180" y="108" text-anchor="middle" fill="#ef4444" font-size="9" fill-opacity="0.7">Bayesian inverse</text>
+        <!-- Caption -->
+        <text x="180" y="128" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">the dagger reverses the channel</text>
+      </svg>
+    </div>
+
     <SchemeRepl client:load initialCode={`; Dagger: transpose of a matrix (classical analogue)
 ; For quantum: conjugate transpose of the channel
 

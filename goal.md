@@ -161,6 +161,24 @@ Each checkpoint is where I apply Attend — revisit goal.md, assess what worked,
 
 **Checkpoint 3**: All ten paper pages + landing page. **Done.** Shipped: landing page with paper index, ten paper pages with dual REPLs, cross-links with emoji prefixes. Not yet shipped: `/how/`, `/symbols/`, `/framework/`, `/history/` — these are planned, not blocked on.
 
+## Foundations: Category Theory for Programmers
+
+Based on Bartosz Milewski's blog series (CC BY-SA 4.0). 24 chapters, each getting a breadcrumbs page in the same format as the paper pages — runnable Python, diagrams, notation tables, plain English.
+
+**Audience:** Milewski's audience (programmers). The paper pages above assume concepts that live here. A paper page links *down* to a foundation page when it uses a concept the reader might not have seen.
+
+**Attribution:** CC BY-SA 4.0. Every page cites Milewski as the source. The license requires share-alike, which Natural Breadcrumbs already satisfies.
+
+**Format differences from paper pages:**
+- Source is a blog post, not a research paper — no arXiv link, no page-number deep links
+- Code examples translate Haskell to Python (Milewski uses Haskell throughout)
+- Confidence tags still apply: exact / simplified / analogy
+- Cross-links go *up* to paper pages that use the concept and *across* to other foundation chapters
+
+**Selection discipline:** All 24 chapters from the three-part series. Unlike paper pages (which require a cognition series reference), the foundations section is comprehensive — it's a curriculum, not a curated selection.
+
+**Routes:** `/natural-breadcrumbs/milewski-01/` through `/natural-breadcrumbs/milewski-24/`
+
 ## Stretch goals
 - "Reading mode" — paste a paper abstract, every symbol gets hover tooltips
 - Bidirectional links — the Lexicon links to this site, this site links to the Lexicon

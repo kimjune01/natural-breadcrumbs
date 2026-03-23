@@ -22,6 +22,36 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h3>The possibilistic shadow</h3>
     <p>Every probability distribution has a <strong>possibilistic shadow</strong>: forget the weights, keep only which outcomes can happen. This maps the probability monad P to the powerset monad 𝒫. The shadow is a monad morphism — it preserves pure and bind.</p>
 
+    <!-- SVG: Support — bar chart with highlighted (nonzero) and grayed-out (zero) bars -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 400 160" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Axis -->
+        <line x1="50" y1="120" x2="350" y2="120" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <!-- Bar a: nonzero -->
+        <rect x="70" y="40" width="40" height="80" rx="3" fill="#4ade80" fill-opacity="0.2" stroke="#4ade80" stroke-width="1.5"/>
+        <text x="90" y="75" text-anchor="middle" fill="#4ade80" font-size="10">0.5</text>
+        <text x="90" y="135" text-anchor="middle" fill="currentColor" font-size="11">a</text>
+        <!-- Bar b: zero -->
+        <rect x="130" y="118" width="40" height="2" rx="1" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <text x="150" y="112" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.25">0</text>
+        <text x="150" y="135" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.3">b</text>
+        <!-- Bar c: nonzero -->
+        <rect x="190" y="60" width="40" height="60" rx="3" fill="#4ade80" fill-opacity="0.2" stroke="#4ade80" stroke-width="1.5"/>
+        <text x="210" y="85" text-anchor="middle" fill="#4ade80" font-size="10">0.3</text>
+        <text x="210" y="135" text-anchor="middle" fill="currentColor" font-size="11">c</text>
+        <!-- Bar d: zero -->
+        <rect x="250" y="118" width="40" height="2" rx="1" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <text x="270" y="112" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.25">0</text>
+        <text x="270" y="135" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.3">d</text>
+        <!-- Bar e: nonzero -->
+        <rect x="310" y="80" width="40" height="40" rx="3" fill="#4ade80" fill-opacity="0.2" stroke="#4ade80" stroke-width="1.5"/>
+        <text x="330" y="100" text-anchor="middle" fill="#4ade80" font-size="10">0.2</text>
+        <text x="330" y="135" text-anchor="middle" fill="currentColor" font-size="11">e</text>
+        <!-- Support label -->
+        <text x="200" y="155" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">support = (a, c, e). Zero-probability outcomes are not in the support.</text>
+      </svg>
+    </div>
+
     <SchemeRepl client:load initialCode={`; The possibilistic shadow: P -> powerset
 ; Drop probabilities, keep reachable outcomes
 

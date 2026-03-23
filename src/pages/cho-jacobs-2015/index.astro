@@ -62,6 +62,41 @@ for x in [0, 3, 5, 8, 10, 15]:
     <h3>States — dual to effects</h3>
     <p>A state on X is a morphism 1 → D(X) — a distribution over X. States pick points (probabilistically). Effects test points (fuzzily). They're dual: pairing a state with an effect gives a probability.</p>
 
+    <!-- SVG: States and effects duality -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 380 140" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Object 1 (unit/terminal) on the left -->
+        <circle cx="50" cy="65" r="18" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <text x="50" y="70" text-anchor="middle" fill="currentColor" font-size="14" font-weight="bold">1</text>
+
+        <!-- Object A in the center -->
+        <circle cx="190" cy="65" r="24" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <text x="190" y="70" text-anchor="middle" fill="currentColor" font-size="16" font-weight="bold">A</text>
+
+        <!-- Object 1+1 on the right -->
+        <circle cx="330" cy="65" r="22" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <text x="330" y="62" text-anchor="middle" fill="currentColor" font-size="11" font-weight="bold">1+1</text>
+        <text x="330" y="76" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.5">(yes/no)</text>
+
+        <!-- State arrow: 1 → A (blue, top arc) -->
+        <path d="M 70,55 C 110,20 150,20 166,55" fill="none" stroke="#60a5fa" stroke-width="1.8"/>
+        <polygon points="164,50 169,58 160,57" fill="#60a5fa"/>
+        <text x="118" y="28" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="bold">state</text>
+        <text x="118" y="40" text-anchor="middle" fill="#60a5fa" font-size="8" fill-opacity="0.7">preparation</text>
+
+        <!-- Effect arrow: A → 1+1 (green, top arc) -->
+        <path d="M 214,55 C 240,20 280,20 310,50" fill="none" stroke="#4ade80" stroke-width="1.8"/>
+        <polygon points="307,45 314,52 305,53" fill="#4ade80"/>
+        <text x="262" y="28" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="bold">effect</text>
+        <text x="262" y="40" text-anchor="middle" fill="#4ade80" font-size="8" fill-opacity="0.7">measurement</text>
+
+        <!-- Duality indicator -->
+        <line x1="120" y1="100" x2="260" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3,2" stroke-opacity="0.3"/>
+        <text x="190" y="118" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">dual arrows: state prepares, effect tests</text>
+        <text x="190" y="132" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">probability = state composed with effect</text>
+      </svg>
+    </div>
+
     <SchemeRepl client:load initialCode={`; State: 1 -> D(X) — a distribution
 ; Effect: X -> [0,1] — a fuzzy test
 ; Pairing: state(effect) = expected value = probability

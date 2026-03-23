@@ -1,0 +1,149 @@
+---
+import Layout from '../../layouts/Base.astro';
+---
+
+<Layout title="🍞 Foundations — Category Theory for Programmers">
+  <main>
+
+    <a href="/natural-breadcrumbs/" class="text-sm mb-4 inline-block">← back to index</a>
+
+    <h1>Foundations: Category Theory for Programmers</h1>
+    <p class="text-gray-400 mb-2">Based on <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Bartosz Milewski's blog series</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <p class="text-gray-400 mb-6">Same format as the paper pages: runnable Python, diagrams, plain English. Milewski wrote for Haskell programmers. These pages translate to Python.</p>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">1. Category</td>
+            <td class="pr-3 text-gray-400">Objects and arrows that compose — the only axioms are identity and associativity</td>
+            <td><a href="/natural-breadcrumbs/milewski-01/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">2. Types and Functions</td>
+            <td class="pr-3 text-gray-400">Types are sets, functions are arrows, and Hask is (almost) a category</td>
+            <td><a href="/natural-breadcrumbs/milewski-02/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">3. Categories Great and Small</td>
+            <td class="pr-3 text-gray-400">Preorders, monoids, and the thin categories hiding in your code</td>
+            <td><a href="/natural-breadcrumbs/milewski-03/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">4. Kleisli Categories</td>
+            <td class="pr-3 text-gray-400">Side effects compose when you change what "arrow" means</td>
+            <td><a href="/natural-breadcrumbs/milewski-04/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">5. Products and Coproducts</td>
+            <td class="pr-3 text-gray-400">Tuples and tagged unions from universal properties alone</td>
+            <td><a href="/natural-breadcrumbs/milewski-05/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">6. Simple Algebraic Data Types</td>
+            <td class="pr-3 text-gray-400">Sum types + product types = the algebra of types</td>
+            <td><a href="/natural-breadcrumbs/milewski-06/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">7. Functors</td>
+            <td class="pr-3 text-gray-400">Structure-preserving maps between categories — map is a functor</td>
+            <td><a href="/natural-breadcrumbs/milewski-07/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">8. Functoriality</td>
+            <td class="pr-3 text-gray-400">Bifunctors, contravariance, and the functor laws your code already obeys</td>
+            <td><a href="/natural-breadcrumbs/milewski-08/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">9. Function Types</td>
+            <td class="pr-3 text-gray-400">Exponentials — why a → b is an object in the category</td>
+            <td><a href="/natural-breadcrumbs/milewski-09/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">10. Natural Transformations</td>
+            <td class="pr-3 text-gray-400">Polymorphic functions are natural transformations — the parametricity theorem says so</td>
+            <td><a href="/natural-breadcrumbs/milewski-10/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">11. Limits and Colimits</td>
+            <td class="pr-3 text-gray-400">The universal cone over a diagram — products and equalizers generalized</td>
+            <td><a href="/natural-breadcrumbs/milewski-11/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">12. Free Monoids</td>
+            <td class="pr-3 text-gray-400">Lists are the free monoid — the cheapest way to make concatenation associative</td>
+            <td><a href="/natural-breadcrumbs/milewski-12/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">13. Representable Functors</td>
+            <td class="pr-3 text-gray-400">Every container is secretly Hom(A, –) for some A</td>
+            <td><a href="/natural-breadcrumbs/milewski-13/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">14. The Yoneda Lemma</td>
+            <td class="pr-3 text-gray-400">An object is determined by how everything maps into it</td>
+            <td><a href="/natural-breadcrumbs/milewski-14/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">15. Yoneda Embedding</td>
+            <td class="pr-3 text-gray-400">Every category embeds faithfully into its presheaf category</td>
+            <td><a href="/natural-breadcrumbs/milewski-15/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">16. Adjunctions</td>
+            <td class="pr-3 text-gray-400">Free/forgetful, curry/uncurry — two functors that are almost inverses</td>
+            <td><a href="/natural-breadcrumbs/milewski-16/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">17. Monads</td>
+            <td class="pr-3 text-gray-400">Kleisli composition — the pattern behind Maybe, List, IO, and probability</td>
+            <td><a href="/natural-breadcrumbs/milewski-17/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">18. Comonads</td>
+            <td class="pr-3 text-gray-400">Extract and extend — the dual of monads, hiding in spreadsheets and streams</td>
+            <td><a href="/natural-breadcrumbs/milewski-18/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">19. F-Algebras</td>
+            <td class="pr-3 text-gray-400">Recursive data structures as initial algebras — fold is a catamorphism</td>
+            <td><a href="/natural-breadcrumbs/milewski-19/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">20. Ends and Coends</td>
+            <td class="pr-3 text-gray-400">Generalized products and sums over functor categories</td>
+            <td><a href="/natural-breadcrumbs/milewski-20/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">21. Kan Extensions</td>
+            <td class="pr-3 text-gray-400">The universal construction — everything else is a Kan extension</td>
+            <td><a href="/natural-breadcrumbs/milewski-21/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">22. Enriched Categories</td>
+            <td class="pr-3 text-gray-400">When Hom-sets aren't sets — categories enriched over monoidal categories</td>
+            <td><a href="/natural-breadcrumbs/milewski-22/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">23. Topoi</td>
+            <td class="pr-3 text-gray-400">A category that acts like a universe of sets — with its own internal logic</td>
+            <td><a href="/natural-breadcrumbs/milewski-23/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3 text-gray-300">24. Lawvere Theories</td>
+            <td class="pr-3 text-gray-400">Algebraic theories as categories — operations are arrows, equations are diagrams</td>
+            <td><a href="/natural-breadcrumbs/milewski-24/" class="text-yellow-300 hover:text-yellow-200">🍞</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</Layout>
