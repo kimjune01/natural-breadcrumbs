@@ -99,8 +99,9 @@ random.seed(int(time.time() * 1000) % 2**32)
         onChange={e => setCode(e.target.value)}
         onKeyDown={handleKeyDown}
         spellCheck={false}
-        className="w-full bg-zinc-900 text-green-300 font-mono text-sm p-4 resize-y outline-none border-none"
-        style={{ minHeight: '200px', tabSize: 4 }}
+        className="w-full bg-zinc-900 text-green-300 font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
+        style={{ tabSize: 4 }}
+        rows={code.split('\n').length}
       />
       {output && (
         <pre className="p-4 border-t border-zinc-700 text-gray-300 text-sm font-mono whitespace-pre-wrap overflow-auto" style={{ maxHeight: '300px' }}>

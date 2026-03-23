@@ -117,8 +117,9 @@ export default function SchemeRepl({ initialCode }: { initialCode?: string }) {
         onChange={e => setCode(e.target.value)}
         onKeyDown={handleKeyDown}
         spellCheck={false}
-        className="w-full bg-zinc-900 text-blue-300 font-mono text-sm p-4 resize-y outline-none border-none"
-        style={{ minHeight: '120px', tabSize: 2 }}
+        className="w-full bg-zinc-900 text-blue-300 font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
+        style={{ tabSize: 2 }}
+        rows={code.split('\n').length}
       />
       {output && (
         <pre className="p-4 border-t border-zinc-700 text-gray-300 text-sm font-mono whitespace-pre-wrap overflow-auto" style={{ maxHeight: '300px' }}>

@@ -12,8 +12,6 @@ import SchemeRepl from '../../components/SchemeRepl';
     <h1>A Synthetic Approach to Markov Kernels</h1>
     <p class="text-gray-400 text-sm mb-6">Tobias Fritz · 2020 · <a href="https://arxiv.org/abs/1908.07021"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> arXiv:1908.07021</a></p>
 
-    <p class="text-sm text-gray-500 mb-6">No prerequisites. This page and <a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> are independent entry points.</p>
-
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
       <p class="text-lg" style="max-width:none">Stochastic functions form a <a href="https://en.wikipedia.org/wiki/Category_(mathematics)">🅦 category</a> with copy and discard. Whether a function is deterministic or stochastic is detected by whether it commutes with copying.</p>
     </div>
@@ -100,19 +98,43 @@ print("double(3):", deterministic_double(3))
     </div>
 
     <SchemeRepl client:load initialCode={`; Copy-naturality: f is deterministic iff f;copy = copy;(f⊗f)
+; We work with distributions, not samples.
 
-(define (copy x) (cons x x))
+; A deterministic morphism: double
+(define (double x) (list (cons (* x 2) 1.0)))
 
-(define (double x) (* x 2))
+; Copy the distribution: each output paired with itself
+(define (copy-dist dist)
+  (map (lambda (p) (cons (cons (car p) (car p)) (cdr p))) dist))
 
-; Deterministic: apply then copy = copy then apply
-(define lhs (copy (double 5)))
-(define rhs (cons (double 5) (double 5)))
+; f;copy — apply double, then copy the result
+(define f-then-copy (copy-dist (double 5)))
 
-(display "double: f;copy = ") (display lhs) (newline)
-(display "double: copy;f⊗f = ") (display rhs) (newline)
-(display "equal? ") (display (equal? lhs rhs))
-; #t — deterministic
+; copy;(f⊗f) — copy input, apply double to each independently
+; For deterministic f, both copies get the same result
+(define copy-then-f
+  (list (cons (cons 10 10) 1.0)))
+
+(display "f;copy     = ") (display f-then-copy) (newline)
+(display "copy;(f⊗f) = ") (display copy-then-f) (newline)
+(display "equal? ") (display (equal? f-then-copy copy-then-f))
+(newline) (newline)
+
+; A stochastic morphism: coin flip
+(define (coin x) (list (cons x 0.5) (cons (- x) 0.5)))
+
+; f;copy — flip once, copy the result
+(define coin-then-copy (copy-dist (coin 5)))
+
+; copy;(f⊗f) — copy input, flip each independently
+(define copy-then-coin
+  (list (cons (cons 5 5) 0.25) (cons (cons 5 -5) 0.25)
+        (cons (cons -5 5) 0.25) (cons (cons -5 -5) 0.25)))
+
+(display "coin;copy     = ") (display coin-then-copy) (newline)
+(display "copy;(coin⊗coin) = ") (display copy-then-coin) (newline)
+(display "equal? ") (display (equal? coin-then-copy copy-then-coin))
+; #f — stochastic! coin;copy has 2 outcomes, copy;coin⊗coin has 4
 `} />
 
     <details class="my-2">
