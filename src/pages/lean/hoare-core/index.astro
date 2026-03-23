@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Hoare/Core.lean — Triples, COMP, AND, OR, consequence">
@@ -19,6 +21,33 @@ import Layout from '../../../layouts/Base.astro';
     (P : &alpha; &rarr; Prop) (f : Kernel M &alpha; &beta;) (Q : &beta; &rarr; Prop) : Prop :=
   &forall; a : &alpha;, P a &rarr; &forall; b : &beta;, Support.support (f a) b &rarr; Q b</code></pre>
 
+    <Repl client:load initialCode={`# Hoare triple: {P} f {Q}
+# "If input satisfies P, every possible output satisfies Q"
+
+def triple_holds(P, f, Q, test_inputs):
+    """Check {P} f {Q} over test inputs"""
+    for x in test_inputs:
+        if P(x):
+            y = f(x)
+            if not Q(y):
+                return False, x, y
+    return True, None, None
+
+# {x > 0} double {y > 0}  -- should hold
+P = lambda x: x > 0
+Q = lambda y: y > 0
+f = lambda x: x * 2
+
+ok, _, _ = triple_holds(P, f, Q, range(-5, 10))
+print(f"{{x > 0}} double {{y > 0}}: {ok}")
+
+# {x > 0} negate {y > 0}  -- should FAIL
+g = lambda x: -x
+ok, cx, cy = triple_holds(P, g, Q, range(-5, 10))
+print(f"{{x > 0}} negate {{y > 0}}: {ok}")
+print(f"  counterexample: P({cx})=True, but Q({cy})=False")
+`} />
+
     <h3>theorem triple_consequence</h3>
     <p>Rule of consequence: you can weaken the precondition (accept more inputs) and strengthen the postcondition (promise less about outputs). If the original triple holds, the weakened one does too.</p>
 
@@ -29,6 +58,27 @@ import Layout from '../../../layouts/Base.astro';
     &#123;f : Kernel M &alpha; &beta;&#125; &#123;g : Kernel M &beta; &gamma;&#125;
     (hf : Triple P f R) (hg : Triple R g Q)
     : Triple P (Kernel.comp f g) Q</code></pre>
+
+    <Repl client:load initialCode={`# COMP rule: {P} f {R} and {R} g {Q}  =>  {P} f;g {Q}
+# The intermediate predicate R bridges the two stages.
+
+P = lambda x: x >= 0          # non-negative input
+R = lambda y: y >= 0 and y <= 50  # intermediate: bounded
+Q = lambda z: z % 2 == 0      # final output is even
+
+f = lambda x: min(x, 50)      # clamp to [0,50]
+g = lambda y: y * 2            # double
+
+# Check each triple individually:
+inputs = list(range(0, 100))
+pf = all(R(f(x)) for x in inputs if P(x))
+rg = all(Q(g(y)) for y in range(51) if R(y))
+comp = all(Q(g(f(x))) for x in inputs if P(x))
+
+print(f"{{P}} clamp {{R}}: {pf}")
+print(f"{{R}} double {{Q}}: {rg}")
+print(f"{{P}} clamp;double {{Q}}: {comp}  (by COMP)")
+`} />
 
     <h3>theorem triple_skip</h3>
     <p>The skip rule: the identity kernel preserves any predicate. Uses <code>support_pure</code> to show the only possible output is the input itself.</p>

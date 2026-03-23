@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Pipeline.lean — Six stages, one cycle">
@@ -39,6 +41,36 @@ import Layout from '../../../layouts/Base.astro';
   attend      : I.policy &rarr; Kernel M I.selected I.ranked
   remember    : Kernel M I.ranked I.persisted
   consolidate : I.policy &rarr; Kernel M I.persisted I.policy</code></pre>
+
+    <SchemeRepl client:load initialCode={`; The six-stage pipeline as function composition
+; Each stage: one type in, one type out
+
+(define (perceive raw)
+  (string-append "enc:" raw))
+
+(define (cache encoded)
+  (list encoded (string-append encoded "#2")))
+
+(define (filter indexed)
+  (list (car indexed)))  ; keep only first
+
+(define (attend policy selected)
+  (map (lambda (s) (string-append s "|" policy))
+       selected))
+
+(define (remember ranked) ranked)  ; lossless
+
+; Forward pass: compose perceive through attend
+(define (forward raw policy)
+  (attend policy
+    (filter (cache (perceive raw)))))
+
+(display "forward('hello', 'top-1'): ")
+(display (forward "hello" "top-1"))
+(newline)
+(display "forward('hello', 'diverse'): ")
+(display (forward "hello" "diverse"))
+`} />
 
     <h3>def Pipeline.forward</h3>
     <p>The forward data path: raw input flows through Perceive, Cache, Filter, and Attend (parameterized by current policy), producing ranked output. Written as explicit binds for proof tractability (easier for Lean to unfold).</p>

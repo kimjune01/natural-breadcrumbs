@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Kleisli.lean — Stochastic functions compose">
@@ -30,6 +32,34 @@ import Layout from '../../../layouts/Base.astro';
     : Kernel.comp (Kernel.comp f g) h =
       Kernel.comp f (Kernel.comp g h)</code></pre>
     <p class="text-sm text-gray-500">The proof uses <code>funext</code> (two functions are equal if they agree on all inputs) and then applies <code>bind_assoc</code> from the LawfulMonad instance.</p>
+
+    <SchemeRepl client:load initialCode={`; Kleisli composition: chain functions that return lists
+; a -> [b], b -> [c]  =>  a -> [c]
+; (like composing stochastic stages)
+
+(define (kleisli-comp f g)
+  (lambda (x)
+    (apply append (map g (f x)))))
+
+; Stage 1: perceive — one input, two encodings
+(define (perceive x)
+  (list (string-append x "-visual")
+        (string-append x "-audio")))
+
+; Stage 2: cache — each encoding gets indexed
+(define (cache enc)
+  (list (string-append enc ":idx0")
+        (string-append enc ":idx1")))
+
+; Compose: perceive >=> cache
+(define pipeline (kleisli-comp perceive cache))
+
+(display "perceive('cat'): ")
+(display (perceive "cat"))
+(newline)
+(display "pipeline('cat'): ")
+(display (pipeline "cat"))
+`} />
 
     <h3>theorem Kernel.deterministic_comp</h3>
     <p>Pure functions can be embedded as kernels (wrap the output in <code>pure</code>). This embedding preserves composition: embedding <code>g . f</code> gives the same kernel as composing the embeddings of f and g separately.</p>

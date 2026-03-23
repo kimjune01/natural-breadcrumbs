@@ -152,7 +152,7 @@ print(f"equal? {path1 == path2}")
 
     <!-- 4. Why it matters -->
     <h3>Why possibilistic reasoning is sound</h3>
-    <p>Because support is a monad morphism, you can reason about reachability (what <em>can</em> happen) without tracking exact probabilities. If a state is unreachable through a composed pipeline, it's unreachable through each stage individually. This is why the pipeline's Filter stage can do possibilistic gating — reject impossible outcomes — without needing exact probability computation.</p>
+    <p>Because support is a monad morphism, you can reason about reachability (what <em>can</em> happen) without tracking exact probabilities. If a state is unreachable through a composed system, it's unreachable through each stage individually. Possibilistic gating — reject impossible outcomes — doesn't need exact probability computation.</p>
 
     <SchemeRepl client:load initialCode={`; Possibilistic gating: reject impossible, keep possible
 ; No probabilities needed — support is enough
@@ -255,11 +255,6 @@ for src in ["cat", "dog", "rock"]:
       <li><a href="/natural-breadcrumbs/liell-cock-2025/">🍞 Liell-Cock 2025</a> — imprecise probability generalizes the possibilistic shadow</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
-    <ul>
-      <li><a href="https://june.kim/ambient-category"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Ambient Category</a> — why FinStoch is the right setting</li>
-    </ul>
-
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Monad_(category_theory)">🅦 Monad</a></li>
@@ -274,6 +269,8 @@ for src in ["cat", "dog", "rock"]:
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/1910.03752"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for the support monad morphism, §4 for the bimonadality result.
     </div>
+
+    <p class="text-sm text-gray-500 mt-6">Framework connection: The possibilistic shadow justifies the Natural Framework's Filter stage doing reachability-based gating without exact probabilities. (<a href="https://june.kim/ambient-category">Ambient Category</a>)</p>
 
   </main>
 </Layout>

@@ -184,7 +184,7 @@ for x in range(0, 8):
 
     <!-- 6. Copy and discard -->
     <h3>Copy and discard — the structure underneath</h3>
-    <p>An <a href="https://en.wikipedia.org/wiki/Distributive_category">🅦 imperative category</a> has two special operations per type: <strong>copy</strong> (ν) and <strong>discard</strong> (ε). A morphism is <strong>deterministic</strong> if it commutes with copy. This is how Fritz (2020) distinguishes deterministic from stochastic morphisms — and why your pipeline's Filter must be deterministic but Attend must not.</p>
+    <p>An <a href="https://en.wikipedia.org/wiki/Distributive_category">🅦 imperative category</a> has two special operations per type: <strong>copy</strong> (ν) and <strong>discard</strong> (ε). A morphism is <strong>deterministic</strong> if it commutes with copy. This is how Fritz (2020) distinguishes deterministic from stochastic morphisms.</p>
 
     <Repl client:load initialCode={`# Copy: ν(x) = (x, x) — duplicate the state
 # Discard: ε(x) = None — throw it away
@@ -290,7 +290,7 @@ print("That's the bridge theorem.")
 
     <!-- 8. Stoch is an imperative category -->
     <h3>The punchline — Corollary 76</h3>
-    <p>Stoch (stochastic matrices — the category where the pipeline lives) is a <strong>posetal imperative category</strong>. That means every Hoare rule in Section 5 holds there as a theorem. You didn't choose to match contracts to Hoare triples. The category made you.</p>
+    <p>Stoch (stochastic matrices) is a <strong>posetal imperative category</strong>. That means every Hoare rule in Section 5 holds there as a theorem. Hoare triples aren't an engineering choice — they're forced by the category.</p>
 
     <Repl client:load initialCode={`# Stoch = Kleisli category of the subdistribution monad
 # Morphisms are stochastic functions: X -> Distribution(Y)
@@ -413,12 +413,6 @@ print("through the bind — same as your Lean proof.")
       <li><a href="/natural-breadcrumbs/kura-2026/">🍞 Kura 2026</a> — the restricted pointwise order (handshake as graded monad)</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
-    <ul>
-      <li><a href="https://june.kim/ambient-category"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Ambient Category</a> — why Stoch is the right setting for the pipeline</li>
-      <li><a href="https://june.kim/the-handshake"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Handshake</a> — the composition argument in prose</li>
-    </ul>
-
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Hoare_logic">🅦 Hoare logic</a></li>
@@ -432,6 +426,8 @@ print("through the bind — same as your Lean proof.")
     <h3>Translation notes</h3>
     <p>All Python examples on this page use finite dicts as probability distributions. The paper works over arbitrary measurable spaces, continuous distributions, and the full subdistribution monad on StdBorel. For example: the WHILE rule on this page counts down from 10 to 0 using integers. In the paper, the same rule applies to a probabilistic loop over continuous state spaces — a particle filter updating a belief distribution until convergence. The invariant structure (P survives each iteration) is identical. The state space is not.</p>
     <p>The bridge theorem section is tagged <strong class="text-green-400">Exact</strong> — the Python computes the same equivalence the Lean proof verifies. Every other example is <strong class="text-green-400">Simplified</strong>.</p>
+
+    <p class="text-sm text-gray-500 mt-6">Framework connection: Stoch is the ambient category for the Natural Framework pipeline; the COMP rule is the handshake between stages. (<a href="https://june.kim/ambient-category">Ambient Category</a>, <a href="https://june.kim/the-handshake">The Handshake</a>)</p>
 
     <!-- Paper link -->
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

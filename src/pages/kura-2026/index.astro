@@ -15,7 +15,7 @@ import SchemeRepl from '../../components/SchemeRepl';
     <p class="text-sm text-gray-500 mb-6">Prereqs: <a href="/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> (Hoare triples), <a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> (graded effects). 10 min total.</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8">
-      <p class="text-lg" style="max-width:none">An <strong>indexed graded monad</strong> combines two ideas: the <em>index</em> says which type of state you start and end in (like a state machine), and the <em>grade</em> tracks cumulative effects. The handshake between pipeline stages is Definition 7: the output index of stage 1 must equal the input index of stage 2.</p>
+      <p class="text-lg" style="max-width:none">An <strong>indexed graded monad</strong> combines two ideas: the <em>index</em> says which type of state you start and end in (like a state machine), and the <em>grade</em> tracks cumulative effects. Definition 7 gives the composition rule: the output index of stage 1 must equal the input index of stage 2.</p>
     </div>
 
     <!-- 1. Indexing = state machine -->
@@ -89,10 +89,10 @@ print(step1.bind(step2))
                  (ig-val result))
         (error "Index mismatch"))))
 
-; perceive: raw->cached, cost 2
+; stage 1: raw->cached, cost 2
 (define step1 (make-ig 'raw 'cached 2 '(x y z)))
 
-; filter: cached->filtered, cost 1
+; stage 2: cached->filtered, cost 1
 (define step2-fn
   (lambda (v) (make-ig 'cached 'filtered 1 (length v))))
 
@@ -155,8 +155,8 @@ print(step1.bind(step2))
               (lambda (x) ((list-ref t2 6) ((list-ref t1 6) x))))
         (error "Handshake failed: index mismatch"))))
 
-(define t1 (triple 'perceive 'any 'valid 'raw 'cached 2 (lambda (x) (abs x))))
-(define t2 (triple 'filter   'valid 'small 'cached 'filtered 1 (lambda (x) (min x 10))))
+(define t1 (triple 'stage1 'any 'valid 'raw 'cached 2 (lambda (x) (abs x))))
+(define t2 (triple 'stage2 'valid 'small 'cached 'filtered 1 (lambda (x) (min x 10))))
 
 (define result (compose-triples t1 t2 +))
 (display "Composed: ") (display (list-ref result 3))
@@ -232,11 +232,6 @@ vals)
       <li><a href="/natural-breadcrumbs/liell-cock-2025/">🍞 Liell-Cock 2025</a> — graded monads in the Para construction</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
-    <ul>
-      <li><a href="https://june.kim/the-handshake"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Handshake</a> — the pipeline's composition argument maps to Def 7</li>
-    </ul>
-
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Monad_(category_theory)">🅦 Monad</a></li>
@@ -251,6 +246,8 @@ vals)
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/2601.14846"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for indexed graded monads (Def 3), §4 for the Hoare logic (Def 7).
     </div>
+
+    <p class="text-sm text-gray-500 mt-6">Framework connection: The Natural Framework pipeline's handshake composition maps directly to Definition 7 — the output index of each stage must match the input index of the next. (<a href="https://june.kim/the-handshake">The Handshake</a>)</p>
 
   </main>
 </Layout>

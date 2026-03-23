@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Hoare/Graded.lean — Grades from a preordered monoid">
@@ -30,6 +32,38 @@ import Layout from '../../../layouts/Base.astro';
   Triple P f Q &and;
   &forall; a, P a &rarr; &forall; b, Support.support (f a) b &rarr;
     m&alpha;.measure a &le; m&beta;.measure b + PreorderedMonoid.toNat g</code></pre>
+
+    <Repl client:load initialCode={`# Graded triple: {P} f {Q} @ cost
+# Behavioral guarantee + information budget.
+# Grades are additive: composing costs g1+g2.
+import math
+
+def info(items):
+    """Information = log2 of number of possibilities"""
+    return math.log2(max(len(items), 1))
+
+def filter_stage(items):
+    return items[:len(items)//2]  # drop half
+
+def attend_stage(items):
+    return items[:3]  # keep top 3
+
+data = list(range(16))
+after_filter = filter_stage(data)
+after_attend = attend_stage(after_filter)
+
+g1 = info(data) - info(after_filter)
+g2 = info(after_filter) - info(after_attend)
+
+print(f"filter: {len(data)} -> {len(after_filter)}"
+      f"  cost = {g1:.1f} bits")
+print(f"attend: {len(after_filter)} -> {len(after_attend)}"
+      f"  cost = {g2:.1f} bits")
+print(f"composed cost: {g1:.1f} + {g2:.1f}"
+      f" = {g1+g2:.1f} bits (additive)")
+print(f"total drop: {info(data):.1f} -> {info(after_attend):.1f}"
+      f" = {info(data)-info(after_attend):.1f} bits")
+`} />
 
     <h3>theorem graded_contract_bridge</h3>
     <p>One direction of the bridge: ContractPreserving plus a supplied cost bound gives a GradedTriple. The grade is whatever the caller provides.</p>

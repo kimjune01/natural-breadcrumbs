@@ -30,17 +30,17 @@ import SchemeRepl from '../../components/SchemeRepl';
 
         <!-- Box A -->
         <rect x="60" y="50" width="120" height="70" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="120" y="90" text-anchor="middle" fill="currentColor" font-size="13">Filter</text>
+        <text x="120" y="90" text-anchor="middle" fill="currentColor" font-size="13">Box A</text>
 
         <!-- Box B -->
         <rect x="280" y="50" width="120" height="70" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
-        <text x="340" y="90" text-anchor="middle" fill="currentColor" font-size="13">Attend</text>
+        <text x="340" y="90" text-anchor="middle" fill="currentColor" font-size="13">Box B</text>
 
         <!-- Input ports on A (left side, small circles) -->
         <circle cx="60" cy="70" r="3" fill="currentColor" fill-opacity="0.4"/>
         <circle cx="60" cy="100" r="3" fill="currentColor" fill-opacity="0.4"/>
-        <text x="48" y="73" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">indexed</text>
-        <text x="48" y="103" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">policy</text>
+        <text x="48" y="73" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">type X</text>
+        <text x="48" y="103" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">type Y</text>
 
         <!-- Input wires -->
         <line x1="25" y1="70" x2="57" y2="70" stroke="currentColor" stroke-width="1.5"/>
@@ -48,7 +48,7 @@ import SchemeRepl from '../../components/SchemeRepl';
 
         <!-- Output port on A -->
         <circle cx="180" cy="85" r="3" fill="currentColor" fill-opacity="0.4"/>
-        <text x="210" y="78" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.5">selected</text>
+        <text x="210" y="78" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.5">type Z</text>
 
         <!-- Wire from A to B -->
         <line x1="183" y1="85" x2="277" y2="70" stroke="currentColor" stroke-width="1.5"/>
@@ -56,7 +56,7 @@ import SchemeRepl from '../../components/SchemeRepl';
         <!-- Input ports on B -->
         <circle cx="280" cy="70" r="3" fill="currentColor" fill-opacity="0.4"/>
         <circle cx="280" cy="100" r="3" fill="currentColor" fill-opacity="0.4"/>
-        <text x="268" y="103" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">policy</text>
+        <text x="268" y="103" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">type Y</text>
 
         <!-- Policy wire splits: input goes to both A and B -->
         <line x1="25" y1="100" x2="25" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
@@ -69,14 +69,14 @@ import SchemeRepl from '../../components/SchemeRepl';
 
         <!-- Output wire -->
         <line x1="403" y1="85" x2="475" y2="85" stroke="currentColor" stroke-width="1.5"/>
-        <text x="472" y="78" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">ranked</text>
+        <text x="472" y="78" text-anchor="end" fill="currentColor" font-size="8" fill-opacity="0.5">type Z</text>
 
         <!-- Type annotations on ports -->
         <text x="120" y="42" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">types must match</text>
       </svg>
     </div>
 
-    <p>Boxes compose by wiring outputs to inputs. The types constrain which wirings are legal — you can't plug a "ranked" output into an "indexed" input. The composite is itself a box, with its own input and output ports. This is operadic composition: boxes all the way down.</p>
+    <p>Boxes compose by wiring outputs to inputs. The types constrain which wirings are legal — you can't plug a "type Z" output into a "type X" input. The composite is itself a box, with its own input and output ports. This is operadic composition: boxes all the way down.</p>
 
     <SchemeRepl client:load initialCode={`; A box is a typed interface: input ports -> output ports
 ; We represent a box as (name inputs outputs)
@@ -231,9 +231,6 @@ print(f"Equal: {left == right}")
 `} />
     </details>
 
-    <h3>Where this lives in the pipeline</h3>
-    <p>The Natural Framework's pipeline — Perceive, Cache, Filter, Attend, Remember — is a wiring diagram in Spivak's operad. Each stage is a box with typed ports. The composition law guarantees that wiring four stages into a pipeline is well-defined regardless of grouping. The operad gives you the <strong>syntax</strong> — what can connect to what. Fritz's Markov categories give you the <strong>semantics</strong> — what the connections compute.</p>
-
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">
       <table class="w-full text-sm">
@@ -263,11 +260,6 @@ print(f"Equal: {left == right}")
       <li><a href="/natural-breadcrumbs/hedges-2018/">🍞 Hedges 2018</a> — game theory via compositional diagrams</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
-    <ul>
-      <li><a href="https://june.kim/the-natural-framework"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Natural Framework</a> — the pipeline whose syntax this operad describes</li>
-    </ul>
-
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Operad">🅦 Operad</a></li>
@@ -282,6 +274,8 @@ print(f"Equal: {left == right}")
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/1305.0297"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §2 for the operad definition, §3 for propagation of properties through wiring.
     </div>
+
+    <p class="text-sm text-gray-500 mt-6">Framework connection: The Natural Framework pipeline is a wiring diagram in Spivak's operad — the operad gives the syntax of how stages connect, while Markov categories give the semantics. (<a href="https://june.kim/the-natural-framework">The Natural Framework</a>)</p>
 
   </main>
 </Layout>

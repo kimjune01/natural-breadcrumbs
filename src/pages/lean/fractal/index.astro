@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Fractal.lean — Recursive consolidation with budget termination">
@@ -35,6 +37,39 @@ import Layout from '../../../layouts/Base.astro';
       &#123; base <span class="text-blue-300">with</span> consolidate := tower_consolidate base encode d &#125;
     inner.cycle (encode pol per) pol &gt;&gt;= <span class="text-blue-300">fun</span> result =&gt;
     pure result.1</code></pre>
+
+    <SchemeRepl client:load initialCode={`; Fractal tower: recursive consolidation with budget
+; At depth 0 => passthrough (return input unchanged)
+; Each level costs 1 bit; at 0 bits, recursion stops.
+
+(define (tower-consolidate depth policy persisted)
+  (if (= depth 0)
+    policy  ; passthrough — no bits left
+    (let* ((inner-policy
+             (tower-consolidate (- depth 1) policy persisted))
+           (updated (string-append inner-policy "+")))
+      updated)))
+
+(define (bits-at-depth initial d)
+  (max 0 (- initial d)))
+
+; Tower with 3-bit budget
+(display "depth 0 (0 bits): ")
+(display (tower-consolidate 0 "p0" "data"))
+(newline)
+(display "depth 1 (2 bits): ")
+(display (tower-consolidate 1 "p0" "data"))
+(newline)
+(display "depth 3 (0 bits): ")
+(display (tower-consolidate 3 "p0" "data"))
+(newline)
+(display "budget: ")
+(do ((d 0 (+ d 1))) ((> d 4))
+  (display (bits-at-depth 3 d))
+  (display " "))
+(newline)
+(display "Terminates: budget hits 0 at depth=initial")
+`} />
 
     <h3>theorem tower_preserves_up</h3>
     <p>Up-induction (the life_at_zero path). Start at passthrough (depth 0): output = input, trivially preserves the postcondition. Build upward: if depth d preserves for a given policy, depth d+1 does too. This is the constructive path &mdash; observe life, build the mechanism step by step.</p>

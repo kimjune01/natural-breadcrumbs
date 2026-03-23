@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Stochasticity.lean — Determinism forces confusion forces error">
@@ -40,6 +42,36 @@ import Layout from '../../../layouts/Base.astro';
     : t.output env s0 i &ne; required i &or;
       t.output env s0 j &ne; required j</code></pre>
     <p class="text-sm text-gray-500">The proof first derives that the outputs are equal (from same_state_same_input_same_output), then checks: if output matches required at i, it must mismatch at j (since required differs). Otherwise, it already mismatches at i.</p>
+
+    <Repl client:load initialCode={`# A deterministic transducer with N states MUST cycle.
+# When it cycles on the same input but needs different
+# outputs, it's wrong at least once.
+
+class DetTransducer:
+    def __init__(self, n_states):
+        self.n = n_states
+        self.state = 0
+    def step(self, inp):
+        out = (self.state + inp) % 10
+        self.state = (self.state + 1) % self.n  # deterministic
+        return out
+
+t = DetTransducer(n_states=3)
+env =    [1, 1, 1, 1]  # same input every time
+needed = [1, 2, 3, 4]  # but environment needs different outputs
+
+results = []
+for i, inp in enumerate(env):
+    out = t.step(inp)
+    ok = "ok" if out == needed[i] else "WRONG"
+    results.append((i, out, needed[i], ok))
+
+print(f"3 states, 4 steps — pigeonhole forces a state repeat")
+for i, out, need, ok in results:
+    print(f"  t={i}: state cycles, out={out}, need={need} [{ok}]")
+print("\\nDeterminism + finite states + varied demands = error.")
+print("Stochasticity breaks the 'same state => same output' chain.")
+`} />
 
     <h3>theorem finite_discrimination</h3>
     <p>Given a state collision where the environment requires different outputs, some time step k exists where the transducer errs. Existential packaging of must_err_at_confusion.</p>

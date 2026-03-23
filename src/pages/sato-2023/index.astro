@@ -56,7 +56,7 @@ print(f"D(p || q) = {kl(p, q):.4f} bits")
 
     <h3>Enrichment — metric on morphisms</h3>
     <p>The key insight: a divergence on the monad lifts to a divergence on Kleisli arrows. Two stochastic functions f, g : X → D(Y) are "close" if their output distributions are close for every input. This turns the hom-sets of the Kleisli category into metric spaces.</p>
-    <p>In the pipeline: the <code>NonExpanding</code> typeclass says a morphism doesn't increase distance. That's the data processing inequality for metrics — processing can't make programs more distinguishable than they already are.</p>
+    <p>A non-expanding morphism doesn't increase distance. That's the data processing inequality for metrics — processing can't make programs more distinguishable than they already are.</p>
 
     <SchemeRepl client:load initialCode={`; Distance between two morphisms:
 ; d(f, g) = max over inputs x of D(f(x) || g(x))
@@ -150,11 +150,6 @@ print(f"d(f, g) = {d:.4f} bits")
       <li><a href="/natural-breadcrumbs/gaboardi-2021/">🍞 Gaboardi 2021</a> — graded Hoare logic (tracks effects including cost)</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
-    <ul>
-      <li><a href="https://june.kim/the-natural-framework"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Natural Framework</a> — NonExpanding typeclass</li>
-    </ul>
-
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Divergence_(statistics)">🅦 Statistical divergence</a></li>
@@ -170,6 +165,8 @@ print(f"d(f, g) = {d:.4f} bits")
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/2206.05716"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for divergences on monads, §5 for the connection to relational program logics.
     </div>
+
+    <p class="text-sm text-gray-500 mt-6">Framework connection: The Natural Framework's NonExpanding typeclass captures exactly this — pipeline stages must be non-expanding morphisms in the divergence-enriched category. (<a href="https://june.kim/the-natural-framework">The Natural Framework</a>)</p>
 
   </main>
 </Layout>

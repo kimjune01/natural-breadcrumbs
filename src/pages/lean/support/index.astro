@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Support.lean — Which outputs a computation can produce">
@@ -36,6 +38,36 @@ import Layout from '../../../layouts/Base.astro';
     &middot; intro h; exact &langle;m, rfl, h&rangle;
     &middot; intro &langle;x, hx, hy&rangle;; rw [hx] at hy; exact hy</code></pre>
     <p class="text-sm text-gray-500">The proofs are simple: <code>pure</code> in <code>Id</code> is the identity, so its support is trivially a singleton. <code>bind</code> in <code>Id</code> is function application, so the only intermediate is the value itself.</p>
+
+    <SchemeRepl client:load initialCode={`; Support = which outputs are reachable
+; A deterministic function has support {f(x)}.
+; A stochastic function has support = all possible outputs.
+
+(define (det-support f x)
+  (list (f x)))  ; exactly one possible output
+
+(define (stoch-support f x)
+  (f x))  ; returns the full list of possibilities
+
+(define (double x) (* x 2))
+(define (coin-flip x) (list x (- x)))  ; two outcomes
+
+(display "det support of double(3): ")
+(display (det-support double 3))
+(newline)
+(display "stoch support of coin-flip(5): ")
+(display (stoch-support coin-flip 5))
+(newline)
+(display "bind: for each y in support(f(x)),")
+(display " collect support(g(y))")
+(newline)
+(define (bind-support sf sg x)
+  (apply append (map (lambda (y) (sg y)) (sf x))))
+(display "support(coin-flip >>= coin-flip)(3): ")
+(display (bind-support
+  (lambda (x) (coin-flip x))
+  (lambda (y) (coin-flip y)) 3))
+`} />
 
     <h3>Connections</h3>
     <ul>

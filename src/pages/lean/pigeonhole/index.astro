@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Pigeonhole.lean — No injection from n+1 to n">
@@ -32,6 +34,29 @@ import Layout from '../../../layouts/Base.astro';
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">theorem</span> <span class="text-green-300">pigeonhole</span> &#123;N : Nat&#125; (f : Fin (N + 1) &rarr; Fin N)
     : &exists; i j : Fin (N + 1), i &lt; j &and; f i = f j</code></pre>
     <p class="text-sm text-gray-500">Uses <code>Fin.no_injection</code> by contradiction: if no collision existed, f would be injective, which is impossible.</p>
+
+    <Repl client:load initialCode={`# Pigeonhole: N+1 items into N slots => collision
+# This is why bounded transducers must repeat states.
+
+def find_collision(values, num_slots):
+    """Map N+1 values into Fin(N). Return colliding pair."""
+    seen = {}
+    for i, v in enumerate(values):
+        slot = v % num_slots
+        if slot in seen:
+            return (seen[slot], i, slot)
+        seen[slot] = i
+    return None  # impossible if len(values) > num_slots
+
+N = 4
+items = list(range(N + 1))  # 5 items into 4 slots
+i, j, slot = find_collision(items, N)
+print(f"{N+1} items into {N} slots:")
+print(f"  item[{i}]={items[i]} and item[{j}]={items[j]}"
+      f" both map to slot {slot}")
+print(f"  Collision guaranteed — no injection from"
+      f" Fin({N+1}) to Fin({N})")
+`} />
 
     <h3>theorem pigeonhole_nat</h3>
     <p>A convenience wrapper for Nat-indexed sequences: among values f(0), ..., f(N), at least two in <code>Fin N</code> must collide.</p>

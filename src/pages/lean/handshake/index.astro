@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Handshake.lean — Stage N's guarantee = Stage N+1's assumption">
@@ -35,6 +37,34 @@ import Layout from '../../../layouts/Base.astro';
         Support.support (p.cycle input policy) result &rarr;
         h.consolidate_attend.pre result.1</code></pre>
     <p class="text-sm text-gray-500">The proof unfolds the cycle definition and peels apart each bind using <code>support_bind</code>. After extracting the forward stages, Remember, and Consolidate, it applies the handshake compatibility to convert the postcondition into the precondition.</p>
+
+    <Repl client:load initialCode={`# Handshake: post(stage N) implies pre(stage N+1)
+# If the guarantee breaks, the next stage can't trust its input.
+
+def perceive(raw):
+    return {"type": "encoded", "data": raw.upper()}
+
+def cache(encoded):
+    assert encoded["type"] == "encoded"  # pre: must be encoded
+    return {"type": "indexed", "key": hash(encoded["data"]),
+            "data": encoded["data"]}
+
+def filter_stage(indexed):
+    assert indexed["type"] == "indexed"  # pre: must be indexed
+    return {"type": "selected", "data": indexed["data"][:3]}
+
+# Each postcondition matches the next precondition:
+x = perceive("hello world")
+print(f"perceive post: type={x['type']}")
+
+y = cache(x)  # pre satisfied: type == 'encoded'
+print(f"cache post:    type={y['type']}")
+
+z = filter_stage(y)  # pre satisfied: type == 'indexed'
+print(f"filter post:   type={z['type']}")
+
+print("\\nAll handshakes hold — pipeline composes safely.")
+`} />
 
     <h3>theorem cycle_preserves_policy_at</h3>
     <p>A weaker form: Consolidate's postcondition only needs to hold for the specific input policy (not all policies). Needed for up-induction on the fractal tower where we only know the postcondition for the starting policy.</p>

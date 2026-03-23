@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Contracts.lean — Postconditions on morphism outputs">
@@ -45,6 +47,38 @@ import Layout from '../../../layouts/Base.astro';
     (hg : ContractPreserving g cg)
     : ContractPreserving (Kernel.comp f g) cg</code></pre>
     <p class="text-sm text-gray-500">The proof decomposes the composite's support via <code>support_bind</code>: any output c came from some intermediate b, and since g preserves its contract, c satisfies it.</p>
+
+    <Repl client:load initialCode={`# ContractPreserving: every possible output satisfies the contract
+# IterationStable: the contract survives re-application
+
+import random
+
+def filter_stage(items):
+    """Filter contract: output is strictly smaller than input"""
+    return random.sample(items, k=max(1, len(items)//2))
+
+def is_sorted(lst):
+    return all(lst[i] <= lst[i+1] for i in range(len(lst)-1))
+
+def sort_stage(items):
+    return sorted(items)
+
+# ContractPreserving: every output of sort_stage is sorted
+data = [5, 2, 8, 1, 9, 3]
+result = sort_stage(data)
+print(f"sort({data}) = {result}")
+print(f"contract 'is_sorted' holds: {is_sorted(result)}")
+
+# IterationStable: sort a sorted list — still sorted
+result2 = sort_stage(result)
+print(f"sort(sort(data)) = {result2}")
+print(f"contract still holds: {is_sorted(result2)}")
+
+# Filter contract: output strictly smaller
+filtered = filter_stage(data)
+print(f"\\nfilter({data}) = {filtered}")
+print(f"len shrinks: {len(data)} -> {len(filtered)}")
+`} />
 
     <h3>Connections</h3>
     <ul>

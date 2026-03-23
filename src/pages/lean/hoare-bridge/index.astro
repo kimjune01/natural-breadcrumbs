@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
 ---
 
 <Layout title="🍞 Hoare/Bridge.lean — Contracts = Hoare triples">
@@ -18,6 +20,31 @@ import Layout from '../../../layouts/Base.astro';
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">theorem</span> <span class="text-green-300">contract_is_triple</span> [Monad M] [Support M]
     &#123;f : Kernel M &alpha; &beta;&#125; &#123;Q : Contract &beta;&#125;
     : ContractPreserving f Q &harr; Triple (<span class="text-blue-300">fun</span> _ =&gt; True) f Q</code></pre>
+
+    <Repl client:load initialCode={`# contract_is_triple: ContractPreserving f Q  <=>  {True} f {Q}
+# A contract with no precondition IS a Hoare triple.
+
+def contract_preserving(f, Q, inputs):
+    """Check: for ALL inputs, every output satisfies Q"""
+    return all(Q(f(x)) for x in inputs)
+
+def triple(P, f, Q, inputs):
+    """Check: for inputs where P holds, outputs satisfy Q"""
+    return all(Q(f(x)) for x in inputs if P(x))
+
+is_positive = lambda y: y > 0
+always_true = lambda x: True
+abs_fn = lambda x: abs(x) + 1
+
+inputs = range(-10, 10)
+
+cp = contract_preserving(abs_fn, is_positive, inputs)
+tr = triple(always_true, abs_fn, is_positive, inputs)
+
+print(f"ContractPreserving(abs+1, positive): {cp}")
+print(f"Triple(True, abs+1, positive):       {tr}")
+print(f"They're the same thing:              {cp == tr}")
+`} />
 
     <h3>theorem handshake_enables_comp</h3>
     <p>Handshake-compatible stages compose. If f establishes the handshake's postcondition and g requires the handshake's precondition, sequential composition carries P to R. The handshake's compatibility lemma (<code>post implies pre</code>) bridges the gap via the rule of consequence.</p>

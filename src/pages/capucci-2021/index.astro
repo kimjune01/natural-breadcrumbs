@@ -183,14 +183,14 @@ prices)
                  (display "Pipeline goal violated."))))))
 
 (define stages (list
-  (lambda (x) (abs x))           ; perceive: make positive
-  (lambda (x) (min x 100))       ; filter: cap at 100
-  (lambda (x) (/ x 10))))        ; attend: normalize
+  (lambda (x) (abs x))           ; stage 1: make positive
+  (lambda (x) (min x 100))       ; stage 2: cap at 100
+  (lambda (x) (/ x 10))))        ; stage 3: normalize
 
 (define goals (list
-  (lambda (x) (>= x 0))          ; post-perceive: non-negative
-  (lambda (x) (<= x 100))        ; post-filter: bounded
-  (lambda (x) (<= x 10))))       ; post-attend: normalized
+  (lambda (x) (>= x 0))          ; post-stage-1: non-negative
+  (lambda (x) (<= x 100))        ; post-stage-2: bounded
+  (lambda (x) (<= x 10))))       ; post-stage-3: normalized
 
 (check-pipeline stages goals -57)
 `} />
@@ -228,12 +228,6 @@ prices)
       <li><a href="/natural-breadcrumbs/fritz-2020/">🍞 Fritz 2020</a> — the Markov category where stochastic agents live</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mb-2 mt-4">Blog (motivation)</p>
-    <ul>
-      <li><a href="https://june.kim/the-handshake"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Handshake</a> — agent composition as the pipeline's core pattern</li>
-      <li><a href="https://june.kim/the-natural-framework"><img src="/natural-breadcrumbs/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> The Natural Framework</a> — the pipeline as a composed cybernetic system</li>
-    </ul>
-
     <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Cybernetics">🅦 Cybernetics</a></li>
@@ -248,6 +242,8 @@ prices)
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/2105.06332"><img src="/natural-breadcrumbs/arxiv.webp" alt="arxiv" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/> Read the paper</a>. Start at §3 for parametrised optics, §4 for selection relations and goals.
     </div>
+
+    <p class="text-sm text-gray-500 mt-6">Framework connection: The Natural Framework pipeline is a composed cybernetic system — agent composition via parametrised optics is its core structural pattern. (<a href="https://june.kim/the-handshake">The Handshake</a>, <a href="https://june.kim/the-natural-framework">The Natural Framework</a>)</p>
 
   </main>
 </Layout>
