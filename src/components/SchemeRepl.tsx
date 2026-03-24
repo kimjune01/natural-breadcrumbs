@@ -35,7 +35,7 @@ function highlightScheme(code: string): string {
     if (code[i] === ';') {
       const end = code.indexOf('\n', i);
       const comment = end === -1 ? code.slice(i) : code.slice(i, end);
-      tokens.push('<span style="color:#6b7280">' + esc(comment) + '</span>');
+      tokens.push('<span class="hl-comment">' + esc(comment) + '</span>');
       i += comment.length;
       continue;
     }
@@ -43,36 +43,34 @@ function highlightScheme(code: string): string {
     if (code[i] === '"') {
       let j = i + 1;
       while (j < code.length && code[j] !== '"') { if (code[j] === '\\') j++; j++; }
-      if (j < code.length) j++; // include closing "
-      tokens.push('<span style="color:#fbbf24">' + esc(code.slice(i, j)) + '</span>');
+      if (j < code.length) j++;
+      tokens.push('<span class="hl-string">' + esc(code.slice(i, j)) + '</span>');
       i = j;
       continue;
     }
     // Boolean
     if (code[i] === '#' && (code[i+1] === 't' || code[i+1] === 'f') &&
         (i+2 >= code.length || /[\s)]/.test(code[i+2]))) {
-      tokens.push('<span style="color:#f472b6">' + code.slice(i, i+2) + '</span>');
+      tokens.push('<span class="hl-bool">' + code.slice(i, i+2) + '</span>');
       i += 2;
       continue;
     }
-    // Word (symbol, keyword, number)
+    // Word
     if (/[^\s()'"]/.test(code[i])) {
       let j = i;
       while (j < code.length && /[^\s()'"]/.test(code[j])) j++;
       const word = code.slice(i, j);
-      // Check if preceded by ( for keyword detection
       const prevChar = i > 0 ? code[i-1] : '';
       if (prevChar === '(' && kwSet.has(word)) {
-        tokens.push('<span style="color:#60a5fa">' + esc(word) + '</span>');
+        tokens.push('<span class="hl-keyword">' + esc(word) + '</span>');
       } else if (/^-?\d+\.?\d*(\/\d+)?$/.test(word)) {
-        tokens.push('<span style="color:#34d399">' + esc(word) + '</span>');
+        tokens.push('<span class="hl-number">' + esc(word) + '</span>');
       } else {
         tokens.push(esc(word));
       }
       i = j;
       continue;
     }
-    // Everything else (parens, whitespace, quotes)
     tokens.push(esc(code[i]));
     i++;
   }
@@ -171,8 +169,8 @@ export default function SchemeRepl({ initialCode }: { initialCode?: string }) {
       <div className="relative">
         <pre
           ref={preRef}
-          className="absolute inset-0 bg-zinc-900 font-mono text-sm p-4 overflow-hidden pointer-events-none whitespace-pre-wrap break-words"
-          style={{ tabSize: 2 }}
+          className="absolute inset-0 font-mono text-sm p-4 overflow-hidden whitespace-pre-wrap break-words"
+          style={{ tabSize: 2, background: 'var(--repl-bg, #18181b)', pointerEvents: 'none', lineHeight: '1.5', margin: 0, border: 'none' }}
           aria-hidden="true"
           dangerouslySetInnerHTML={{ __html: highlightScheme(code) + '\n' }}
         />
@@ -183,8 +181,8 @@ export default function SchemeRepl({ initialCode }: { initialCode?: string }) {
           onKeyDown={handleKeyDown}
           onScroll={syncScroll}
           spellCheck={false}
-          className="relative w-full bg-transparent text-transparent caret-blue-300 font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
-          style={{ tabSize: 2, caretColor: '#93c5fd' }}
+          className="repl-input relative w-full font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
+          style={{ tabSize: 2, color: 'transparent', caretColor: 'var(--repl-caret, #93c5fd)', background: 'transparent', WebkitTextFillColor: 'transparent', lineHeight: '1.5', margin: 0 }}
           rows={rows}
         />
       </div>

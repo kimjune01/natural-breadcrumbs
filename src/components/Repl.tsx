@@ -51,7 +51,7 @@ function highlightPython(code: string): string {
     if (code[i] === '#') {
       const end = code.indexOf('\n', i);
       const comment = end === -1 ? code.slice(i) : code.slice(i, end);
-      tokens.push('<span style="color:#6b7280">' + esc(comment) + '</span>');
+      tokens.push('<span class="hl-comment">' + esc(comment) + '</span>');
       i += comment.length;
       continue;
     }
@@ -70,7 +70,7 @@ function highlightPython(code: string): string {
         if (code.slice(j, j + delim.length) === delim) { j += delim.length; break; }
         j++;
       }
-      tokens.push('<span style="color:#fbbf24">' + esc(code.slice(i, j)) + '</span>');
+      tokens.push('<span class="hl-string">' + esc(code.slice(i, j)) + '</span>');
       i = j;
       continue;
     }
@@ -78,7 +78,7 @@ function highlightPython(code: string): string {
     if (code[i] === '@' && (i === 0 || code[i-1] === '\n')) {
       let j = i;
       while (j < code.length && code[j] !== '\n') j++;
-      tokens.push('<span style="color:#a78bfa">' + esc(code.slice(i, j)) + '</span>');
+      tokens.push('<span class="hl-decorator">' + esc(code.slice(i, j)) + '</span>');
       i = j;
       continue;
     }
@@ -86,7 +86,7 @@ function highlightPython(code: string): string {
     if (/\d/.test(code[i]) && (i === 0 || /[\s([\{,=:+\-*/<>!]/.test(code[i-1]))) {
       let j = i;
       while (j < code.length && /[\d._eExXoObBa-fA-Fj]/.test(code[j])) j++;
-      tokens.push('<span style="color:#34d399">' + esc(code.slice(i, j)) + '</span>');
+      tokens.push('<span class="hl-number">' + esc(code.slice(i, j)) + '</span>');
       i = j;
       continue;
     }
@@ -96,9 +96,9 @@ function highlightPython(code: string): string {
       while (j < code.length && /[a-zA-Z0-9_]/.test(code[j])) j++;
       const word = code.slice(i, j);
       if (kwSet.has(word)) {
-        tokens.push('<span style="color:#60a5fa">' + esc(word) + '</span>');
+        tokens.push('<span class="hl-keyword">' + esc(word) + '</span>');
       } else if (builtinSet.has(word)) {
-        tokens.push('<span style="color:#c084fc">' + esc(word) + '</span>');
+        tokens.push('<span class="hl-builtin">' + esc(word) + '</span>');
       } else {
         tokens.push(esc(word));
       }
@@ -194,8 +194,8 @@ random.seed(int(time.time() * 1000) % 2**32)
       <div className="relative">
         <pre
           ref={preRef}
-          className="absolute inset-0 bg-zinc-900 font-mono text-sm p-4 overflow-hidden pointer-events-none whitespace-pre-wrap break-words"
-          style={{ tabSize: 4 }}
+          className="absolute inset-0 font-mono text-sm p-4 overflow-hidden whitespace-pre-wrap break-words"
+          style={{ tabSize: 4, background: 'var(--repl-bg, #18181b)', pointerEvents: 'none', lineHeight: '1.5', margin: 0, border: 'none' }}
           aria-hidden="true"
           dangerouslySetInnerHTML={{ __html: highlightPython(code) + '\n' }}
         />
@@ -206,8 +206,8 @@ random.seed(int(time.time() * 1000) % 2**32)
           onKeyDown={handleKeyDown}
           onScroll={syncScroll}
           spellCheck={false}
-          className="relative w-full bg-transparent text-transparent caret-green-300 font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
-          style={{ tabSize: 4, caretColor: '#86efac' }}
+          className="repl-input relative w-full font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
+          style={{ tabSize: 4, color: 'transparent', caretColor: 'var(--repl-caret, #86efac)', background: 'transparent', WebkitTextFillColor: 'transparent', lineHeight: '1.5', margin: 0 }}
           rows={rows}
         />
       </div>

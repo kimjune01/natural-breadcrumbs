@@ -47,11 +47,11 @@ const { title, favicon } = Astro.props;
             background: #f0f0f0;
             color: #18181b;
           }
-          pre {
+          pre:not(.pointer-events-none) {
             background: #f5f5f4 !important; /* stone-100 */
             color: #1c1917 !important;      /* stone-900 */
           }
-          pre code, .font-mono {
+          pre:not(.pointer-events-none) code, .font-mono {
             color: #166534 !important;      /* green-800 — readable on light bg */
           }
           table th { color: #27272a; }
@@ -188,6 +188,28 @@ const { title, favicon } = Astro.props;
       :root a, :root a:link, :root a:visited { color: inherit; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
       :root a.visited-link { background: transparent; }
       :root a:hover { color: #fafafa; background: #3f3f46; }
+      /* REPL textarea — selection keeps text hidden, shows highlight only */
+      .repl-input::selection { color: transparent !important; -webkit-text-fill-color: transparent !important; background: rgba(96,165,250,0.25); }
+      :root.light .repl-input::selection { background: rgba(37,99,235,0.2); }
+      /* REPL background — used by inline styles in components */
+      :root { --repl-bg: #18181b; --repl-caret: #93c5fd; }
+      :root.light { --repl-bg: #fafaf9; --repl-caret: #1d4ed8; }
+      /* Syntax highlight tokens — dark mode */
+      .hl-comment { color: #6b7280; }
+      .hl-string { color: #fbbf24; }
+      .hl-keyword { color: #60a5fa; }
+      .hl-number { color: #34d399; }
+      .hl-bool { color: #f472b6; }
+      .hl-builtin { color: #c084fc; }
+      .hl-decorator { color: #a78bfa; }
+      /* Syntax highlight tokens — light mode */
+      :root.light .hl-comment { color: #6b7280; }
+      :root.light .hl-string { color: #b45309; }
+      :root.light .hl-keyword { color: #1d4ed8; }
+      :root.light .hl-number { color: #047857; }
+      :root.light .hl-bool { color: #be185d; }
+      :root.light .hl-builtin { color: #7c3aed; }
+      :root.light .hl-decorator { color: #6d28d9; }
     </style>
   </head>
   <body class="min-h-screen">
