@@ -79,6 +79,19 @@ Pattern: static SVG → slider/drag input + JS that redraws elements. Reference 
 | `leinster-2021` | diversity indices | Slider q=0..4, circles resize + fade, D readout | high | **done** |
 | `ho-wu-2026` | Bayesian lens | Drag prior bars, posterior bars update via Bayes | high | planned |
 | `cogsci/index` | Bayesian network | Click Rain on/off, conditional probs propagate | high | planned |
+| **Scientific method** | | | | |
+| `scientific-method/ioannidis-2005` | confusion matrix | Slider: prior %, all cells + FDR update | high | **done** |
+| `scientific-method/registered-prediction` | calibration chart | Drag predicted %, see actual outcome fraction | high | planned |
+| `scientific-method/boole-1854` | logic gates | Click inputs, outputs propagate | medium | planned |
+| **ML** | | | | |
+| `ml/ml-04` | sigmoid curve | Slider: z, dot rides curve, class readout | high | **done** |
+| `ml/ml-07` | GP posterior | Drag observed points, confidence band reshapes | high | planned |
+| `ml/ml-09` | 1D convolution | Slide kernel across signal, output builds | high | planned |
+| **Economics** | | | | |
+| `economics/econ-12` | monopoly pricing | Slider: Q, profit rectangle + readout | high | **done** |
+| `economics/econ-22` | Lorenz / Gini | Slider: Gini, curve bows, area shades | high | **done** |
+| **Physics** | | | | |
+| `physics/crowell-01` | energy conservation | Slider: height, PE/KE bars trade off | high | **done** |
 
 ### Not viable (structural/definitional — static is better)
 
