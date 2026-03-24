@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Base.astro';
+---
+
+<Layout title="Databases" favicon="🗄">
+  <main>
+
+    <a href="/reading/" class="text-sm mb-4 inline-block">&larr; back to reading</a>
+
+    <h1>🗄 Databases</h1>
+    <p class="text-gray-400 mb-2">Original CC BY-SA compilation from <a href="https://en.wikipedia.org/wiki/Database">Wikipedia</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <p class="text-gray-400 mb-6">From Codd's relational model through transactions, indexing, and NoSQL. Translated into runnable Scheme and Python with SVG diagrams.</p>
+
+    <!-- SVG: Three tables with foreign key arrows -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 420 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Table 1: Users -->
+        <rect x="20" y="20" width="100" height="80" rx="3" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="20" y1="45" x2="120" y2="45" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="70" y="38" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="bold">Users</text>
+        <text x="30" y="60" fill="currentColor" font-size="9" fill-opacity="0.7">id</text>
+        <text x="30" y="73" fill="currentColor" font-size="9" fill-opacity="0.5">name</text>
+        <text x="30" y="86" fill="currentColor" font-size="9" fill-opacity="0.5">email</text>
+
+        <!-- Table 2: Orders -->
+        <rect x="160" y="20" width="100" height="80" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="160" y1="45" x2="260" y2="45" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="210" y="38" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="bold">Orders</text>
+        <text x="170" y="60" fill="currentColor" font-size="9" fill-opacity="0.7">id</text>
+        <text x="170" y="73" fill="currentColor" font-size="9" fill-opacity="0.5">user_id</text>
+        <text x="170" y="86" fill="currentColor" font-size="9" fill-opacity="0.5">total</text>
+
+        <!-- Table 3: Items -->
+        <rect x="300" y="20" width="100" height="80" rx="3" fill="none" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="300" y1="45" x2="400" y2="45" stroke="#34d399" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="350" y="38" text-anchor="middle" fill="#34d399" font-size="10" font-weight="bold">Items</text>
+        <text x="310" y="60" fill="currentColor" font-size="9" fill-opacity="0.7">id</text>
+        <text x="310" y="73" fill="currentColor" font-size="9" fill-opacity="0.5">order_id</text>
+        <text x="310" y="86" fill="currentColor" font-size="9" fill-opacity="0.5">product</text>
+
+        <!-- FK arrow: Orders.user_id -> Users.id -->
+        <line x1="160" y1="73" x2="120" y2="60" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5"/>
+        <polygon points="122,63 120,56 114,62" fill="#f59e0b" fill-opacity="0.5"/>
+
+        <!-- FK arrow: Items.order_id -> Orders.id -->
+        <line x1="300" y1="73" x2="260" y2="60" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.5"/>
+        <polygon points="262,63 260,56 254,62" fill="#34d399" fill-opacity="0.5"/>
+
+        <!-- Caption -->
+        <text x="210" y="140" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Tables linked by foreign keys. The relational model.</text>
+      </svg>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">1. The Relational Model</td>
+            <td class="pr-3 text-gray-400">Tables, rows, columns, and keys: Codd's foundation for all structured data</td>
+            <td><a href="/reading/databases/db-01/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">2. Relational Algebra</td>
+            <td class="pr-3 text-gray-400">Select, project, join, union, difference: the formal operations on relations</td>
+            <td><a href="/reading/databases/db-02/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">3. SQL Basics</td>
+            <td class="pr-3 text-gray-400">CREATE, SELECT, JOIN, GROUP BY: the language that implements relational algebra</td>
+            <td><a href="/reading/databases/db-03/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">4. Normalization</td>
+            <td class="pr-3 text-gray-400">Eliminate redundancy by decomposing tables according to functional dependencies</td>
+            <td><a href="/reading/databases/db-04/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">5. Indexing</td>
+            <td class="pr-3 text-gray-400">B-trees, B+ trees, and hash indexes: trade space for speed on lookups</td>
+            <td><a href="/reading/databases/db-05/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">6. Transactions</td>
+            <td class="pr-3 text-gray-400">ACID properties guarantee correctness when multiple operations must succeed or fail together</td>
+            <td><a href="/reading/databases/db-06/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">7. Concurrency Control</td>
+            <td class="pr-3 text-gray-400">Locks, two-phase locking, and MVCC: let multiple transactions run without corrupting data</td>
+            <td><a href="/reading/databases/db-07/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">8. Recovery</td>
+            <td class="pr-3 text-gray-400">Write-ahead logging and checkpoints: survive crashes without losing committed data</td>
+            <td><a href="/reading/databases/db-08/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">9. Query Processing</td>
+            <td class="pr-3 text-gray-400">Query plans, join algorithms, and cost estimation: how the engine picks the fastest path</td>
+            <td><a href="/reading/databases/db-09/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3 text-gray-300">10. NoSQL and Beyond</td>
+            <td class="pr-3 text-gray-400">Key-value, document, column-family, graph: when relations are not the right shape</td>
+            <td><a href="/reading/databases/db-10/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</Layout>

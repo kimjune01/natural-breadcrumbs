@@ -24,6 +24,94 @@ function getPyodide(): Promise<any> {
   return pyodidePromise;
 }
 
+function esc(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function highlightPython(code: string): string {
+  const tokens: string[] = [];
+  let i = 0;
+  const kwSet = new Set([
+    'def','class','return','yield','from','import','as','if','elif','else',
+    'for','while','break','continue','pass','try','except','finally','raise','with',
+    'and','or','not','in','is','lambda','None','True','False','global','nonlocal',
+    'del','assert','async','await',
+  ]);
+  const builtinSet = new Set([
+    'print','range','len','int','float','str','list','dict','set','tuple',
+    'sum','min','max','abs','round','sorted','enumerate','zip','map','filter',
+    'isinstance','type','hasattr','getattr','super','property',
+    'open','format','input','iter','next','reversed','any','all',
+    'ValueError','TypeError','NameError','Exception','KeyError','IndexError',
+    'math','functools','itertools','operator','collections','fractions',
+  ]);
+
+  while (i < code.length) {
+    // Comment
+    if (code[i] === '#') {
+      const end = code.indexOf('\n', i);
+      const comment = end === -1 ? code.slice(i) : code.slice(i, end);
+      tokens.push('<span style="color:#6b7280">' + esc(comment) + '</span>');
+      i += comment.length;
+      continue;
+    }
+    // Strings: single/double, triple-quoted
+    if ((code[i] === '"' || code[i] === "'") ||
+        (code[i] === 'f' && (code[i+1] === '"' || code[i+1] === "'"))) {
+      let fPrefix = '';
+      let si = i;
+      if (code[i] === 'f') { fPrefix = 'f'; si = i + 1; }
+      const q = code[si];
+      const triple = code.slice(si, si+3) === q+q+q;
+      const delim = triple ? q+q+q : q;
+      let j = si + delim.length;
+      while (j < code.length) {
+        if (code[j] === '\\') { j += 2; continue; }
+        if (code.slice(j, j + delim.length) === delim) { j += delim.length; break; }
+        j++;
+      }
+      tokens.push('<span style="color:#fbbf24">' + esc(code.slice(i, j)) + '</span>');
+      i = j;
+      continue;
+    }
+    // Decorator
+    if (code[i] === '@' && (i === 0 || code[i-1] === '\n')) {
+      let j = i;
+      while (j < code.length && code[j] !== '\n') j++;
+      tokens.push('<span style="color:#a78bfa">' + esc(code.slice(i, j)) + '</span>');
+      i = j;
+      continue;
+    }
+    // Number
+    if (/\d/.test(code[i]) && (i === 0 || /[\s([\{,=:+\-*/<>!]/.test(code[i-1]))) {
+      let j = i;
+      while (j < code.length && /[\d._eExXoObBa-fA-Fj]/.test(code[j])) j++;
+      tokens.push('<span style="color:#34d399">' + esc(code.slice(i, j)) + '</span>');
+      i = j;
+      continue;
+    }
+    // Word (identifier, keyword, builtin)
+    if (/[a-zA-Z_]/.test(code[i])) {
+      let j = i;
+      while (j < code.length && /[a-zA-Z0-9_]/.test(code[j])) j++;
+      const word = code.slice(i, j);
+      if (kwSet.has(word)) {
+        tokens.push('<span style="color:#60a5fa">' + esc(word) + '</span>');
+      } else if (builtinSet.has(word)) {
+        tokens.push('<span style="color:#c084fc">' + esc(word) + '</span>');
+      } else {
+        tokens.push(esc(word));
+      }
+      i = j;
+      continue;
+    }
+    // Everything else
+    tokens.push(esc(code[i]));
+    i++;
+  }
+  return tokens.join('');
+}
+
 export default function Repl({ initialCode }: { initialCode?: string }) {
   const [code, setCode] = useState(initialCode || '');
   const [output, setOutput] = useState('');
@@ -31,6 +119,7 @@ export default function Repl({ initialCode }: { initialCode?: string }) {
   const [ready, setReady] = useState(false);
   const pyRef = useRef<any>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const preRef = useRef<HTMLPreElement>(null);
 
   useEffect(() => {
     getPyodide().then(py => {
@@ -38,6 +127,13 @@ export default function Repl({ initialCode }: { initialCode?: string }) {
       setReady(true);
     });
   }, []);
+
+  function syncScroll() {
+    if (textareaRef.current && preRef.current) {
+      preRef.current.scrollTop = textareaRef.current.scrollTop;
+      preRef.current.scrollLeft = textareaRef.current.scrollLeft;
+    }
+  }
 
   async function run() {
     const pyodide = pyRef.current;
@@ -81,6 +177,8 @@ random.seed(int(time.time() * 1000) % 2**32)
     }
   }
 
+  const rows = code.split('\n').length;
+
   return (
     <div className="border border-zinc-700 rounded-lg overflow-hidden my-4">
       <div className="flex items-center justify-between px-3 py-1">
@@ -93,16 +191,26 @@ random.seed(int(time.time() * 1000) % 2**32)
           {!ready ? '○' : running ? '···' : '▶'}
         </button>
       </div>
-      <textarea
-        ref={textareaRef}
-        value={code}
-        onChange={e => setCode(e.target.value)}
-        onKeyDown={handleKeyDown}
-        spellCheck={false}
-        className="w-full bg-zinc-900 text-green-300 font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
-        style={{ tabSize: 4 }}
-        rows={code.split('\n').length}
-      />
+      <div className="relative">
+        <pre
+          ref={preRef}
+          className="absolute inset-0 bg-zinc-900 font-mono text-sm p-4 overflow-hidden pointer-events-none whitespace-pre-wrap break-words"
+          style={{ tabSize: 4 }}
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{ __html: highlightPython(code) + '\n' }}
+        />
+        <textarea
+          ref={textareaRef}
+          value={code}
+          onChange={e => setCode(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onScroll={syncScroll}
+          spellCheck={false}
+          className="relative w-full bg-transparent text-transparent caret-green-300 font-mono text-sm p-4 resize-none outline-none border-none overflow-hidden"
+          style={{ tabSize: 4, caretColor: '#86efac' }}
+          rows={rows}
+        />
+      </div>
       {output && (
         <pre className="p-4 border-t border-zinc-700 text-gray-300 text-sm font-mono whitespace-pre-wrap overflow-auto" style={{ maxHeight: '300px' }}>
           {output}
