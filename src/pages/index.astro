@@ -41,7 +41,7 @@ import Layout from '../layouts/Base.astro';
 
     <h2 class="text-xl font-semibold mb-4">Mathematics</h2>
     <div class="overflow-x-auto mb-6">
-      <table class="w-full text-sm">
+      <table class="subject-table text-sm">
         <tbody>
           <tr><td class="py-2 pr-3">∫</td><td class="pr-3"><a href="/reading/calculus/">Calculus</a></td><td class="pr-3 text-gray-400">Active Calculus</td></tr>
           <tr><td class="py-2 pr-3">∞</td><td class="pr-3"><a href="/reading/real-analysis/">Real Analysis</a></td><td class="pr-3 text-gray-400">Jiří Lebl</td></tr>
@@ -59,7 +59,7 @@ import Layout from '../layouts/Base.astro';
 
     <h2 class="text-xl font-semibold mb-4">Computer Science</h2>
     <div class="overflow-x-auto mb-6">
-      <table class="w-full text-sm">
+      <table class="subject-table text-sm">
         <tbody>
           <tr><td class="py-2 pr-3">🪄</td><td class="pr-3"><a href="/reading/programming/">Programming</a></td><td class="pr-3 text-gray-400">Abelson &amp; Sussman (SICP)</td></tr>
           <tr><td class="py-2 pr-3">⚙</td><td class="pr-3"><a href="/reading/algorithms/">Algorithms</a></td><td class="pr-3 text-gray-400">Nievergelt &amp; Hinrichs</td></tr>
@@ -75,7 +75,7 @@ import Layout from '../layouts/Base.astro';
 
     <h2 class="text-xl font-semibold mb-4">Science &amp; Engineering</h2>
     <div class="overflow-x-auto mb-6">
-      <table class="w-full text-sm">
+      <table class="subject-table text-sm">
         <tbody>
           <tr><td class="py-2 pr-3">⚛</td><td class="pr-3"><a href="/reading/physics/">Physics</a></td><td class="pr-3 text-gray-400">Benjamin Crowell</td></tr>
           <tr><td class="py-2 pr-3">🎛</td><td class="pr-3"><a href="/reading/control/">Control Theory</a></td><td class="pr-3 text-gray-400">Wikipedia</td></tr>
@@ -88,7 +88,7 @@ import Layout from '../layouts/Base.astro';
 
     <h2 class="text-xl font-semibold mb-4">Social Science</h2>
     <div class="overflow-x-auto mb-6">
-      <table class="w-full text-sm">
+      <table class="subject-table text-sm">
         <tbody>
           <tr><td class="py-2 pr-3">🎲</td><td class="pr-3"><a href="/reading/game-theory/">Game Theory</a></td><td class="pr-3 text-gray-400">Jennifer Nordstrom</td></tr>
           <tr><td class="py-2 pr-3">💰</td><td class="pr-3"><a href="/reading/economics/">Economics</a></td><td class="pr-3 text-gray-400">Smith, Ricardo, Marshall + Wikipedia</td></tr>
@@ -100,44 +100,38 @@ import Layout from '../layouts/Base.astro';
     <h2 class="text-xl font-semibold mb-4">Papers</h2>
 
     <div class="overflow-x-auto mb-6">
-      <table class="w-full text-sm">
+      <table class="subject-table text-sm">
         <thead>
         <tbody>
           <tr>
             <td class="py-2 pr-3">🍞</td>
             <td class="pr-3"><a href="/reading/natural-breadcrumbs/">Natural Breadcrumbs</a></td>
-            <td class="pr-3 text-gray-400">Research papers decoded into runnable Python and SVG diagrams</td>
-            <td class="text-gray-400">21</td>
+            <td class="text-gray-400">Research papers decoded into runnable Python and SVG diagrams</td>
           </tr>
           <tr>
             <td class="py-2 pr-3">✏️</td>
             <td class="pr-3"><a href="/reading/lean/">Lean Proofs</a></td>
-            <td class="pr-3 text-gray-400">The Natural Framework proof, file by file &mdash; plain English + Lean 4</td>
-            <td class="text-gray-400">25</td>
+            <td class="text-gray-400">The Natural Framework proof, file by file &mdash; plain English + Lean 4</td>
           </tr>
           <tr>
             <td class="py-2 pr-3">🔬</td>
             <td class="pr-3"><a href="/reading/scientific-method/">The Scientific Method</a></td>
-            <td class="pr-3 text-gray-400">Bacon to Mayo and beyond: four centuries of arguing about what counts as knowledge</td>
-            <td class="text-gray-400">14</td>
+            <td class="text-gray-400">Bacon to Mayo and beyond: four centuries of arguing about what counts as knowledge</td>
           </tr>
           <tr>
             <td class="py-2 pr-3">🏛️</td>
             <td class="pr-3"><a href="/reading/cognitive-architecture/">Cognitive Architecture</a></td>
-            <td class="pr-3 text-gray-400">Minsky to Soar to transformers to LLM agents</td>
-            <td class="text-gray-400">5</td>
+            <td class="text-gray-400">Minsky to Soar to transformers to LLM agents</td>
           </tr>
           <tr>
             <td class="py-2 pr-3">💎</td>
             <td class="pr-3"><a href="/reading/auction-theory/">Auction Theory</a></td>
-            <td class="pr-3 text-gray-400">Papers behind the Vector Space ad auction series</td>
-            <td class="text-gray-400">8</td>
+            <td class="text-gray-400">Papers behind the Vector Space ad auction series</td>
           </tr>
           <tr>
             <td class="py-2 pr-3">⚖</td>
             <td class="pr-3"><a href="/reading/commons/">The Commons</a></td>
-            <td class="pr-3 text-gray-400">Who owns knowledge, and what happens when the answers stop working</td>
-            <td class="text-gray-400">8</td>
+            <td class="text-gray-400">Who owns knowledge, and what happens when the answers stop working</td>
           </tr>
         </tbody>
       </table>
@@ -192,3 +186,9 @@ import Layout from '../layouts/Base.astro';
 
   </main>
 </Layout>
+
+<style>
+  .subject-table { table-layout: fixed; width: 100%; }
+  .subject-table td:first-child { width: 2rem; }
+  .subject-table td:nth-child(2) { width: 12rem; }
+</style>
