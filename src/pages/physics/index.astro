@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Base.astro';
+---
+
+<Layout title="Physics — Simple Nature" favicon="⚛">
+  <main>
+
+    <a href="/reading/" class="text-sm mb-4 inline-block">&larr; back to reading</a>
+
+    <h1>⚛ Physics</h1>
+    <p class="text-gray-400 mb-2">Based on <a href="https://lightandmatter.com/area1sn.html">Benjamin Crowell, Simple Nature</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
+    <p class="text-gray-400 mb-6">Calculus-based physics from conservation laws to quantum mechanics. Runnable code, inline diagrams, plain English.</p>
+
+    <!-- SVG: Ball on parabolic trajectory with velocity vector -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 360 160" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Parabolic trajectory -->
+        <path d="M 40 130 Q 180 -20 320 130" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="5,4"/>
+        <!-- Ground -->
+        <line x1="30" y1="135" x2="330" y2="135" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
+        <!-- Ball at peak-ish position -->
+        <circle cx="160" cy="28" r="8" fill="#60a5fa" fill-opacity="0.6"/>
+        <!-- Velocity vector (tangent to parabola, pointing right and slightly down) -->
+        <line x1="168" y1="28" x2="220" y2="38" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.7"/>
+        <polygon points="220,38 212,32 214,42" fill="#f59e0b" fill-opacity="0.7"/>
+        <text x="225" y="42" fill="#f59e0b" font-size="12" fill-opacity="0.6" font-style="italic">v</text>
+        <!-- Ball at start -->
+        <circle cx="40" cy="130" r="5" fill="currentColor" fill-opacity="0.2"/>
+        <!-- Ball at end -->
+        <circle cx="320" cy="130" r="5" fill="currentColor" fill-opacity="0.2"/>
+        <!-- Caption -->
+        <text x="180" y="155" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Conservation laws govern the trajectory.</text>
+      </svg>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">1. Conservation of Energy</td>
+            <td class="pr-3 text-gray-400">Energy is never created or destroyed, only converted between kinetic and potential forms</td>
+            <td><a href="/reading/physics/crowell-01/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">2. Conservation of Momentum</td>
+            <td class="pr-3 text-gray-400">Total momentum of an isolated system is constant, even through collisions</td>
+            <td><a href="/reading/physics/crowell-02/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">3. Conservation of Angular Momentum</td>
+            <td class="pr-3 text-gray-400">Spinning things keep spinning unless a torque acts on them</td>
+            <td><a href="/reading/physics/crowell-03/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">4. Thermodynamics</td>
+            <td class="pr-3 text-gray-400">Entropy always increases, and that arrow of time constrains every engine</td>
+            <td><a href="/reading/physics/crowell-04/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">5. Waves</td>
+            <td class="pr-3 text-gray-400">Waves superpose, interfere, and decompose into Fourier components</td>
+            <td><a href="/reading/physics/crowell-05/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">6. Electricity</td>
+            <td class="pr-3 text-gray-400">Charges create fields, fields do work, and circuits are the plumbing</td>
+            <td><a href="/reading/physics/crowell-06/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">7. Magnetism</td>
+            <td class="pr-3 text-gray-400">Moving charges create magnetic fields; magnetic forces are always perpendicular to velocity</td>
+            <td><a href="/reading/physics/crowell-07/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">8. Electromagnetism</td>
+            <td class="pr-3 text-gray-400">Changing electric fields create magnetic fields and vice versa: Maxwell's equations</td>
+            <td><a href="/reading/physics/crowell-08/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">9. Optics</td>
+            <td class="pr-3 text-gray-400">Light is an electromagnetic wave: reflection, refraction, diffraction</td>
+            <td><a href="/reading/physics/crowell-09/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">10. Relativity</td>
+            <td class="pr-3 text-gray-400">Space and time are one fabric; nothing outruns light</td>
+            <td><a href="/reading/physics/crowell-10/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">11. Quantum Mechanics</td>
+            <td class="pr-3 text-gray-400">Particles are waves of probability; measurement collapses the wavefunction</td>
+            <td><a href="/reading/physics/crowell-11/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3 text-gray-300">12. The Atom</td>
+            <td class="pr-3 text-gray-400">Quantum mechanics explains the periodic table, spectral lines, and chemical bonds</td>
+            <td><a href="/reading/physics/crowell-12/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</Layout>

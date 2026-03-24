@@ -16,6 +16,8 @@ Reviewed 2026-03-23.
 
 **Color coding.** Blue (#60a5fa) for the primary concept, amber (#f59e0b) for the secondary/contrasting concept, purple (#a78bfa) for tertiary. Gray (currentColor with reduced opacity) for structural elements like arrows and labels. This palette is consistent across all diagrams and matches the site's dark theme.
 
+**HTML entities don't all work in SVG `<text>`.** SVG supports XML numeric references (`&#x222F;`) but not all named HTML entities (`&oiint;`). If a symbol renders as literal `&oiint;` text, replace it with the hex code. Found in calc-15 where the surface integral symbol failed.
+
 **`font-family: ui-monospace, monospace`** on the SVG root element ensures code-like text (expressions, variable names) renders in the same font as the REPLs. Non-code labels use the same font for consistency within the diagram.
 
 ## Inventory
@@ -169,8 +171,8 @@ Compare output against the hashes below. Changed hash = SVG was edited since las
 | `src/pages/algebra/judson-01/index.astro` | `b225ac8c7120` | clean |
 | `src/pages/algebra/judson-02/index.astro` | `51e68ff714af` | clean |
 | `src/pages/algebra/judson-03/index.astro` | `2f16b5e03025` | clean |
-| `src/pages/algebra/judson-04/index.astro` | `e3b272ebafc0` | clean |
-| `src/pages/algebra/judson-05/index.astro` | `1819a1eefff1` | clean |
+| `src/pages/algebra/judson-04/index.astro` | `bc8669ab84b8` | clean |
+| `src/pages/algebra/judson-05/index.astro` | `0c31c425bcc1` | clean |
 | `src/pages/algebra/judson-06/index.astro` | `63047274bcaa` | clean |
 | `src/pages/algebra/judson-07/index.astro` | `23cbe7640764` | clean |
 | `src/pages/algebra/judson-08/index.astro` | `9bd734dfe696` | clean |
@@ -196,9 +198,35 @@ Compare output against the hashes below. Changed hash = SVG was edited since las
 | `src/pages/linear-algebra/hefferon-04/index.astro` | `a570a413c20d` | clean |
 | `src/pages/linear-algebra/hefferon-05/index.astro` | `6ccae8b3d23b` | clean |
 
+| `src/pages/analysis/index.astro` | `edb0002a0379` | clean |
+| `src/pages/analysis/lebl-01/index.astro` | `76e120508ec8` | clean |
+| `src/pages/analysis/lebl-02/index.astro` | `b985ebe8daef` | clean |
+| `src/pages/analysis/lebl-03/index.astro` | `ccb65c11f827` | clean |
+| `src/pages/analysis/lebl-04/index.astro` | `60eb6165bf70` | clean |
+| `src/pages/analysis/lebl-05/index.astro` | `3bf97aa21e53` | clean |
+| `src/pages/analysis/lebl-06/index.astro` | `031a8f685139` | clean |
+| `src/pages/analysis/lebl-07/index.astro` | `c7c10b0fb5cf` | clean |
+| `src/pages/analysis/lebl-08/index.astro` | `867f5a549852` | clean |
+| `src/pages/calculus/index.astro` | `bd86e432407d` | clean |
+| `src/pages/calculus/calc-01/index.astro` | `62ecf4baa38e` | clean |
+| `src/pages/calculus/calc-02/index.astro` | `f0bf6291ef4d` | clean |
+| `src/pages/calculus/calc-03/index.astro` | `586ccafb6e38` | clean |
+| `src/pages/calculus/calc-04/index.astro` | `f4126009c746` | clean |
+| `src/pages/calculus/calc-05/index.astro` | `8207aed03f9d` | clean |
+| `src/pages/calculus/calc-06/index.astro` | `e77541a3c40d` | clean |
+| `src/pages/calculus/calc-07/index.astro` | `e67c62d80ca3` | clean |
+| `src/pages/calculus/calc-08/index.astro` | `d8f06ba63edc` | clean |
+| `src/pages/calculus/calc-09/index.astro` | `64055116683f` | clean |
+| `src/pages/calculus/calc-10/index.astro` | `d7997ddf9ec9` | clean |
+| `src/pages/calculus/calc-11/index.astro` | `bcb7ccd8be13` | clean |
+| `src/pages/calculus/calc-12/index.astro` | `f009a1bfc122` | clean |
+| `src/pages/calculus/calc-13/index.astro` | `ab709052adfc` | clean |
+| `src/pages/calculus/calc-14/index.astro` | `f304686dc9f0` | clean |
+| `src/pages/calculus/calc-15/index.astro` | `8817834d25a0` | fixed: &oiint; → &#x222F; (HTML entity unsupported in SVG text) |
+
 ### Summary
 
-- **Total SVGs**: 155 across the site
-- **Reviewed**: 155 (all)
-- **Fixed**: 5 (all in SICP programming section)
-- **Clean**: 150
+- **Total SVGs**: 183 across the site
+- **Reviewed**: 183 (all)
+- **Fixed**: 6 (5 SICP programming, 1 calculus calc-15)
+- **Clean**: 177

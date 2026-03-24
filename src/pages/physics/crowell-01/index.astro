@@ -1,0 +1,237 @@
+---
+import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
+---
+
+<Layout title="Crowell Ch.1 — Conservation of Energy" favicon="⚛">
+  <main>
+
+    <a href="/reading/physics/" class="text-sm mb-4 inline-block">&larr; back to physics</a>
+
+    <h1>Conservation of Energy</h1>
+    <p class="text-gray-400 text-sm mb-6">Benjamin Crowell &middot; Simple Nature &middot; <a href="https://lightandmatter.com/area1sn.html">Ch. 1</a></p>
+
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+      <p class="text-lg" style="max-width:none">Energy is never created or destroyed. It converts between <strong>kinetic energy</strong> (motion) and <strong>potential energy</strong> (position). The <strong>work-energy theorem</strong> links force over distance to changes in kinetic energy. That is the entire chapter.</p>
+    </div>
+
+    <!-- 1. Kinetic Energy -->
+    <h3>Kinetic energy</h3>
+    <p>A mass m moving at speed v has kinetic energy KE = (1/2)mv&sup2;. Double the speed, quadruple the energy. This is why car crashes at highway speed are so much worse.</p>
+
+    <!-- SVG: Ball at different heights with KE/PE bars -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 400 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Ground -->
+        <line x1="20" y1="180" x2="380" y2="180" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+
+        <!-- Position 1: high, all PE -->
+        <circle cx="80" cy="50" r="10" fill="#60a5fa" fill-opacity="0.6"/>
+        <text x="80" y="35" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">h = max</text>
+        <!-- PE bar -->
+        <rect x="60" y="130" width="12" height="45" fill="#f59e0b" fill-opacity="0.5"/>
+        <text x="66" y="125" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">PE</text>
+        <!-- KE bar (tiny) -->
+        <rect x="76" y="170" width="12" height="5" fill="#34d399" fill-opacity="0.5"/>
+        <text x="82" y="125" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.7">KE</text>
+
+        <!-- Position 2: mid height -->
+        <circle cx="200" cy="110" r="10" fill="#60a5fa" fill-opacity="0.6"/>
+        <text x="200" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">h = mid</text>
+        <!-- PE bar -->
+        <rect x="180" y="152" width="12" height="23" fill="#f59e0b" fill-opacity="0.5"/>
+        <text x="186" y="145" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">PE</text>
+        <!-- KE bar -->
+        <rect x="196" y="152" width="12" height="23" fill="#34d399" fill-opacity="0.5"/>
+        <text x="202" y="145" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.7">KE</text>
+
+        <!-- Position 3: ground, all KE -->
+        <circle cx="320" cy="170" r="10" fill="#60a5fa" fill-opacity="0.6"/>
+        <text x="320" y="155" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">h = 0</text>
+        <!-- PE bar (tiny) -->
+        <rect x="300" y="170" width="12" height="5" fill="#f59e0b" fill-opacity="0.5"/>
+        <text x="306" y="125" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">PE</text>
+        <!-- KE bar -->
+        <rect x="316" y="130" width="12" height="45" fill="#34d399" fill-opacity="0.5"/>
+        <text x="322" y="125" text-anchor="middle" fill="#34d399" font-size="9" fill-opacity="0.7">KE</text>
+
+        <!-- Trajectory arc -->
+        <path d="M 80 50 Q 200 40 320 170" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,3"/>
+
+        <!-- Caption -->
+        <text x="200" y="198" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">PE + KE = constant throughout the fall.</text>
+      </svg>
+    </div>
+
+    <SchemeRepl client:load initialCode={`; Kinetic energy: KE = (1/2) m v^2
+; A 2 kg ball at different speeds
+
+(define (kinetic-energy m v)
+  (* 0.5 m (* v v)))
+
+(display "KE at 1 m/s: ")
+(display (kinetic-energy 2 1)) (newline)   ; 1 J
+
+(display "KE at 2 m/s: ")
+(display (kinetic-energy 2 2)) (newline)   ; 4 J
+
+(display "KE at 3 m/s: ")
+(display (kinetic-energy 2 3)) (newline)   ; 9 J
+
+; Double speed -> 4x energy
+(display "KE at 10 m/s: ")
+(display (kinetic-energy 2 10)) (newline)  ; 100 J
+
+(display "KE at 20 m/s: ")
+(display (kinetic-energy 2 20))            ; 400 J
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Kinetic energy
+def kinetic_energy(m, v):
+    return 0.5 * m * v**2
+
+for v in [1, 2, 3, 10, 20]:
+    print(f"KE at {v:2d} m/s: {kinetic_energy(2, v):6.1f} J")
+`} />
+    </details>
+
+
+    <!-- 2. Potential Energy -->
+    <h3>Potential energy</h3>
+    <p>Near Earth's surface, gravitational potential energy is PE = mgh. Lift a ball higher and you store energy in its position. Drop it and that stored energy converts to kinetic energy. The sum KE + PE stays constant (ignoring friction).</p>
+
+    <SchemeRepl client:load initialCode={`; Gravitational potential energy: PE = m * g * h
+; g = 9.8 m/s^2
+
+(define g 9.8)
+
+(define (potential-energy m h) (* m g h))
+(define (kinetic-energy m v) (* 0.5 m (* v v)))
+
+; 1 kg ball at height 10 m, released from rest
+(define m 1)
+(define h 10)
+
+(define PE-top (potential-energy m h))
+(define KE-top (kinetic-energy m 0))
+(define total-top (+ PE-top KE-top))
+
+(display "At top:    PE = ") (display PE-top)
+(display "  KE = ") (display KE-top)
+(display "  Total = ") (display total-top) (newline)
+
+; At bottom: all PE converted to KE
+; v = sqrt(2gh)
+(define v-bottom (sqrt (* 2 g h)))
+(define PE-bottom (potential-energy m 0))
+(define KE-bottom (kinetic-energy m v-bottom))
+(define total-bottom (+ PE-bottom KE-bottom))
+
+(display "At bottom: PE = ") (display PE-bottom)
+(display "  KE = ") (display KE-bottom)
+(display "  Total = ") (display total-bottom) (newline)
+
+(display "v at bottom: ") (display v-bottom) (display " m/s")
+`} />
+
+
+    <!-- 3. Work-Energy Theorem -->
+    <h3>Work-energy theorem</h3>
+    <p>Work is force times displacement along the direction of force: W = F * d * cos(theta). The work-energy theorem says the net work done on an object equals the change in its kinetic energy. This connects force (Newton's world) to energy (the conservation world).</p>
+
+    <SchemeRepl client:load initialCode={`; Work-energy theorem: W_net = delta KE
+; Push a 5 kg box with 20 N over 3 m, starting from rest.
+
+(define (kinetic-energy m v) (* 0.5 m (* v v)))
+
+(define F 20)   ; Newtons
+(define d 3)    ; meters
+(define m 5)    ; kg
+
+(define W (* F d))
+(display "Work done: ") (display W) (display " J") (newline)
+
+; W = KE_final - KE_initial
+; KE_initial = 0 (starts from rest)
+; So KE_final = W
+; (1/2) m v^2 = W => v = sqrt(2W/m)
+
+(define v-final (sqrt (/ (* 2 W) m)))
+(display "Final speed: ") (display v-final) (display " m/s") (newline)
+
+; Verify
+(define KE-final (kinetic-energy m v-final))
+(display "KE_final: ") (display KE-final) (display " J") (newline)
+(display "W = delta KE? ") (display (= W KE-final))
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Work-energy theorem
+import math
+
+F, d, m = 20, 3, 5  # N, m, kg
+W = F * d
+v_final = math.sqrt(2 * W / m)
+
+print(f"Work done: {W} J")
+print(f"Final speed: {v_final:.2f} m/s")
+print(f"KE_final: {0.5 * m * v_final**2} J")
+print(f"W = delta KE? {abs(W - 0.5 * m * v_final**2) < 1e-10}")
+`} />
+    </details>
+
+
+    <!-- 4. Conservation -->
+    <h3>The conservation law</h3>
+    <p>In an isolated system, total energy is constant. No experiment has ever found a violation. When energy seems to disappear, we discover a new form of it (heat, mass via E = mc&sup2;, nuclear binding energy). Conservation of energy is not derived from Newton's laws. It is deeper and more general.</p>
+
+    <SchemeRepl client:load initialCode={`; Conservation of energy: simulate a bouncing ball
+; (no friction, perfectly elastic)
+
+(define g 9.8)
+(define dt 0.1)
+
+(define (simulate y vy steps)
+  (if (= steps 0) (newline)
+    (let* ((KE (* 0.5 (* vy vy)))
+           (PE (* g (max y 0)))
+           (total (+ KE PE)))
+      (display "y=") (display (round (* y 100)))
+      (display "cm  KE=") (display (round KE))
+      (display "  PE=") (display (round PE))
+      (display "  Total=") (display (round total))
+      (newline)
+      (let* ((new-vy (- vy (* g dt)))
+             (new-y (+ y (* new-vy dt)))
+             ; Bounce off ground
+             (new-y2 (if (< new-y 0) (- new-y) new-y))
+             (new-vy2 (if (< new-y 0) (- new-vy) new-vy)))
+        (simulate new-y2 new-vy2 (- steps 1))))))
+
+; Drop from 5 m
+(display "Dropping from 5 m:") (newline)
+(simulate 5 0 8)
+`} />
+
+
+    <!-- Cross-links -->
+    <h3>Neighbors</h3>
+    <ul>
+      <li><a href="/reading/calculus/boelkins-07/">&#x222B; Calculus Ch. 7</a> &mdash; integrals compute work: W = integral of F dx</li>
+    </ul>
+
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.
+    </div>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <span></span>
+      <a href="/reading/physics/crowell-02/">Conservation of Momentum &rarr;</a>
+    </div>
+
+  </main>
+</Layout>
