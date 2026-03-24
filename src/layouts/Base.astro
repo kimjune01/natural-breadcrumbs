@@ -41,7 +41,7 @@ const { title, favicon } = Astro.props;
           }
           h1, h2, h3, h4 { color: #18181b; }
           a, a:link, a:visited { color: inherit; background: #e7e5e4 !important; }
-          a.visited-link { background: transparent !important; }
+          a.visited-link { background: rgba(0,0,0,0.04) !important; }
           a:hover, a:visited:hover { color: #09090b; background: #d6d3d1 !important; }
           code:not(pre code) {
             background: #f0f0f0;
@@ -85,6 +85,9 @@ const { title, favicon } = Astro.props;
           .text-green-400 { color: #15803d !important; }
           .border-zinc-700, .border-zinc-800 { border-color: #d6d3d1 !important; }
           blockquote { border-color: #d4d4d8; color: #52525b; }
+          /* SVGs: currentColor at 0.2 opacity is invisible on white.
+             Make it a dark gray so low-opacity structural elements stay visible. */
+          svg { color: #18181b; }
           ::selection { background: #bbf7d0; color: #09090b; }
         }
 
@@ -186,7 +189,7 @@ const { title, favicon } = Astro.props;
       img[alt="jk"], img[alt="arxiv"] { filter: invert(1); }
       :root.light img[alt="jk"], :root.light img[alt="arxiv"] { filter: none; }
       :root a, :root a:link, :root a:visited { color: inherit; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
-      :root a.visited-link { background: transparent; }
+      :root a.visited-link { background: rgba(255,255,255,0.04); }
       :root a:hover { color: #fafafa; background: #3f3f46; }
       /* REPL textarea — selection keeps text hidden, shows highlight only */
       .repl-input::selection { color: transparent !important; -webkit-text-fill-color: transparent !important; background: rgba(96,165,250,0.25); }
@@ -214,8 +217,8 @@ const { title, favicon } = Astro.props;
   </head>
   <body class="min-h-screen">
     <div class="max-w-3xl mx-auto px-6 py-10">
-      <button id="theme-toggle" style="position:fixed;top:1rem;right:1rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle dark/light mode">☀︎</button>
-      <button id="lang-toggle" style="position:fixed;top:1rem;right:3.5rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle Scheme/Python">λ</button>
+      <button id="theme-toggle" style="position:fixed;top:1rem;right:1rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle dark/light mode" title="Switch to light mode">☀︎</button>
+      <button id="lang-toggle" style="position:fixed;top:1rem;right:3.5rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle Scheme/Python" title="Switch to Python">λ</button>
       <slot />
       <footer class="mt-16 pt-6 border-t border-zinc-800 text-sm text-gray-500">
         Python runs in your browser via <a href="https://pyodide.org">Pyodide</a>. Scheme runs via <a href="https://github.com/biwascheme/biwascheme">BiwaScheme</a>.
@@ -281,6 +284,7 @@ const { title, favicon } = Astro.props;
           }
 
           langBtn.textContent = lang === 'scheme' ? 'λ' : 'py';
+          langBtn.title = lang === 'scheme' ? 'Switch to Python' : 'Switch to Scheme';
         }
 
         // Apply on load. React islands may render later, so also on click.
@@ -302,6 +306,7 @@ const { title, favicon } = Astro.props;
         function update() {
           const isLight = html.classList.contains('light');
           btn.textContent = isLight ? '☾' : '☀︎';
+          btn.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
         }
         update();
         btn.addEventListener('click', function() {
