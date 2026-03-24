@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
   site: 'https://june.kim',
   base: '/reading/',
+  server: { port: 12345 },
   vite: {
     plugins: [tailwindcss()],
   },
