@@ -196,4 +196,7 @@ import Layout from '../layouts/Base.astro';
   .subject-table { table-layout: fixed; width: 100%; }
   .subject-table td:first-child { width: 2rem; }
   .subject-table td:nth-child(2) { width: 12rem; }
+  @media (max-width: 640px) {
+    .subject-table td:nth-child(3) { display: none; }
+  }
 </style>
