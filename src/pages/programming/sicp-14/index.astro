@@ -455,7 +455,7 @@ print(f"10! = {tiny_eval(fact_prog, env)}")  # 3628800
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>The metacircular evaluator uses Scheme to interpret Scheme, so the host language and the interpreted language share the same syntax. In Python, we represent Scheme expressions as nested lists. The key insight survives the translation: <code>eval</code> classifies expressions, <code>apply</code> classifies procedures, and they call each other. The only structural difference is that Python's compound procedures use dictionaries for environments while Scheme uses association lists.</p>
+    <p>The metacircular evaluator uses Scheme to interpret Scheme, so the host language and the interpreted language share the same syntax. In Python, we represent Scheme expressions as nested lists. This survives the translation: <code>eval</code> classifies expressions, <code>apply</code> classifies procedures, and they call each other. The only structural difference is that Python's compound procedures use dictionaries for environments while Scheme uses association lists.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-26.html#%_sec_4.1">Read SICP &sect;4.1</a>.

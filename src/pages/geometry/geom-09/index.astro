@@ -115,7 +115,7 @@ for q in [(0,0), (3,3), (5,5), (6,1)]:
 
     <!-- 3. Fortune's algorithm -->
     <h3>Fortune's algorithm</h3>
-    <p>Computing a Voronoi diagram naively (check every point against every site) is O(n) per query. <strong>Fortune's algorithm</strong> builds the entire diagram in O(n log n) by sweeping a line across the plane. It maintains a "beach line" of parabolic arcs. As the sweep line moves, arcs grow and shrink. When two arcs pinch off, a Voronoi vertex is found. The key insight: a parabola is the locus of points equidistant from a point (site) and a line (sweep line).</p>
+    <p>Computing a Voronoi diagram naively (check every point against every site) is O(n) per query. <strong>Fortune's algorithm</strong> builds the entire diagram in O(n log n) by sweeping a line across the plane. It maintains a "beach line" of parabolic arcs. As the sweep line moves, arcs grow and shrink. When two arcs pinch off, a Voronoi vertex is found. A parabola is the locus of points equidistant from a point (site) and a line (sweep line).</p>
 
     <SchemeRepl client:load initialCode={`; Fortune's algorithm concept: the beach line
 ; A parabola is all points equidistant from a focus and a directrix

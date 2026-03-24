@@ -213,7 +213,8 @@ print("... (26 total)")
 
     <!-- 4. Keyspace size -->
     <h3>Keyspace size</h3>
-    <p>The security of a cipher depends on how many keys an attacker must try. Caesar: 26 keys. Substitution: 26! keys. XOR with a 1-byte key: 256 keys. XOR with a 128-bit key: 2<sup>128</sup> keys. Modern ciphers aim for keyspaces so large that brute force is physically impossible.</p>
+    <p>The security of a cipher depends on how many keys an attacker must try. Caesar: 26 keys. Substitution: 26! keys. XOR with a 1-byte key: 256 keys. XOR with a 128-bit key: 2<sup>128</sup> keys.</p>
+    <p>Modern ciphers aim for keyspaces so large that brute force is physically impossible.</p>
 
     <SchemeRepl client:load initialCode={`; Keyspace sizes
 (display "Caesar:       26 keys") (newline)

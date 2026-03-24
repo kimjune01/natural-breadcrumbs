@@ -16,6 +16,49 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Abstract machines with named registers, a controller, and explicit data paths. Every high-level operation eventually becomes register transfers. This is where software meets hardware.</p>
     </div>
 
+    <div class="flex justify-center my-8">
+      <svg viewBox="0 0 340 180" class="w-full max-w-md" style="font-family: ui-monospace, monospace;" xmlns="http://www.w3.org/2000/svg">
+        <!-- Controller box -->
+        <rect x="110" y="8" width="120" height="30" rx="4" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="170" y="28" text-anchor="middle" fill="#a78bfa" font-size="13">controller</text>
+        <!-- Arrow from controller down -->
+        <line x1="170" y1="38" x2="170" y2="60" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow18)"/>
+        <text x="200" y="54" fill="#a78bfa" font-size="10">instructions</text>
+
+        <!-- ALU box -->
+        <rect x="120" y="62" width="100" height="34" rx="4" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="170" y="84" text-anchor="middle" fill="#f59e0b" font-size="13">ALU</text>
+
+        <!-- Register boxes -->
+        <rect x="15" y="115" width="80" height="28" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="55" y="134" text-anchor="middle" fill="#60a5fa" font-size="12">val</text>
+
+        <rect x="130" y="115" width="80" height="28" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="170" y="134" text-anchor="middle" fill="#60a5fa" font-size="12">argl</text>
+
+        <rect x="245" y="115" width="80" height="28" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="285" y="134" text-anchor="middle" fill="#60a5fa" font-size="12">continue</text>
+
+        <!-- Arrows from registers to ALU -->
+        <line x1="55" y1="115" x2="140" y2="96" stroke="#60a5fa" stroke-width="1" marker-end="url(#arrow18b)"/>
+        <line x1="170" y1="115" x2="170" y2="96" stroke="#60a5fa" stroke-width="1" marker-end="url(#arrow18b)"/>
+        <line x1="285" y1="115" x2="200" y2="96" stroke="#60a5fa" stroke-width="1" marker-end="url(#arrow18b)"/>
+
+        <!-- Arrow markers -->
+        <defs>
+          <marker id="arrow18" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#a78bfa" stroke-width="1.2"/>
+          </marker>
+          <marker id="arrow18b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#60a5fa" stroke-width="1.2"/>
+          </marker>
+        </defs>
+
+        <!-- Caption -->
+        <text x="170" y="168" text-anchor="middle" fill="#a1a1aa" font-size="11" font-style="italic">registers hold data, the controller sequences operations</text>
+      </svg>
+    </div>
+
 
     <!-- 1. A language for register machines -->
     <h3>A language for describing register machines</h3>

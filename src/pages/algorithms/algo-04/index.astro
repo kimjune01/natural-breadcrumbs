@@ -63,7 +63,14 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <h3>Binary search</h3>
-    <p>Requires a sorted array. Compare the target to the middle element. If equal, done. If less, search the left half. If greater, search the right half. Each step halves the search space: O(log n).</p>
+    <p>Requires a sorted array:</p>
+    <ol>
+      <li>Compare the target to the middle element.</li>
+      <li>If equal, done.</li>
+      <li>If less, search the left half.</li>
+      <li>If greater, search the right half.</li>
+    </ol>
+    <p>Each step halves the search space: O(log n).</p>
 
     <SchemeRepl client:load initialCode={`; Binary search on a sorted list (using vector for O(1) access)
 ; Returns the index, or -1 if not found

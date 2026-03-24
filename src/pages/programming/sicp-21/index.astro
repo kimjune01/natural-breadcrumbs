@@ -16,6 +16,54 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">The metacircular evaluator from Ch.14, compiled down to register machine instructions. Makes explicit what the high-level interpreter hides: stack saves, register assignments, goto dispatch.</p>
     </div>
 
+    <div class="flex justify-center my-8">
+      <svg viewBox="0 0 360 175" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;" xmlns="http://www.w3.org/2000/svg">
+        <!-- Diamond: eval-dispatch -->
+        <polygon points="180,8 280,48 180,88 80,48" fill="#a78bfa" fill-opacity="0.1" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="180" y="44" text-anchor="middle" fill="#a78bfa" font-size="12">eval-dispatch</text>
+        <text x="180" y="57" text-anchor="middle" fill="#a78bfa" font-size="10">(expression type?)</text>
+
+        <!-- Branch: self-eval -->
+        <line x1="110" y1="68" x2="40" y2="108" stroke="#60a5fa" stroke-width="1.2" marker-end="url(#arrow21)"/>
+        <rect x="5" y="110" width="75" height="26" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.2"/>
+        <text x="42" y="127" text-anchor="middle" fill="#60a5fa" font-size="11">self-eval</text>
+        <text x="110" y="82" fill="#60a5fa" font-size="9">number?</text>
+
+        <!-- Branch: variable -->
+        <line x1="180" y1="88" x2="180" y2="108" stroke="#34d399" stroke-width="1.2" marker-end="url(#arrow21g)"/>
+        <rect x="142" y="110" width="75" height="26" rx="4" fill="none" stroke="#34d399" stroke-width="1.2"/>
+        <text x="180" y="127" text-anchor="middle" fill="#34d399" font-size="11">variable</text>
+        <text x="194" y="100" fill="#34d399" font-size="9">symbol?</text>
+
+        <!-- Branch: application -->
+        <line x1="250" y1="68" x2="318" y2="108" stroke="#f59e0b" stroke-width="1.2" marker-end="url(#arrow21y)"/>
+        <rect x="280" y="110" width="75" height="26" rx="4" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+        <text x="318" y="127" text-anchor="middle" fill="#f59e0b" font-size="11">application</text>
+        <text x="265" y="82" fill="#f59e0b" font-size="9">pair?</text>
+
+        <!-- Return labels -->
+        <text x="42" y="148" text-anchor="middle" fill="#71717a" font-size="9">return val</text>
+        <text x="180" y="148" text-anchor="middle" fill="#71717a" font-size="9">lookup env</text>
+        <text x="318" y="148" text-anchor="middle" fill="#71717a" font-size="9">apply proc</text>
+
+        <!-- Arrow markers -->
+        <defs>
+          <marker id="arrow21" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#60a5fa" stroke-width="1.2"/>
+          </marker>
+          <marker id="arrow21g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#34d399" stroke-width="1.2"/>
+          </marker>
+          <marker id="arrow21y" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+          </marker>
+        </defs>
+
+        <!-- Caption -->
+        <text x="180" y="170" text-anchor="middle" fill="#a1a1aa" font-size="11" font-style="italic">the evaluator from Ch.14, compiled to register machine dispatch</text>
+      </svg>
+    </div>
+
 
     <!-- 1. The dispatcher -->
     <h3>The dispatcher &mdash; eval-dispatch</h3>
@@ -403,7 +451,7 @@ print(f"  result = {eval_if(env['x'] > 50, 'big', 'small')}")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>The explicit-control evaluator is the bridge between the high-level metacircular evaluator (Ch.14) and real machine code. Every implicit operation &mdash; function calls, argument evaluation order, stack management &mdash; becomes a visible instruction. CPython&rsquo;s <code>ceval.c</code> is structurally the same: a giant switch statement dispatching on bytecode opcode, with an explicit value stack. The key insight is that tail-call optimization is a property of the evaluator&rsquo;s structure, not a compiler trick: if the evaluator doesn&rsquo;t push a frame, the stack doesn&rsquo;t grow.</p>
+    <p>The explicit-control evaluator is the bridge between the high-level metacircular evaluator (Ch.14) and real machine code. Every implicit operation &mdash; function calls, argument evaluation order, stack management &mdash; becomes a visible instruction. CPython&rsquo;s <code>ceval.c</code> is structurally the same: a giant switch statement dispatching on bytecode opcode, with an explicit value stack. Tail-call optimization is a property of the evaluator&rsquo;s structure, not a compiler trick: if the evaluator doesn&rsquo;t push a frame, the stack doesn&rsquo;t grow.</p>
 
 
     <!-- Neighbors -->

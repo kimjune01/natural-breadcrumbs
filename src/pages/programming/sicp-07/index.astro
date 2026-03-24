@@ -16,6 +16,29 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">The same abstract data can have <strong>multiple concrete representations</strong>. Tagged data and dispatch tables let representations coexist without knowing about each other. This is the birth of extensibility: adding a new representation requires no changes to existing code.</p>
     </div>
 
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 185" class="w-full max-w-sm mx-auto my-8" style="font-family: ui-monospace, monospace;">
+      <!-- grid lines -->
+      <line x1="95" y1="10" x2="95" y2="135" stroke="#888" stroke-width="0.8"/>
+      <line x1="185" y1="10" x2="185" y2="135" stroke="#888" stroke-width="0.8"/>
+      <line x1="30" y1="35" x2="270" y2="35" stroke="#888" stroke-width="0.8"/>
+      <line x1="30" y1="80" x2="270" y2="80" stroke="#888" stroke-width="0.8"/>
+      <line x1="30" y1="135" x2="270" y2="135" stroke="#888" stroke-width="0.8"/>
+      <!-- column headers -->
+      <text x="140" y="25" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="600">rectangular</text>
+      <text x="228" y="25" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="600">polar</text>
+      <!-- row headers -->
+      <text x="62" y="60" text-anchor="middle" fill="#34d399" font-size="11" font-weight="600">real-part</text>
+      <text x="62" y="112" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="600">magnitude</text>
+      <!-- cell contents: small function symbols -->
+      <text x="140" y="62" text-anchor="middle" fill="currentColor" fill-opacity="0.5" font-size="12">car z</text>
+      <text x="228" y="62" text-anchor="middle" fill="currentColor" fill-opacity="0.5" font-size="12">r cos &theta;</text>
+      <text x="140" y="114" text-anchor="middle" fill="currentColor" fill-opacity="0.5" font-size="12">&radic;(x&sup2;+y&sup2;)</text>
+      <text x="228" y="114" text-anchor="middle" fill="currentColor" fill-opacity="0.5" font-size="12">car z</text>
+      <!-- caption -->
+      <text x="140" y="158" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">dispatch table: operations &times; types</text>
+      <text x="140" y="171" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">&rarr; implementations</text>
+    </svg>
+
     <!-- 1. Representations for complex numbers -->
     <h3>Representations for complex numbers</h3>
     <p>A complex number can be stored as rectangular (real, imaginary) or polar (magnitude, angle). Both are valid. The operations <code>real-part</code>, <code>imag-part</code>, <code>magnitude</code>, <code>angle</code> define the abstract interface. Two teams can implement independently.</p>

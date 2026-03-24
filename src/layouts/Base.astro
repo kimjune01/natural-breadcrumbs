@@ -54,15 +54,19 @@ const { title, favicon } = Astro.props;
           pre code, .font-mono {
             color: #166534 !important;      /* green-800 — readable on light bg */
           }
-          table th { color: #3f3f46; }
-          thead tr { background: rgba(0,0,0,0.04) !important; }
-          tbody tr:nth-child(even) { background: rgba(0,0,0,0.02) !important; }
-          table td { color: #27272a; }
+          table th { color: #27272a; }
+          thead tr { background: rgba(0,0,0,0.06) !important; }
+          tbody tr:nth-child(even) { background: rgba(0,0,0,0.04) !important; }
+          tbody tr { border-bottom: 1px solid rgba(0,0,0,0.08) !important; }
+          table td { color: #18181b; }
           table td.font-mono, table .text-green-300 {
-            color: #166534 !important;      /* green-800 */
+            color: #15803d !important;      /* green-700 */
+          }
+          table .text-blue-300 {
+            color: #1d4ed8 !important;      /* blue-700 */
           }
           table .text-gray-300, table .text-gray-400, table .text-gray-500 {
-            color: #52525b !important;      /* zinc-600 */
+            color: #3f3f46 !important;      /* zinc-700 — darker for light bg */
           }
           .bg-zinc-800 {
             background: #f5f5f4 !important; /* stone-100 */

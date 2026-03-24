@@ -16,6 +16,52 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Programs as queries against a database of facts and rules. <strong>Unification</strong> matches patterns with variables. Programming becomes asking questions, not giving instructions.</p>
     </div>
 
+    <div class="flex justify-center my-8">
+      <svg viewBox="0 0 360 140" class="w-full max-w-md" style="font-family: ui-monospace, monospace;" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left tree: (?x 3) -->
+        <rect x="20" y="10" width="120" height="30" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="80" y="30" text-anchor="middle" fill="#e4e4e7" font-size="13">( ?x  3 )</text>
+        <!-- Left branches -->
+        <line x1="55" y1="40" x2="40" y2="65" stroke="#60a5fa" stroke-width="1"/>
+        <line x1="105" y1="40" x2="120" y2="65" stroke="#60a5fa" stroke-width="1"/>
+        <!-- Left leaves -->
+        <rect x="15" y="65" width="50" height="26" rx="4" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="40" y="83" text-anchor="middle" fill="#60a5fa" font-size="13" font-weight="bold">?x</text>
+        <rect x="95" y="65" width="50" height="26" rx="4" fill="none" stroke="#60a5fa" stroke-width="1"/>
+        <text x="120" y="83" text-anchor="middle" fill="#e4e4e7" font-size="13">3</text>
+
+        <!-- Right tree: (5 3) -->
+        <rect x="220" y="10" width="120" height="30" rx="4" fill="none" stroke="#34d399" stroke-width="1.5"/>
+        <text x="280" y="30" text-anchor="middle" fill="#e4e4e7" font-size="13">( 5  3 )</text>
+        <!-- Right branches -->
+        <line x1="255" y1="40" x2="240" y2="65" stroke="#34d399" stroke-width="1"/>
+        <line x1="305" y1="40" x2="320" y2="65" stroke="#34d399" stroke-width="1"/>
+        <!-- Right leaves -->
+        <rect x="215" y="65" width="50" height="26" rx="4" fill="none" stroke="#34d399" stroke-width="1.5"/>
+        <text x="240" y="83" text-anchor="middle" fill="#e4e4e7" font-size="13">5</text>
+        <rect x="295" y="65" width="50" height="26" rx="4" fill="none" stroke="#34d399" stroke-width="1"/>
+        <text x="320" y="83" text-anchor="middle" fill="#e4e4e7" font-size="13">3</text>
+
+        <!-- Dashed connection lines -->
+        <line x1="145" y1="25" x2="220" y2="25" stroke="#a78bfa" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="145" y1="78" x2="215" y2="78" stroke="#a78bfa" stroke-width="1" stroke-dasharray="5,4"/>
+
+        <!-- Bind arrow from ?x to 5 -->
+        <line x1="65" y1="78" x2="215" y2="78" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow17)"/>
+        <text x="140" y="73" text-anchor="middle" fill="#f59e0b" font-size="11">bind</text>
+
+        <!-- Arrow marker -->
+        <defs>
+          <marker id="arrow17" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+          </marker>
+        </defs>
+
+        <!-- Caption -->
+        <text x="180" y="125" text-anchor="middle" fill="#a1a1aa" font-size="11" font-style="italic">unification finds bindings that make two patterns equal</text>
+      </svg>
+    </div>
+
 
     <!-- 1. Facts and queries -->
     <h3>Deductive information retrieval</h3>
@@ -467,7 +513,7 @@ print(f"NOT (engineering - programmer): {engineers - programmers}")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p>Logic programming inverts the usual programming flow: you specify <em>what</em> relates to <em>what</em>, and the system figures out <em>how</em> to compute it. Python has no built-in unification, so the translation uses explicit loops and set operations. The key concept &mdash; unification &mdash; generalizes both pattern matching and equation solving. In Python, the closest built-in is dictionary merging, but it lacks the bidirectional variable binding that makes unification powerful.</p>
+    <p>Logic programming inverts the usual programming flow: you specify <em>what</em> relates to <em>what</em>, and the system figures out <em>how</em> to compute it. Python has no built-in unification, so the translation uses explicit loops and set operations. Unification generalizes both pattern matching and equation solving. In Python, the closest built-in is dictionary merging, but it lacks the bidirectional variable binding that makes unification powerful.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-29.html#%_sec_4.4">Read SICP &sect;4.4</a>.

@@ -113,7 +113,22 @@ Compare output against the hashes below. Changed hash = SVG was edited since las
 | `src/pages/programming/sicp-09/index.astro` | `a76b899884d1` | clean |
 | `src/pages/programming/sicp-10/index.astro` | `5a2aabc70b83` | fixed: full redesign |
 | `src/pages/programming/sicp-13/index.astro` | `2ec09e6549d4` | clean |
+| `src/pages/programming/sicp-01/index.astro` | `7cc9a94cdbc5` | clean (new): expression tree |
+| `src/pages/programming/sicp-03/index.astro` | `02bb4018d496` | clean (new): composition pipeline |
+| `src/pages/programming/sicp-06/index.astro` | `735ea8aa2fec` | clean (new): quoted expression tree |
+| `src/pages/programming/sicp-07/index.astro` | `ce629ee312b5` | clean (new): dispatch table grid |
+| `src/pages/programming/sicp-08/index.astro` | `d80670f0ed38` | clean (new): type tower |
+| `src/pages/programming/sicp-11/index.astro` | `e353277e28a3` | clean (new): cons cell mutation |
+| `src/pages/programming/sicp-12/index.astro` | `6b4dae5f585d` | clean (new): concurrency interleaving |
 | `src/pages/programming/sicp-14/index.astro` | `72fc1e8b4ea6` | fixed: viewBox +5 |
+| `src/pages/programming/sicp-15/index.astro` | `52dc2e89d289` | clean (new): thunk diagram |
+| `src/pages/programming/sicp-16/index.astro` | `f494db2c06a1` | clean (new): search tree with backtracking |
+| `src/pages/programming/sicp-17/index.astro` | `8cd779706526` | clean (new): unification |
+| `src/pages/programming/sicp-18/index.astro` | `6b36d234a303` | clean (new): register data path |
+| `src/pages/programming/sicp-19/index.astro` | `028ef69cd05f` | clean (new): assembler pipeline |
+| `src/pages/programming/sicp-20/index.astro` | `e05af023dc81` | clean (new): stop-and-copy GC |
+| `src/pages/programming/sicp-21/index.astro` | `0a1a7e44351f` | clean (new): eval dispatch flowchart |
+| `src/pages/programming/sicp-22/index.astro` | `0ade32a1356d` | clean (new): compilation pipeline |
 | `src/pages/category-theory/index.astro` | `91f2101c5fcc` | clean |
 | `src/pages/category-theory/milewski-01/index.astro-0` | `ab53de8bec5b` | clean |
 | `src/pages/category-theory/milewski-01/index.astro-1` | `f646c4b28797` | clean |
@@ -290,7 +305,7 @@ Compare output against the hashes below. Changed hash = SVG was edited since las
 
 ### Summary
 
-- **Total SVGs**: 183 across the site
-- **Reviewed**: 183 (all)
+- **Total SVGs**: 198+ across the site
+- **Reviewed**: 198 (all)
 - **Fixed**: 6 (5 SICP programming, 1 calculus calc-15)
-- **Clean**: 177
+- **New this session**: 15 SICP diagrams (was the only section without full coverage)

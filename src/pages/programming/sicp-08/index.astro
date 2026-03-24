@@ -16,6 +16,31 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">A <strong>generic arithmetic system</strong> that works across number types. Coercion and type towers let you add a rational to a complex number without either type knowing about the other. The dispatch table from Chapter 7 scales to an entire algebra.</p>
     </div>
 
+    <!-- SVG: Type tower — integer < rational < real < complex -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 200 220" class="w-full max-w-xs" style="font-family: ui-monospace, monospace;">
+        <!-- Tower levels -->
+        <rect x="40" y="10" width="120" height="35" rx="6" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="100" y="32" text-anchor="middle" fill="#a78bfa" font-size="12">complex</text>
+        <rect x="50" y="55" width="100" height="35" rx="6" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="100" y="77" text-anchor="middle" fill="#60a5fa" font-size="12">real</text>
+        <rect x="55" y="100" width="90" height="35" rx="6" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="100" y="122" text-anchor="middle" fill="#f59e0b" font-size="12">rational</text>
+        <rect x="60" y="145" width="80" height="35" rx="6" fill="none" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="100" y="167" text-anchor="middle" fill="#34d399" font-size="12">integer</text>
+        <!-- Raise arrows -->
+        <line x1="170" y1="158" x2="170" y2="140" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <polygon points="170,140 167,146 173,146" fill="currentColor" fill-opacity="0.3"/>
+        <line x1="170" y1="113" x2="170" y2="95" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <polygon points="170,95 167,101 173,101" fill="currentColor" fill-opacity="0.3"/>
+        <line x1="170" y1="68" x2="170" y2="50" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <polygon points="170,50 167,56 173,56" fill="currentColor" fill-opacity="0.3"/>
+        <text x="182" y="130" fill="currentColor" font-size="8" fill-opacity="0.4">raise</text>
+        <!-- Caption -->
+        <text x="100" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">each type can be raised to the next</text>
+      </svg>
+    </div>
+
     <!-- 1. Generic arithmetic operations -->
     <h3>Generic arithmetic operations</h3>
     <p>We want <code>(add x y)</code> to work whether x and y are ordinary numbers, rationals, or complex. Each number type installs its own <code>add</code>, <code>mul</code>, etc. in the dispatch table. The generic operations look up the types and delegate.</p>
@@ -253,7 +278,7 @@ print(f"complex:  {raise_value(n, complex)} ({type(raise_value(n, complex)).__na
 
     <!-- 4. Polynomial arithmetic -->
     <h3>Polynomial arithmetic</h3>
-    <p>The generic arithmetic system is extensible enough to add polynomials. A polynomial is a variable plus a list of terms. <code>add-poly</code> adds matching terms. The key insight: polynomial coefficients can themselves be polynomials (or rationals, or complex numbers), because the coefficient arithmetic uses the same generic <code>add</code> and <code>mul</code>.</p>
+    <p>The generic arithmetic system is extensible enough to add polynomials. A polynomial is a variable plus a list of terms. <code>add-poly</code> adds matching terms. Polynomial coefficients can themselves be polynomials (or rationals, or complex numbers), because the coefficient arithmetic uses the same generic <code>add</code> and <code>mul</code>.</p>
 
     <SchemeRepl client:load initialCode={`; Simplified polynomial arithmetic
 ; A poly is (variable . term-list)

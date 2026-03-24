@@ -16,6 +16,38 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Shared mutable state + concurrency = bugs. Serializers ensure critical sections run atomically. But composing serializers can deadlock. There is no free lunch.</p>
     </div>
 
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 155" class="w-full max-w-md mx-auto my-8" style="font-family: ui-monospace, monospace;">
+      <!-- Timeline A -->
+      <text x="10" y="38" fill="#60a5fa" font-size="10" font-weight="600">A</text>
+      <line x1="30" y1="35" x2="350" y2="35" stroke="#60a5fa" stroke-width="1.2"/>
+      <!-- A operations -->
+      <rect x="60" y="24" width="52" height="22" rx="3" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1"/>
+      <text x="86" y="39" text-anchor="middle" fill="#60a5fa" font-size="9">read x</text>
+      <rect x="180" y="24" width="58" height="22" rx="3" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1"/>
+      <text x="209" y="39" text-anchor="middle" fill="#60a5fa" font-size="9">write x</text>
+      <!-- Timeline B -->
+      <text x="10" y="78" fill="#34d399" font-size="10" font-weight="600">B</text>
+      <line x1="30" y1="75" x2="350" y2="75" stroke="#34d399" stroke-width="1.2"/>
+      <!-- B operations -->
+      <rect x="120" y="64" width="52" height="22" rx="3" fill="#34d399" fill-opacity="0.15" stroke="#34d399" stroke-width="1"/>
+      <text x="146" y="79" text-anchor="middle" fill="#34d399" font-size="9">read x</text>
+      <rect x="250" y="64" width="58" height="22" rx="3" fill="#34d399" fill-opacity="0.15" stroke="#34d399" stroke-width="1"/>
+      <text x="279" y="79" text-anchor="middle" fill="#34d399" font-size="9">write x</text>
+      <!-- Conflict zone -->
+      <rect x="172" y="18" width="144" height="74" rx="5" fill="#f87171" fill-opacity="0.08" stroke="#f87171" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="244" y="108" text-anchor="middle" fill="#f87171" font-size="9" font-weight="600">conflict</text>
+      <!-- Time arrow -->
+      <line x1="30" y1="120" x2="350" y2="120" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arrowConc)"/>
+      <text x="190" y="118" text-anchor="middle" fill="currentColor" fill-opacity="0.3" font-size="9">time &rarr;</text>
+      <!-- Caption -->
+      <text x="190" y="140" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">interleaving makes order unpredictable &mdash; shared state + concurrency = bugs</text>
+      <defs>
+        <marker id="arrowConc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" fill-opacity="0.3"/>
+        </marker>
+      </defs>
+    </svg>
+
     <!-- 1. Nature of time -->
     <h3>The nature of time in concurrent systems</h3>
     <p>Without concurrency, events happen in a definite order. With concurrency, operations on shared state can <strong>interleave</strong>. The result depends on timing, not just logic.</p>

@@ -64,7 +64,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 1. What gets measured -->
     <h3>What gets measured</h3>
-    <p>The hardware measures the code loaded into the enclave at launch time: the binary, its initial data, and the launch configuration. This measurement is a cryptographic hash. If a single byte of the code changes, the hash changes completely. The measurement is deterministic: the same code always produces the same hash.</p>
+    <p>At launch time, the hardware measures the code loaded into the enclave: the binary, its initial data, and the launch configuration. This measurement is a cryptographic hash. If a single byte of the code changes, the hash changes completely. It is deterministic: the same code always produces the same hash.</p>
 
     <SchemeRepl client:load initialCode={`; Attestation = hash(code) + sign(hash)
 ; The verifier knows what hash to expect.

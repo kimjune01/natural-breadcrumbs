@@ -16,6 +16,32 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none"><strong>Quotation</strong> lets programs manipulate symbols as data. Code that writes code. Symbolic differentiation shows the power: mathematical rules become pattern-matching functions. The derivative of a sum is the sum of derivatives &mdash; and that sentence <em>is</em> the program.</p>
     </div>
 
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 195" class="w-full max-w-sm mx-auto my-8" style="font-family: ui-monospace, monospace;">
+      <!-- root + -->
+      <circle cx="150" cy="30" r="16" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+      <text x="150" y="35" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="600">+</text>
+      <!-- left child * -->
+      <line x1="138" y1="44" x2="80" y2="72" stroke="#888" stroke-width="1.2"/>
+      <circle cx="75" cy="85" r="16" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="75" y="90" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="600">*</text>
+      <!-- right child 3 -->
+      <line x1="162" y1="44" x2="225" y2="72" stroke="#888" stroke-width="1.2"/>
+      <circle cx="225" cy="85" r="16" fill="none" stroke="#34d399" stroke-width="1.5"/>
+      <text x="225" y="90" text-anchor="middle" fill="#34d399" font-size="14" font-weight="600">3</text>
+      <!-- leaves x and y -->
+      <line x1="63" y1="99" x2="35" y2="122" stroke="#888" stroke-width="1.2"/>
+      <circle cx="30" cy="135" r="16" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="30" y="140" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="600">x</text>
+      <line x1="87" y1="99" x2="115" y2="122" stroke="#888" stroke-width="1.2"/>
+      <circle cx="120" cy="135" r="16" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="120" y="140" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="600">y</text>
+      <!-- quote annotation -->
+      <text x="270" y="35" text-anchor="start" fill="currentColor" fill-opacity="0.4" font-size="10" font-style="italic">'(+ (* x y) 3)</text>
+      <!-- caption -->
+      <text x="150" y="172" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">quoted expressions are data</text>
+      <text x="150" y="185" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">code that manipulates code</text>
+    </svg>
+
     <!-- 1. Quotation -->
     <h3>Quotation</h3>
     <p>The quote mark <code>'</code> stops evaluation. <code>'a</code> is the symbol <code>a</code>, not the value bound to <code>a</code>. <code>symbol?</code> tests whether something is a symbol. <code>eq?</code> tests whether two symbols are the same. This is the foundation: data that looks like code.</p>
@@ -56,7 +82,13 @@ print(f"operands:   {expr[1:]}")
 
     <!-- 2. Symbolic differentiation -->
     <h3>Symbolic differentiation</h3>
-    <p>The derivative rules from calculus translate directly into code. The derivative of a constant is 0. The derivative of a variable (with respect to itself) is 1. The derivative of a sum is the sum of derivatives. The derivative of a product uses the product rule. Each rule is one clause in a conditional.</p>
+    <p>The derivative rules from calculus translate directly into code. Each rule is one clause in a conditional:</p>
+    <ul>
+      <li>Constant: derivative is 0.</li>
+      <li>Variable (with respect to itself): derivative is 1.</li>
+      <li>Sum: derivative of a sum is the sum of derivatives.</li>
+      <li>Product: apply the product rule.</li>
+    </ul>
 
     <SchemeRepl client:load initialCode={`; Symbolic differentiation
 ; Represent expressions as lists: (+ a b), (* a b)

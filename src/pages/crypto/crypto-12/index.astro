@@ -128,7 +128,8 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 3. Application: honest auction -->
     <h3>Application: the honest auction</h3>
-    <p>Consider an ad auction server. Advertisers submit bids, and the server runs a VCG auction (second-price). Without a TEE, the operator could peek at bids, favor certain advertisers, or lie about the winning price. With a TEE, the auction code runs in an enclave. Advertisers verify the code via attestation, then send encrypted bids. The enclave computes the winner and price. The operator never sees the bids or the auction logic's internal state.</p>
+    <p>Consider an ad auction server. Advertisers submit bids, and the server runs a VCG auction (second-price). Without a TEE, the operator could peek at bids, favor certain advertisers, or lie about the winning price.</p>
+    <p>With a TEE, the auction code runs in an enclave. Advertisers verify the code via attestation, then send encrypted bids. The enclave computes the winner and price. The operator never sees the bids or the auction logic's internal state.</p>
 
     <SchemeRepl client:load initialCode={`; Honest auction in an enclave
 ; The operator runs the server but cannot see bids.

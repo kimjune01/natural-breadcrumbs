@@ -73,10 +73,11 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <h3>Why feedback stabilizes</h3>
-    <p>Without feedback, any disturbance (a gust of wind, a load change, a modeling error) accumulates unchecked. Feedback subtracts the measured output from the desired reference, producing an <strong>error signal</strong>. The controller acts on the error, not the raw reference. If the output is too high, the error goes negative and the controller reduces its effort. If the output is too low, the error goes positive and the controller pushes harder. This negative feedback loop is self-correcting.</p>
+    <p>Without feedback, any disturbance (a gust of wind, a load change, a modeling error) accumulates unchecked. Feedback subtracts the measured output from the desired reference, producing an <strong>error signal</strong>. The controller acts on the error, not the raw reference.</p>
+    <p>If the output is too high, the error goes negative and the controller reduces its effort. If the output is too low, the error goes positive and the controller pushes harder. This negative feedback loop is self-correcting.</p>
 
     <h3>The thermostat</h3>
-    <p>Set the desired temperature to 20 degrees C. The sensor measures the room at 18 degrees C. The error is +2. The heater turns on. The room warms to 20. The error drops to zero. The heater turns off. If someone opens a window and the room drops to 19, the error becomes +1, and the heater turns on again. The feedback loop maintains the setpoint despite disturbances.</p>
+    <p>Set the desired temperature to 20 degrees C. The sensor measures the room at 18 degrees C, so the error is +2. The heater turns on. As the room warms to 20, the error drops to zero and the heater turns off. If someone opens a window and the room drops to 19, the error becomes +1, and the heater turns on again. That feedback loop maintains the setpoint despite disturbances.</p>
 
     <SchemeRepl client:load initialCode={`; A simple thermostat simulation
 ; Closed-loop: heater responds to error between setpoint and room temp

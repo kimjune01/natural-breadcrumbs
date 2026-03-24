@@ -16,6 +16,30 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">Functions that take functions as arguments or return functions as values. This is the mechanism of <strong>abstraction</strong> &mdash; patterns become parameters.</p>
     </div>
 
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 120" class="w-full max-w-sm mx-auto my-8" style="font-family: ui-monospace, monospace;">
+      <!-- boxes -->
+      <rect x="30" y="35" width="60" height="40" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+      <text x="60" y="59" text-anchor="middle" fill="#60a5fa" font-size="16" font-weight="600">f</text>
+      <rect x="140" y="35" width="60" height="40" rx="4" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="170" y="59" text-anchor="middle" fill="#f59e0b" font-size="16" font-weight="600">g</text>
+      <rect x="250" y="35" width="60" height="40" rx="4" fill="none" stroke="#34d399" stroke-width="1.5"/>
+      <text x="280" y="59" text-anchor="middle" fill="#34d399" font-size="16" font-weight="600">h</text>
+      <!-- arrows between boxes -->
+      <line x1="90" y1="55" x2="138" y2="55" stroke="#888" stroke-width="1.2" marker-end="url(#sicp03-arrow)"/>
+      <line x1="200" y1="55" x2="248" y2="55" stroke="#888" stroke-width="1.2" marker-end="url(#sicp03-arrow)"/>
+      <!-- input/output labels -->
+      <text x="10" y="59" text-anchor="middle" fill="currentColor" fill-opacity="0.5" font-size="11">in</text>
+      <line x1="18" y1="55" x2="28" y2="55" stroke="#888" stroke-width="1.2" marker-end="url(#sicp03-arrow)"/>
+      <text x="330" y="59" text-anchor="middle" fill="currentColor" fill-opacity="0.5" font-size="11">out</text>
+      <line x1="310" y1="55" x2="322" y2="55" stroke="#888" stroke-width="1.2" marker-end="url(#sicp03-arrow)"/>
+      <!-- compose arc -->
+      <path d="M18,35 Q18,8 170,8 Q322,8 322,35" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,3"/>
+      <text x="170" y="20" text-anchor="middle" fill="#a78bfa" font-size="11" font-style="italic">compose</text>
+      <!-- caption -->
+      <text x="170" y="100" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">functions that take and return functions</text>
+      <text x="170" y="113" text-anchor="middle" fill="currentColor" fill-opacity="0.45" font-size="10">abstraction over patterns</text>
+      <defs><marker id="sicp03-arrow" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker></defs>
+    </svg>
 
     <!-- 1. Procedures as arguments -->
     <h3>Procedures as arguments &mdash; summation</h3>
