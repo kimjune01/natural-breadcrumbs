@@ -264,7 +264,7 @@ const { title, favicon } = Astro.props;
             // Walk backwards to find the closest preceding div that contains a textarea (REPL)
             var prev = pyBlock.previousElementSibling;
             while (prev) {
-              if (prev.tagName === 'DIV' && prev.querySelector('textarea')) break;
+              if (prev.querySelector && prev.querySelector('textarea')) break;
               prev = prev.previousElementSibling;
             }
             if (!prev) continue;
@@ -283,9 +283,8 @@ const { title, favicon } = Astro.props;
           langBtn.textContent = lang === 'scheme' ? 'λ' : 'py';
         }
 
-        // REPLs are React islands — they render after page load.
-        // MutationObserver re-applies whenever new nodes appear.
-        new MutationObserver(applyLang).observe(document.body, { childList: true, subtree: true });
+        // Apply on load. React islands may render later, so also on click.
+        window.addEventListener('load', applyLang);
         langBtn.addEventListener('click', function() {
           lang = lang === 'scheme' ? 'python' : 'scheme';
           localStorage.setItem('replLang', lang);

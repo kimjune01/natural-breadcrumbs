@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Base.astro';
+---
+
+<Layout title="Machine Learning" favicon="🤖">
+  <main>
+
+    <a href="/reading/" class="text-sm mb-4 inline-block">&larr; back to reading</a>
+
+    <h1>🤖 Machine Learning</h1>
+    <p class="text-gray-400 mb-2">Based on <a href="https://mml-book.github.io/">Deisenroth, Faisal &amp; Ong, <em>Mathematics for Machine Learning</em></a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+    <p class="text-gray-400 mb-2">Also draws from <a href="https://d2l.ai/">Zhang et al., <em>Dive into Deep Learning</em></a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <p class="text-gray-400 mb-6">Scheme REPLs run in the browser. Python equivalents in collapsible blocks.</p>
+
+    <!-- SVG: data → model → prediction with loss feedback -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 420 140" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Data box -->
+        <rect x="20" y="40" width="80" height="40" rx="6" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="60" y="65" text-anchor="middle" fill="#60a5fa" font-size="13">data</text>
+        <!-- Model box -->
+        <rect x="160" y="40" width="80" height="40" rx="6" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="200" y="65" text-anchor="middle" fill="#a78bfa" font-size="13">model</text>
+        <!-- Prediction box -->
+        <rect x="300" y="40" width="100" height="40" rx="6" fill="none" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.5"/>
+        <text x="350" y="65" text-anchor="middle" fill="#34d399" font-size="13">prediction</text>
+        <!-- data → model arrow -->
+        <line x1="100" y1="60" x2="155" y2="60" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <polygon points="157,60 149,55 149,65" fill="currentColor" fill-opacity="0.4"/>
+        <!-- model → prediction arrow -->
+        <line x1="240" y1="60" x2="295" y2="60" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <polygon points="297,60 289,55 289,65" fill="currentColor" fill-opacity="0.4"/>
+        <!-- Loss feedback arrow (curves below) -->
+        <path d="M 350 82 L 350 110 Q 350 120 340 120 L 210 120 Q 200 120 200 110 L 200 82" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="4,3"/>
+        <polygon points="200,84 195,92 205,92" fill="#f59e0b" fill-opacity="0.5"/>
+        <text x="275" y="116" text-anchor="middle" fill="#f59e0b" font-size="11" fill-opacity="0.6">loss</text>
+        <!-- Caption -->
+        <text x="210" y="16" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Data in, predictions out. Loss tells the model how wrong it is.</text>
+      </svg>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">1. What is ML?</td>
+            <td class="pr-3 text-gray-400">Function approximation from data &mdash; supervised, unsupervised, reinforcement</td>
+            <td><a href="/reading/ml/ml-01/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">2. Linear Regression</td>
+            <td class="pr-3 text-gray-400">Find weights that minimize squared error &mdash; normal equation or gradient descent</td>
+            <td><a href="/reading/ml/ml-02/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">3. Optimization</td>
+            <td class="pr-3 text-gray-400">Follow the negative gradient downhill &mdash; learning rate, convexity, convergence</td>
+            <td><a href="/reading/ml/ml-03/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">4. Logistic Regression</td>
+            <td class="pr-3 text-gray-400">Squash linear output through sigmoid for probabilities &mdash; cross-entropy loss</td>
+            <td><a href="/reading/ml/ml-04/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">5. Kernel Methods</td>
+            <td class="pr-3 text-gray-400">Replace dot products with kernel functions to learn nonlinear boundaries</td>
+            <td><a href="/reading/ml/ml-05/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">6. Neural Networks</td>
+            <td class="pr-3 text-gray-400">Stack linear layers with nonlinearities &mdash; universal approximation by composition</td>
+            <td><a href="/reading/ml/ml-06/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">7. Backpropagation</td>
+            <td class="pr-3 text-gray-400">The chain rule applied layer by layer &mdash; how gradients flow backward through a network</td>
+            <td><a href="/reading/ml/ml-07/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">8. Regularization</td>
+            <td class="pr-3 text-gray-400">Penalize complexity to prevent overfitting &mdash; L1, L2, dropout, early stopping</td>
+            <td><a href="/reading/ml/ml-08/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">9. Convolutional Networks</td>
+            <td class="pr-3 text-gray-400">Exploit spatial structure &mdash; shared filters, pooling, translation equivariance</td>
+            <td><a href="/reading/ml/ml-09/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">10. Recurrent Networks</td>
+            <td class="pr-3 text-gray-400">Process sequences by feeding hidden state forward &mdash; vanishing gradients and LSTMs</td>
+            <td><a href="/reading/ml/ml-10/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">11. Dimensionality Reduction</td>
+            <td class="pr-3 text-gray-400">PCA finds the axes of maximum variance &mdash; compress data without losing structure</td>
+            <td><a href="/reading/ml/ml-11/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3 text-gray-300">12. Clustering</td>
+            <td class="pr-3 text-gray-400">Group data by similarity &mdash; k-means, EM, and the bias-variance tradeoff in unsupervised learning</td>
+            <td><a href="/reading/ml/ml-12/" class="text-yellow-300 hover:text-yellow-200">🤖</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</Layout>
