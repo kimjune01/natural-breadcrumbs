@@ -69,8 +69,32 @@ import SchemeRepl from '../../../components/SchemeRepl';
   (lambda (y) (coin-flip y)) 3))
 `} />
 
-    <div class="python-block my-2">
-      <!-- TODO: no direct Python equivalent for this Scheme block -->
+    <div class="python-block my-2" style="display:none">
+      <Repl client:load initialCode={`# Support = which outputs are reachable
+# A deterministic function has support {f(x)}.
+# A stochastic function has support = all possible outputs.
+
+def det_support(f, x):
+    return [f(x)]  # exactly one possible output
+
+def stoch_support(f, x):
+    return f(x)  # returns the full list of possibilities
+
+def double(x):
+    return x * 2
+
+def coin_flip(x):
+    return [x, -x]  # two outcomes
+
+print(f"det support of double(3): {det_support(double, 3)}")
+print(f"stoch support of coin-flip(5): {stoch_support(coin_flip, 5)}")
+print("bind: for each y in support(f(x)), collect support(g(y))")
+
+def bind_support(sf, sg, x):
+    return [z for y in sf(x) for z in sg(y)]
+
+print(f"support(coin-flip >>= coin-flip)(3): {bind_support(coin_flip, coin_flip, 3)}")
+`} />
     </div>
 
     <h3>Connections</h3>

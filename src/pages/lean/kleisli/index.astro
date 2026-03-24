@@ -61,8 +61,28 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (pipeline "cat"))
 `} />
 
-    <div class="python-block my-2">
-      <!-- TODO: no direct Python equivalent for this Scheme block -->
+    <div class="python-block my-2" style="display:none">
+      <Repl client:load initialCode={`# Kleisli composition: chain functions that return lists
+# a -> [b], b -> [c]  =>  a -> [c]
+# (like composing stochastic stages)
+
+def kleisli_comp(f, g):
+    return lambda x: [z for y in f(x) for z in g(y)]
+
+# Stage 1: perceive — one input, two encodings
+def perceive(x):
+    return [x + "-visual", x + "-audio"]
+
+# Stage 2: cache — each encoding gets indexed
+def cache(enc):
+    return [enc + ":idx0", enc + ":idx1"]
+
+# Compose: perceive >=> cache
+pipeline = kleisli_comp(perceive, cache)
+
+print(f"perceive('cat'): {perceive('cat')}")
+print(f"pipeline('cat'): {pipeline('cat')}")
+`} />
     </div>
 
     <h3>theorem Kernel.deterministic_comp</h3>

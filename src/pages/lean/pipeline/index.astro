@@ -72,8 +72,32 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (forward "hello" "diverse"))
 `} />
 
-    <div class="python-block my-2">
-      <!-- TODO: no direct Python equivalent for this Scheme block -->
+    <div class="python-block my-2" style="display:none">
+      <Repl client:load initialCode={`# The six-stage pipeline as function composition
+# Each stage: one type in, one type out
+
+def perceive(raw):
+    return "enc:" + raw
+
+def cache(encoded):
+    return [encoded, encoded + "#2"]
+
+def filter_stage(indexed):
+    return [indexed[0]]  # keep only first
+
+def attend(policy, selected):
+    return [s + "|" + policy for s in selected]
+
+def remember(ranked):
+    return ranked  # lossless
+
+# Forward pass: compose perceive through attend
+def forward(raw, policy):
+    return attend(policy, filter_stage(cache(perceive(raw))))
+
+print(f"forward('hello', 'top-1'): {forward('hello', 'top-1')}")
+print(f"forward('hello', 'diverse'): {forward('hello', 'diverse')}")
+`} />
     </div>
 
     <h3>def Pipeline.forward</h3>

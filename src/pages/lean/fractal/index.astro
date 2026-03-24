@@ -71,8 +71,27 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Terminates: budget hits 0 at depth=initial")
 `} />
 
-    <div class="python-block my-2">
-      <!-- TODO: no direct Python equivalent for this Scheme block -->
+    <div class="python-block my-2" style="display:none">
+      <Repl client:load initialCode={`# Fractal tower: recursive consolidation with budget
+# At depth 0 => passthrough (return input unchanged)
+# Each level costs 1 bit; at 0 bits, recursion stops.
+
+def tower_consolidate(depth, policy, persisted):
+    if depth == 0:
+        return policy  # passthrough — no bits left
+    inner_policy = tower_consolidate(depth - 1, policy, persisted)
+    return inner_policy + "+"
+
+def bits_at_depth(initial, d):
+    return max(0, initial - d)
+
+# Tower with 3-bit budget
+print(f"depth 0 (0 bits): {tower_consolidate(0, 'p0', 'data')}")
+print(f"depth 1 (2 bits): {tower_consolidate(1, 'p0', 'data')}")
+print(f"depth 3 (0 bits): {tower_consolidate(3, 'p0', 'data')}")
+print("budget:", " ".join(str(bits_at_depth(3, d)) for d in range(5)))
+print("Terminates: budget hits 0 at depth=initial")
+`} />
     </div>
 
     <h3>theorem tower_preserves_up</h3>
