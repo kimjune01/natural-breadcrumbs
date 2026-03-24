@@ -177,7 +177,7 @@ Based on Bartosz Milewski's blog series (CC BY-SA 4.0). 24 chapters, each gettin
 
 **Selection discipline:** All 24 chapters from the three-part series. Unlike paper pages (which require a cognition series reference), the foundations section is comprehensive — it's a curriculum, not a curated selection.
 
-**Routes:** `/reading/milewski-01/` through `/reading/milewski-24/`
+**Routes:** `/reading/category-theory/milewski-01/` through `/reading/category-theory/milewski-24/`
 
 ## Stretch goals
 - "Reading mode" — paste a paper abstract, every symbol gets hover tooltips

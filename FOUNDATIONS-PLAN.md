@@ -25,7 +25,7 @@ Three new foundation sections for Natural Breadcrumbs. Same format as Milewski (
 - Law of large numbers
 - Central limit theorem
 
-**Route:** `/reading/nordstrom-prob-NN/` or `/reading/grinstead-NN/`
+**Route:** `/reading/game-theory/nordstrom-prob-NN/` or `/reading/probability/grinstead-NN/`
 
 ## 2. Logic & Proofs 🔑
 
