@@ -6,203 +6,92 @@ import Layout from '../layouts/Base.astro';
   <main>
 
     <h1 class="text-3xl font-bold mb-2">Reading</h1>
-    <p class="text-lg text-gray-300 mb-6">Textbooks and papers, translated into runnable code with diagrams.</p>
+    <p class="text-sm text-gray-400 mb-6">Textbooks and papers, translated into runnable code with diagrams.</p>
 
-    <h2 class="text-xl font-semibold mb-4">How to read these</h2>
-    <p class="text-gray-400 mb-4">Every page has runnable code. If you're new to the languages used on this site, start here.</p>
+    <details class="mb-6">
+      <summary class="text-sm text-gray-500 cursor-pointer">How to read these: are you new to programming languages?</summary>
+      <p class="text-gray-400 mt-2 mb-4 text-sm">Every page has runnable code. If you're new to the languages used on this site, start here.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr>
+              <th class="text-left py-2 pr-3 text-gray-400">📄</th>
+              <th class="text-left py-2 pr-3 text-gray-400">Language</th>
+              <th class="text-left py-2 pr-3 text-gray-400">Role on this site</th>
+              <th class="text-left py-2 text-gray-400"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 pr-3">🟢</td>
+              <td class="pr-3">Scheme</td>
+              <td class="pr-3 text-gray-400">Primary REPL on every page. Functional, minimal syntax.</td>
+              <td><a href="/reading/how/scheme/" class="text-yellow-300 hover:text-yellow-200">start</a></td>
+            </tr>
+            <tr>
+              <td class="py-2 pr-3">🔵</td>
+              <td class="pr-3">Python</td>
+              <td class="pr-3 text-gray-400">Imperative equivalent in collapsible blocks. Familiar syntax.</td>
+              <td><a href="/reading/how/python/" class="text-yellow-300 hover:text-yellow-200">start</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
+    <h2 class="text-xl font-semibold mb-4">Mathematics</h2>
     <div class="overflow-x-auto mb-6">
       <table class="w-full text-sm">
-        <thead>
-          <tr>
-            <th class="text-left py-2 pr-3 text-gray-400">📄</th>
-            <th class="text-left py-2 pr-3 text-gray-400">Language</th>
-            <th class="text-left py-2 pr-3 text-gray-400">Role on this site</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td class="py-2 pr-3">🟢</td>
-            <td class="pr-3">Scheme</td>
-            <td class="pr-3 text-gray-400">Primary REPL on every page. Functional, minimal syntax.</td>
-            <td><a href="/reading/how/scheme/" class="text-yellow-300 hover:text-yellow-200">start</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🔵</td>
-            <td class="pr-3">Python</td>
-            <td class="pr-3 text-gray-400">Imperative equivalent in collapsible blocks. Familiar syntax.</td>
-            <td><a href="/reading/how/python/" class="text-yellow-300 hover:text-yellow-200">start</a></td>
-          </tr>
+          <tr><td class="py-2 pr-3">∫</td><td class="pr-3"><a href="/reading/calculus/">Calculus</a></td><td class="pr-3 text-gray-400">Active Calculus</td></tr>
+          <tr><td class="py-2 pr-3">∞</td><td class="pr-3"><a href="/reading/analysis/">Real Analysis</a></td><td class="pr-3 text-gray-400">Jiří Lebl</td></tr>
+          <tr><td class="py-2 pr-3">📐</td><td class="pr-3"><a href="/reading/linear-algebra/">Linear Algebra</a></td><td class="pr-3 text-gray-400">Jim Hefferon</td></tr>
+          <tr><td class="py-2 pr-3">🔗</td><td class="pr-3"><a href="/reading/algebra/">Abstract Algebra</a></td><td class="pr-3 text-gray-400">Tom Judson</td></tr>
+          <tr><td class="py-2 pr-3">🔢</td><td class="pr-3"><a href="/reading/discrete-math/">Discrete Math</a></td><td class="pr-3 text-gray-400">Oscar Levin</td></tr>
+          <tr><td class="py-2 pr-3">#</td><td class="pr-3"><a href="/reading/number-theory/">Number Theory</a></td><td class="pr-3 text-gray-400">Jim Hefferon</td></tr>
+          <tr><td class="py-2 pr-3">△</td><td class="pr-3"><a href="/reading/geometry/">Geometry</a></td><td class="pr-3 text-gray-400">Wikipedia + june.kim</td></tr>
+          <tr><td class="py-2 pr-3">🔑</td><td class="pr-3"><a href="/reading/logic/">Logic</a></td><td class="pr-3 text-gray-400">Craig DeLancey</td></tr>
+          <tr><td class="py-2 pr-3">✎</td><td class="pr-3"><a href="/reading/proofs/">Proofs</a></td><td class="pr-3 text-gray-400">Jim Hefferon</td></tr>
+          <tr><td class="py-2 pr-3">🐱</td><td class="pr-3"><a href="/reading/category-theory/">Category Theory</a></td><td class="pr-3 text-gray-400">Bartosz Milewski</td></tr>
         </tbody>
       </table>
     </div>
 
-    <hr class="border-zinc-700 my-8"/>
-
-    <h2 class="text-xl font-semibold mb-4">Foundations</h2>
-
+    <h2 class="text-xl font-semibold mb-4">Computer Science</h2>
     <div class="overflow-x-auto mb-6">
       <table class="w-full text-sm">
-        <thead>
-          <tr>
-            <th class="text-left py-2 pr-3 text-gray-400">📚</th>
-            <th class="text-left py-2 pr-3 text-gray-400">Subject</th>
-            <th class="text-left py-2 pr-3 text-gray-400">Source</th>
-            <th class="text-left py-2 text-gray-400">License</th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td class="py-2 pr-3">∞</td>
-            <td class="pr-3"><a href="/reading/analysis/">Real Analysis</a></td>
-            <td class="pr-3 text-gray-400">Jiří Lebl</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🐱</td>
-            <td class="pr-3"><a href="/reading/category-theory/">Category Theory</a></td>
-            <td class="pr-3 text-gray-400">Bartosz Milewski</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🎲</td>
-            <td class="pr-3"><a href="/reading/game-theory/">Game Theory</a></td>
-            <td class="pr-3 text-gray-400">Jennifer Nordstrom</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🎰</td>
-            <td class="pr-3"><a href="/reading/probability/">Probability</a></td>
-            <td class="pr-3 text-gray-400">Grinstead &amp; Snell</td>
-            <td class="text-gray-400">GFDL</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">📡</td>
-            <td class="pr-3"><a href="/reading/info-theory/">Information Theory</a></td>
-            <td class="pr-3 text-gray-400">Shannon 1948 + Wikipedia</td>
-            <td class="text-gray-400">Public domain + CC BY-SA</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🪄</td>
-            <td class="pr-3"><a href="/reading/programming/">Programming</a></td>
-            <td class="pr-3 text-gray-400">Abelson &amp; Sussman (SICP) + DeNero</td>
-            <td class="text-gray-400">CC BY-SA 4.0 + CC BY-SA 3.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🔢</td>
-            <td class="pr-3"><a href="/reading/discrete-math/">Discrete Math</a></td>
-            <td class="pr-3 text-gray-400">Oscar Levin</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">📐</td>
-            <td class="pr-3"><a href="/reading/linear-algebra/">Linear Algebra</a></td>
-            <td class="pr-3 text-gray-400">Jim Hefferon</td>
-            <td class="text-gray-400">GFDL + CC BY-SA 2.5</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🔗</td>
-            <td class="pr-3"><a href="/reading/algebra/">Abstract Algebra</a></td>
-            <td class="pr-3 text-gray-400">Tom Judson</td>
-            <td class="text-gray-400">GFDL</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🧠</td>
-            <td class="pr-3"><a href="/reading/cogsci/">Cognitive Science</a></td>
-            <td class="pr-3 text-gray-400">Lovelace textbook</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">📊</td>
-            <td class="pr-3"><a href="/reading/statistics/">Statistics</a></td>
-            <td class="pr-3 text-gray-400">OpenIntro</td>
-            <td class="text-gray-400">CC BY-SA 3.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">∫</td>
-            <td class="pr-3"><a href="/reading/calculus/">Calculus</a></td>
-            <td class="pr-3 text-gray-400">Active Calculus</td>
-            <td class="text-gray-400">CC BY-SA</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">⚛</td>
-            <td class="pr-3"><a href="/reading/physics/">Physics</a></td>
-            <td class="pr-3 text-gray-400">Benjamin Crowell</td>
-            <td class="text-gray-400">CC BY-SA 3.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">⚙</td>
-            <td class="pr-3"><a href="/reading/algorithms/">Algorithms</a></td>
-            <td class="pr-3 text-gray-400">Nievergelt &amp; Hinrichs</td>
-            <td class="text-gray-400">CC BY-SA</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🔀</td>
-            <td class="pr-3"><a href="/reading/computation/">Theory of Computation</a></td>
-            <td class="pr-3 text-gray-400">Maheshwari &amp; Smid</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🔑</td>
-            <td class="pr-3"><a href="/reading/logic/">Logic</a></td>
-            <td class="pr-3 text-gray-400">Craig DeLancey</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">💰</td>
-            <td class="pr-3"><a href="/reading/economics/">Economics</a></td>
-            <td class="pr-3 text-gray-400">Smith, Ricardo, Marshall + Wikipedia</td>
-            <td class="text-gray-400">Public domain + CC BY-SA</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🔐</td>
-            <td class="pr-3"><a href="/reading/crypto/">Cryptography</a></td>
-            <td class="pr-3 text-gray-400">Wikipedia</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🎛</td>
-            <td class="pr-3"><a href="/reading/control/">Control Theory</a></td>
-            <td class="pr-3 text-gray-400">Wikipedia</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">△</td>
-            <td class="pr-3"><a href="/reading/geometry/">Geometry</a></td>
-            <td class="pr-3 text-gray-400">Wikipedia + june.kim</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">✎</td>
-            <td class="pr-3"><a href="/reading/proofs/">Proofs</a></td>
-            <td class="pr-3 text-gray-400">Jim Hefferon</td>
-            <td class="text-gray-400">GFDL + CC BY-SA 2.5</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">#</td>
-            <td class="pr-3"><a href="/reading/number-theory/">Number Theory</a></td>
-            <td class="pr-3 text-gray-400">Jim Hefferon</td>
-            <td class="text-gray-400">GFDL + CC BY-SA 2.5</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🖥</td>
-            <td class="pr-3"><a href="/reading/os/">Operating Systems</a></td>
-            <td class="pr-3 text-gray-400">Wikipedia</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🌐</td>
-            <td class="pr-3"><a href="/reading/distributed/">Distributed Systems</a></td>
-            <td class="pr-3 text-gray-400">Wikipedia + Cambridge CS</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3">🗄</td>
-            <td class="pr-3"><a href="/reading/databases/">Databases</a></td>
-            <td class="pr-3 text-gray-400">Wikipedia</td>
-            <td class="text-gray-400">CC BY-SA 4.0</td>
-          </tr>
+          <tr><td class="py-2 pr-3">🪄</td><td class="pr-3"><a href="/reading/programming/">Programming</a></td><td class="pr-3 text-gray-400">Abelson &amp; Sussman (SICP)</td></tr>
+          <tr><td class="py-2 pr-3">⚙</td><td class="pr-3"><a href="/reading/algorithms/">Algorithms</a></td><td class="pr-3 text-gray-400">Nievergelt &amp; Hinrichs</td></tr>
+          <tr><td class="py-2 pr-3">🔀</td><td class="pr-3"><a href="/reading/computation/">Theory of Computation</a></td><td class="pr-3 text-gray-400">Maheshwari &amp; Smid</td></tr>
+          <tr><td class="py-2 pr-3">🖥</td><td class="pr-3"><a href="/reading/os/">Operating Systems</a></td><td class="pr-3 text-gray-400">Wikipedia</td></tr>
+          <tr><td class="py-2 pr-3">🗄</td><td class="pr-3"><a href="/reading/databases/">Databases</a></td><td class="pr-3 text-gray-400">Wikipedia</td></tr>
+          <tr><td class="py-2 pr-3">🌐</td><td class="pr-3"><a href="/reading/distributed/">Distributed Systems</a></td><td class="pr-3 text-gray-400">Wikipedia + Cambridge CS</td></tr>
+          <tr><td class="py-2 pr-3">🔐</td><td class="pr-3"><a href="/reading/crypto/">Cryptography</a></td><td class="pr-3 text-gray-400">Wikipedia</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl font-semibold mb-4">Science &amp; Engineering</h2>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <tbody>
+          <tr><td class="py-2 pr-3">⚛</td><td class="pr-3"><a href="/reading/physics/">Physics</a></td><td class="pr-3 text-gray-400">Benjamin Crowell</td></tr>
+          <tr><td class="py-2 pr-3">🎛</td><td class="pr-3"><a href="/reading/control/">Control Theory</a></td><td class="pr-3 text-gray-400">Wikipedia</td></tr>
+          <tr><td class="py-2 pr-3">🎰</td><td class="pr-3"><a href="/reading/probability/">Probability</a></td><td class="pr-3 text-gray-400">Grinstead &amp; Snell</td></tr>
+          <tr><td class="py-2 pr-3">📊</td><td class="pr-3"><a href="/reading/statistics/">Statistics</a></td><td class="pr-3 text-gray-400">OpenIntro</td></tr>
+          <tr><td class="py-2 pr-3">📡</td><td class="pr-3"><a href="/reading/info-theory/">Information Theory</a></td><td class="pr-3 text-gray-400">Shannon 1948 + Wikipedia</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl font-semibold mb-4">Social Science</h2>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <tbody>
+          <tr><td class="py-2 pr-3">🎲</td><td class="pr-3"><a href="/reading/game-theory/">Game Theory</a></td><td class="pr-3 text-gray-400">Jennifer Nordstrom</td></tr>
+          <tr><td class="py-2 pr-3">💰</td><td class="pr-3"><a href="/reading/economics/">Economics</a></td><td class="pr-3 text-gray-400">Smith, Ricardo, Marshall + Wikipedia</td></tr>
+          <tr><td class="py-2 pr-3">🧠</td><td class="pr-3"><a href="/reading/cogsci/">Cognitive Science</a></td><td class="pr-3 text-gray-400">Lovelace textbook</td></tr>
         </tbody>
       </table>
     </div>
@@ -245,12 +134,41 @@ import Layout from '../layouts/Base.astro';
     <hr class="border-zinc-700 my-8"/>
 
     <h2 class="text-xl font-semibold mb-4">Further reading (external)</h2>
-    <p class="text-gray-400 mb-4">Permissive-licensed sources worth reading directly. Pointers, not derivatives.</p>
-    <ul class="text-gray-400 space-y-1 mb-4">
+    <p class="text-gray-400 mb-4 text-sm">Permissive-licensed sources worth reading directly. Gaps we haven't filled yet.</p>
+
+    <p class="text-gray-500 text-xs mb-2 mt-4">Logic &amp; Foundations</p>
+    <ul class="text-gray-400 text-sm space-y-1 mb-4">
       <li><a href="https://forallx.openlogicproject.org/">forall x: Calgary</a> — propositional and predicate logic (CC BY 4.0)</li>
       <li><a href="https://openlogicproject.org/">Open Logic Project</a> — formal proof systems, model theory (CC BY 4.0)</li>
       <li><a href="https://leanprover-community.github.io/logic_and_proof/">Logic and Proof</a> — induction, Lean-flavored proofs (Apache 2.0)</li>
       <li><a href="https://softwarefoundations.cis.upenn.edu/plf-current/index.html">Software Foundations vol. 2</a> — Hoare logic, weakest preconditions (MIT)</li>
+    </ul>
+
+    <p class="text-gray-500 text-xs mb-2 mt-4">Mathematics</p>
+    <ul class="text-gray-400 text-sm space-y-1 mb-4">
+      <li><a href="https://www.jirka.org/diffyqs/">Notes on Diffy Qs</a> — differential equations (CC BY-SA 4.0)</li>
+      <li><a href="https://topology.pi-base.org/">pi-Base</a> — searchable database of topological spaces (MIT)</li>
+      <li><a href="https://linear.ups.edu/">A First Course in Linear Algebra</a> — Beezer, more computational than Hefferon (GFDL)</li>
+    </ul>
+
+    <p class="text-gray-500 text-xs mb-2 mt-4">Computer Science</p>
+    <ul class="text-gray-400 text-sm space-y-1 mb-4">
+      <li><a href="https://craftinginterpreters.com/">Crafting Interpreters</a> — compilers, from tree-walk to bytecode (MIT)</li>
+      <li><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a> — virtualization, concurrency, persistence (free)</li>
+      <li><a href="https://beej.us/guide/bgnet/">Beej's Guide to Network Programming</a> — sockets from scratch (CC BY-SA 4.0)</li>
+      <li><a href="https://www.nand2tetris.org/">Nand2Tetris</a> — build a computer from logic gates to OS (CC BY-SA 3.0)</li>
+    </ul>
+
+    <p class="text-gray-500 text-xs mb-2 mt-4">Machine Learning &amp; Optimization</p>
+    <ul class="text-gray-400 text-sm space-y-1 mb-4">
+      <li><a href="https://d2l.ai/">Dive into Deep Learning</a> — interactive ML textbook with runnable code (CC BY-SA 4.0)</li>
+      <li><a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> — Deisenroth, Faisal, Ong (CC BY 4.0)</li>
+    </ul>
+
+    <p class="text-gray-500 text-xs mb-2 mt-4">Science</p>
+    <ul class="text-gray-400 text-sm space-y-1 mb-4">
+      <li><a href="https://openstax.org/subjects/science">OpenStax Sciences</a> — biology, chemistry, astronomy (CC BY 4.0)</li>
+      <li><a href="https://www.feynmanlectures.caltech.edu/">Feynman Lectures on Physics</a> — the classic, free online</li>
     </ul>
 
     <hr class="border-zinc-700 my-8"/>

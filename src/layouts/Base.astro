@@ -215,6 +215,7 @@ const { title, favicon } = Astro.props;
   <body class="min-h-screen">
     <div class="max-w-3xl mx-auto px-6 py-10">
       <button id="theme-toggle" style="position:fixed;top:1rem;right:1rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle dark/light mode">☀︎</button>
+      <button id="lang-toggle" style="position:fixed;top:1rem;right:3.5rem;background:transparent;border:1px solid #52525b;border-radius:4px;padding:0.2em 0.5em;cursor:pointer;font-size:0.8rem;color:inherit;z-index:50;" aria-label="Toggle Scheme/Python">λ</button>
       <slot />
       <footer class="mt-16 pt-6 border-t border-zinc-800 text-sm text-gray-500">
         Python runs in your browser via <a href="https://pyodide.org">Pyodide</a>. Scheme runs via <a href="https://github.com/biwascheme/biwascheme">BiwaScheme</a>.
@@ -236,6 +237,60 @@ const { title, favicon } = Astro.props;
             links[i].classList.add('visited-link');
           }
         }
+      })();
+      // Language toggle: swap Scheme (primary) and Python (details) visibility
+      (function() {
+        var langBtn = document.getElementById('lang-toggle');
+        var lang = localStorage.getItem('replLang') || 'scheme';
+
+        function applyLang() {
+          // SchemeRepl components don't have a details wrapper.
+          // Python Repl components are inside <details><summary>imperative equivalent</summary>
+          // Strategy: find all details with "imperative equivalent" summary text
+          var details = document.querySelectorAll('details');
+          var pythonDetails = [];
+          for (var i = 0; i < details.length; i++) {
+            var summary = details[i].querySelector('summary');
+            if (summary && summary.textContent.indexOf('imperative') !== -1) {
+              pythonDetails.push(details[i]);
+            }
+          }
+
+          // For each Python details block, find the SchemeRepl before it.
+          // SchemeRepl renders as a div.border with a textarea inside.
+          for (var j = 0; j < pythonDetails.length; j++) {
+            var pyBlock = pythonDetails[j];
+            if (pyBlock.hasAttribute('data-no-swap')) continue;
+            // Walk backwards to find the closest preceding div that contains a textarea (REPL)
+            var prev = pyBlock.previousElementSibling;
+            while (prev) {
+              if (prev.tagName === 'DIV' && prev.querySelector('textarea')) break;
+              prev = prev.previousElementSibling;
+            }
+            if (!prev) continue;
+
+            if (lang === 'python') {
+              prev.style.display = 'none';
+              pyBlock.open = true;
+              pyBlock.querySelector('summary').style.display = 'none';
+            } else {
+              prev.style.display = '';
+              pyBlock.open = false;
+              pyBlock.querySelector('summary').style.display = '';
+            }
+          }
+
+          langBtn.textContent = lang === 'scheme' ? 'λ' : 'py';
+        }
+
+        // REPLs are React islands — they render after page load.
+        // MutationObserver re-applies whenever new nodes appear.
+        new MutationObserver(applyLang).observe(document.body, { childList: true, subtree: true });
+        langBtn.addEventListener('click', function() {
+          lang = lang === 'scheme' ? 'python' : 'scheme';
+          localStorage.setItem('replLang', lang);
+          applyLang();
+        });
       })();
       (function() {
         const html = document.documentElement;
