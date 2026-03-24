@@ -97,8 +97,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "empty:  ") (display (pda-anbn ""))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# PDA for a^n b^n
 def pda_anbn(s):
     stack = []
@@ -113,13 +112,11 @@ def pda_anbn(s):
 for s in ["aabb", "aaabbb", "aab", "ab", "ba", ""]:
     print((s or "empty").ljust(7) + ": " + str(pda_anbn(s)))
 `} />
-    </details>
-
+    </div>
 
     <!-- Equivalence with CFGs -->
     <h3>PDAs = CFGs</h3>
     <p>Every CFG can be converted to an equivalent PDA, and every PDA can be converted to a CFG. The context-free languages are exactly those recognized by pushdown automata.</p>
-
 
     <!-- Pumping lemma for CFLs -->
     <h3>Pumping lemma for context-free languages</h3>
@@ -151,6 +148,29 @@ for s in ["aabb", "aaabbb", "aab", "ab", "ba", ""]:
 (display "This language is not context-free.")
 `} />
 
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# a^n b^n c^n: not context-free
+def in_anbncn(s):
+    n = len(s)
+    if n % 3 != 0: return False
+    k = n // 3
+    return s == 'a' * k + 'b' * k + 'c' * k
+
+for s in ["abc", "aabbcc", "aaabbbccc", "aabbc", ""]:
+    print(f"{repr(s)}: {in_anbncn(s)}")
+
+print()
+print("Matching three groups needs more than a stack.")
+print("This language is not context-free.")
+`} />
+    </div>
+
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/programming/sicp-08/">🪄 SICP Ch.8</a> — the call stack is a pushdown automaton: function calls push frames, returns pop them</li>
+      <li><a href="/reading/operating-systems/os-02/">💻 OS Ch.2</a> — process stacks and call stack management implement PDA mechanics</li>
+      <li><a href="/reading/category-theory/milewski-19/">🐱 Category Theory Ch.19</a> — algebraic data types model recursive structures recognized by PDAs</li>
+    </ul>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-04/">&larr; Context-Free Grammars</a>

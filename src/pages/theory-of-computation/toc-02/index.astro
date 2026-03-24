@@ -100,8 +100,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "aa: ") (display (run-nfa "aa"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# NFA simulation: track all possible states
 def run_nfa(input_str):
     def eps_closure(states):
@@ -124,8 +123,7 @@ def run_nfa(input_str):
 for s in ["ab", "a", "b", "aa"]:
     print(s + ": " + str(run_nfa(s)))
 `} />
-    </details>
-
+    </div>
 
     <!-- Subset construction -->
     <h3>Subset construction: NFA to DFA</h3>
@@ -155,11 +153,48 @@ for s in ["ab", "a", "b", "aa"]:
 (display "The DFA has 4 reachable states (including dead).")
 `} />
 
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# Subset construction: NFA to DFA (same NFA as above)
+# NFA: 0 --a--> 1, 0 --eps--> 2, 1 --b--> 3, 2 --a--> 3
+def eps_closure(states):
+    s = frozenset(states) | ({2} if 0 in states else set())
+    return s
+
+nfa_delta = {(0, 'a'): {1}, (1, 'b'): {3}, (2, 'a'): {3}}
+accepting = {3}
+
+start = eps_closure({0})
+worklist = [start]
+dfa_states = {}
+
+while worklist:
+    state_set = worklist.pop()
+    for symbol in ['a', 'b']:
+        next_nfa = set()
+        for s in state_set:
+            next_nfa |= nfa_delta.get((s, symbol), set())
+        next_set = eps_closure(next_nfa)
+        dfa_states[(state_set, symbol)] = next_set
+        if next_set not in [v for v in dfa_states.values()] and next_set not in worklist:
+            worklist.append(next_set)
+
+print("DFA transitions:")
+for (src, sym), dst in sorted(dfa_states.items(), key=lambda x: str(x)):
+    is_acc = " [accept]" if dst & accepting else ""
+    print(f"  {set(src)} --{sym}--> {set(dst)}{is_acc}")
+`} />
+    </div>
 
     <!-- Equivalence -->
     <h3>NFA = DFA in power</h3>
     <p>The subset construction proves that NFAs and DFAs recognize the same class of languages: the regular languages. Nondeterminism is a convenience for design, not an increase in power. The trade-off is state count: the DFA may need exponentially more states.</p>
 
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/machine-learning/ml-10/">🤖 ML Ch.10</a> — sequence models: RNNs are nondeterministic automata trained by gradient descent</li>
+      <li><a href="/reading/category-theory/milewski-13/">🐱 Category Theory Ch.13</a> — the powerset monad models nondeterministic computation</li>
+      <li><a href="/reading/probability/grinstead-11/">🎰 Probability Ch.11</a> — Markov chains are probabilistic automata: states plus transition probabilities</li>
+    </ul>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-01/">&larr; Finite Automata</a>

@@ -80,8 +80,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "cc:    ") (display (match-regex "cc"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# Regex matching: (a|b)*c
 import re
 
@@ -90,13 +89,11 @@ pattern = re.compile(r'^[ab]*c$')
 for s in ["abc", "c", "aabbc", "ab", "cc"]:
     print(s + ": " + str(bool(pattern.match(s))))
 `} />
-    </details>
-
+    </div>
 
     <!-- Equivalence with FA -->
     <h3>Equivalence with finite automata</h3>
     <p>Two directions: every regex can be converted to an NFA (<a href="https://en.wikipedia.org/wiki/Thompson%27s_construction">🅦 Thompson's construction</a>), and every DFA can be converted to a regex (state elimination). The regular languages are exactly those describable by regular expressions.</p>
-
 
     <!-- Pumping lemma -->
     <h3>The pumping lemma</h3>
@@ -130,6 +127,30 @@ for s in ["abc", "c", "aabbc", "ab", "cc"]:
 (display "No finite automaton can count unboundedly.")
 `} />
 
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# a^n b^n: easy to check but not regular
+def in_anbn(s):
+    n = len(s)
+    if n % 2 != 0:
+        return False
+    half = n // 2
+    return s[:half] == 'a' * half and s[half:] == 'b' * half
+
+for s in ["aabb", "aaabbb", "aab", "abab", ""]:
+    print(f"{repr(s)}: {in_anbn(s)}")
+
+print()
+print("This language needs counting.")
+print("No finite automaton can count unboundedly.")
+`} />
+    </div>
+
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/programming/sicp-09/">🪄 SICP Ch.9</a> — pattern matching in Scheme: regular expressions as recognition procedures</li>
+      <li><a href="/reading/information-theory/shannon-01/">📡 Information Theory Ch.1</a> — regular languages have finite entropy rate; their recognizers are minimal automata</li>
+      <li><a href="/reading/databases/db-04/">💾 Databases Ch.4</a> — SQL LIKE patterns and database query languages descend from regular expression theory</li>
+    </ul>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-02/">&larr; Nondeterminism</a>

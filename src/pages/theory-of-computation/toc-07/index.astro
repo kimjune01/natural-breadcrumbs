@@ -69,8 +69,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "This is proved by self-referential contradiction.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2">
       <Repl client:load initialCode={`# The diagonalization argument (structure only)
 # A real halting decider cannot exist.
 
@@ -90,13 +89,11 @@ def D(x):
 print("The halting problem is undecidable.")
 print("No algorithm can decide if arbitrary programs halt.")
 `} />
-    </details>
-
+    </div>
 
     <!-- Rice's theorem -->
     <h3>Rice's theorem</h3>
     <p>The halting problem is just one instance of a general result. <strong><a href="https://en.wikipedia.org/wiki/Rice%27s_theorem">🅦 Rice's theorem</a></strong>: every nontrivial semantic property of programs is undecidable. "Does this program output 42?" Undecidable. "Does this program ever print anything?" Undecidable. "Is this program equivalent to that one?" Undecidable. The only decidable properties are trivial ones (true for all programs or false for all programs).</p>
-
 
     <!-- Reductions -->
     <h3>Reductions</h3>
@@ -122,6 +119,37 @@ print("No algorithm can decide if arbitrary programs halt.")
 (display "  Contradiction. QED.")
 `} />
 
+    <div class="python-block my-2">
+      <Repl client:load initialCode={`# Reduction: proving acceptance-on-epsilon is undecidable
+# (structure only — the argument, not an actual decider)
+
+print("Reduction pattern:")
+print("  Known undecidable: HALT(M, w)")
+print("  Target problem:    ACCEPT-EMPTY(M')")
+print("  Transform: build M' that simulates M on w")
+print("  If target were decidable, HALT would be too.")
+print("  Contradiction. QED.")
+
+# Rice's theorem: every nontrivial semantic property is undecidable.
+properties = [
+    "Does this program output 42?",
+    "Does this program ever print anything?",
+    "Is this program equivalent to that one?",
+    "Does this program halt on all inputs?",
+]
+print()
+print("Rice's theorem: all these are undecidable:")
+for p in properties:
+    print(f"  - {p}")
+`} />
+    </div>
+
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/logic/logic-07/">🔑 Logic Ch.7</a> — Gödel's incompleteness theorem and undecidability are deeply related: the halting problem is a logical statement</li>
+      <li><a href="/reading/proof-writing/proofs-07/">📝 Proofs Ch.7</a> — diagonalization: Cantor's diagonal argument proves the same impossibility result as the halting problem proof</li>
+      <li><a href="/reading/lean/">🧮 Lean</a> — proof assistants can only check decidable properties; undecidable questions cannot be automated</li>
+    </ul>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-06/">&larr; Turing Machines</a>

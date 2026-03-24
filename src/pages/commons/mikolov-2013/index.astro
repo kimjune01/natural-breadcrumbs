@@ -98,14 +98,17 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>The technology doesn't require a gatekeeper. That is the fact that changes the game.</p>
 
-    <!-- Neighbors -->
     <hr class="border-zinc-700 my-8"/>
 
     <h3>Neighbors</h3>
-
-    <p>&#x2696; <a href="/reading/commons/authors-guild-v-google-2015/">Authors Guild v. Google (2015)</a> -- previous in the Commons collection. The legal precedent that makes embedding-based indexing defensible.</p>
-    <p>&#x1F4E1; <a href="/reading/info-theory/">Info Theory</a> -- embeddings are lossy compression. Shannon's rate-distortion theory explains the tradeoff: how much meaning can you preserve in how few dimensions?</p>
-    <p>&#x1F916; <a href="/reading/ml/">ML</a> -- <a href="/reading/ml/vaswani-2017/">Attention Is All You Need (2017)</a>, the architecture that made large-scale embeddings practical. Word2Vec proved meaning could be geometry. Transformers scaled it.</p>
+    <ul class="neighbors">
+      <li><a href="/reading/commons/authors-guild-v-google-2015/">⚖ Authors Guild v. Google 2015</a> — previous in the Commons collection: the legal precedent that makes embedding-based indexing defensible</li>
+      <li><a href="/reading/info-theory/">📡 Info Theory</a> — embeddings are lossy compression: Shannon's rate-distortion theory explains how much meaning can be preserved in how few dimensions</li>
+      <li><a href="/reading/ml/">🤖 ML</a> — the architecture that made large-scale embeddings practical: Word2Vec proved meaning could be geometry, Transformers scaled it</li>
+      <li><a href="/reading/linear-algebra/la-02/">🔗 Linear Algebra Ch.2</a> — vector spaces and inner products: word vectors are elements of a high-dimensional vector space; cosine similarity is the inner product normalized by vector norms</li>
+      <li><a href="/reading/machine-learning/ml-04/">🤖 ML Ch.4</a> — neural networks and representation learning: Word2Vec's skip-gram model learns representations by predicting context — the geometry emerges from the prediction task</li>
+      <li><a href="/reading/information-theory/shannon-02/">📡 IT Ch.2</a> — mutual information: Word2Vec maximizes mutual information between a word and its context — the "meaning as geometry" is encoded mutual information</li>
+    </ul>
 
     <p class="text-sm text-gray-500 mt-6">This is the technical fact that makes everything else in the collection actionable. Meaning as geometry means retrieval without reproduction. Copyleft + embeddings = a search engine that stays on the commons side. <a href="https://june.kim/pageleft-manifesto"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>PageLeft Manifesto</a></p>
 

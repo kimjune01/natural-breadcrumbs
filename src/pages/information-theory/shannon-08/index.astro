@@ -243,31 +243,18 @@ print("Functorial: the ONLY measure that adds up this way.")
     <!-- Neighbors -->
     <h3>Neighbors</h3>
 
-    <p class="text-sm text-gray-500 mb-2">Foundations</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-02/">📡 Entropy</a> &mdash; the definition that the uniqueness theorem vindicates</li>
-    </ul>
-
-    <p class="text-sm text-gray-500 mb-2 mt-4">Paper pages</p>
-    <ul>
       <li><a href="/reading/baez-fritz-2011/">🍞 Baez, Fritz, Leinster 2011</a> &mdash; the main theorem: entropy is the unique functorial measure</li>
       <li><a href="/reading/chen-vigneaux-2023/">🍞 Chen, Vigneaux 2023</a> &mdash; entropy equals magnitude, connecting information to size</li>
       <li><a href="/reading/leinster-2021/">🍞 Leinster 2021</a> &mdash; entropy and diversity in ecology, same uniqueness result</li>
-    </ul>
-
-    <p class="text-sm text-gray-500 mb-2 mt-4">Wikipedia</p>
-    <ul>
       <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">&#x1F150; Shannon entropy</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Functor">&#x1F150; Functor</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Characterizations_of_the_exponential_function">&#x1F150; Characterization theorems</a> &mdash; the same pattern: axioms force a unique solution</li>
     </ul>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
     <p>All examples use finite uniform or explicit distributions. The Baez-Fritz-Leinster theorem works over FinProb, the category of finite probability distributions with measure-preserving maps as morphisms. The "functor" here maps each morphism to its information loss (a real number), and the theorem says this functor is unique. Renyi entropy, Tsallis entropy, and other generalizations satisfy some but not all three axioms. The chain rule is the one that eliminates them.</p>
-
-
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/category-theory/milewski-07/">🐱 Category Theory Ch.7</a> — functors are structure-preserving maps; entropy as a functor is exactly this · <a href="/reading/natural-breadcrumbs/baez-fritz-2011/">🍞 Baez, Fritz, Leinster 2011</a> — the paper that proves this characterization rigorously · <a href="/reading/lean/variational/">✏️ Variational.lean</a> — the variational principle formalized</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/information-theory/shannon-07/">← Channels</a>
