@@ -122,6 +122,24 @@ print("<1> in Z12: " + str(cyclic(1, 12)))   # all of Z12
 ; Notice: all orders divide 12.
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Order of each element in Z12
+def order(a, n):
+    power = a
+    for count in range(1, n + 1):
+        if power % n == 0:
+            return count
+        power += a
+    return n
+
+print("Orders in Z12:")
+for a in range(1, 12):
+    print("  |" + str(a) + "| = " + str(order(a, 12)))
+# All orders divide 12.
+`} />
+    </details>
+
 
     <!-- SVG: subgroup lattice of Z12 -->
     <h3>Subgroup lattice of Z12</h3>

@@ -16,9 +16,9 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">The real numbers are an <strong>ordered field</strong> with the <strong>least upper bound property</strong>: every nonempty set bounded above has a supremum. This single axiom separates the reals from the rationals and makes calculus possible.</p>
     </div>
 
-    <!-- SVG: Number line with sup highlighted -->
+    <!-- SVG: interactive supremum — drag marker along number line -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 400 100" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+      <svg id="sup-demo" viewBox="0 0 400 110" class="w-full max-w-md" style="font-family: ui-monospace, monospace; cursor: pointer;">
         <!-- Number line -->
         <line x1="30" y1="50" x2="370" y2="50" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
         <!-- Tick marks -->
@@ -28,7 +28,9 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <text x="160" y="70" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">1</text>
         <line x1="260" y1="45" x2="260" y2="55" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
         <text x="260" y="70" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">2</text>
-        <!-- Set S: points clustered below sup -->
+        <line x1="360" y1="45" x2="360" y2="55" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="360" y="70" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">3</text>
+        <!-- Set S: points clustered below sup (sup = ~1.85 → px 245) -->
         <circle cx="80" cy="50" r="2.5" fill="#60a5fa" fill-opacity="0.6"/>
         <circle cx="110" cy="50" r="2.5" fill="#60a5fa" fill-opacity="0.6"/>
         <circle cx="140" cy="50" r="2.5" fill="#60a5fa" fill-opacity="0.6"/>
@@ -36,15 +38,72 @@ import SchemeRepl from '../../../components/SchemeRepl';
         <circle cx="195" cy="50" r="2.5" fill="#60a5fa" fill-opacity="0.6"/>
         <circle cx="215" cy="50" r="2.5" fill="#60a5fa" fill-opacity="0.6"/>
         <circle cx="230" cy="50" r="2.5" fill="#60a5fa" fill-opacity="0.6"/>
-        <!-- sup S marker -->
+        <!-- sup S marker (fixed) -->
         <circle cx="245" cy="50" r="4" fill="none" stroke="#f59e0b" stroke-width="2"/>
-        <text x="245" y="35" text-anchor="middle" fill="#f59e0b" font-size="12" fill-opacity="0.8">sup S</text>
-        <!-- Brace for S -->
+        <text x="245" y="35" text-anchor="middle" fill="#f59e0b" font-size="11" fill-opacity="0.8">sup S</text>
+        <!-- S label -->
         <text x="160" y="88" text-anchor="middle" fill="#60a5fa" font-size="10" fill-opacity="0.5">S</text>
-        <!-- Caption -->
-        <text x="200" y="98" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">The least upper bound: no smaller number bounds S from above.</text>
+        <!-- Draggable upper-bound marker -->
+        <line id="sup-line" y1="30" y2="70" stroke="#a78bfa" stroke-width="2" stroke-opacity="0.6"/>
+        <circle id="sup-dot" r="5" cy="50" fill="#a78bfa" fill-opacity="0.8" style="cursor: grab;"/>
+        <text id="sup-label" y="22" text-anchor="middle" fill="#a78bfa" font-size="10"></text>
+        <!-- Verdict -->
+        <text id="sup-verdict" x="200" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4"></text>
       </svg>
     </div>
+    <script is:inline>
+    (function() {
+      var LEFT = 60, RIGHT = 360, Y = 50;
+      var SUP_PX = 245; // sup S at ~1.85 on number line
+      var svg = document.getElementById('sup-demo');
+      var dot = document.getElementById('sup-dot');
+      var line = document.getElementById('sup-line');
+      var label = document.getElementById('sup-label');
+      var verdict = document.getElementById('sup-verdict');
+      var mx = 310; // initial marker position
+
+      function toVal(px) { return (px - LEFT) / (RIGHT - LEFT) * 3; }
+
+      function update() {
+        dot.setAttribute('cx', mx);
+        line.setAttribute('x1', mx); line.setAttribute('x2', mx);
+        label.setAttribute('x', mx);
+        var v = toVal(mx);
+        label.textContent = v.toFixed(2);
+        var supVal = toVal(SUP_PX);
+        if (mx >= SUP_PX) {
+          var gap = v - supVal;
+          if (gap < 0.08) {
+            verdict.textContent = '\u2714 upper bound — and the tightest one. This IS the sup.';
+            verdict.setAttribute('fill', '#f59e0b');
+          } else {
+            verdict.textContent = '\u2714 upper bound (bounds S from above, but not the tightest)';
+            verdict.setAttribute('fill', '#a78bfa');
+          }
+        } else {
+          verdict.textContent = '\u2718 not an upper bound — some elements of S are larger';
+          verdict.setAttribute('fill', '#ef4444');
+        }
+      }
+
+      function svgX(e) {
+        var pt = svg.createSVGPoint();
+        if (e.touches) e = e.touches[0];
+        pt.x = e.clientX; pt.y = e.clientY;
+        return pt.matrixTransform(svg.getScreenCTM().inverse()).x;
+      }
+
+      var dragging = false;
+      svg.addEventListener('mousedown', function(e) { dragging = true; mx = Math.max(LEFT, Math.min(RIGHT, svgX(e))); update(); e.preventDefault(); });
+      svg.addEventListener('mousemove', function(e) { if (!dragging) return; mx = Math.max(LEFT, Math.min(RIGHT, svgX(e))); update(); e.preventDefault(); });
+      window.addEventListener('mouseup', function() { dragging = false; });
+      svg.addEventListener('touchstart', function(e) { dragging = true; mx = Math.max(LEFT, Math.min(RIGHT, svgX(e))); update(); e.preventDefault(); }, {passive:false});
+      svg.addEventListener('touchmove', function(e) { if (!dragging) return; mx = Math.max(LEFT, Math.min(RIGHT, svgX(e))); update(); e.preventDefault(); }, {passive:false});
+      window.addEventListener('touchend', function() { dragging = false; });
+
+      update();
+    })();
+    </script>
 
     <h3>The axioms of an ordered field</h3>
     <p>The reals satisfy the field axioms (addition, multiplication, inverses) and the order axioms (trichotomy, transitivity, compatibility with arithmetic). The rationals satisfy these too. What sets the reals apart is one more axiom.</p>
@@ -76,6 +135,23 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "trichotomy(3, 5) = ")
 (display (trichotomy 3 5))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+# Field axioms in action
+print("Commutativity: 3 + 5 =", 3 + 5, ", 5 + 3 =", 5 + 3)
+print("Associativity: (2+3)+4 =", (2+3)+4, ", 2+(3+4) =", 2+(3+4))
+print("Distributivity: 2*(3+4) =", 2*(3+4), ", 2*3 + 2*4 =", 2*3 + 2*4)
+
+def trichotomy(a, b):
+    if a < b: return "a < b"
+    elif a == b: return "a = b"
+    else: return "a > b"
+
+print("trichotomy(3, 5) =", trichotomy(3, 5))
+`} />
+    </details>
 
     <h3>Completeness: the least upper bound property</h3>
     <p>A set S of reals is <strong>bounded above</strong> if some number M satisfies x &le; M for all x in S. The <strong>supremum</strong> (least upper bound) is the smallest such M. The completeness axiom says: every nonempty bounded-above subset of the reals has a supremum in the reals. The rationals fail this. The set of rationals whose square is less than 2 is bounded above, but its supremum is &radic;2, which is not rational.</p>
@@ -145,6 +221,30 @@ print(f"approx^2       = {low * low}")
 (display (exact->inexact r))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def archimedean(x):
+    n = 1
+    while n <= x:
+        n += 1
+    return n
+
+print("Archimedean: n > 3.7 => n =", archimedean(3.7))
+print("Archimedean: n > 100.1 => n =", archimedean(100.1))
+
+def rational_between(a, b):
+    n = archimedean(1.0 / (b - a))
+    m = 1 + math.floor(a * n)
+    return m / n
+
+r = rational_between(1.41, 1.42)
+print("Rational between 1.41 and 1.42:", r)
+`} />
+    </details>
+
     <h3>Infimum and the completeness of lower bounds</h3>
     <p>The <strong>infimum</strong> (greatest lower bound) is the dual of supremum. Every nonempty set bounded below has an infimum. You don't need a separate axiom: if S is bounded below, then the set of negations -S is bounded above, and inf S = -sup(-S).</p>
 
@@ -168,6 +268,18 @@ print(f"approx^2       = {low * low}")
 (display (partial-inf-search 999.0 10000)) (newline)
 (display "inf{1/n : n >= 1} = 0 (limit, not attained)")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+# inf of {1/n : n >= 1}
+for count in [100, 10000]:
+    terms = [1/n for n in range(1, count + 1)]
+    print("min of first " + str(count) + " terms of 1/n:", min(terms))
+
+print("inf{1/n : n >= 1} = 0 (limit, not attained)")
+`} />
+    </details>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

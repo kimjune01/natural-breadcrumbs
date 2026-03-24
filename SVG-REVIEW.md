@@ -36,12 +36,12 @@ Pattern: static SVG → slider/drag input + JS that redraws elements. Reference 
 | **Calculus (every chapter)** | | | | |
 | `calculus/index` | tangent + shaded area | Drag point along curve → tangent rotates, area grows | high | planned |
 | `calculus/calc-01` | domain → range mapping | Drag x input, watch f(x) output highlight | high | planned |
-| `calculus/calc-02` | unit circle trig | Drag θ slider, point orbits, sin/cos projections update | high | planned |
+| `calculus/calc-02` | unit circle trig | Drag point around circle, sin/cos projections + readout update | high | **done** |
 | `calculus/calc-03` | limit at a | Drag x toward a, watch f(x) approach L | high | planned |
 | `calculus/calc-04` | secant → tangent | Slider: h→0, secant lines collapse onto tangent | high | planned |
 | `calculus/calc-05` | chain rule x→u→y | Slider: nudge x, watch du and dy propagate | high | planned |
 | `calculus/calc-06` | local max/min | Drag point along curve, tangent line shown, slope readout | high | planned |
-| `calculus/calc-07` | Riemann sum | Slider: n rectangles (1..50), watch approximation converge | high | planned |
+| `calculus/calc-07` | Riemann sum | Slider: n=1..80 rectangles, sum converges to exact | high | **done** |
 | `calculus/calc-08` | u-substitution | Slider: x range, watch "hard" integral morph to "easy" | high | planned |
 | `calculus/calc-09` | solid of revolution | Slider: x position, disk slice sweeps across, volume accumulates | high | planned |
 | `calculus/calc-10` | cross product u×v | Drag u and v tips, cross product arrow + parallelogram update | high | planned |
@@ -59,24 +59,24 @@ Pattern: static SVG → slider/drag input + JS that redraws elements. Reference 
 | `sicp-13` | stream promise/force | Click "force" arrows one at a time, values appear | high | planned |
 | **Analysis** | | | | |
 | `analysis/index` | ε-δ continuity | Drag ε band → δ band adjusts to keep curve inside | high | planned |
-| `analysis/lebl-01` | supremum on number line | Drag upper bound toward S, snap to sup | high | planned |
+| `analysis/lebl-01` | supremum on number line | Drag marker, verdict: upper bound / not / tightest | high | **done** |
 | `analysis/lebl-04` | continuity at point | Drag ε, δ auto-adjusts | high | planned |
 | `analysis/lebl-08` | open ball B(p,r) | Drag r slider, ball expands/contracts, interior points highlight | high | planned |
 | **Probability** | | | | |
 | `probability/grinstead-06` | expected value | Drag distribution weights, μ line moves | high | planned |
 | **Information theory** | | | | |
-| `info-theory/shannon-01` | self-information bars | Slider: adjust probabilities, bar heights update | high | planned |
+| `info-theory/shannon-01` | self-information bars | Slider: P=0.01..1.0, bar + bits readout, reference bars | high | **done** |
 | `info-theory/shannon-05` | KL divergence | Drag Q distribution, divergence overlay updates | high | planned |
 | **Game theory** | | | | |
-| `game-theory/nordstrom-09` | mixed strategy | Drag p slider, expected payoff lines cross at equilibrium | high | planned |
+| `game-theory/nordstrom-09` | mixed strategy | Slider p, dots ride payoff lines, equilibrium readout | high | **done** |
 | **Linear algebra** | | | | |
-| `linear-algebra/hefferon-04` | determinant parallelogram | Drag vector tips, area updates | high | planned |
+| `linear-algebra/hefferon-04` | determinant parallelogram | Drag vector tips, parallelogram + det formula update | high | **done** |
 | **Category theory** | | | | |
 | `milewski-10` | naturality square | Click to step through F(f) then α vs α then G(f) | medium | planned |
 | `milewski-07-0` | functor C→D | Drag an arrow in C, watch F(arrow) appear in D | medium | planned |
 | **Papers** | | | | |
 | `fritz-2020-1` | deterministic vs stochastic | Toggle between copy-then-f and f-then-copy, see ≠ | medium | planned |
-| `leinster-2021` | diversity indices | Slider: q=0→1→2→∞, watch circles resize | high | planned |
+| `leinster-2021` | diversity indices | Slider q=0..4, circles resize + fade, D readout | high | **done** |
 | `ho-wu-2026` | Bayesian lens | Drag prior bars, posterior bars update via Bayes | high | planned |
 | `cogsci/index` | Bayesian network | Click Rain on/off, conditional probs propagate | high | planned |
 

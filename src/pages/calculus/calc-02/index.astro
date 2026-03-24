@@ -151,6 +151,19 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (for-each show-angle names angles)
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+angles = [0, math.pi/6, math.pi/4, math.pi/3, math.pi/2, math.pi]
+names = ["0", "pi/6", "pi/4", "pi/3", "pi/2", "pi"]
+
+for name, theta in zip(names, angles):
+    c, s = math.cos(theta), math.sin(theta)
+    print("{}: cos={:.3f} sin={:.3f} sum={:.3f}".format(name, c, s, c**2 + s**2))
+`} />
+    </details>
+
 
     <!-- 2. sin, cos, tan -->
     <h3>Sine, cosine, tangent</h3>
@@ -173,6 +186,23 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "cos(pi/3) = ") (display (/ (round (* (cos (/ pi 3)) 1000)) 1000)) (newline)
 (display "cos(-pi/3) = ") (display (/ (round (* (cos (- (/ pi 3))) 1000)) 1000))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# tan = sin/cos
+print("tan(pi/4) = {:.3f}".format(math.tan(math.pi/4)))  # 1.0
+
+# sin is odd: sin(-x) = -sin(x)
+print("sin(pi/3) = {:.3f}".format(math.sin(math.pi/3)))
+print("sin(-pi/3) = {:.3f}".format(math.sin(-math.pi/3)))
+
+# cos is even: cos(-x) = cos(x)
+print("cos(pi/3) = {:.3f}".format(math.cos(math.pi/3)))
+print("cos(-pi/3) = {:.3f}".format(math.cos(-math.pi/3)))
+`} />
+    </details>
 
 
     <!-- 3. Identities -->
@@ -239,6 +269,23 @@ print(f"sin(2a) formula: {2*math.sin(a)*math.cos(a):.6f}")
 (display "atan2(-1, -1) = ") (display (/ (round (* (atan -1 -1) 10000)) 10000))
 ; -3pi/4 = -2.3562
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`import math
+
+# asin(sin(x)) = x for x in [-pi/2, pi/2]
+print("asin(sin(pi/6)) = {:.4f}".format(math.asin(math.sin(math.pi/6))))
+# Should be pi/6 = 0.5236
+
+# atan(1) = pi/4
+print("atan(1) = {:.4f}".format(math.atan(1)))  # 0.7854
+
+# atan2 handles all four quadrants
+print("atan2(1, 1) = {:.4f}".format(math.atan2(1, 1)))
+print("atan2(-1, -1) = {:.4f}".format(math.atan2(-1, -1)))
+`} />
+    </details>
 
 
     <!-- Notation -->

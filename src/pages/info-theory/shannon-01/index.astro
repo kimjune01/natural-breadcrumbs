@@ -20,42 +20,67 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h3>Why logarithm?</h3>
     <p>Shannon needed a measure of "surprise" with one property: independent events should <strong>add</strong>, not multiply. If you flip a coin and roll a die, the total surprise should be the sum. Since P(A and B) = P(A) &times; P(B) for independent events, and log turns products into sums, the logarithm is the only choice.</p>
 
-    <!-- SVG: Bar chart of I(x) for different probabilities -->
+    <!-- SVG: interactive surprise bar — drag probability -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 400 220" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
-        <!-- Axes -->
-        <line x1="60" y1="190" x2="380" y2="190" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <line x1="60" y1="190" x2="60" y2="20" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <!-- Y-axis label -->
-        <text x="15" y="105" fill="currentColor" font-size="11" fill-opacity="0.5" transform="rotate(-90,15,105)">I(x) = &minus;log&#x2082; P(x)</text>
-        <!-- Y-axis ticks -->
-        <text x="52" y="193" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">0</text>
-        <text x="52" y="148" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">1</text>
-        <text x="52" y="103" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">2</text>
-        <text x="52" y="58" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">3</text>
-        <line x1="56" y1="145" x2="60" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <line x1="56" y1="100" x2="60" y2="100" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <line x1="56" y1="55" x2="60" y2="55" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <!-- Bar: P=1 (certain), I=0 -->
-        <rect x="75" y="190" width="40" height="0" fill="#4ade80" fill-opacity="0.3" stroke="#4ade80" stroke-width="1"/>
-        <text x="95" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">P=1</text>
-        <text x="95" y="185" text-anchor="middle" fill="#4ade80" font-size="9">0 bits</text>
-        <!-- Bar: P=0.5 (coin flip), I=1 -->
-        <rect x="145" y="145" width="40" height="45" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1"/>
-        <text x="165" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">P=1/2</text>
-        <text x="165" y="140" text-anchor="middle" fill="#60a5fa" font-size="9">1 bit</text>
-        <!-- Bar: P=1/6 (die), I=2.58 -->
-        <rect x="215" y="74" width="40" height="116" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
-        <text x="235" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">P=1/6</text>
-        <text x="235" y="69" text-anchor="middle" fill="#f59e0b" font-size="9">2.58 bits</text>
-        <!-- Bar: P=1/8, I=3 -->
-        <rect x="285" y="55" width="40" height="135" fill="#f472b6" fill-opacity="0.3" stroke="#f472b6" stroke-width="1"/>
-        <text x="305" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">P=1/8</text>
-        <text x="305" y="50" text-anchor="middle" fill="#f472b6" font-size="9">3 bits</text>
-        <!-- Caption -->
-        <text x="220" y="218" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">rarer events carry more surprise</text>
-      </svg>
+      <div style="width:100%;max-width:28rem;">
+        <svg id="surprise" viewBox="0 0 400 225" class="w-full" style="font-family: ui-monospace, monospace;">
+          <!-- Axes -->
+          <line x1="60" y1="190" x2="380" y2="190" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+          <line x1="60" y1="190" x2="60" y2="20" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+          <!-- Y-axis label -->
+          <text x="15" y="105" fill="currentColor" font-size="11" fill-opacity="0.5" transform="rotate(-90,15,105)">I(x) = &#x2212;log&#x2082; P(x)</text>
+          <!-- Y-axis ticks -->
+          <text x="52" y="193" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">0</text>
+          <text x="52" y="148" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">1</text>
+          <text x="52" y="103" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">2</text>
+          <text x="52" y="58" text-anchor="end" fill="currentColor" font-size="9" fill-opacity="0.4">3</text>
+          <line x1="56" y1="145" x2="60" y2="145" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+          <line x1="56" y1="100" x2="60" y2="100" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+          <line x1="56" y1="55" x2="60" y2="55" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+          <!-- Reference bars (faded) -->
+          <rect x="75" y="190" width="30" height="0" fill="#4ade80" fill-opacity="0.1" stroke="#4ade80" stroke-width="0.5" stroke-opacity="0.2"/>
+          <text x="90" y="205" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">P=1</text>
+          <rect x="115" y="145" width="30" height="45" fill="#60a5fa" fill-opacity="0.1" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.2"/>
+          <text x="130" y="205" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">&#xBD;</text>
+          <rect x="155" y="74" width="30" height="116" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.2"/>
+          <text x="170" y="205" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">&#x2159;</text>
+          <rect x="195" y="55" width="30" height="135" fill="#f472b6" fill-opacity="0.1" stroke="#f472b6" stroke-width="0.5" stroke-opacity="0.2"/>
+          <text x="210" y="205" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">&#x215B;</text>
+          <!-- Active bar -->
+          <rect id="si-bar" x="270" width="60" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
+          <text id="si-bits" x="300" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="bold"></text>
+          <text id="si-prob" x="300" y="205" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5"></text>
+          <!-- Readout -->
+          <text id="si-readout" x="220" y="222" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35"></text>
+        </svg>
+        <input type="range" id="si-slider" min="1" max="100" value="50" step="1" style="width:100%;margin-top:4px;accent-color:#f59e0b;">
+      </div>
     </div>
+    <script is:inline>
+    (function() {
+      var BOTTOM = 190, TOP = 25, SCALE = (BOTTOM - TOP) / 3.5;
+      var slider = document.getElementById('si-slider');
+      var bar = document.getElementById('si-bar');
+      var bits = document.getElementById('si-bits');
+      var prob = document.getElementById('si-prob');
+      var readout = document.getElementById('si-readout');
+
+      function update() {
+        var p = parseInt(slider.value) / 100;
+        var info = -Math.log2(p);
+        var h = Math.min(info * SCALE, BOTTOM - TOP);
+        bar.setAttribute('y', BOTTOM - h);
+        bar.setAttribute('height', h);
+        bits.setAttribute('y', BOTTOM - h - 5);
+        bits.textContent = info.toFixed(2) + ' bits';
+        prob.textContent = 'P = ' + p.toFixed(2);
+        readout.textContent = 'rarer events carry more surprise';
+      }
+
+      slider.addEventListener('input', update);
+      update();
+    })();
+    </script>
 
     <SchemeRepl client:load initialCode={`; Self-information: I(x) = -log2(P(x))
 ; The "surprise" of seeing event x

@@ -163,6 +163,22 @@ print(f"V (shell) = {vol_shell:.4f}, exact = {128*np.pi/5:.4f}")
 (display (* (/ 2 27.0) (- (expt 10 1.5) 1)))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Arc length of y = x^(3/2) on [0, 4]
+import math
+
+def integrate(fn, a, b, n=10000):
+    dx = (b - a) / n
+    return sum(fn(a + dx * (i + 0.5)) for i in range(n)) * dx
+
+arc_length = integrate(lambda x: math.sqrt(1 + (9/4) * x), 0, 4)
+exact = (2/27) * (10**1.5 - 1)
+print("Arc length of y = x^(3/2) on [0,4] = " + format(arc_length, ".4f"))
+print("Exact: (2/27)*(10^1.5 - 1) = " + format(exact, ".4f"))
+`} />
+    </details>
+
 
     <!-- Work -->
     <h3>Work</h3>
@@ -186,6 +202,23 @@ print(f"V (shell) = {vol_shell:.4f}, exact = {128*np.pi/5:.4f}")
 (display "     = ") (display work) (display " J") (newline)
 (display "Exact: k*d^2/2 = ") (display (* 0.5 k 0.3 0.3)) (display " J")
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Work to stretch a spring (Hooke's law)
+k = 50  # N/m
+
+def integrate(fn, a, b, n=10000):
+    dx = (b - a) / n
+    return sum(fn(a + dx * (i + 0.5)) for i in range(n)) * dx
+
+work = integrate(lambda x: k * x, 0, 0.3)
+exact = 0.5 * k * 0.3**2
+print("Work = integral of 50x dx from 0 to 0.3")
+print("     = " + format(work, ".4f") + " J")
+print("Exact: k*d^2/2 = " + format(exact, ".4f") + " J")
+`} />
+    </details>
 
 
     <!-- Notation -->

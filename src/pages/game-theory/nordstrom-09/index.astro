@@ -44,51 +44,73 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display ", vs D = ") (display (ev-vs-D 1.0)) (newline)
 `} />
 
-    <!-- SVG: Two intersecting lines on a graph -->
+    <!-- SVG: interactive mixed strategy — drag p slider -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 400 300" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
-        <!-- Axes -->
-        <line x1="60" y1="250" x2="360" y2="250" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="60" y1="250" x2="60" y2="30" stroke="currentColor" stroke-width="1.5"/>
-        <!-- Axis labels -->
-        <text x="210" y="280" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.6">p (probability of B)</text>
-        <text x="25" y="140" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.6" transform="rotate(-90, 25, 140)">E (payoff)</text>
-        <!-- Tick marks on x-axis -->
-        <text x="60" y="268" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">0</text>
-        <text x="360" y="268" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">1</text>
-        <!-- Tick marks on y-axis: -1, 0, 1, 2 -->
-        <line x1="55" y1="210" x2="65" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <text x="48" y="214" text-anchor="end" fill="currentColor" font-size="10" fill-opacity="0.4">0</text>
-        <line x1="55" y1="130" x2="65" y2="130" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <text x="48" y="134" text-anchor="end" fill="currentColor" font-size="10" fill-opacity="0.4">1</text>
-        <line x1="55" y1="50" x2="65" y2="50" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
-        <text x="48" y="54" text-anchor="end" fill="currentColor" font-size="10" fill-opacity="0.4">2</text>
-        <!-- Grid lines (faint) -->
-        <line x1="60" y1="210" x2="360" y2="210" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
-        <line x1="60" y1="130" x2="360" y2="130" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
-        <line x1="60" y1="50" x2="360" y2="50" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
-        <!-- Line: E(vs C) = 1 - 2p, from (0,1) to (1,-1) -->
-        <!-- p=0 -> y=1 at (60,130); p=1 -> y=-1 at (360,290) -->
-        <line x1="60" y1="130" x2="360" y2="290" stroke="#f87171" stroke-width="2"/>
-        <text x="365" y="290" fill="#f87171" font-size="11">vs C</text>
-        <!-- Line: E(vs D) = 2p, from (0,0) to (1,2) -->
-        <!-- p=0 -> y=0 at (60,210); p=1 -> y=2 at (360,50) -->
-        <line x1="60" y1="210" x2="360" y2="50" stroke="#60a5fa" stroke-width="2"/>
-        <text x="365" y="50" fill="#60a5fa" font-size="11">vs D</text>
-        <!-- Intersection: 1-2p = 2p => p=1/4, y=1/2 -->
-        <!-- p=0.25 at x = 60 + 0.25*300 = 135; y=0.5 at y = 210 - 0.5*80 = 170 -->
-        <circle cx="135" cy="170" r="6" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
-        <circle cx="135" cy="170" r="2.5" fill="#fbbf24"/>
-        <!-- Dashed lines to axes -->
-        <line x1="135" y1="170" x2="135" y2="250" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3"/>
-        <line x1="60" y1="170" x2="135" y2="170" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3"/>
-        <!-- Labels at intersection -->
-        <text x="135" y="262" text-anchor="middle" fill="#fbbf24" font-size="10">p = 1/4</text>
-        <text x="48" y="174" text-anchor="end" fill="#fbbf24" font-size="10">1/2</text>
-        <!-- Annotation -->
-        <text x="175" y="155" fill="#fbbf24" font-size="11">optimal mix</text>
-      </svg>
+      <div style="width:100%;max-width:28rem;">
+        <svg id="mix-strat" viewBox="0 0 400 300" class="w-full" style="font-family: ui-monospace, monospace;">
+          <!-- Axes -->
+          <line x1="60" y1="250" x2="360" y2="250" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="60" y1="250" x2="60" y2="30" stroke="currentColor" stroke-width="1.5"/>
+          <text x="210" y="280" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.6">p (probability of B)</text>
+          <text x="25" y="140" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.6" transform="rotate(-90, 25, 140)">E (payoff)</text>
+          <text x="60" y="268" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">0</text>
+          <text x="360" y="268" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">1</text>
+          <line x1="55" y1="210" x2="65" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+          <text x="48" y="214" text-anchor="end" fill="currentColor" font-size="10" fill-opacity="0.4">0</text>
+          <line x1="55" y1="130" x2="65" y2="130" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+          <text x="48" y="134" text-anchor="end" fill="currentColor" font-size="10" fill-opacity="0.4">1</text>
+          <line x1="55" y1="50" x2="65" y2="50" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+          <text x="48" y="54" text-anchor="end" fill="currentColor" font-size="10" fill-opacity="0.4">2</text>
+          <line x1="60" y1="210" x2="360" y2="210" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+          <line x1="60" y1="130" x2="360" y2="130" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+          <line x1="60" y1="50" x2="360" y2="50" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+          <!-- Line: E(vs C) = 1 - 2p -->
+          <line x1="60" y1="130" x2="360" y2="290" stroke="#f87171" stroke-width="2"/>
+          <text x="365" y="290" fill="#f87171" font-size="11">vs C</text>
+          <!-- Line: E(vs D) = 2p -->
+          <line x1="60" y1="210" x2="360" y2="50" stroke="#60a5fa" stroke-width="2"/>
+          <text x="365" y="50" fill="#60a5fa" font-size="11">vs D</text>
+          <!-- Equilibrium marker (fixed) -->
+          <circle cx="135" cy="170" r="5" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.3"/>
+          <!-- Vertical p-line (draggable) -->
+          <line id="ms-vline" y1="30" y2="250" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3" stroke-opacity="0.5"/>
+          <!-- Dots on each line at current p -->
+          <circle id="ms-dot-c" r="5" fill="#f87171"/>
+          <circle id="ms-dot-d" r="5" fill="#60a5fa"/>
+          <!-- Readout -->
+          <text id="ms-readout" x="200" y="296" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5"></text>
+        </svg>
+        <input type="range" id="ms-slider" min="0" max="100" value="25" step="1" style="width:100%;margin-top:4px;accent-color:#a78bfa;">
+      </div>
     </div>
+    <script is:inline>
+    (function() {
+      var XL = 60, XR = 360, Y0 = 210, SCALE = 80; // 1 unit = 80px up
+      var slider = document.getElementById('ms-slider');
+      var vline = document.getElementById('ms-vline');
+      var dotC = document.getElementById('ms-dot-c');
+      var dotD = document.getElementById('ms-dot-d');
+      var readout = document.getElementById('ms-readout');
+
+      function update() {
+        var p = parseInt(slider.value) / 100;
+        var x = XL + p * (XR - XL);
+        var eC = 1 - 2 * p;  // E(vs C)
+        var eD = 2 * p;      // E(vs D)
+        var yC = Y0 - eC * SCALE;
+        var yD = Y0 - eD * SCALE;
+        vline.setAttribute('x1', x); vline.setAttribute('x2', x);
+        dotC.setAttribute('cx', x); dotC.setAttribute('cy', yC);
+        dotD.setAttribute('cx', x); dotD.setAttribute('cy', yD);
+        var minE = Math.min(eC, eD);
+        var eq = Math.abs(eC - eD) < 0.02;
+        readout.textContent = 'p = ' + p.toFixed(2) + '  |  vs C: ' + eC.toFixed(2) + '  |  vs D: ' + eD.toFixed(2) + (eq ? '  \u2714 equilibrium!' : '  |  guaranteed: ' + minE.toFixed(2));
+      }
+
+      slider.addEventListener('input', update);
+      update();
+    })();
+    </script>
 
     <!-- 2. Finding the intersection -->
     <h3>Finding the intersection</h3>

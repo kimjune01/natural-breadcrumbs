@@ -84,6 +84,26 @@ print(f"|a| = {np.linalg.norm(a):.4f}")
 (display "p . q = ") (display (dot p q)) (display " (perpendicular)")
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Dot product
+import numpy as np
+import math
+
+u = np.array([1, 2, 3])
+v = np.array([4, -5, 6])
+
+print("u . v = " + str(np.dot(u, v)))
+cos_theta = np.dot(u, v) / (np.linalg.norm(u) * np.linalg.norm(v))
+print("cos(theta) = " + format(cos_theta, ".6f"))
+print("theta (radians) = " + format(math.acos(cos_theta), ".6f"))
+
+p = np.array([1, 0])
+q = np.array([0, 1])
+print("p . q = " + str(np.dot(p, q)) + " (perpendicular)")
+`} />
+    </details>
+
 
     <!-- Cross product -->
     <h3>Cross product</h3>
@@ -141,6 +161,22 @@ print(f"|a| = {np.linalg.norm(a):.4f}")
 (display "|u x v| = ") (display (vec-mag w))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Cross product in R3
+import numpy as np
+
+u = np.array([1, 2, 3])
+v = np.array([4, 5, 6])
+w = np.cross(u, v)
+
+print("u x v = " + str(w))
+print("w . u = " + str(np.dot(w, u)))
+print("w . v = " + str(np.dot(w, v)))
+print("|u x v| = " + format(np.linalg.norm(w), ".6f"))
+`} />
+    </details>
+
 
     <!-- Lines and planes -->
     <h3>Lines and planes</h3>
@@ -168,6 +204,28 @@ print(f"|a| = {np.linalg.norm(a):.4f}")
 (display "Is (1,-1,0) on x+y+z=0? ") (display (on-plane? (list 1 -1 0))) (newline)
 (display "Is (1,1,1) on x+y+z=0? ") (display (on-plane? (list 1 1 1)))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Lines and planes
+import numpy as np
+
+# Line: r(t) = P + t*d
+P = np.array([1, 2, 3])
+d = np.array([2, -1, 4])
+
+print("Line: r(t) = (1,2,3) + t*(2,-1,4)")
+for t in [0, 1, 2]:
+    print("t=" + str(t) + ": " + str(P + t * d))
+
+# Plane: n . (r - P) = 0, with n=(1,1,1), P=(0,0,0)
+n = np.array([1, 1, 1])
+on_plane = lambda pt: np.dot(n, pt) == 0
+
+print("Is (1,-1,0) on x+y+z=0? " + str(on_plane(np.array([1, -1, 0]))))
+print("Is (1,1,1) on x+y+z=0? " + str(on_plane(np.array([1, 1, 1]))))
+`} />
+    </details>
 
 
     <!-- Notation -->

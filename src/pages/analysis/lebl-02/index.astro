@@ -121,6 +121,24 @@ for eps in [0.1, 0.01, 0.001]:
 (display (/ 1.0 100))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+a = lambda n: 1 + 1/n
+b = lambda n: 2 - 1/n
+
+print("Sum: a_n + b_n -> 3")
+print("  n=100:", a(100) + b(100))
+print("Product: a_n * b_n -> 2")
+print("  n=100:", a(100) * b(100))
+print("Squeeze: |sin(n)/n| <= 1/n -> 0")
+print("  sin(100)/100 =", math.sin(100)/100)
+print("  1/100         =", 1/100)
+`} />
+    </details>
+
     <h3>Monotone convergence theorem</h3>
     <p>Every bounded, monotone sequence converges. If a sequence is increasing and bounded above, it converges to its supremum. This is a direct consequence of the completeness axiom.</p>
 
@@ -147,6 +165,22 @@ for eps in [0.1, 0.01, 0.001]:
 (display "Bounded above by 3? ")
 (display (< (partial-e 15) 3))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def partial_e(n):
+    return sum(1/math.factorial(k) for k in range(n + 1))
+
+print("Partial sums of 1/k! (converging to e):")
+for n in [1, 2, 5, 10, 15]:
+    print("  n=" + str(n) + ":", partial_e(n))
+
+print("Bounded above by 3?", partial_e(15) < 3)
+`} />
+    </details>
 
     <h3>Bolzano-Weierstrass theorem</h3>
     <p>Every bounded sequence has a convergent subsequence. This is the key compactness result for sequences. Even if a sequence doesn't converge (like (-1)^n), some subsequence does.</p>
@@ -179,6 +213,22 @@ for eps in [0.1, 0.01, 0.001]:
   (list 1 2 5 10 50 100))
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+a = lambda n: (1 if n % 2 == 0 else -1) * (1 + 1/n)
+
+print("Full sequence (diverges):")
+for n in range(1, 9):
+    print("  a_" + str(n) + " =", a(n))
+
+print("Even subsequence (converges to 1):")
+for k in [1, 2, 5, 10, 50, 100]:
+    n = 2 * k
+    print("  a_" + str(n) + " =", a(n))
+`} />
+    </details>
+
     <h3>Cauchy sequences</h3>
     <p>A sequence is <strong>Cauchy</strong> if its terms get arbitrarily close to each other: for every &epsilon;, there exists N such that |a_m - a_n| &lt; &epsilon; for all m, n &ge; N. In the reals, a sequence converges if and only if it is Cauchy. This equivalence is another way to state completeness.</p>
 
@@ -207,6 +257,28 @@ for eps in [0.1, 0.01, 0.001]:
   (display "  pi^2/6 = ")
   (display (/ (* 3.141592653589793 3.141592653589793) 6.0)))
 `} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Python equivalent
+import math
+
+def partial_sum(n):
+    return sum(1/(k*k) for k in range(1, n + 1))
+
+a100 = partial_sum(100)
+a200 = partial_sum(200)
+a500 = partial_sum(500)
+a1000 = partial_sum(1000)
+
+print("Cauchy check for sum 1/k^2:")
+print("  |a_200 - a_100| =", abs(a200 - a100))
+print("  |a_500 - a_200| =", abs(a500 - a200))
+print("  |a_1000 - a_500| =", abs(a1000 - a500))
+print("  a_1000 =", a1000)
+print("  pi^2/6 =", math.pi**2 / 6)
+`} />
+    </details>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

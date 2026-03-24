@@ -107,6 +107,22 @@ print("Limit as x -> 0 is 1")
 (check-epsilon-delta 0.001)
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# Epsilon-delta: lim(2x+1) as x->3 = 7
+# delta = epsilon/2 works because |(2x+1)-7| = 2|x-3|
+def f(x): return 2*x + 1
+L, a = 7, 3
+
+for eps in [1.0, 0.1, 0.01, 0.001]:
+    delta = eps / 2
+    x = a + delta * 0.99
+    error = abs(f(x) - L)
+    status = "OK" if error < eps else "FAIL"
+    print("eps={} delta={} |f(x)-L|={:.5f} {}".format(eps, delta, error, status))
+`} />
+    </details>
+
 
     <!-- 3. Squeeze theorem -->
     <h3>Squeeze theorem</h3>

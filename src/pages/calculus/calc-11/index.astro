@@ -28,6 +28,18 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "f(0, 0) = ") (display (f 0 0))             ; 0 (minimum)
 `} />
 
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# f(x, y) = x^2 + y^2 (paraboloid)
+def f(x, y):
+    return x**2 + y**2
+
+print("f(1, 2) = " + str(f(1, 2)))
+print("f(3, 4) = " + str(f(3, 4)))
+print("f(0, 0) = " + str(f(0, 0)))
+`} />
+    </details>
+
 
     <!-- Partial derivatives -->
     <h3>Partial derivatives</h3>

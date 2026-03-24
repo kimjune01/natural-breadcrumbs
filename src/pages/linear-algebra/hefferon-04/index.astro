@@ -20,31 +20,110 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <h3>Cofactor expansion</h3>
     <p>The determinant of a 1-by-1 matrix is its single entry. For larger matrices, expand along any row or column: multiply each entry by its <strong>cofactor</strong> (the determinant of the submatrix with that row and column deleted, times a sign). The result is the same regardless of which row or column you pick.</p>
 
-    <!-- SVG: Parallelogram showing det as area -->
+    <!-- SVG: interactive parallelogram — drag vector tips -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 320 240" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+      <svg id="det-pgram" viewBox="0 0 320 250" class="w-full max-w-sm" style="font-family: ui-monospace, monospace; cursor: pointer;">
         <!-- Axes -->
         <line x1="40" y1="200" x2="300" y2="200" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.2"/>
         <line x1="40" y1="20" x2="40" y2="200" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.2"/>
         <!-- Origin -->
         <circle cx="40" cy="200" r="2.5" fill="currentColor" fill-opacity="0.3"/>
-        <!-- Parallelogram: vertices at (0,0), (3,1), (1,2), (4,3) -->
-        <!-- Scaled: (40,200), (220,140), (100,80), (280,20) -->
-        <polygon points="40,200 220,140 280,20 100,80" fill="#60a5fa" fill-opacity="0.08" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.4"/>
-        <!-- Vector a = (3,1) — blue -->
-        <line x1="40" y1="200" x2="217" y2="142" stroke="#60a5fa" stroke-width="2"/>
-        <polygon points="220,140 210,137 212,147" fill="#60a5fa"/>
-        <text x="145" y="185" fill="#60a5fa" font-size="12">a = (3,1)</text>
-        <!-- Vector b = (1,2) — amber -->
-        <line x1="40" y1="200" x2="97" y2="82" stroke="#f59e0b" stroke-width="2"/>
-        <polygon points="100,80 90,77 92,87" fill="#f59e0b"/>
-        <text x="50" y="130" fill="#f59e0b" font-size="12">b = (1,2)</text>
-        <!-- Area label -->
-        <text x="160" y="110" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.6">area = |det| = 5</text>
-        <!-- det formula -->
-        <text x="160" y="230" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">det = 3(2) - 1(1) = 5</text>
+        <!-- Parallelogram -->
+        <polygon id="det-pgon" fill="#60a5fa" fill-opacity="0.08" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.4"/>
+        <!-- Vector a — blue -->
+        <line id="det-va" x1="40" y1="200" stroke="#60a5fa" stroke-width="2"/>
+        <circle id="det-da" r="6" fill="#60a5fa" fill-opacity="0.8" style="cursor: grab;"/>
+        <text id="det-la" fill="#60a5fa" font-size="11"></text>
+        <!-- Vector b — amber -->
+        <line id="det-vb" x1="40" y1="200" stroke="#f59e0b" stroke-width="2"/>
+        <circle id="det-db" r="6" fill="#f59e0b" fill-opacity="0.8" style="cursor: grab;"/>
+        <text id="det-lb" fill="#f59e0b" font-size="11"></text>
+        <!-- Area + formula -->
+        <text id="det-area" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.6"></text>
+        <text id="det-formula" x="160" y="240" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35"></text>
       </svg>
     </div>
+    <script is:inline>
+    (function() {
+      var OX = 40, OY = 200, S = 60; // scale: 1 unit = 60px
+      var ax = 3, ay = 1, bx = 1, by = 2;
+      var svg = document.getElementById('det-pgram');
+      var pgon = document.getElementById('det-pgon');
+      var va = document.getElementById('det-va');
+      var da = document.getElementById('det-da');
+      var la = document.getElementById('det-la');
+      var vb = document.getElementById('det-vb');
+      var db = document.getElementById('det-db');
+      var lb = document.getElementById('det-lb');
+      var areaT = document.getElementById('det-area');
+      var formulaT = document.getElementById('det-formula');
+
+      function px(vx) { return OX + vx * S; }
+      function py(vy) { return OY - vy * S; }
+
+      function update() {
+        var pax = px(ax), pay = py(ay), pbx = px(bx), pby = py(by);
+        var pcx = px(ax + bx), pcy = py(ay + by);
+        pgon.setAttribute('points', OX+','+OY+' '+pax+','+pay+' '+pcx+','+pcy+' '+pbx+','+pby);
+        va.setAttribute('x2', pax); va.setAttribute('y2', pay);
+        da.setAttribute('cx', pax); da.setAttribute('cy', pay);
+        vb.setAttribute('x2', pbx); vb.setAttribute('y2', pby);
+        db.setAttribute('cx', pbx); db.setAttribute('cy', pby);
+        la.setAttribute('x', (OX + pax) / 2 + (ay > 0 ? 0 : 0));
+        la.setAttribute('y', (OY + pay) / 2 + 18);
+        la.textContent = 'a = (' + ax.toFixed(1) + ', ' + ay.toFixed(1) + ')';
+        lb.setAttribute('x', (OX + pbx) / 2 - 5);
+        lb.setAttribute('y', (OY + pby) / 2 - 8);
+        lb.textContent = 'b = (' + bx.toFixed(1) + ', ' + by.toFixed(1) + ')';
+        var det = ax * by - ay * bx;
+        areaT.setAttribute('x', (OX + pcx) / 2);
+        areaT.setAttribute('y', (OY + pcy) / 2 + 5);
+        areaT.textContent = 'area = |det| = ' + Math.abs(det).toFixed(1);
+        formulaT.textContent = 'det = ' + ax.toFixed(1) + '\u00D7' + by.toFixed(1) + ' \u2212 ' + ay.toFixed(1) + '\u00D7' + bx.toFixed(1) + ' = ' + det.toFixed(1);
+      }
+
+      function svgPt(e) {
+        var pt = svg.createSVGPoint();
+        var ctm = svg.getScreenCTM();
+        if (e.touches) e = e.touches[0];
+        pt.x = e.clientX; pt.y = e.clientY;
+        return pt.matrixTransform(ctm.inverse());
+      }
+
+      var drag = null;
+      function dist(cx, cy, pt) { var dx = cx - pt.x, dy = cy - pt.y; return dx*dx + dy*dy; }
+
+      function onDown(e) {
+        var pt = svgPt(e);
+        if (dist(px(ax), py(ay), pt) < dist(px(bx), py(by), pt)) drag = 'a';
+        else drag = 'b';
+        onMove(e);
+        e.preventDefault();
+      }
+      function onMove(e) {
+        if (!drag) return;
+        var pt = svgPt(e);
+        var vx = Math.round((pt.x - OX) / S * 2) / 2; // snap to 0.5
+        var vy = Math.round((OY - pt.y) / S * 2) / 2;
+        vx = Math.max(-1, Math.min(4, vx));
+        vy = Math.max(-1, Math.min(3.5, vy));
+        if (drag === 'a') { ax = vx; ay = vy; }
+        else { bx = vx; by = vy; }
+        update();
+        e.preventDefault();
+      }
+      function onUp() { drag = null; }
+
+      svg.addEventListener('mousedown', onDown);
+      svg.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+      svg.addEventListener('touchstart', onDown, {passive: false});
+      svg.addEventListener('touchmove', onMove, {passive: false});
+      window.addEventListener('touchend', onUp);
+
+      update();
+    })();
+    </script>
 
     <SchemeRepl client:load initialCode={`; Determinant of a 2x2 matrix: ad - bc
 

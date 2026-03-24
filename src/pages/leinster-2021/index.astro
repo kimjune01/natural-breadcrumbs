@@ -18,67 +18,103 @@ import SchemeRepl from '../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none"><a href="https://en.wikipedia.org/wiki/Diversity_index">🅦 Hill diversity numbers</a> form a one-parameter family: at q=0 you count species, at q=1 you get the exponential of Shannon entropy, at q=2 you get Simpson's reciprocal. <strong>Magnitude</strong> extends this to metric spaces — a single number measuring the "effective size" of a space.</p>
     </div>
 
-    <!-- SVG: Hill number effect — same community, three q values -->
+    <!-- SVG: interactive Hill diversity — slider controls q -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 540 200" class="w-full max-w-xl" style="font-family: ui-monospace, monospace;">
-        <!-- q=0: count all species equally -->
-        <text x="90" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">q = 0</text>
-        <text x="90" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">count all</text>
-        <!-- 5 species dots, all equally highlighted -->
-        <circle cx="50" cy="70" r="14" fill="#60a5fa" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1.5"/>
-        <circle cx="90" cy="70" r="14" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
-        <circle cx="130" cy="70" r="14" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1.5"/>
-        <circle cx="70" cy="110" r="14" fill="#a78bfa" fill-opacity="0.3" stroke="#a78bfa" stroke-width="1.5"/>
-        <circle cx="110" cy="110" r="14" fill="#fb7185" fill-opacity="0.3" stroke="#fb7185" stroke-width="1.5"/>
-        <!-- Abundance bars underneath -->
-        <rect x="44" y="140" width="12" height="40" fill="#60a5fa" fill-opacity="0.5" rx="1"/>
-        <rect x="84" y="170" width="12" height="10" fill="#f59e0b" fill-opacity="0.5" rx="1"/>
-        <rect x="124" y="165" width="12" height="15" fill="#34d399" fill-opacity="0.5" rx="1"/>
-        <rect x="64" y="172" width="12" height="8" fill="#a78bfa" fill-opacity="0.5" rx="1"/>
-        <rect x="104" y="175" width="12" height="5" fill="#fb7185" fill-opacity="0.5" rx="1"/>
-        <text x="90" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">D = 5</text>
-
-        <!-- Divider -->
-        <line x1="180" y1="15" x2="180" y2="185" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
-
-        <!-- q=1: weight by abundance (Shannon) -->
-        <text x="270" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">q = 1</text>
-        <text x="270" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">weight by abundance</text>
-        <!-- Same dots, dominant one brighter -->
-        <circle cx="230" cy="70" r="16" fill="#60a5fa" fill-opacity="0.5" stroke="#60a5fa" stroke-width="2"/>
-        <circle cx="270" cy="70" r="12" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
-        <circle cx="310" cy="70" r="13" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-width="1" stroke-opacity="0.5"/>
-        <circle cx="250" cy="110" r="11" fill="#a78bfa" fill-opacity="0.12" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
-        <circle cx="290" cy="110" r="10" fill="#fb7185" fill-opacity="0.08" stroke="#fb7185" stroke-width="1" stroke-opacity="0.3"/>
-        <!-- Abundance bars -->
-        <rect x="224" y="140" width="12" height="40" fill="#60a5fa" fill-opacity="0.5" rx="1"/>
-        <rect x="264" y="170" width="12" height="10" fill="#f59e0b" fill-opacity="0.3" rx="1"/>
-        <rect x="304" y="165" width="12" height="15" fill="#34d399" fill-opacity="0.3" rx="1"/>
-        <rect x="244" y="172" width="12" height="8" fill="#a78bfa" fill-opacity="0.3" rx="1"/>
-        <rect x="284" y="175" width="12" height="5" fill="#fb7185" fill-opacity="0.3" rx="1"/>
-        <text x="270" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">D = 2.3</text>
-
-        <!-- Divider -->
-        <line x1="360" y1="15" x2="360" y2="185" stroke="currentColor" stroke-width="1" stroke-opacity="0.15"/>
-
-        <!-- q=2: dominant species matter most -->
-        <text x="450" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">q = 2</text>
-        <text x="450" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">dominants matter most</text>
-        <!-- Same dots, only dominant is visible -->
-        <circle cx="410" cy="70" r="18" fill="#60a5fa" fill-opacity="0.6" stroke="#60a5fa" stroke-width="2.5"/>
-        <circle cx="450" cy="70" r="9" fill="#f59e0b" fill-opacity="0.06" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.2"/>
-        <circle cx="490" cy="70" r="10" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1" stroke-opacity="0.2"/>
-        <circle cx="430" cy="110" r="8" fill="#a78bfa" fill-opacity="0.05" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.15"/>
-        <circle cx="470" cy="110" r="7" fill="#fb7185" fill-opacity="0.04" stroke="#fb7185" stroke-width="1" stroke-opacity="0.15"/>
-        <!-- Abundance bars -->
-        <rect x="404" y="140" width="12" height="40" fill="#60a5fa" fill-opacity="0.6" rx="1"/>
-        <rect x="444" y="170" width="12" height="10" fill="#f59e0b" fill-opacity="0.12" rx="1"/>
-        <rect x="484" y="165" width="12" height="15" fill="#34d399" fill-opacity="0.12" rx="1"/>
-        <rect x="424" y="172" width="12" height="8" fill="#a78bfa" fill-opacity="0.12" rx="1"/>
-        <rect x="464" y="175" width="12" height="5" fill="#fb7185" fill-opacity="0.12" rx="1"/>
-        <text x="450" y="195" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4">D = 1.6</text>
-      </svg>
+      <div style="width:100%;max-width:20rem;">
+        <svg id="hill-demo" viewBox="0 0 240 220" class="w-full" style="font-family: ui-monospace, monospace;">
+          <!-- Title -->
+          <text id="hill-q" x="120" y="18" text-anchor="middle" fill="currentColor" font-size="13" font-weight="bold"></text>
+          <text id="hill-desc" x="120" y="32" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5"></text>
+          <!-- Species circles (5 species) -->
+          <circle id="hs0" cx="60" cy="70" fill="#60a5fa" stroke="#60a5fa" stroke-width="1.5"/>
+          <circle id="hs1" cx="100" cy="70" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"/>
+          <circle id="hs2" cx="140" cy="70" fill="#34d399" stroke="#34d399" stroke-width="1.5"/>
+          <circle id="hs3" cx="80" cy="110" fill="#a78bfa" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle id="hs4" cx="120" cy="110" fill="#fb7185" stroke="#fb7185" stroke-width="1.5"/>
+          <!-- Abundance bars -->
+          <rect id="hb0" x="54" width="12" fill="#60a5fa" rx="1"/>
+          <rect id="hb1" x="94" width="12" fill="#f59e0b" rx="1"/>
+          <rect id="hb2" x="134" width="12" fill="#34d399" rx="1"/>
+          <rect id="hb3" x="74" width="12" fill="#a78bfa" rx="1"/>
+          <rect id="hb4" x="114" width="12" fill="#fb7185" rx="1"/>
+          <!-- Diversity readout -->
+          <text id="hill-d" x="120" y="210" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.5"></text>
+        </svg>
+        <input type="range" id="hill-slider" min="0" max="400" value="0" step="1" style="width:100%;margin-top:4px;accent-color:#34d399;">
+      </div>
     </div>
+    <script is:inline>
+    (function() {
+      // Abundances (raw counts) for 5 species
+      var counts = [40, 10, 15, 8, 5];
+      var total = counts.reduce(function(a,b){return a+b;}, 0);
+      var probs = counts.map(function(c){return c/total;});
+      var colors = ['#60a5fa','#f59e0b','#34d399','#a78bfa','#fb7185'];
+      var BASE_BAR = 140, MAX_BAR_H = 50;
+      var MIN_R = 5, MAX_R = 20;
+
+      var slider = document.getElementById('hill-slider');
+      var qLabel = document.getElementById('hill-q');
+      var descLabel = document.getElementById('hill-desc');
+      var dLabel = document.getElementById('hill-d');
+
+      function hillNumber(q) {
+        if (Math.abs(q - 1) < 0.01) {
+          // Shannon limit: exp(-sum(p*log(p)))
+          var h = 0;
+          for (var i = 0; i < probs.length; i++) {
+            if (probs[i] > 0) h -= probs[i] * Math.log(probs[i]);
+          }
+          return Math.exp(h);
+        }
+        var s = 0;
+        for (var i = 0; i < probs.length; i++) {
+          s += Math.pow(probs[i], q);
+        }
+        return Math.pow(s, 1 / (1 - q));
+      }
+
+      function update() {
+        var q = parseInt(slider.value) / 100;
+        var D = hillNumber(q);
+        qLabel.textContent = 'q = ' + q.toFixed(2);
+        if (q < 0.05) descLabel.textContent = 'count all species equally';
+        else if (Math.abs(q - 1) < 0.05) descLabel.textContent = 'weight by abundance (Shannon)';
+        else if (Math.abs(q - 2) < 0.05) descLabel.textContent = 'dominants matter most';
+        else if (q > 2) descLabel.textContent = 'only the dominant survives';
+        else descLabel.textContent = '';
+
+        // Weight each species: w_i = p_i^q (unnormalized visual weight)
+        var weights = [];
+        var maxW = 0;
+        for (var i = 0; i < probs.length; i++) {
+          var w = Math.pow(probs[i], Math.max(q, 0));
+          weights.push(w);
+          if (w > maxW) maxW = w;
+        }
+
+        for (var i = 0; i < 5; i++) {
+          var nw = weights[i] / maxW; // normalize to [0,1]
+          var circle = document.getElementById('hs' + i);
+          var bar = document.getElementById('hb' + i);
+          var r = MIN_R + nw * (MAX_R - MIN_R);
+          var opacity = 0.08 + nw * 0.55;
+          circle.setAttribute('r', r.toFixed(1));
+          circle.setAttribute('fill-opacity', opacity.toFixed(2));
+          circle.setAttribute('stroke-opacity', (0.2 + nw * 0.8).toFixed(2));
+          var bh = counts[i] / total * MAX_BAR_H;
+          bar.setAttribute('y', (BASE_BAR + MAX_BAR_H - bh).toFixed(1));
+          bar.setAttribute('height', bh.toFixed(1));
+          bar.setAttribute('fill-opacity', (0.1 + nw * 0.5).toFixed(2));
+        }
+
+        dLabel.textContent = 'D = ' + D.toFixed(2) + ' effective species';
+      }
+
+      slider.addEventListener('input', update);
+      update();
+    })();
+    </script>
 
     <h3>Hill diversity numbers</h3>
     <p>Given a probability distribution p over n species, the Hill number of order q is:</p>

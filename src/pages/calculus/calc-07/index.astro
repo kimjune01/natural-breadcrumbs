@@ -16,26 +16,68 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <p class="text-lg" style="max-width:none">The <strong>definite integral</strong> is the signed area under a curve. Riemann sums approximate it with rectangles. The <strong>Fundamental Theorem of Calculus</strong> connects integration to differentiation: the integral of f' is f, and the derivative of the integral is f.</p>
     </div>
 
-    <!-- SVG: Riemann sum rectangles -->
+    <!-- SVG: interactive Riemann sum — slider controls n -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 380 180" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
-        <!-- Axis -->
-        <line x1="40" y1="150" x2="350" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <line x1="50" y1="20" x2="50" y2="155" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
-        <!-- Rectangles (left Riemann sum) -->
-        <rect x="60" y="100" width="40" height="50" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-        <rect x="100" y="70" width="40" height="80" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-        <rect x="140" y="50" width="40" height="100" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-        <rect x="180" y="40" width="40" height="110" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-        <rect x="220" y="45" width="40" height="105" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-        <rect x="260" y="60" width="40" height="90" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
-        <!-- Curve on top -->
-        <path d="M 60 100 Q 130 30 200 40 Q 270 50 320 80" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.7"/>
-        <!-- Labels -->
-        <text x="50" y="15" fill="currentColor" font-size="10" fill-opacity="0.4">f(x)</text>
-        <text x="190" y="172" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">more rectangles &#x2192; better approximation &#x2192; integral</text>
-      </svg>
+      <div style="width:100%;max-width:28rem;">
+        <svg id="riemann" viewBox="0 0 380 185" class="w-full" style="font-family: ui-monospace, monospace;">
+          <!-- Axis -->
+          <line x1="40" y1="150" x2="350" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+          <line x1="50" y1="20" x2="50" y2="155" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+          <!-- Rectangles container -->
+          <g id="rs-rects"></g>
+          <!-- Curve on top -->
+          <path id="rs-curve" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.7"/>
+          <!-- Labels -->
+          <text x="50" y="15" fill="currentColor" font-size="10" fill-opacity="0.4">f(x)</text>
+          <text id="rs-readout" x="190" y="175" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.4"></text>
+        </svg>
+        <input type="range" id="rs-slider" min="1" max="80" value="6" step="1" style="width:100%;margin-top:4px;accent-color:#60a5fa;">
+      </div>
     </div>
+    <script is:inline>
+    (function() {
+      var X0 = 60, X1 = 330, Y0 = 25, Y1 = 150;
+      // f(t) for t in [0,1] — a hump
+      function f(t) { return 0.6 * Math.sin(Math.PI * t) + 0.2; }
+
+      var slider = document.getElementById('rs-slider');
+      var rectsG = document.getElementById('rs-rects');
+      var readout = document.getElementById('rs-readout');
+      var curve = document.getElementById('rs-curve');
+
+      // Draw curve once
+      var pts = [];
+      for (var i = 0; i <= 100; i++) {
+        var t = i / 100;
+        var x = X0 + t * (X1 - X0);
+        var y = Y1 - f(t) * (Y1 - Y0);
+        pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+      }
+      curve.setAttribute('d', 'M ' + pts.join(' L '));
+
+      function update() {
+        var n = parseInt(slider.value);
+        var dx = 1 / n;
+        var html = '';
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+          var t = i * dx;
+          var h = f(t);
+          sum += h * dx;
+          var x = X0 + t * (X1 - X0);
+          var w = dx * (X1 - X0);
+          var barH = h * (Y1 - Y0);
+          html += '<rect x="' + x.toFixed(1) + '" y="' + (Y1 - barH).toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + barH.toFixed(1) + '" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.3"/>';
+        }
+        rectsG.innerHTML = html;
+        // Exact integral of 0.6*sin(pi*t)+0.2 from 0 to 1 = 0.6*2/pi + 0.2 ≈ 0.5817
+        readout.textContent = 'n = ' + n + '  |  sum = ' + sum.toFixed(4) + '  |  exact = 0.5817';
+      }
+
+      slider.addEventListener('input', update);
+      update();
+    })();
+    </script>
 
     <!-- 1. Riemann sums -->
     <h3>Riemann sums</h3>

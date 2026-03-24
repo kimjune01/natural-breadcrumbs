@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Base.astro';
+---
+
+<Layout title="Logic" favicon="🔑">
+  <main>
+
+    <a href="/reading/" class="text-sm mb-4 inline-block">&larr; back to reading</a>
+
+    <h1>🔑 Logic</h1>
+    <p class="text-gray-400 mb-2">Based on <a href="https://milneopentextbooks.org/a-concise-introduction-to-logic/">Craig DeLancey, "A Concise Introduction to Logic"</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <p class="text-gray-400 mb-6">Propositions, proofs, and predicates. Translated into runnable code with diagrams.</p>
+
+    <!-- SVG: Modus ponens proof tree -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 300 140" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Premises -->
+        <text x="70" y="40" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.7">P</text>
+        <text x="210" y="40" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.7">P &rarr; Q</text>
+        <!-- Inference line -->
+        <line x1="30" y1="55" x2="270" y2="55" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
+        <!-- Rule label -->
+        <text x="285" y="60" text-anchor="start" fill="currentColor" font-size="10" fill-opacity="0.35">MP</text>
+        <!-- Conclusion -->
+        <text x="150" y="80" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.7">Q</text>
+        <!-- Caption -->
+        <text x="150" y="125" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Modus ponens: from P and P &rarr; Q, conclude Q.</text>
+      </svg>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
+            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
+            <th class="text-left py-2 text-gray-400"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">1. Arguments and Validity</td>
+            <td class="pr-3 text-gray-400">What makes an argument valid, and why validity is not the same as truth</td>
+            <td><a href="/reading/logic/logic-01/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">2. Propositional Logic Syntax</td>
+            <td class="pr-3 text-gray-400">Propositions, connectives, and how to parse a well-formed formula</td>
+            <td><a href="/reading/logic/logic-02/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">3. Truth Tables</td>
+            <td class="pr-3 text-gray-400">Evaluating compound propositions to find tautologies, contradictions, and contingencies</td>
+            <td><a href="/reading/logic/logic-03/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">4. Logical Equivalence</td>
+            <td class="pr-3 text-gray-400">De Morgan, distribution, contrapositive, and simplification laws</td>
+            <td><a href="/reading/logic/logic-04/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">5. Natural Deduction</td>
+            <td class="pr-3 text-gray-400">Proof rules that build valid arguments step by step</td>
+            <td><a href="/reading/logic/logic-05/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">6. Predicate Logic</td>
+            <td class="pr-3 text-gray-400">Quantifiers, predicates, and translating English into formal logic</td>
+            <td><a href="/reading/logic/logic-06/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">7. Predicate Logic Proofs</td>
+            <td class="pr-3 text-gray-400">Instantiation and generalization rules for quantified statements</td>
+            <td><a href="/reading/logic/logic-07/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">8. Identity and Functions</td>
+            <td class="pr-3 text-gray-400">Equality, uniqueness, definite descriptions, and functions in logic</td>
+            <td><a href="/reading/logic/logic-08/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr class="border-b border-zinc-800">
+            <td class="py-2 pr-3 text-gray-300">9. Mathematical Induction</td>
+            <td class="pr-3 text-gray-400">Base case plus inductive step proves all cases</td>
+            <td><a href="/reading/logic/logic-09/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-3 text-gray-300">10. Soundness and Completeness</td>
+            <td class="pr-3 text-gray-400">What proof systems can and cannot reach, ending with Godel</td>
+            <td><a href="/reading/logic/logic-10/" class="text-yellow-300 hover:text-yellow-200">🔑</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</Layout>
