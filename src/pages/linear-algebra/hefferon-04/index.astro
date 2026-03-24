@@ -1,0 +1,245 @@
+---
+import Layout from '../../../layouts/Base.astro';
+import Repl from '../../../components/Repl';
+import SchemeRepl from '../../../components/SchemeRepl';
+---
+
+<Layout title="Hefferon Ch.4 — Determinants" favicon="📐">
+  <main>
+
+    <a href="/reading/linear-algebra/" class="text-sm mb-4 inline-block">← back to linear algebra</a>
+
+    <h1>Determinants</h1>
+    <p class="text-gray-400 text-sm mb-6">Jim Hefferon · GFDL + CC BY-SA 2.5 · <a href="https://hefferon.net/linearalgebra/">Linear Algebra</a></p>
+
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+      <p class="text-lg" style="max-width:none">The <strong>determinant</strong> is a single number that captures whether a square matrix is invertible and how it scales volume. det(A) = 0 means the map collapses a dimension. det(AB) = det(A) * det(B). Geometrically, the determinant of a 2-by-2 matrix is the signed area of the parallelogram spanned by its columns.</p>
+    </div>
+
+    <!-- 1. Definition -->
+    <h3>Cofactor expansion</h3>
+    <p>The determinant of a 1-by-1 matrix is its single entry. For larger matrices, expand along any row or column: multiply each entry by its <strong>cofactor</strong> (the determinant of the submatrix with that row and column deleted, times a sign). The result is the same regardless of which row or column you pick.</p>
+
+    <!-- SVG: Parallelogram showing det as area -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 320 240" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Axes -->
+        <line x1="40" y1="200" x2="300" y2="200" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.2"/>
+        <line x1="40" y1="20" x2="40" y2="200" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.2"/>
+        <!-- Origin -->
+        <circle cx="40" cy="200" r="2.5" fill="currentColor" fill-opacity="0.3"/>
+        <!-- Parallelogram: vertices at (0,0), (3,1), (1,2), (4,3) -->
+        <!-- Scaled: (40,200), (220,140), (100,80), (280,20) -->
+        <polygon points="40,200 220,140 280,20 100,80" fill="#60a5fa" fill-opacity="0.08" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.4"/>
+        <!-- Vector a = (3,1) — blue -->
+        <line x1="40" y1="200" x2="217" y2="142" stroke="#60a5fa" stroke-width="2"/>
+        <polygon points="220,140 210,137 212,147" fill="#60a5fa"/>
+        <text x="145" y="185" fill="#60a5fa" font-size="12">a = (3,1)</text>
+        <!-- Vector b = (1,2) — amber -->
+        <line x1="40" y1="200" x2="97" y2="82" stroke="#f59e0b" stroke-width="2"/>
+        <polygon points="100,80 90,77 92,87" fill="#f59e0b"/>
+        <text x="50" y="130" fill="#f59e0b" font-size="12">b = (1,2)</text>
+        <!-- Area label -->
+        <text x="160" y="110" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.6">area = |det| = 5</text>
+        <!-- det formula -->
+        <text x="160" y="230" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">det = 3(2) - 1(1) = 5</text>
+      </svg>
+    </div>
+
+    <SchemeRepl client:load initialCode={`; Determinant of a 2x2 matrix: ad - bc
+
+(define (det2 a b c d)
+  (- (* a d) (* b c)))
+
+(display "det((3,1),(1,2)) = ")
+(display (det2 3 1 1 2))
+(newline)
+; 3*2 - 1*1 = 5
+
+; Determinant of a 3x3 matrix by cofactor expansion along row 1
+(define (det3 m)
+  (let ((a (list-ref (list-ref m 0) 0))
+        (b (list-ref (list-ref m 0) 1))
+        (c (list-ref (list-ref m 0) 2))
+        (d (list-ref (list-ref m 1) 0))
+        (e (list-ref (list-ref m 1) 1))
+        (f (list-ref (list-ref m 1) 2))
+        (g (list-ref (list-ref m 2) 0))
+        (h (list-ref (list-ref m 2) 1))
+        (i (list-ref (list-ref m 2) 2)))
+    (+ (* a (det2 e f h i))
+       (- (* b (det2 d f g i)))
+       (* c (det2 d e g h)))))
+
+(define A '((1 2 3)
+            (4 5 6)
+            (7 8 9)))
+
+(display "det(A) = ")
+(display (det3 A))
+; Should be 0 (rows are in arithmetic progression)
+`} />
+
+    <details class="my-2">
+      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+      <Repl client:load initialCode={`# 2x2 and 3x3 determinants
+def det2(a, b, c, d):
+    return a*d - b*c
+
+def det3(m):
+    a,b,c = m[0]
+    d,e,f = m[1]
+    g,h,i = m[2]
+    return a*det2(e,f,h,i) - b*det2(d,f,g,i) + c*det2(d,e,g,h)
+
+print(f"det 2x2: {det2(3,1,1,2)}")      # 5
+A = [[1,2,3],[4,5,6],[7,8,9]]
+print(f"det 3x3: {det3(A)}")             # 0
+`} />
+    </details>
+
+
+    <!-- 2. Properties -->
+    <h3>Properties of determinants</h3>
+    <p>Three key properties. First, <strong>det(AB) = det(A) * det(B)</strong>: the determinant is multiplicative. Second, row operations have predictable effects: swapping rows flips the sign, scaling a row multiplies the determinant, adding a multiple of one row to another leaves it unchanged. Third, det(A) is nonzero if and only if A is invertible.</p>
+
+    <SchemeRepl client:load initialCode={`; Multiplicativity: det(AB) = det(A) * det(B)
+
+(define (det2 a b c d) (- (* a d) (* b c)))
+
+; A = ((2 1) (0 3)), det(A) = 6
+; B = ((1 4) (2 5)), det(B) = -3
+(define detA (det2 2 1 0 3))
+(define detB (det2 1 4 2 5))
+
+(display "det(A) = ") (display detA) (newline)
+(display "det(B) = ") (display detB) (newline)
+(display "det(A)*det(B) = ") (display (* detA detB)) (newline)
+
+; Compute AB manually:
+; AB = ((2*1+1*2, 2*4+1*5), (0*1+3*2, 0*4+3*5))
+;    = ((4, 13), (6, 15))
+(define detAB (det2 4 13 6 15))
+(display "det(AB) = ") (display detAB) (newline)
+; 4*15 - 13*6 = 60 - 78 = -18 = 6 * (-3)
+
+(display "Equal? ") (display (= (* detA detB) detAB))
+`} />
+
+
+    <!-- 3. Row operations -->
+    <h3>Row operations and determinants</h3>
+    <p>Row operations are the algorithmic path to computing determinants. Reduce to echelon form, track the sign flips from row swaps, and multiply the diagonal entries. This is O(n^3), far better than cofactor expansion's O(n!).</p>
+
+    <SchemeRepl client:load initialCode={`; Computing det via row reduction.
+; A = ((2 6) (1 4))
+; R2 <- R2 - (1/2)*R1: ((2 6) (0 1))
+; det = product of pivots = 2 * 1 = 2
+
+(define (det2 a b c d) (- (* a d) (* b c)))
+
+; Direct computation:
+(display "Direct: det = ")
+(display (det2 2 6 1 4))
+(newline)
+
+; Via row reduction:
+; After R2 <- R2 - (1/2)*R1, pivots are 2 and 1.
+; No row swaps, so sign is +1.
+(display "Via pivots: 2 * 1 = ")
+(display (* 2 1))
+(newline)
+
+; With a row swap: swap R1 and R2
+; ((1 4) (2 6)) — one swap, sign flips
+; R2 <- R2 - 2*R1: ((1 4) (0 -2))
+; det = (-1) * 1 * (-2) = 2
+(display "With swap: (-1) * 1 * (-2) = ")
+(display (* -1 1 -2))
+`} />
+
+
+    <!-- 4. Geometric interpretation -->
+    <h3>Geometric interpretation</h3>
+    <p>In 2D, |det(A)| is the area of the parallelogram spanned by the columns of A. In 3D, it is the volume of the parallelepiped. A negative determinant means the transformation reverses orientation. Zero determinant means the columns are coplanar, and the map squashes a dimension.</p>
+
+    <SchemeRepl client:load initialCode={`; Signed area of a parallelogram
+; Columns (2,0) and (0,3): axis-aligned rectangle, area = 6
+
+(define (det2 a b c d) (- (* a d) (* b c)))
+
+(display "Rectangle (2,0)x(0,3): area = ")
+(display (det2 2 0 0 3))
+(newline)
+
+; Shear: columns (1,0) and (1,1)
+; Parallelogram, area = 1 (shearing preserves area)
+(display "Shear (1,0)x(1,1): area = ")
+(display (det2 1 1 0 1))
+(newline)
+
+; Collapse: columns (1,2) and (2,4) — dependent
+(display "Collapsed (1,2)x(2,4): area = ")
+(display (det2 1 2 2 4))
+(newline)
+; Zero — the parallelogram degenerates to a line.
+
+; Reflection flips sign: columns (0,1) and (1,0)
+(display "Reflection (0,1)x(1,0): signed area = ")
+(display (det2 0 1 1 0))
+`} />
+
+
+    <!-- Notation -->
+    <h3>Notation reference</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="py-2 pr-4">Symbol</th>
+            <th class="py-2 pr-4">Scheme</th>
+            <th class="py-2 pr-4">Python</th>
+            <th class="py-2">Meaning</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono">
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">det(A)</td><td class="pr-4 text-green-300">(det2 a b c d)</td><td class="pr-4 text-blue-300">np.linalg.det(A)</td><td class="font-sans">Determinant</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">det(AB) = det(A)det(B)</td><td class="pr-4 text-green-300">verified above</td><td class="pr-4 text-blue-300">verified above</td><td class="font-sans">Multiplicativity</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">det(A) = 0</td><td class="pr-4 text-green-300">singular</td><td class="pr-4 text-blue-300">singular</td><td class="font-sans">A is not invertible</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-4">cofactor Cij</td><td class="pr-4 text-green-300">(-1)^(i+j) * Mij</td><td class="pr-4 text-blue-300">(-1)**(i+j) * Mij</td><td class="font-sans">Signed minor</td></tr>
+          <tr><td class="py-2 pr-4">|det(A)|</td><td class="pr-4 text-green-300">(abs (det ...))</td><td class="pr-4 text-blue-300">abs(det(A))</td><td class="font-sans">Volume scaling factor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Neighbors -->
+    <h3>Neighbors</h3>
+
+    <p class="text-sm text-gray-500 mb-2">Adjacent chapters</p>
+    <ul>
+      <li><a href="/reading/linear-algebra/hefferon-03/">Ch.3 Maps Between Spaces</a> — determinants measure properties of these maps</li>
+      <li><a href="/reading/linear-algebra/hefferon-05/">Ch.5 Similarity</a> — eigenvalues are roots of det(A - lambda I) = 0</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">Foundations (Wikipedia)</p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Determinant">W Determinant</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Laplace_expansion">W Laplace expansion (cofactor)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Parallelepiped">W Parallelepiped</a></li>
+    </ul>
+
+    <!-- Translation notes -->
+    <h3>Translation notes</h3>
+    <p>Hefferon's chapter also covers permutation-based definitions of the determinant, Cramer's rule, and the Laplace expansion in full generality. This page focuses on the 2-by-2 and 3-by-3 cases and the key properties. For the permutation approach and proofs of multiplicativity, see the original text.</p>
+
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      Full chapter: <a href="https://hefferon.net/linearalgebra/">Hefferon, Chapter Four — Determinants</a>.
+    </div>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/linear-algebra/hefferon-03/">← Maps Between Spaces</a>
+      <a href="/reading/linear-algebra/hefferon-05/">Similarity →</a>
+    </div>
+
+  </main>
+</Layout>
