@@ -206,6 +206,28 @@ print(f"Either Bool () has {len(inhabitants)} inhabitants")
     <h3>Maybe a = 1 + a</h3>
     <p><code>Maybe a</code> is <code>Nothing | Just a</code>, which is <code>1 + a</code>. It adds one extra value (Nothing) to any type. <code>Maybe Bool</code> has <code>1 + 2 = 3</code> inhabitants: Nothing, Just True, Just False. This is <code>Either () a</code>.</p>
 
+    <!-- SVG: Maybe a = 1 + a type algebra -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 380 110" class="w-full max-w-sm" style="font-family: ui-monospace, monospace;">
+        <!-- Maybe box split into Nothing | Just a -->
+        <rect x="30" y="15" width="240" height="50" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Nothing partition (small, gray) -->
+        <rect x="30" y="15" width="60" height="50" rx="6" fill="currentColor" fill-opacity="0.1"/>
+        <text x="60" y="44" text-anchor="middle" fill="currentColor" font-size="12" fill-opacity="0.5">Nothing</text>
+        <!-- Divider -->
+        <line x1="90" y1="15" x2="90" y2="65" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Just a partition (larger, blue) -->
+        <rect x="90" y="15" width="180" height="50" rx="6" fill="#60a5fa" fill-opacity="0.1"/>
+        <text x="180" y="44" text-anchor="middle" fill="#60a5fa" font-size="14">Just a</text>
+        <!-- Equals sign -->
+        <text x="295" y="44" text-anchor="middle" fill="currentColor" font-size="16" fill-opacity="0.6">=</text>
+        <!-- Unit + a -->
+        <text x="350" y="44" text-anchor="middle" fill="currentColor" font-size="13" fill-opacity="0.7">Unit + a</text>
+        <!-- Caption -->
+        <text x="190" y="90" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">Maybe is the sum of Unit and a — either nothing or something</text>
+      </svg>
+    </div>
+
     <SchemeRepl client:load initialCode={`; Maybe a = Nothing | Just a = 1 + a
 (define nothing 'nothing)
 (define (just x) (list 'just x))

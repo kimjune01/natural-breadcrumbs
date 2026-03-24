@@ -1,0 +1,256 @@
+---
+import Layout from '../../../layouts/Base.astro';
+---
+
+<Layout title="Ioannidis 2005 — Why Most Published Research Findings Are False" favicon="🔬">
+  <main>
+
+    <a href="/reading/scientific-method/" class="text-sm mb-4 inline-block">&larr; back to scientific method</a>
+
+    <h1>Why Most Published Research Findings Are False</h1>
+    <p class="text-gray-400 text-sm mb-6">John P. A. Ioannidis · 2005 · <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124">PLoS Medicine 2(8): e124</a></p>
+
+    <div class="bg-zinc-800 rounded-lg p-5 mb-8">
+      <p class="text-lg" style="max-width:none">Most published research findings are false. The replication crisis, diagnosed before it had a name.</p>
+    </div>
+
+    <!-- The base rate problem SVG -->
+    <h3>The base rate problem</h3>
+
+    <p>Suppose one in ten hypotheses tested is actually true. A study with 80% power and a 5% significance threshold will produce results like this:</p>
+
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 480 320" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Title -->
+        <text x="240" y="20" text-anchor="middle" fill="currentColor" font-size="11" fill-opacity="0.5">1000 hypotheses tested, 100 true, 900 false</text>
+
+        <!-- 2x2 grid -->
+        <!-- Header row -->
+        <text x="260" y="58" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Study says positive</text>
+        <text x="400" y="58" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Study says negative</text>
+
+        <!-- Row labels -->
+        <text x="120" y="110" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Hypothesis true</text>
+        <text x="120" y="120" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">(100 of 1000)</text>
+        <text x="120" y="200" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">Hypothesis false</text>
+        <text x="120" y="210" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">(900 of 1000)</text>
+
+        <!-- True positive cell -->
+        <rect x="190" y="75" width="140" height="70" rx="4" fill="#4ade80" fill-opacity="0.12" stroke="#4ade80" stroke-width="1.5"/>
+        <text x="260" y="105" text-anchor="middle" fill="#4ade80" font-size="20">80</text>
+        <text x="260" y="125" text-anchor="middle" fill="#4ade80" font-size="9" fill-opacity="0.7">true positives</text>
+
+        <!-- False negative cell -->
+        <rect x="340" y="75" width="120" height="70" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <text x="400" y="105" text-anchor="middle" fill="currentColor" font-size="18" fill-opacity="0.4">20</text>
+        <text x="400" y="125" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">false negatives</text>
+
+        <!-- False positive cell -->
+        <rect x="190" y="155" width="140" height="70" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="260" y="185" text-anchor="middle" fill="#ef4444" font-size="20">45</text>
+        <text x="260" y="205" text-anchor="middle" fill="#ef4444" font-size="9" fill-opacity="0.7">false positives</text>
+
+        <!-- True negative cell -->
+        <rect x="340" y="155" width="120" height="70" rx="4" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <text x="400" y="185" text-anchor="middle" fill="currentColor" font-size="18" fill-opacity="0.4">855</text>
+        <text x="400" y="205" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">true negatives</text>
+
+        <!-- Bottom: the punchline -->
+        <line x1="190" y1="245" x2="330" y2="245" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <text x="260" y="265" text-anchor="middle" fill="currentColor" font-size="11">Of 125 "positive" findings:</text>
+        <text x="260" y="283" text-anchor="middle" fill="#ef4444" font-size="12">45 are wrong (36%)</text>
+        <text x="260" y="305" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.35">lower the prior, raise the bias, add more teams: it gets worse</text>
+      </svg>
+    </div>
+
+    <p>The arithmetic is not subtle. With a 10% prior, more than a third of published positives are false. Drop the prior to 1% and the false discovery rate climbs past 80%. The significance threshold was never designed to handle low base rates. Fisher knew this. The field forgot.</p>
+
+    <!-- The argument -->
+    <h3>The argument</h3>
+
+    <p>Ioannidis builds from a Bayesian framework. Before a study runs, the hypothesis has some prior probability of being true. The study applies a significance threshold (usually p &lt; 0.05) and has some statistical power (often far below the nominal 80%). The positive predictive value of a "significant" result depends on how these three numbers combine.</p>
+
+    <p>When prior probability is low, the math tilts against truth. A 5% false positive rate sounds small until you realize it applies to the 90% of hypotheses that are wrong. The 80% true positive rate applies to only the 10% that are right. False positives outnumber true positives.</p>
+
+    <p>That alone would be manageable. Ioannidis identifies five factors that make it worse.</p>
+
+    <!-- Key factors table -->
+    <h3>Five accelerants</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-700">
+            <th class="text-left py-2 pr-3 text-gray-400">Factor</th>
+            <th class="text-left py-2 text-gray-400">Why it inflates false positives</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Low prior probability</td><td class="text-gray-400">Most hypotheses tested are wrong. The base rate dominates.</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Small effect sizes</td><td class="text-gray-400">Small effects require large samples. Underpowered studies miss true effects and amplify noise.</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Flexible designs</td><td class="text-gray-400">More outcome variables, more subgroups, more analytic choices. Each is another chance to find a "significant" result by accident.</td></tr>
+          <tr class="border-b border-zinc-800"><td class="py-2 pr-3 text-gray-300">Financial and career interest</td><td class="text-gray-400">Incentives to find positive results. Publication bias: journals want novelty, not null results.</td></tr>
+          <tr><td class="py-2 pr-3 text-gray-300">Many teams testing the same hypothesis</td><td class="text-gray-400">If 20 teams test the same false hypothesis, one will get p &lt; 0.05 by chance. That team publishes. The other 19 don't.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Each factor operates independently. Stack them and the positive predictive value of a published finding can drop below 50%. In fields where all five are present, the majority of published claims are false.</p>
+
+    <!-- SVG: The file drawer -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 440 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <text x="220" y="15" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">20 teams test the same false hypothesis</text>
+
+        <!-- 20 team dots: 19 null, 1 "significant" -->
+        <!-- Row 1 -->
+        <circle cx="60" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="90" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="120" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="150" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="180" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="210" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="240" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="270" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="300" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="330" cy="45" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <!-- Row 2 -->
+        <circle cx="60" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="90" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="120" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="150" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="180" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="210" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="240" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="270" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <circle cx="300" cy="70" r="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.2"/>
+        <!-- The one "significant" result -->
+        <circle cx="330" cy="70" r="6" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.2"/>
+        <text x="330" y="73" text-anchor="middle" fill="#ef4444" font-size="6" fill-opacity="0.8">*</text>
+
+        <!-- Arrows: 19 go down to file drawer -->
+        <line x1="190" y1="85" x2="150" y2="125" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.15"/>
+        <text x="120" y="115" fill="currentColor" font-size="8" fill-opacity="0.3">19 null results</text>
+
+        <!-- File drawer -->
+        <rect x="60" y="130" width="200" height="40" rx="3" fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="1" stroke-opacity="0.2"/>
+        <line x1="70" y1="145" x2="250" y2="145" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+        <text x="160" y="157" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">file drawer</text>
+        <!-- Drawer handle -->
+        <rect x="145" y="133" width="30" height="4" rx="2" fill="currentColor" fill-opacity="0.1"/>
+
+        <!-- Arrow: 1 goes right to journal -->
+        <line x1="338" y1="78" x2="360" y2="125" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+
+        <!-- Journal -->
+        <rect x="320" y="130" width="100" height="40" rx="3" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="370" y="148" text-anchor="middle" fill="#ef4444" font-size="8" fill-opacity="0.6">published</text>
+        <text x="370" y="160" text-anchor="middle" fill="#ef4444" font-size="7" fill-opacity="0.4">p &lt; .05</text>
+
+        <!-- Bottom label -->
+        <text x="220" y="192" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.3">the one that crossed the threshold by chance</text>
+      </svg>
+    </div>
+
+    <!-- The p-value distribution -->
+    <h3>The telltale bump</h3>
+
+    <p>If researchers test true hypotheses honestly, p-values cluster near zero. If they test false hypotheses honestly, p-values spread uniformly. What actually shows up in the published literature is neither: a suspicious bump just below 0.05.</p>
+
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 470 220" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Axes -->
+        <line x1="50" y1="180" x2="420" y2="180" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+        <line x1="50" y1="180" x2="50" y2="20" stroke="currentColor" stroke-width="1" stroke-opacity="0.3"/>
+
+        <text x="235" y="210" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.4">p-value</text>
+        <text x="20" y="100" text-anchor="middle" fill="currentColor" font-size="8" fill-opacity="0.4" transform="rotate(-90, 20, 100)">frequency</text>
+
+        <!-- X-axis ticks -->
+        <text x="50" y="195" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.3">0</text>
+        <text x="124" y="195" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.3">.01</text>
+        <text x="198" y="195" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.3">.02</text>
+        <text x="272" y="195" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.3">.03</text>
+        <text x="346" y="195" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.3">.04</text>
+        <text x="420" y="195" text-anchor="middle" fill="currentColor" font-size="7" fill-opacity="0.3">.05</text>
+
+        <!-- 0.05 threshold line -->
+        <line x1="420" y1="180" x2="420" y2="20" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+        <text x="430" y="30" text-anchor="start" fill="#ef4444" font-size="7" fill-opacity="0.5">α = .05</text>
+
+        <!-- Expected distribution (honest science): smooth decay from left -->
+        <path d="M 50,40 C 80,42 110,60 140,80 C 170,100 200,120 240,140 C 280,155 320,162 360,166 C 390,168 410,170 420,170" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.2" stroke-dasharray="5,5"/>
+        <text x="160" y="68" fill="currentColor" font-size="7" fill-opacity="0.25">expected</text>
+
+        <!-- Actual distribution: similar decay but with a bump near 0.05 -->
+        <path d="M 50,38 C 80,40 110,58 140,78 C 170,98 200,118 240,138 C 280,152 310,158 330,160" fill="none" stroke="#facc15" stroke-width="1.8" stroke-opacity="0.6"/>
+        <!-- The bump: dip then spike just before 0.05 -->
+        <path d="M 330,160 C 345,163 355,165 370,162 C 380,155 390,130 400,105 C 410,90 415,85 420,82" fill="none" stroke="#facc15" stroke-width="1.8" stroke-opacity="0.6"/>
+
+        <!-- Bump annotation -->
+        <line x1="400" y1="105" x2="400" y2="170" stroke="#ef4444" stroke-width="0.8" stroke-opacity="0.2"/>
+        <text x="388" y="78" text-anchor="middle" fill="#ef4444" font-size="8" fill-opacity="0.6">the bump</text>
+
+        <!-- Caption -->
+        <text x="235" y="15" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.3">p-value distribution in published results (schematic)</text>
+      </svg>
+    </div>
+
+    <p><a href="https://doi.org/10.1371/journal.pbio.1002106">Head et al. (2015)</a> found this bump across thousands of papers in multiple fields. It's the fingerprint of p-hacking: researchers who run analyses until they cross the threshold, then stop. The method selects for results that barely pass, which is exactly the population most likely to be false.</p>
+
+    <!-- The replication crisis -->
+    <h3>The replication crisis</h3>
+
+    <p>Ioannidis published in 2005. The replication crisis arrived on schedule.</p>
+
+    <p>In 2015, the Reproducibility Project attempted to replicate 100 psychology studies. Ninety-seven of the originals reported significant results. Thirty-six of the replications did. The effect sizes in the replications were half the originals on average. Some landmark findings vanished entirely.</p>
+
+    <p>Cancer biology fared no better. Amgen tried to replicate 53 "landmark" studies. Six replicated. Bayer reported similar numbers: roughly 25% replication across their therapeutic areas.</p>
+
+    <p>In economics, the Federal Reserve Bank of St. Louis replicated 67 studies. About 50% held up, better than psychology but still alarming for a field that informs policy.</p>
+
+    <p>These are not cherry-picked failures. They are systematic attempts to reproduce the published record. The published record is unreliable. Ioannidis saw it coming a decade before the data confirmed it.</p>
+
+    <!-- Discussion / connections -->
+    <h3>Connections</h3>
+
+    <p>The p-value was never meant to carry this weight. <a href="/reading/scientific-method/fisher-1935/">Fisher</a> introduced it as a rough guide for when to look more closely, not as a decision boundary for truth. Somewhere between 1935 and 2005, the scientific community turned a heuristic into a ritual. Ioannidis is documenting what happens when the ritual replaces the reasoning.</p>
+
+    <p><a href="/reading/scientific-method/feynman-1974/">Feynman</a> warned in 1974 that scientists were performing the motions of science without the substance. He called it cargo cult science: build the runway, light the fires, wait for the planes that never come. Ioannidis is showing that the cargo cult operates at industrial scale. Thousands of papers per year, most of them reporting planes that never landed.</p>
+
+    <p><a href="/reading/scientific-method/mayo-2018/">Mayo</a> provides the diagnostic. Her severity principle asks: did the test have a high probability of producing a different result if the hypothesis were false? If not, a positive result is uninformative. Most of the studies Ioannidis flags would fail the severity test. The design was too flexible, the power too low, the prior too thin. The machinery produced a number below 0.05, but the test was not severe.</p>
+
+    <p><a href="/reading/scientific-method/popper-1934/">Popper</a> said science advances by trying to falsify. Ioannidis is showing that scientists routinely fail to falsify. The incentive structure rewards confirmation. Publication bias filters for it. Career advancement depends on it. The community selects for the behavior Popper said disqualifies a field from being science at all.</p>
+
+    <!-- Integrity angle -->
+    <h3>The incentive problem</h3>
+
+    <p>Publish or perish is a selection mechanism. Researchers who produce positive results get published. Those who publish get funded. Those who get funded survive. The system selects for false positives the same way evolution selects for fitness: not by intent, but by differential survival.</p>
+
+    <p>Pre-registration helps. Open data helps. Replication requirements help. But the fundamental incentive remains: your career depends on producing results that journals will print. Journals print novelty and significance. Null results and replications sit in file drawers. Until the incentive structure changes, the replication crisis is a chronic condition, not an acute one.</p>
+
+    <!-- Paper link -->
+    <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
+      The paper is open access. <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124">Read it at PLoS Medicine</a>. It is nine pages long and requires no specialized training. There is no excuse for not reading it.
+    </div>
+
+    <!-- Neighbors -->
+    <h3>Neighbors</h3>
+
+    <p class="text-sm text-gray-500 mb-2">In this collection</p>
+    <ul>
+      <li><a href="/reading/scientific-method/fisher-1935/">🔬 Fisher 1935</a> — the machinery Ioannidis shows being misused</li>
+      <li><a href="/reading/scientific-method/feynman-1974/">🔬 Feynman 1974</a> — the integrity principle being violated at scale</li>
+      <li><a href="/reading/scientific-method/popper-1934/">🔬 Popper 1934</a> — falsification as the standard scientists are failing to meet</li>
+      <li><a href="/reading/scientific-method/mayo-2018/">🔬 Mayo 2018</a> — the proposed fix: severity as the formal diagnostic</li>
+      <li><a href="/reading/scientific-method/chamberlin-1890/">🔬 Chamberlin 1890</a> — multiple hypotheses as the antidote to confirmation bias</li>
+    </ul>
+
+    <p class="text-sm text-gray-500 mb-2 mt-4">External</p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Replication_crisis">Replication crisis (Wikipedia)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Publication_bias">Publication bias (Wikipedia)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/P-hacking">P-hacking (Wikipedia)</a></li>
+    </ul>
+
+  </main>
+</Layout>

@@ -14,6 +14,22 @@ import Repl from '../../../components/Repl';
       <p class="text-lg" style="max-width:none">If you already know any programming language, you know most of Python.</p>
     </div>
 
+    <!-- SVG: Python vs Scheme side by side -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 360 80" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Python -->
+        <text x="90" y="20" text-anchor="middle" fill="#34d399" font-size="10">Python</text>
+        <text x="90" y="45" text-anchor="middle" fill="currentColor" font-size="15"><tspan fill="#34d399">3</tspan> <tspan fill="#60a5fa">+</tspan> <tspan fill="#34d399">4</tspan></text>
+        <text x="90" y="65" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">infix: operator between</text>
+        <!-- Arrow -->
+        <text x="180" y="45" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.3">&#x2194;</text>
+        <!-- Scheme -->
+        <text x="270" y="20" text-anchor="middle" fill="#60a5fa" font-size="10">Scheme</text>
+        <text x="270" y="45" text-anchor="middle" fill="currentColor" font-size="15">(<tspan fill="#60a5fa">+</tspan> <tspan fill="#34d399">3</tspan> <tspan fill="#34d399">4</tspan>)</text>
+        <text x="270" y="65" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.4">prefix: operator first</text>
+      </svg>
+    </div>
+
     <!-- 1. Variables and expressions -->
     <h3>Variables and expressions</h3>
     <p>No type declarations. No semicolons. Just assign and compute.</p>

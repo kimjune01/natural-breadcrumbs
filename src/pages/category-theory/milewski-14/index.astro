@@ -95,6 +95,54 @@ print(square_then_show(3))  # val=9
       </svg>
     </div>
 
+    <!-- SVG: Yoneda probe — morphisms out of a determine F -->
+    <div class="flex justify-center my-6">
+      <svg viewBox="0 0 420 200" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+        <!-- Object a (blue circle) -->
+        <circle cx="60" cy="95" r="22" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="60" y="100" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="600">a</text>
+        <!-- Morphism arrows fanning out -->
+        <!-- f1 to b1 -->
+        <line x1="82" y1="82" x2="168" y2="40" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <polygon points="168,40 159,39 162,48" fill="currentColor" fill-opacity="0.4"/>
+        <text x="118" y="52" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">f&#x2081;</text>
+        <!-- f2 to b2 -->
+        <line x1="82" y1="95" x2="168" y2="95" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <polygon points="168,95 160,90 160,100" fill="currentColor" fill-opacity="0.4"/>
+        <text x="125" y="88" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">f&#x2082;</text>
+        <!-- f3 to b3 -->
+        <line x1="82" y1="108" x2="168" y2="150" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+        <polygon points="168,150 159,151 162,142" fill="currentColor" fill-opacity="0.4"/>
+        <text x="118" y="140" text-anchor="middle" fill="currentColor" font-size="9" fill-opacity="0.5">f&#x2083;</text>
+        <!-- Target objects b1, b2, b3 -->
+        <circle cx="185" cy="38" r="14" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="185" y="42" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">b&#x2081;</text>
+        <circle cx="185" cy="95" r="14" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="185" y="99" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">b&#x2082;</text>
+        <circle cx="185" cy="152" r="14" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="185" y="156" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">b&#x2083;</text>
+        <!-- Functor F arrow -->
+        <text x="250" y="95" text-anchor="middle" fill="#a78bfa" font-size="16" font-weight="600">F</text>
+        <path d="M230,60 Q250,95 230,130" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="230,130 234,121 225,124" fill="#a78bfa"/>
+        <!-- F-mapped arrows -->
+        <line x1="270" y1="42" x2="350" y2="42" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.6"/>
+        <polygon points="350,42 342,37 342,47" fill="#f59e0b" fill-opacity="0.6"/>
+        <text x="310" y="35" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">F(f&#x2081;)</text>
+        <line x1="270" y1="95" x2="350" y2="95" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.6"/>
+        <polygon points="350,95 342,90 342,100" fill="#f59e0b" fill-opacity="0.6"/>
+        <text x="310" y="88" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">F(f&#x2082;)</text>
+        <line x1="270" y1="148" x2="350" y2="148" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.6"/>
+        <polygon points="350,148 342,143 342,153" fill="#f59e0b" fill-opacity="0.6"/>
+        <text x="310" y="141" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.7">F(f&#x2083;)</text>
+        <!-- F(a) seed -->
+        <rect x="260" y="60" width="40" height="22" rx="4" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.5"/>
+        <text x="280" y="75" text-anchor="middle" fill="#60a5fa" font-size="9">F(a)</text>
+        <!-- Caption -->
+        <text x="210" y="190" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.3">knowing F(a) determines F on every morphism out of a</text>
+      </svg>
+    </div>
+
     <SchemeRepl client:load initialCode={`; The Yoneda bijection:
 ;   phi : (forall x . (a -> x) -> F x) -> F a
 ;   phi alpha = alpha id
