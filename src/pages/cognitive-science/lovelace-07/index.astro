@@ -71,8 +71,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Higher surprisal = slower reading time (empirically)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Surprisal in Python
 import math
 
@@ -83,7 +82,7 @@ words = {"mat": 0.15, "floor": 0.10, "elephant": 0.001, "the": 0.30}
 for word, p in words.items():
     print(f"Surprisal('{word}'): {surprisal(p):.2f} bits")
 `} />
-    </details>
+    </div>
 
 
     <!-- Probabilistic language models -->
@@ -119,8 +118,7 @@ for word, p in words.items():
 (display (exact->inexact (bigram-prob "cat" "ran")))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bigram language model
 from collections import defaultdict
 
@@ -140,7 +138,7 @@ def bigram_prob(w1, w2):
 for w1, w2 in [("the","cat"), ("the","dog"), ("cat","sat"), ("cat","ran")]:
     print("P(" + w2 + " | " + w1 + ") = " + "{:.4f}".format(bigram_prob(w1, w2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Pragmatic inference -->
@@ -189,8 +187,7 @@ for w1, w2 in [("the","cat"), ("the","dog"), ("cat","sat"), ("cat","ran")]:
 (display "Result: hearing 'some' implies 'not all'")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Scalar implicature via RSA (simplified)
 # Literal semantics: is utterance true in state?
 def literal(utt, state):
@@ -213,7 +210,7 @@ for state in ["all", "some"]:
 
 print("Result: hearing 'some' implies 'not all'")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

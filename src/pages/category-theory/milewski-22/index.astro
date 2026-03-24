@@ -123,8 +123,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; The monoidal structure of Bool enforces preorder laws.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bool-enriched category = preorder
 # hom(a,b) = True iff a <= b
 
@@ -147,7 +146,7 @@ print(f"hom(4,6) = {div_order.hom(4, 6)}")
 print(f"compose(2,6,12) = {div_order.compose(2, 6, 12)}")
 print(f"hom(5,5) = {div_order.hom(5, 5)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Metric-enriched: metric spaces -->
@@ -196,8 +195,7 @@ print(f"hom(5,5) = {div_order.hom(5, 5)}")
 ; Equality holds — the shortest path goes through the midpoint.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# [0,∞]-enriched category = metric space
 # Tensor = addition, unit = 0
 
@@ -221,7 +219,7 @@ print(f"d(1,10) = {real_line.hom(1, 10)}")
 print(f"triangle(1,4,10)? {real_line.triangle_ok(1, 4, 10)}")
 print(f"d(7,7) = {real_line.hom(7, 7)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Enriched composition law verified -->
@@ -386,8 +384,7 @@ print(f"d(7,7) = {real_line.hom(7, 7)}")
 ; Self-enrichment makes the internal structure explicit.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Set enriched over Set: ordinary function composition
 # Internal hom [a,b] = set of all functions a -> b
 
@@ -404,7 +401,7 @@ print(f"f(2)={f[2]}, g(b)={g['b']}, (g∘f)(2)={gf[2]}")
 id_fn = {x: x for x in [1, 2, 3]}
 print(f"id(1)={id_fn[1]}, id(2)={id_fn[2]}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

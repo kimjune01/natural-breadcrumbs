@@ -135,8 +135,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Both lines give 0.5 at p = 0.25
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Graphical method: find where expected payoff lines cross
 # Matrix: A=[1,0], B=[-1,2]
 
@@ -154,7 +153,7 @@ print(f"E(vs D) = {ev_vs_D(p_star)}")
 
 # The maximin: Player 1 guarantees a payoff of 0.5
 `} />
-    </details>
+    </div>
 
     <!-- 3. Why the intersection is optimal -->
     <h3>Why the intersection is optimal</h3>

@@ -130,8 +130,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Both paths give "42". The identity family is a wedge.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Wedge condition: two paths through the diamond must agree.
 # For the Hom profunctor, alpha = identity at each type.
 # Wedge condition: f . id_a = id_b . f (trivially true).
@@ -145,7 +144,7 @@ print(f"path1(42) = {path1(42)}")
 print(f"path2(42) = {path2(42)}")
 print(f"Wedge holds? {path1(42) == path2(42)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Ends -->
@@ -276,8 +275,7 @@ print(f"Wedge holds? {path1(42) == path2(42)}")
 ; The end enforces alpha_a = alpha_b -- that's naturality.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Nat(F,G) = End_a Hom(F(a), G(a))
 # Finite category: {a, b}, f: a -> b, F(f) = G(f) = id
 # Naturality: alpha_a = alpha_b
@@ -297,7 +295,7 @@ print(f"Natural transformations: {len(nat_trans)}")
 for a, _ in nat_trans:
     print(f"  {a}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Coends -->
@@ -368,8 +366,7 @@ for a, _ in nat_trans:
 ; In a connected category, the coend of Hom is a single element.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Coend: coproduct quotiented by dinaturality
 # Take all diagonal elements, identify via morphisms
 
@@ -403,7 +400,7 @@ for cls in uf.classes():
     print(f"  {cls}")
 # All collapse to one class in a connected category.
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. Ninja Yoneda -->

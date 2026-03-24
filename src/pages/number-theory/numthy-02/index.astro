@@ -35,8 +35,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "factor(1024) = ") (display (factor 1024))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Prime factorization
 def factor(n):
     factors = []
@@ -55,7 +54,7 @@ print(f"factor(97) = {factor(97)}")
 print(f"factor(360) = {factor(360)}")
 print(f"factor(1024) = {factor(1024)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Infinitude of primes -->
@@ -179,8 +178,7 @@ print(f"factor(1024) = {factor(1024)}")
 (display (sieve 50))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Sieve of Eratosthenes
 def sieve(n):
     is_prime = [True] * (n + 1)
@@ -195,7 +193,7 @@ def sieve(n):
 
 print(f"Primes up to 50: {sieve(50)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Neighbors -->

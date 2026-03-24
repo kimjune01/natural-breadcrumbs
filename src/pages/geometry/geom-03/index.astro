@@ -123,8 +123,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (reflect-both (list 3 4)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def rotate(x, y, theta):
@@ -142,7 +141,7 @@ print(f"Reflect (3,4) across y-axis: {reflect_y(3, 4)}")
 rx, ry = reflect_x(3, 4)
 print(f"Two reflections of (3,4): {reflect_y(rx, ry)}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Scaling and composition -->
     <h3>Scaling and composition</h3>

@@ -66,8 +66,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " years")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Compound interest
 def future_value(P, r, t):
     return P * (1 + r) ** t
@@ -79,7 +78,7 @@ for t in [10, 20, 30]:
 # Rule of 72
 print("Rule of 72 doubling time at 7%: " + str(round(72/7, 1)) + " years")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Present Value and Discounting -->
@@ -131,8 +130,7 @@ print("Rule of 72 doubling time at 7%: " + str(round(72/7, 1)) + " years")
 (display (round (npv 0.15 5000 flows)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Net present value
 def npv(rate, initial_cost, cash_flows):
     pv_sum = sum(cf / (1 + rate)**t for t, cf in cash_flows)
@@ -144,7 +142,7 @@ flows = [(1, 2000), (2, 2000), (3, 2000)]
 print("NPV at 5%: $" + str(round(npv(0.05, 5000, flows), 2)))
 print("NPV at 15%: $" + str(round(npv(0.15, 5000, flows), 2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Annuities -->

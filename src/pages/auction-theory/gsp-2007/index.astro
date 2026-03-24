@@ -84,8 +84,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; $8*100 + $2*60 + $0*20 = $920
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# GSP auction
 def gsp(bids, click_rates):
     ranked = sorted(bids, reverse=True)
@@ -96,7 +95,7 @@ def gsp(bids, click_rates):
 
 print(gsp([10, 8, 2], [100, 60, 20]))
 `} />
-    </details>
+    </div>
 
     <h3>Not truthful, but stable</h3>
     <p>Unlike <a href="/reading/auction-theory/vcg-1973/">💎 VCG</a>, bidders in GSP can sometimes benefit by bidding below their true value to get a cheaper slot. The paper shows that GSP has a locally envy-free equilibrium equivalent to the VCG outcome. Advertisers shade their bids just enough that no one envies an adjacent slot.</p>

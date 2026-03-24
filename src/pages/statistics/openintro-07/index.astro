@@ -62,8 +62,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (if (> (abs t-stat) 2.064) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# One-sample t-test
 import math
 
@@ -75,7 +74,7 @@ print(f"t = {t:.3f}, df = {n-1}")
 print(f"Critical t (alpha=0.05, df=24) = 2.064")
 print(f"Reject H0? {'Yes' if abs(t) > 2.064 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Two-sample t-test -->
@@ -102,8 +101,7 @@ print(f"Reject H0? {'Yes' if abs(t) > 2.064 else 'No'}")
 (display (if (> (abs t-stat) 2.045) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Two-sample t-test
 import math
 
@@ -116,7 +114,7 @@ t = (x1 - x2) / se
 print(f"t = {t:.3f}, SE = {se:.3f}")
 print(f"Reject H0? {'Yes' if abs(t) > 2.045 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Paired t-test -->
@@ -152,8 +150,7 @@ print(f"Reject H0? {'Yes' if abs(t) > 2.045 else 'No'}")
 (display (if (> (abs t-stat) 2.776) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Paired t-test
 import math
 
@@ -171,7 +168,7 @@ print(f"d_bar = {d_bar}, s_d = {s_d:.3f}")
 print(f"t = {t:.3f}, df = {n-1}")
 print(f"Reject H0? {'Yes' if abs(t) > 2.776 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. ANOVA and the F-distribution -->
@@ -215,8 +212,7 @@ print(f"Reject H0? {'Yes' if abs(t) > 2.776 else 'No'}")
 (display (if (> f-stat 4.26) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# One-way ANOVA
 a = [4, 5, 6, 5]
 b = [8, 9, 7, 8]
@@ -238,7 +234,7 @@ print(f"Means: {means}")
 print(f"F = {f:.2f} (critical = 4.26)")
 print(f"Reject H0? {'Yes' if f > 4.26 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

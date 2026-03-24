@@ -80,8 +80,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (check-stability -0.3 2.0)   ; negative damping, unstable
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Check stability from damping ratio and natural frequency
 def check_stability(zeta, wn):
     real_part = -zeta * wn
@@ -99,7 +98,7 @@ check_stability(1.0, 2.0)   # critically damped, stable
 check_stability(0.0, 2.0)   # undamped, marginally stable
 check_stability(-0.3, 2.0)  # negative damping, unstable
 `} />
-    </details>
+    </div>
 
     <h3>Neighbors</h3>
     <ul class="neighbors">

@@ -39,8 +39,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "EU theory picks A, most people pick B (certainty effect)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Expected utility in Python
 def expected_utility(outcomes):
     return sum(p * u for p, u in outcomes)
@@ -52,7 +51,7 @@ print(f"EU(A) = {expected_utility(gamble_a)}")
 print(f"EU(B) = {expected_utility(gamble_b)}")
 print("EU picks A; most people pick B")
 `} />
-    </details>
+    </div>
 
 
     <!-- Prospect theory -->
@@ -107,8 +106,7 @@ print("EU picks A; most people pick B")
 (display (/ (abs (prospect-value -50)) (prospect-value 50)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Prospect theory value function
 def prospect_value(x):
     if x >= 0:
@@ -123,7 +121,7 @@ print("v(50)  = " + "{:.4f}".format(prospect_value(50)))
 print("v(-50) = " + "{:.4f}".format(prospect_value(-50)))
 print("|v(-50)| / v(50) = " + "{:.4f}".format(abs(prospect_value(-50)) / prospect_value(50)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Bounded rationality -->
@@ -156,8 +154,7 @@ print("|v(-50)| / v(50) = " + "{:.4f}".format(abs(prospect_value(-50)) / prospec
 (display "  a strategy that ignores most of the data.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Satisficing: optimal stopping (secretary problem)
 import math
 
@@ -171,7 +168,7 @@ print("  Observe first " + str(threshold) + " candidates (the 'look' phase)")
 print("  Then hire next one better than all seen")
 print("This finds the best candidate ~37% of the time.")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

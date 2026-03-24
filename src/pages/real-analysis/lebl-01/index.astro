@@ -136,8 +136,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (trichotomy 3 5))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 # Field axioms in action
 print("Commutativity: 3 + 5 =", 3 + 5, ", 5 + 3 =", 5 + 3)
@@ -151,7 +150,7 @@ def trichotomy(a, b):
 
 print("trichotomy(3, 5) =", trichotomy(3, 5))
 `} />
-    </details>
+    </div>
 
     <h3>Completeness: the least upper bound property</h3>
     <p>A set S of reals is <strong>bounded above</strong> if some number M satisfies x &le; M for all x in S. The <strong>supremum</strong> (least upper bound) is the smallest such M. The completeness axiom says: every nonempty bounded-above subset of the reals has a supremum in the reals. The rationals fail this. The set of rationals whose square is less than 2 is bounded above, but its supremum is &radic;2, which is not rational.</p>
@@ -180,8 +179,7 @@ print("trichotomy(3, 5) =", trichotomy(3, 5))
 (display "The completeness axiom guarantees sqrt(2) exists in R")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bisection to find sup{p : p^2 < 2}
 low, high = 1.0, 2.0
 for _ in range(50):
@@ -194,7 +192,7 @@ for _ in range(50):
 print(f"approx sqrt(2) = {low}")
 print(f"approx^2       = {low * low}")
 `} />
-    </details>
+    </div>
 
     <h3>Archimedean property and density of rationals</h3>
     <p>The <strong><a href="https://en.wikipedia.org/wiki/Archimedean_property">🅦 Archimedean property</a></strong> says: for any real x, there exists a natural number n with n &gt; x. No real number is infinite. A consequence: between any two distinct reals lies a rational number (density of Q in R). The rationals are dense, yet they have "holes" that the completeness axiom fills.</p>
@@ -221,8 +219,7 @@ print(f"approx^2       = {low * low}")
 (display (exact->inexact r))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -243,7 +240,7 @@ def rational_between(a, b):
 r = rational_between(1.41, 1.42)
 print("Rational between 1.41 and 1.42:", r)
 `} />
-    </details>
+    </div>
 
     <h3>Infimum and the completeness of lower bounds</h3>
     <p>The <strong>infimum</strong> (greatest lower bound) is the dual of supremum. Every nonempty set bounded below has an infimum. You don't need a separate axiom: if S is bounded below, then the set of negations -S is bounded above, and inf S = -sup(-S).</p>
@@ -269,8 +266,7 @@ print("Rational between 1.41 and 1.42:", r)
 (display "inf{1/n : n >= 1} = 0 (limit, not attained)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 # inf of {1/n : n >= 1}
 for count in [100, 10000]:
@@ -279,7 +275,7 @@ for count in [100, 10000]:
 
 print("inf{1/n : n >= 1} = 0 (limit, not attained)")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

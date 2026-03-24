@@ -106,8 +106,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
           (query-simple '(job ?who (computer programmer))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Fact database and pattern matching in Python
 
 facts = [
@@ -148,7 +147,7 @@ for f in facts:
     if b is not None:
         print(f"  {b['?who']}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Unification -->
@@ -203,8 +202,7 @@ for f in facts:
 ; => ((?y . 3) (?x . ?y))  — ?x = ?y = 3
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Unification in Python
 
 def is_var(x):
@@ -246,7 +244,7 @@ print(unify(("?x", "?x"), (1, 2), {}))
 print(unify(("?x", "?y"), ("?y", 3), {}))
 # => {'?x': '?y', '?y': 3}
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Rules -->
@@ -298,8 +296,7 @@ print(unify(("?x", "?y"), ("?y", 3), {}))
           (grandparents facts))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Rules in Python: derive grandparents from parents
 
 facts = [
@@ -331,7 +328,7 @@ print("Grandparent relations:")
 for gp, gc in grandparents():
     print(f"  grandparent({gp}, {gc})")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Is logic programming mathematical logic? -->
@@ -368,8 +365,7 @@ for gp, gc in grandparents():
 (display "bob NOT likes alice? ") (display (not-likes? 'bob 'alice))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Closed-world assumption in Python
 
 db = {
@@ -390,7 +386,7 @@ print(f"bob NOT likes alice? {not likes('bob', 'alice')}")  # True
 # This is the closed-world assumption.
 # We don't know Bob's feelings; we only know what's in the DB.
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Implementing unification -->
@@ -446,8 +442,7 @@ print(f"bob NOT likes alice? {not likes('bob', 'alice')}")  # True
 (display (filter (lambda (x) (not (memq x programmers))) engineers))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Compound queries in Python
 
 db = [
@@ -469,7 +464,7 @@ print(f"AND (programmer & engineering): {programmers & engineers}")
 print(f"OR (programmer | manager): {programmers | managers}")
 print(f"NOT (engineering - programmer): {engineers - programmers}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

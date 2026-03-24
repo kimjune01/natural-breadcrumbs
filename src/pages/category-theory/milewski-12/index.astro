@@ -44,8 +44,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (str-mappend str-mempty "abc"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Monoid examples
 # Numbers under addition: identity = 0
 print(f"3 + 4 = {3 + 4}")
@@ -55,7 +54,7 @@ print(f"0 + 5 = {0 + 5}")
 print(f'"hello" + " world" = {"hello" + " world"}')
 print(f'"" + "abc" = {"" + "abc"}')
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Free construction -->
@@ -183,8 +182,7 @@ print(f'"" + "abc" = {"" + "abc"}')
 ; 72 = 72. The homomorphism property holds.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Universal property: fold is the unique homomorphism
 from functools import reduce
 
@@ -203,7 +201,7 @@ print(f"h(ab ++ baa) = {h(xs + ys)}")
 print(f"h(ab) * h(baa) = {h(xs) * h(ys)}")
 # 72 = 72. Homomorphism property holds.
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Monoid homomorphisms -->
@@ -234,8 +232,7 @@ print(f"h(ab) * h(baa) = {h(xs) * h(ys)}")
 ; 0 — identity maps to identity.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# length is a monoid homomorphism: (lists, ++, []) -> (int, +, 0)
 xs = ["a", "b", "c"]
 ys = ["d", "e"]
@@ -248,7 +245,7 @@ print(f"len(xs) + len(ys) = {len(xs) + len(ys)}")
 print(f"len([]) = {len([])}")
 # 0. Identity maps to identity.
 `} />
-    </details>
+    </div>
 
     <!-- 5. Fold as the unique homomorphism -->
     <h3>Fold: the universal homomorphism</h3>
@@ -282,8 +279,7 @@ print(f"len([]) = {len([])}")
 ; Each fold is uniquely determined by where the generators go.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# fold/reduce IS the unique homomorphism
 from functools import reduce
 
@@ -298,7 +294,7 @@ print(f'h2(["yes", "yes"]) = {h2(["yes", "yes"])}')
 print(f'h2(["yes", "no"])  = {h2(["yes", "no"])}')
 print(f'h2([])             = {h2([])}')
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. Why free means no extra equations -->

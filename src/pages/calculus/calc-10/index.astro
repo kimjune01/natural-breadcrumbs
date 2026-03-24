@@ -41,8 +41,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "|a| = ") (display (vec-mag a))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 u = np.array([3, 4])
@@ -56,7 +55,7 @@ b = np.array([4, 5, 6])
 print(f"a + b = {a + b}")
 print(f"|a| = {np.linalg.norm(a):.4f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Dot product -->
@@ -84,8 +83,7 @@ print(f"|a| = {np.linalg.norm(a):.4f}")
 (display "p . q = ") (display (dot p q)) (display " (perpendicular)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Dot product
 import numpy as np
 import math
@@ -102,7 +100,7 @@ p = np.array([1, 0])
 q = np.array([0, 1])
 print("p . q = " + str(np.dot(p, q)) + " (perpendicular)")
 `} />
-    </details>
+    </div>
 
 
     <!-- Cross product -->
@@ -161,8 +159,7 @@ print("p . q = " + str(np.dot(p, q)) + " (perpendicular)")
 (display "|u x v| = ") (display (vec-mag w))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Cross product in R3
 import numpy as np
 
@@ -175,7 +172,7 @@ print("w . u = " + str(np.dot(w, u)))
 print("w . v = " + str(np.dot(w, v)))
 print("|u x v| = " + format(np.linalg.norm(w), ".6f"))
 `} />
-    </details>
+    </div>
 
 
     <!-- Lines and planes -->
@@ -205,8 +202,7 @@ print("|u x v| = " + format(np.linalg.norm(w), ".6f"))
 (display "Is (1,1,1) on x+y+z=0? ") (display (on-plane? (list 1 1 1)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lines and planes
 import numpy as np
 
@@ -225,7 +221,7 @@ on_plane = lambda pt: np.dot(n, pt) == 0
 print("Is (1,-1,0) on x+y+z=0? " + str(on_plane(np.array([1, -1, 0]))))
 print("Is (1,1,1) on x+y+z=0? " + str(on_plane(np.array([1, 1, 1]))))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

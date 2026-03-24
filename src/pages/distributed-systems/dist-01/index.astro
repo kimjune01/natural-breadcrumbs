@@ -69,8 +69,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Is C crashed or partitioned? Unknown.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Network partition simulation
 reachable = {
     ("A", "B"): True, ("B", "A"): True,
@@ -83,7 +82,7 @@ for pair, ok in reachable.items():
 
 print("Is C crashed or partitioned? Unknown.")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Partial failure -->
     <h3>Partial failure</h3>

@@ -81,8 +81,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "after second set: ") (display (r 'get))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# A register as a simple class
 class Register:
     def __init__(self, name):
@@ -104,7 +103,7 @@ print(f"after set: {r.get()}")
 r.set(99)
 print(f"after second set: {r.get()}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. The assembler -->
@@ -148,8 +147,7 @@ print(f"after second set: {r.get()}")
   (display " instructions"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# extract_labels: separate labels from instructions
 def extract_labels(text):
     labels = {}
@@ -177,7 +175,7 @@ labels, insts = extract_labels(sample_text)
 print(f"Labels: {list(labels.keys())}")
 print(f"{len(insts)} instructions")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Generating execution procedures -->
@@ -217,8 +215,7 @@ print(f"{len(insts)} instructions")
 (display "test (= val 7): ") (display (exec-test))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Execution procedures as closures
 def make_assign_proc(get_reg, set_reg, value_fn):
     def execute():
@@ -245,7 +242,7 @@ print(f"val after assign: {val[0]}")
 exec_test = make_test_proc(lambda a, b: a == b, [get_val, lambda: 7])
 print(f"test (= val 7): {exec_test()}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. A complete mini-simulator -->
@@ -278,8 +275,7 @@ print(f"test (= val 7): {exec_test()}")
 (run-fact-machine)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Mini factorial machine with explicit registers
 n = 5
 val = 1
@@ -295,7 +291,7 @@ def run_fact_machine():
 
 run_fact_machine()
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Monitoring machine performance -->
@@ -346,8 +342,7 @@ run_fact_machine()
 (fact-recursive-instrumented 10)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Instrumented factorial: iterative vs recursive
 def fact_iterative(n):
     steps, val = 0, 1
@@ -373,7 +368,7 @@ fact_iterative(10)
 fact_recursive(5)
 fact_recursive(10)
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

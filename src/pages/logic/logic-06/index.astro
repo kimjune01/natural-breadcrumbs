@@ -86,8 +86,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (forall less-than-5? domain))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Quantifiers over a finite domain
 domain = [2, 4, 6, 8, 10]
 
@@ -95,7 +94,7 @@ print(f"forall even in domain: {all(x % 2 == 0 for x in domain)}")
 print(f"exists < 5 in domain: {any(x < 5 for x in domain)}")
 print(f"forall < 5 in domain: {all(x < 5 for x in domain)}")
 `} />
-    </details>
+    </div>
 
     <h3>Bound and free variables</h3>
     <p>A variable is <strong>bound</strong> when it falls under a quantifier. A variable is <strong>free</strong> when it does not. &forall;x P(x) has x bound. P(x) &and; Q(y) has both x and y free. A <strong>sentence</strong> (closed formula) has no free variables.</p>

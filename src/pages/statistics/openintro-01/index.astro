@@ -78,8 +78,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (exact->inexact (mean ages)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Variable types in Python
 dataset = [
     {"name": "Alice", "age": 28, "job": "Engineer", "salary": 72000},
@@ -96,7 +95,7 @@ print(f"Variables: {list(dataset[0].keys())}")
 ages = [d["age"] for d in dataset]
 print(f"Mean age: {sum(ages) / len(ages)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Study Design -->

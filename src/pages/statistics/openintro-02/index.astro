@@ -74,8 +74,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Mode: 5 (appears twice)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Mean, median, mode in Python
 data = [2, 3, 5, 5, 7, 8, 12, 15, 22]
 
@@ -92,7 +91,7 @@ print(f"Mean: {mean:.1f}")
 print(f"Median: {median}")
 print(f"Mode: {mode}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Spread -->

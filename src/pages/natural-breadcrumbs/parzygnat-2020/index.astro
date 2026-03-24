@@ -43,8 +43,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; matrices, stochastic matrices with CPTP maps.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Classical channel (stochastic matrix)
 import numpy as np
 
@@ -56,7 +55,7 @@ print(f"prior:     {prior}")
 print(f"posterior: {posterior}")
 print("Quantum version: replace vectors with density matrices.")
 `} />
-    </details>
+    </div>
 
     <h3>The dagger — reversing channels</h3>
     <p>A dagger category has an involution † that reverses morphisms: if f: A → B then f†: B → A. For quantum channels, the dagger is the adjoint (conjugate transpose). For classical channels with a reference state, the dagger recovers Bayesian inversion.</p>
@@ -118,8 +117,7 @@ print("Quantum version: replace vectors with density matrices.")
 ; inner product. Bayesian inversion is a special case.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Dagger = transpose (classical), conjugate transpose (quantum)
 import numpy as np
 
@@ -129,7 +127,7 @@ dagger = channel.T
 print(f"channel:\\n{channel}")
 print(f"dagger (transpose):\\n{dagger}")
 `} />
-    </details>
+    </div>
 
     <h3>Bayesian inversion from the dagger</h3>
     <p>Given a prior state π and a channel f, the Bayesian inverse f†_π is the unique channel such that the joint distribution factors correctly: π ⊗ f = f†_π ⊗ (f applied to π). In the quantum case, this is <a href="https://en.wikipedia.org/wiki/Petz_recovery_map">Petz recovery</a>.</p>

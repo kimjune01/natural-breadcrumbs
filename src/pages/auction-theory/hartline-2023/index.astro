@@ -87,8 +87,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Reserve raises revenue without breaking truthfulness
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Reserve pricing
 def auction_with_reserve(bids, reserve):
     eligible = sorted([b for b in bids if b >= reserve], reverse=True)
@@ -102,7 +101,7 @@ bids = [10, 8, 5, 2, 1]
 for r in [0, 3, 6, 9, 12]:
     print("Reserve $" + str(r) + ": " + str(auction_with_reserve(bids, r)))
 `} />
-    </details>
+    </div>
 
     <h3>Why it preserves efficiency</h3>
     <p>Among bidders who clear the reserve, the allocation is still efficient (highest value wins) and truthful (dominant strategy is still to bid your value). The only "inefficiency" is when the item goes unsold because no bidder values it above the reserve. The seller gains because the payment floor is higher.</p>

@@ -46,8 +46,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Each function is determined by two choices: what #t maps to, what #f maps to.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# eval: apply a function object to an argument
 def my_eval(pair):
     func, arg = pair
@@ -60,7 +59,7 @@ print(f"eval(f1, True):  {my_eval((f1, True))}")
 print(f"eval(f1, False): {my_eval((f1, False))}")
 print(f"eval(f2, True):  {my_eval((f2, True))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- SVG: Currying isomorphism -->
@@ -130,8 +129,7 @@ print(f"eval(f2, True):  {my_eval((f2, True))}")
 (display "add10(5):  ") (display (add10 5))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# curry / uncurry in Python
 def curry(f):
     return lambda a: lambda b: f((a, b))
@@ -150,7 +148,7 @@ print(f"round-trip: {uncurry(add_curried)((3, 4))}")
 add10 = add_curried(10)
 print(f"add10(5):  {add10(5)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. The isomorphism -->
@@ -221,8 +219,7 @@ print(f"add10(5):  {add10(5)}")
 (display "a^1 = a: picking a function Unit→a = picking an element of a")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Counting functions between finite types
 from itertools import product
 
@@ -243,7 +240,7 @@ lhs = len(codomain) ** (len(domain) + len(four))
 rhs = len(codomain) ** len(domain) * len(codomain) ** len(four)
 print(f"2^(3+4) = {lhs}, 2^3 × 2^4 = {rhs}, equal: {lhs == rhs}")
 `} />
-    </details>
+    </div>
 
     <!-- 5. Cartesian closed categories -->
     <h3>Cartesian closed categories</h3>
@@ -328,8 +325,7 @@ print(f"2^(3+4) = {lhs}, 2^3 × 2^4 = {rhs}, equal: {lhs == rhs}")
 ; a^(b+c) = a^b × a^c
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# a^(b+c) = a^b × a^c
 # A function from a union = a pair of handlers
 
@@ -354,7 +350,7 @@ f_uncurried = lambda pair: pair[0] + pair[1]  # a^(b×c)
 print(f"curried:   {f_curried(10)(3)}")
 print(f"uncurried: {f_uncurried((10, 3))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 7. Curry-Howard -->

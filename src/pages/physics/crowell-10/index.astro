@@ -40,8 +40,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "v = 0.999c:   gamma = ") (display (gamma (* 0.999 c)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 c = 3e8
@@ -53,7 +52,7 @@ for frac in [0, 0.1, 0.5, 0.9, 0.99, 0.999]:
     v = frac * c
     print(f"v = {frac}c: gamma = {gamma(v):.4f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Time dilation and length contraction -->

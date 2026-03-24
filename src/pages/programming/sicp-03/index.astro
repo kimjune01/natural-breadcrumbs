@@ -72,8 +72,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (* 8 (sum pi-term 1 pi-next 1000)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Summation as a higher-order function
 def summation(term, a, nxt, b):
     total = 0
@@ -93,7 +92,7 @@ pi_term = lambda x: 1.0 / (x * (x + 2))
 pi_next = lambda x: x + 4
 print(f"pi approx     = {8 * summation(pi_term, 1, pi_next, 1000):.6f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Lambda -->
@@ -121,8 +120,7 @@ print(f"pi approx     = {8 * summation(pi_term, 1, pi_next, 1000):.6f}")
 ; 1 + 4 + 9 + 16 + 25 = 55
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lambda in Python
 print(f"lambda square: {(lambda x: x * x)(5)}")
 
@@ -136,7 +134,7 @@ def summation(term, a, nxt, b):
 result = summation(lambda x: x * x, 1, lambda x: x + 1, 5)
 print(f"sum of squares 1..5 = {result}")  # 55
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Let -->
@@ -168,8 +166,7 @@ print(f"sum of squares 1..5 = {result}")  # 55
 (display (f 3 4))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Local bindings — Python just uses assignment
 def f(x, y):
     a = 1 + x * y
@@ -179,7 +176,7 @@ def f(x, y):
 print(f"f(1, 2) = {f(1, 2)}")
 print(f"f(3, 4) = {f(3, 4)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Procedures as returned values -->
@@ -223,8 +220,7 @@ print(f"f(3, 4) = {f(3, 4)}")
 ; (6+1)^2 = 49
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Returning functions: average_damp, fixed_point, compose
 
 def average_damp(f):
@@ -251,7 +247,7 @@ square = lambda x: x * x
 inc = lambda x: x + 1
 print(f"(square . inc)(6) = {compose(square, inc)(6)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Newton's method -->
@@ -342,8 +338,7 @@ print(f"(square . inc)(6) = {compose(square, inc)(6)}")
 (display "cbrt(8) = ") (display (cbrt 8))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Newton's method in Python
 dx = 1e-5
 
@@ -373,7 +368,7 @@ print(f"sqrt(2)  = {sqrt(2):.6f}")
 print(f"sqrt(25) = {sqrt(25):.6f}")
 print(f"cbrt(8)  = {cbrt(8):.6f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

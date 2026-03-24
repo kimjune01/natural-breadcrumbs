@@ -80,8 +80,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Equilibrium r* = ") (display (/ (round (* r-star 1000)) 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# IS-LM equilibrium solver
 C0, b, G, T, c = 100, 500, 200, 150, 0.8
 k, h, MP = 0.5, 1000, 500
@@ -96,7 +95,7 @@ print("Multiplier: " + str(mult))
 print("Equilibrium Y* = " + str(round(Y_star, 2)))
 print("Equilibrium r* = " + str(round(r_star, 2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Government Spending Multiplier -->

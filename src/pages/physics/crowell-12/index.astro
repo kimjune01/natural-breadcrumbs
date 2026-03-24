@@ -92,8 +92,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " nm (blue-green)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`h = 6.626e-34
 c = 3e8
 eV = 1.6e-19
@@ -112,7 +111,7 @@ print(f"Lyman-alpha: {wavelength(2,1)*1e9:.1f} nm")
 print(f"H-alpha:     {wavelength(3,2)*1e9:.1f} nm")
 print(f"H-beta:      {wavelength(4,2)*1e9:.1f} nm")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Quantum numbers -->
@@ -237,8 +236,7 @@ print(f"H-beta:      {wavelength(4,2)*1e9:.1f} nm")
 ; measure the ratio of C-14 to C-12, solve for t.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def decay(N0, tau, t):
@@ -255,7 +253,7 @@ for years in [1000, 5730, 11460, 20000, 50000]:
     N = decay(N0, tau, years)
     print(f"  After {years:>5} yr: {N:>10.0f} ({100*N/N0:.1f}%)")
 `} />
-    </details>
+    </div>
 
 
     <!-- Neighbors -->

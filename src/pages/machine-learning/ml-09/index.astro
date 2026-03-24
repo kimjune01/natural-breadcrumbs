@@ -95,8 +95,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Each output = difference between elements 2 apart
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# 1D convolution by hand
 def conv1d(signal, kernel):
     k_len = len(kernel)
@@ -110,7 +109,7 @@ print("Signal:", signal)
 print("Kernel:", kernel)
 print("Conv:  ", conv1d(signal, kernel))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Max pooling -->
@@ -136,8 +135,7 @@ print("Conv:  ", conv1d(signal, kernel))
 ; Halves (or quarters) the length, keeps strongest activations
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Max pooling with window size k
 def max_pool(signal, k):
     return [max(signal[i:i+k]) for i in range(0, len(signal) - k + 1, k)]
@@ -148,7 +146,7 @@ print("Feature map:    ", feature_map)
 print("Max pool (k=2): ", max_pool(feature_map, 2))
 print("Max pool (k=4): ", max_pool(feature_map, 4))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Conv + pool pipeline -->
@@ -188,8 +186,7 @@ print("Max pool (k=4): ", max_pool(feature_map, 4))
 (display "After max-pool:  ") (display step3)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Conv -> ReLU -> max pool pipeline
 def conv1d(signal, kernel):
     k_len = len(kernel)
@@ -214,7 +211,7 @@ print("After conv:    ", step1)
 print("After ReLU:    ", step2)
 print("After max-pool:", step3)
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

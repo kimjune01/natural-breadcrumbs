@@ -72,8 +72,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "possible concurrent result: 90 (lost update!)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Race condition demonstrated sequentially
 # (real concurrency needs threads)
 
@@ -90,7 +89,7 @@ print(f"sequential: {balance}")
 # Result: 90 instead of 80
 print("possible concurrent result: 90 (lost update!)")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Serializers -->
     <h3>Mechanisms for controlling concurrency</h3>
@@ -133,8 +132,7 @@ print("possible concurrent result: 90 (lost update!)")
 (display (acc 'balance))                  ; 125
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import threading
 
 class Account:
@@ -159,7 +157,7 @@ print(acc.withdraw(25))  # 75
 print(acc.deposit(50))   # 125
 print(acc.balance)       # 125
 `} />
-    </details>
+    </div>
 
     <!-- 3. Implementing serializers (mutex) -->
     <h3>Implementing serializers: the mutex</h3>
@@ -190,8 +188,7 @@ print(acc.balance)       # 125
 (display "mutex released")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import threading
 
 mutex = threading.Lock()
@@ -204,7 +201,7 @@ print("mutex released")
 # Python's Lock is implemented with OS primitives
 # SICP's test-and-set! maps to hardware CAS instructions
 `} />
-    </details>
+    </div>
 
     <!-- 4. Deadlock -->
     <h3>Deadlock</h3>
@@ -256,8 +253,7 @@ print("mutex released")
 (display "a2 after:  ") (display (a2 'balance))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Deadlock-free transfer: always lock in consistent order
 import threading
 
@@ -283,7 +279,7 @@ print(f"before: a1={a1.balance}, a2={a2.balance}")
 transfer(a1, a2, 30)
 print(f"after:  a1={a1.balance}, a2={a2.balance}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation reference -->
     <h3>Notation reference</h3>

@@ -64,8 +64,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "operands:   ") (display (cdr expr))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python doesn't have quotation — symbols are strings
 a = 42
 print(f"a evaluates to: {a}")
@@ -78,7 +77,7 @@ print(f"expression: {expr}")
 print(f"operator:   {expr[0]}")
 print(f"operands:   {expr[1:]}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Symbolic differentiation -->
     <h3>Symbolic differentiation</h3>
@@ -144,8 +143,7 @@ print(f"operands:   {expr[1:]}")
 (display (deriv '(+ (* x y) (* x 3)) 'x))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Symbolic differentiation with tuples
 def deriv(exp, var):
     if isinstance(exp, (int, float)):
@@ -179,7 +177,7 @@ print(f"d/dx (x+3):     {deriv(('+', 'x', 3), 'x')}")
 print(f"d/dx (x*y):     {deriv(('*', 'x', 'y'), 'x')}")
 print(f"d/dx (x*y+x*3): {deriv(('+', ('*','x','y'), ('*','x',3)), 'x')}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Sets as unordered lists -->
     <h3>Sets as unordered lists</h3>
@@ -213,8 +211,7 @@ print(f"d/dx (x*y+x*3): {deriv(('+', ('*','x','y'), ('*','x',3)), 'x')}")
 (display "intersection: ") (display (intersection-set s1 s2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Sets as lists (manual, not using Python's set)
 def element_of_set(x, s):
     return x in s
@@ -234,7 +231,7 @@ print(f"adjoin 6: {adjoin_set(6, s1)}")
 print(f"adjoin 3: {adjoin_set(3, s1)}")
 print(f"intersection: {intersection_set(s1, s2)}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Sets as binary trees -->
     <h3>Sets as binary trees</h3>
@@ -279,8 +276,7 @@ print(f"intersection: {intersection_set(s1, s2)}")
 (display "6 in tree? ") (display (element-of-set? 6 t))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Binary search tree as nested tuples
 class Tree:
     def __init__(self, entry, left=None, right=None):
@@ -313,7 +309,7 @@ print(f"tree: {t}")
 print(f"3 in tree? {element_of_set(3, t)}")
 print(f"6 in tree? {element_of_set(6, t)}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

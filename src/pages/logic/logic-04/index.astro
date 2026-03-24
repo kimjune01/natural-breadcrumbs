@@ -54,8 +54,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
               (test-demorgan-or #f #f)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# De Morgan's laws: exhaustive verification
 from itertools import product
 
@@ -67,7 +66,7 @@ for p, q in product([True, False], repeat=2):
 
 print(f"De Morgan's laws hold for all assignments: {all_hold}")
 `} />
-    </details>
+    </div>
 
     <h3>Distribution</h3>
     <p>Conjunction distributes over disjunction and vice versa. P &and; (Q &or; R) &equiv; (P &and; Q) &or; (P &and; R). P &or; (Q &and; R) &equiv; (P &or; Q) &and; (P &or; R).</p>

@@ -87,8 +87,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Carol print? ") (display (can-access? 'carol 'printer 'print))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Access control matrix
 matrix = {
     "alice": {"fileA": {"r", "w"}, "fileB": {"r"}, "printer": {"print"}},
@@ -109,7 +108,7 @@ tests = [
 for s, o, op in tests:
     print(f"{s} {op} {o}? {can_access(s, o, op)}")
 `} />
-    </details>
+    </div>
 
     <h3>Authentication</h3>
     <p>Before access control can work, the system must verify identity. Passwords, tokens, biometrics, and multi-factor authentication all serve this purpose. The OS trusts its authentication mechanism completely, which is why its weaknesses are critical vulnerabilities.</p>

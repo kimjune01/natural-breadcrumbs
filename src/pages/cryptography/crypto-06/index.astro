@@ -94,8 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (modulo (* e d) phi))  ; should be 1
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# RSA key generation in Python
 p, q = 61, 53
 n = p * q           # 3233
@@ -118,7 +117,7 @@ print(f"n = {n}, phi = {phi}")
 print(f"e = {e}, d = {d}")
 print(f"e * d mod phi = {(e * d) % phi}")  # 1
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Encrypt and decrypt -->
@@ -159,8 +158,7 @@ print(f"e * d mod phi = {(e * d) % phi}")  # 1
 (display (= msg2 dec2)) (display ")")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# RSA encrypt and decrypt in Python
 n, e, d = 3233, 17, 2753
 
@@ -180,7 +178,7 @@ for m in [42, 100, 7]:
     r = pow(c, d, n)
     print(f"{m} -> {c} -> {r} (ok: {m == r})")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Why it works -->

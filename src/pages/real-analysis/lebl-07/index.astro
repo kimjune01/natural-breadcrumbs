@@ -72,8 +72,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " (not -> 0)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# x^n on [0,1]: pointwise but not uniform convergence
 import math
 
@@ -84,7 +83,7 @@ for x in [0.5, 0.99, 0.999]:
 # The sup of f_n on [0,1) approaches 1/e, not 0
 print(f"sup |f_n - f| ~ 1/e = {1/math.e:.4f}")
 `} />
-    </details>
+    </div>
 
     <h3>Uniform convergence preserves continuity</h3>
     <p>If each f_n is continuous and f_n &rarr; f uniformly, then f is continuous. This fails for pointwise convergence: the x^n example gives a discontinuous limit. Uniform convergence also allows interchanging limits with integrals: &int; lim f_n = lim &int; f_n.</p>
@@ -109,8 +108,7 @@ print(f"sup |f_n - f| ~ 1/e = {1/math.e:.4f}")
 (display "They match because convergence is uniform")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 print("sup |f_n(x)| = 1/n:")
 for n in [1, 5, 10, 100, 1000]:
@@ -120,7 +118,7 @@ print("Integral of f_n on [0,pi]: 2/n -> 0")
 print("Integral of limit on [0,pi]: 0")
 print("They match because convergence is uniform")
 `} />
-    </details>
+    </div>
 
     <h3>Weierstrass M-test</h3>
     <p>If |f_n(x)| &le; M_n for all x, and &Sigma; M_n converges, then &Sigma; f_n converges uniformly (and absolutely). The M_n are constants that bound each term independently of x.</p>
@@ -147,8 +145,7 @@ print("They match because convergence is uniform")
 (display "Convergence is uniform because the bound is x-independent")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -162,7 +159,7 @@ for x in [0.5, 1.0, 2.0, 3.0]:
 print("Bound: sum 1/n^2 = pi^2/6 =", math.pi**2 / 6)
 print("Convergence is uniform because the bound is x-independent")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

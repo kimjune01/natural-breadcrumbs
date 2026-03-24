@@ -65,8 +65,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
                                 (add (mul a b) (mul a c))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Z6 as a ring
 add = lambda a, b: (a + b) % 6
 mul = lambda a, b: (a * b) % 6
@@ -78,7 +77,7 @@ print("a*(b+c) = " + str(lhs))
 print("a*b+a*c = " + str(rhs))
 print("Distributive: " + str(lhs == rhs))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Ideals -->
@@ -104,15 +103,14 @@ print("Distributive: " + str(lhs == rhs))
 ; It is isomorphic to Z2.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Even integers form an ideal of Z
 a = 4  # element of the ideal
 for r in range(-3, 4):
     product = r * a
     print(str(r) + " * " + str(a) + " = " + str(product).rjust(3) + "  in ideal: " + str(product % 2 == 0))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Ring homomorphisms -->
@@ -136,8 +134,7 @@ for r in range(-3, 4):
 (display "Kernel: multiples of 6")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Ring homomorphism: Z -> Z6, f(n) = n mod 6
 f = lambda n: n % 6
 a, b = 8, 15
@@ -152,7 +149,7 @@ print("f(a*b) = " + str(lhs_mul) + "  f(a)*f(b) mod 6 = " + str(rhs_mul))
 
 print("Kernel: multiples of 6")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

@@ -107,8 +107,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " cdr[2]=") (display (my-cdr p2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Memory as two parallel arrays
 MEMORY_SIZE = 8
 the_cars = [None] * MEMORY_SIZE
@@ -135,7 +134,7 @@ print(f"list starts at index: {p0}")
 print(f"car[0]={my_car(p0)} car[1]={my_car(p1)} car[2]={my_car(p2)}")
 print(f"cdr[0]={my_cdr(p0)} cdr[1]={my_cdr(p1)} cdr[2]={my_cdr(p2)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Representing lists -->
@@ -184,8 +183,7 @@ print(f"cdr[0]={my_cdr(p0)} cdr[1]={my_cdr(p1)} cdr[2]={my_cdr(p2)}")
       (begin (display (vector-ref the-cars i)) (display " ") (loop (+ i 1)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Walk a list stored in vector memory
 the_cars = [None] * 10
 the_cdrs = [None] * 10
@@ -216,7 +214,7 @@ print(f"list: {walk(p0)}")
 print(f"index: {list(range(free))}")
 print(f"cars:  {the_cars[:free]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Stop-and-copy GC -->
@@ -282,8 +280,7 @@ print(f"cars:  {the_cars[:free]}")
 (display "3 dead cells reclaimed")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Stop-and-copy GC simulation
 SIZE = 5
 from_cars = ['free'] * SIZE
@@ -323,7 +320,7 @@ print(f"After GC — to-space has {free} live cells")
 print(f"to_cars: {to_cars[:free]}")
 print(f"3 dead cells reclaimed")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. The broken-heart algorithm -->
@@ -389,8 +386,7 @@ print(f"3 dead cells reclaimed")
 (display " new-shared-2=") (display new-shared-2)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Broken-heart forwarding for shared structure
 from_cars = ['X', 'A', 'B'] + ['free'] * 3
 from_cdrs = ['nil', 0, 0] + ['free'] * 3
@@ -426,7 +422,7 @@ to_cdrs[new_b] = ns2
 
 print(f"\\nShared cell copied only once. ns1={ns1} ns2={ns2}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Free list vs compacting -->
@@ -475,8 +471,7 @@ print(f"\\nShared cell copied only once. ns1={ns1} ns2={ns2}")
 (display " (fragmented!)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Free-list allocator
 SIZE = 8
 memory = ['free'] * SIZE
@@ -502,7 +497,7 @@ dealloc(b)
 print(f"After freeing B, memory: {memory}")
 print(f"Free list head: {free_list[0]} (fragmented!)")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

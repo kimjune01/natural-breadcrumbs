@@ -88,8 +88,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; C dominates B (2>=1, 5>=0). So B is dominated. Delete it.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Check if row Y dominates row X
 def dominates(row_y, row_x):
     return all(y >= x for y, x in zip(row_y, row_x))
@@ -101,7 +100,7 @@ for name_y, row_y in matrix.items():
         if name_y != name_x and dominates(row_y, row_x):
             print(f"{name_y} dominates {name_x}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Iterated elimination -->
     <h3>Iterated elimination of dominated strategies</h3>
@@ -191,8 +190,7 @@ for name_y, row_y in matrix.items():
   (display (if (= mm mn) "yes, saddle point" "no, need mixed strategies")))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Maximin and minimax
 matrix = [[3, -2, 1], [0, 4, -1], [2, 1, 0]]
 rows = ["A", "B", "C"]
@@ -214,7 +212,7 @@ if maximin[1] == minimax[1]:
 else:
     print("No saddle point, need mixed strategies")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

@@ -93,8 +93,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   two-dice)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Convolution: sum of two dice
 def convolve(pmf_x, pmf_y, max_x, max_y):
     result = {}
@@ -111,7 +110,7 @@ for z in sorted(two_dice):
     bar = "#" * int(two_dice[z] * 100)
     print(f"P(Z={z:2d}) = {two_dice[z]:.4f} {bar}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Means add -->
     <h3>Means add</h3>
@@ -186,8 +185,7 @@ for z in sorted(two_dice):
 (display "Expected (2.917+2.917):  5.833")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Verify by enumeration
 sums = [x + y for x in range(1, 7) for y in range(1, 7)]
 mean = sum(sums) / len(sums)
@@ -197,7 +195,7 @@ print(f"Mean of X+Y:  {mean:.4f}  (expected 7.0)")
 print(f"Var of X+Y:   {var:.4f}  (expected 5.833)")
 print(f"SD of X+Y:    {var**0.5:.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

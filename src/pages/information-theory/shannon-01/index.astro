@@ -116,8 +116,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " bits")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def self_info(p):
@@ -129,7 +128,7 @@ print(f"certain:   {self_info(1.0):.4f} bits")
 print(f"coin + die: {self_info(0.5) + self_info(1/6):.4f} bits")
 print(f"joint P:    {self_info(0.5 * 1/6):.4f} bits")
 `} />
-    </details>
+    </div>
 
     <!-- 2. The additivity argument -->
     <h3>Additivity forces the logarithm</h3>

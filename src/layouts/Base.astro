@@ -241,30 +241,17 @@ const { title, favicon } = Astro.props;
           }
         }
       })();
-      // Language toggle: swap Scheme (primary) and Python (details) visibility
+      // Language toggle: swap Scheme (primary) and Python (.python-block) visibility
       (function() {
         var langBtn = document.getElementById('lang-toggle');
         var lang = localStorage.getItem('replLang') || 'scheme';
 
         function applyLang() {
-          // SchemeRepl components don't have a details wrapper.
-          // Python Repl components are inside <details><summary>imperative equivalent</summary>
-          // Strategy: find all details with "imperative equivalent" summary text
-          var details = document.querySelectorAll('details');
-          var pythonDetails = [];
-          for (var i = 0; i < details.length; i++) {
-            var summary = details[i].querySelector('summary');
-            if (summary && summary.textContent.indexOf('imperative') !== -1) {
-              pythonDetails.push(details[i]);
-            }
-          }
+          var pyBlocks = document.querySelectorAll('.python-block');
 
-          // For each Python details block, find the SchemeRepl before it.
-          // SchemeRepl renders as a div.border with a textarea inside.
-          for (var j = 0; j < pythonDetails.length; j++) {
-            var pyBlock = pythonDetails[j];
-            if (pyBlock.hasAttribute('data-no-swap')) continue;
-            // Walk backwards to find the closest preceding div that contains a textarea (REPL)
+          for (var j = 0; j < pyBlocks.length; j++) {
+            var pyBlock = pyBlocks[j];
+            // Walk backwards to find the closest preceding div that contains a textarea (SchemeRepl)
             var prev = pyBlock.previousElementSibling;
             while (prev) {
               if (prev.querySelector && prev.querySelector('textarea')) break;
@@ -274,12 +261,10 @@ const { title, favicon } = Astro.props;
 
             if (lang === 'python') {
               prev.style.display = 'none';
-              pyBlock.open = true;
-              pyBlock.querySelector('summary').style.display = 'none';
+              pyBlock.style.display = '';
             } else {
               prev.style.display = '';
-              pyBlock.open = false;
-              pyBlock.querySelector('summary').style.display = '';
+              pyBlock.style.display = 'none';
             }
           }
 

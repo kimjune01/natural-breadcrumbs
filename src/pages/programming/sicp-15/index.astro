@@ -75,8 +75,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; => 42
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Normal vs applicative order in Python
 
 def try_eager(a, b):
@@ -92,7 +91,7 @@ def try_lazy(a, b_thunk):
 print(f"try_lazy(0, <error>): {try_lazy(0, lambda: 1/0)}")  # 1
 print(f"try_lazy(1, <42>):    {try_lazy(1, lambda: 42)}")    # 42
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Thunks -->
@@ -137,8 +136,7 @@ print(f"try_lazy(1, <42>):    {try_lazy(1, lambda: 42)}")    # 42
 ; => 15
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Thunks in Python
 
 class Thunk:
@@ -169,7 +167,7 @@ t = Thunk(['+', 'x', 5], env)
 print(f"force thunk: {t.force(tiny_eval)}")  # 15
 print(f"force again: {t.force(tiny_eval)}")  # 15 (cached)
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Memoization -->
@@ -206,8 +204,7 @@ print(f"force again: {t.force(tiny_eval)}")  # 15 (cached)
 ; => First force: 49, Second force: 49, Times evaluated: 1
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Memoized thunks in Python
 import operator
 
@@ -244,7 +241,7 @@ print(f"First force:  {t.force(tiny_eval)}")    # 49
 print(f"Second force: {t.force(tiny_eval)}")    # 49
 print(f"Times evaluated: {force_count}")         # 1
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Streams as lazy lists -->
@@ -294,8 +291,7 @@ print(f"Times evaluated: {force_count}")         # 1
 (display (stream-take evens 8))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lazy lists via generators in Python
 
 def integers_from(n):
@@ -322,7 +318,7 @@ def lazy_filter(pred, stream):
 evens = lazy_filter(lambda x: x % 2 == 0, integers_from(1))
 print(f"First 8 evens: {take(evens, 8)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Lazy evaluation and control flow -->
@@ -358,8 +354,7 @@ print(f"First 8 evens: {take(evens, 8)}")
                  (lambda () "skipped")))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lazy if as a regular function in Python
 
 def lazy_if(condition, then_thunk, else_thunk):
@@ -373,7 +368,7 @@ def unless(condition, then_thunk, else_thunk):
 
 print(f"unless False:  {unless(False, lambda: 'ran the body', lambda: 'skipped')}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

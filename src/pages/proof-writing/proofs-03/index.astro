@@ -77,8 +77,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Every odd n gives odd n^2. Contrapositive holds.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Contrapositive: odd n => odd n^2
 for n in range(1, 20, 2):  # odd numbers
     n_sq = n * n
@@ -86,7 +85,7 @@ for n in range(1, 20, 2):  # odd numbers
     print(f"n={n}, n^2={n_sq}, odd? True")
 print("All odd n give odd n^2.")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Proof by contradiction -->
     <h3>Proof by contradiction</h3>

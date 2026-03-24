@@ -98,8 +98,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; => (3 4 5)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# amb via generators and backtracking in Python
 
 def amb_search(choices_list, constraint):
@@ -122,7 +121,7 @@ results = amb_search(
 print(f"Pythagorean triple: {next(results)}")
 # => (3, 4, 5)
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Logic puzzles -->
@@ -172,8 +171,7 @@ print(f"Pythagorean triple: {next(results)}")
 ; => ((baker 3) (cooper 2) (fletcher 4) (miller 5) (smith 1))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Multiple dwelling puzzle in Python
 from itertools import permutations
 
@@ -191,7 +189,7 @@ def solve():
 print(solve())
 # => {'baker': 3, 'cooper': 2, 'fletcher': 4, 'miller': 5, 'smith': 1}
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Parsing with amb -->
@@ -245,8 +243,7 @@ print(solve())
 (display (parse-sentence '("a" "dog" "chased" "the" "cat")))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Simple parser in Python
 
 articles = {"the", "a"}
@@ -278,7 +275,7 @@ def parse_sentence(words):
 print(parse_sentence(["the", "cat", "sat"]))
 print(parse_sentence(["a", "dog", "chased", "the", "cat"]))
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Success and failure continuations -->
@@ -331,8 +328,7 @@ print(parse_sentence(["a", "dog", "chased", "the", "cat"]))
   (lambda () (display "done")))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Continuation-passing style amb in Python
 
 def amb_search_cps(choices_list, constraint, on_success, on_fail):
@@ -365,7 +361,7 @@ amb_search_cps(
 for r in results:
     print(r)
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Eight queens -->
@@ -415,8 +411,7 @@ for r in results:
   (display "First: ") (display (car solutions)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# N-queens via backtracking in Python
 
 def queens(n):
@@ -443,7 +438,7 @@ solutions = queens(6)
 print(f"{len(solutions)} solutions for 6-queens")
 print(f"First: {solutions[0]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

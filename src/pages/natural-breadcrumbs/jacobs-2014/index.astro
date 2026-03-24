@@ -109,8 +109,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; R ≤ P ≤ Q in the fiber — stronger to weaker
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Predicate fiber over integers
 P = lambda x: x > 5
 Q = lambda x: x > 0
@@ -125,7 +124,7 @@ print(f"P(x>5) => Q(x>0)? {implies(P, Q, domain)}")
 print(f"R(x>10) => P(x>5)? {implies(R, P, domain)}")
 print(f"Q(x>0) => P(x>5)? {implies(Q, P, domain)}")
 `} />
-    </details>
+    </div>
 
     <h3>Lifting through the Kleisli category</h3>
     <p>A stochastic function f: X → D(Y) lives in the <a href="https://en.wikipedia.org/wiki/Kleisli_category">🅦 Kleisli category</a> of the distribution monad. To compute wp(f, Q), you lift the predicate Q on Y back through f: for each input x, check whether <em>every</em> possible output satisfies Q.</p>
@@ -156,8 +155,7 @@ print(f"Q(x>0) => P(x>5)? {implies(Q, P, domain)}")
 ; x=1 is true: f(1) produces {0, 2}, both >= 0
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# wp via Kleisli lifting
 def f(x):
     return {x - 1: 0.5, x + 1: 0.5}
@@ -171,7 +169,7 @@ P = wp(f, Q)
 for x in range(-1, 4):
     print(f"  x={x}: wp={P(x)}, support(f)={list(f(x).keys())}")
 `} />
-    </details>
+    </div>
 
     <h3>Order enrichment makes wp monotone</h3>
     <p>The fibers are posets (predicates ordered by implication). The wp functor is monotone: if Q₁ implies Q₂, then wp(f, Q₁) implies wp(f, Q₂). Stronger postconditions give stronger preconditions. This monotonicity comes for free from the order-enriched Kleisli structure.</p>
@@ -204,8 +202,7 @@ for x in range(-1, 4):
 ; P1(x) => P2(x) always — no violations
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Monotonicity of wp
 def f(x):
     return {x - 1: 0.5, x + 1: 0.5}
@@ -221,7 +218,7 @@ for x in range(0, 9):
     ok = "ok" if not P1(x) or P2(x) else "VIOLATION"
     print(f"  x={x}: P1={P1(x)}, P2={P2(x)} {ok}")
 `} />
-    </details>
+    </div>
 
     <h3>Composition of wp via Kleisli composition</h3>
     <p>wp(f;g, Q) = wp(f, wp(g, Q)). Composing two stochastic functions and computing wp in one step gives the same result as computing wp for g first, then using that as the postcondition for f. The fibration structure guarantees this — it's not a coincidence, it's functoriality.</p>

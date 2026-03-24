@@ -81,8 +81,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (= (* 2 -1/2) -1))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def slope(x1, y1, x2, y2):
     return (y2 - y1) / (x2 - x1)
 
@@ -96,7 +95,7 @@ print(f"Line: y = {m}x + {b}")
 print(f"Parallel? slopes 2 and 2: {2 == 2}")
 print(f"Perpendicular? slopes 2 and -0.5: {2 * -0.5 == -1}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Conic sections -->
     <h3>Conic sections</h3>

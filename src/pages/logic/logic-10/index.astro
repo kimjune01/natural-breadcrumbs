@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Completeness: tautology is also provable.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Check if a propositional formula is a tautology
 from itertools import product
 
@@ -115,7 +114,7 @@ print(f"P -> (Q -> P) is tautology: {is_tautology(affirming, 2)}")
 impl = lambda p, q: (not p) or q
 print(f"P -> Q is tautology: {is_tautology(impl, 2)}")
 `} />
-    </details>
+    </div>
 
     <h3>Godel's incompleteness theorems</h3>
     <p>For systems strong enough to describe arithmetic (natural numbers with addition and multiplication):</p>

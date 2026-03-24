@@ -145,8 +145,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; => (2 4)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Subobject classifier in Set
 # Ω = (True, False), true : 1 -> Ω
 
@@ -165,7 +164,7 @@ print("χ: " + str(result))
 recovered = [x for x in B if chi(x)]
 print("pullback recovers A: " + str(recovered))
 `} />
-    </details>
+    </div>
 
     <!-- 3. The three axioms of a topos -->
     <h3>The three axioms of a topos</h3>
@@ -257,8 +256,7 @@ print("pullback recovers A: " + str(recovered))
 (display "Excluded middle fails: partial ∨ ¬partial ≠ true")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Multi-valued truth: presheaf topos over (a -> b)
 #
 # Sieves on b = downward-closed sets of arrows into b
@@ -289,7 +287,7 @@ print("Ω(a) has " + str(len(omega_a)) + " truth values")
 print("not-partial = empty, partial or empty = partial != max")
 print("Law of excluded middle FAILS.")
 `} />
-    </details>
+    </div>
 
     <p class="text-sm text-gray-400">The sieve calculation is correct for this two-object category. General presheaf topoi require computing sieves over arbitrary diagrams.</p>
 

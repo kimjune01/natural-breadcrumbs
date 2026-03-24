@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
                                 (modulo (+ (f a) (f b)) 6)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Homomorphism: Z -> Z6 via mod 6
 f = lambda n: n % 6
 a, b = 8, 15
@@ -86,7 +85,7 @@ print("f(a+b) = f(" + str(a+b) + ") = " + str(f(a+b)))
 print("f(a)+f(b) mod 6 = " + str((f(a)+f(b)) % 6))
 print("Equal? " + str(f(a+b) == (f(a)+f(b)) % 6))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Kernel -->
@@ -113,15 +112,14 @@ print("Equal? " + str(f(a+b) == (f(a)+f(b)) % 6))
 (display "ker(f) = 6Z = multiples of 6")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Kernel of f: Z -> Z6
 f = lambda n: n % 6
 kernel = [n for n in range(-12, 13) if f(n) == 0]
 print("Kernel in [-12..12]: " + str(kernel))
 print("ker(f) = 6Z = multiples of 6")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Image -->
@@ -142,8 +140,7 @@ print("ker(f) = 6Z = multiples of 6")
 (display "Image = (0, 2)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Image of f: Z4 -> Z4, f(n) = 2n mod 4
 f = lambda n: (2 * n) % 4
 
@@ -154,7 +151,7 @@ image = sorted(set(f(n) for n in range(4)))
 print("Image = " + str(image))
 # Not surjective: 1 and 3 are not hit.
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

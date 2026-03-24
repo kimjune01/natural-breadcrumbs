@@ -73,8 +73,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   (list 10 100 1000 10000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Geometric vs harmonic series
 geo = sum(1/2**k for k in range(1, 31))
 harm = sum(1/k for k in range(1, 10001))
@@ -82,7 +81,7 @@ harm = sum(1/k for k in range(1, 10001))
 print(f"Geometric (30 terms): {geo:.10f} (converges to 1)")
 print(f"Harmonic (10000 terms): {harm:.4f} (diverges)")
 `} />
-    </details>
+    </div>
 
     <h3>Comparison, ratio, and root tests</h3>
     <p>The <strong>comparison test</strong>: if 0 &le; a_n &le; b_n and &Sigma; b_n converges, so does &Sigma; a_n. The <strong>ratio test</strong>: if |a_(n+1)/a_n| &rarr; L, the series converges absolutely when L &lt; 1 and diverges when L &gt; 1. The <strong>root test</strong>: if |a_n|^(1/n) &rarr; L, same conclusion.</p>
@@ -111,8 +110,7 @@ print(f"Harmonic (10000 terms): {harm:.4f} (diverges)")
 (display " < 1: converges")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -125,7 +123,7 @@ for n in [2, 5, 10, 20]:
 
 print("  Limit = 1/e =", 1/math.e, "< 1: converges")
 `} />
-    </details>
+    </div>
 
     <h3>Absolute vs conditional convergence</h3>
     <p><strong>Absolute convergence</strong> (&Sigma; |a_n| converges) implies convergence. <strong>Conditional convergence</strong> means &Sigma; a_n converges but &Sigma; |a_n| diverges. The alternating harmonic series &Sigma; (-1)^(n+1)/n converges conditionally to ln(2). <a href="https://en.wikipedia.org/wiki/Riemann_series_theorem">🅦 Riemann's rearrangement theorem</a>: a conditionally convergent series can be rearranged to sum to any value.</p>
@@ -149,8 +147,7 @@ print("  Limit = 1/e =", 1/math.e, "< 1: converges")
 (display (log 2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -163,7 +160,7 @@ for n in [10, 100, 1000, 10000]:
 
 print("  ln(2) =", math.log(2))
 `} />
-    </details>
+    </div>
 
     <h3>Power series</h3>
     <p>A <strong>power series</strong> &Sigma; c_n x^n has a <strong>radius of convergence</strong> R: it converges absolutely for |x| &lt; R and diverges for |x| &gt; R. Inside the radius, power series can be differentiated and integrated term by term.</p>
@@ -188,8 +185,7 @@ print("  ln(2) =", math.log(2))
   (list 1 2 -1 0.5))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -202,7 +198,7 @@ for x in [1, 2, -1, 0.5]:
     exact = math.exp(x)
     print("  e^" + str(x) + " = " + str(approx) + " (exact: " + str(exact) + ")")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

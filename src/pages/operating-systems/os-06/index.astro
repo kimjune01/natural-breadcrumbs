@@ -97,8 +97,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (translate 13000)   ; page 3, offset 808 -> frame 0
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Virtual to physical address translation
 PAGE_SIZE = 4096
 
@@ -115,7 +114,7 @@ translate(0)
 translate(8192)
 translate(13000)
 `} />
-    </details>
+    </div>
 
     <h3>Translation Lookaside Buffer (TLB)</h3>
     <p>Every memory access requires a page table lookup, which is itself a memory access. The <strong>TLB</strong> is a small, fast hardware cache of recent page-to-frame mappings. TLB hit: one memory access. TLB miss: two (or more, with multi-level page tables).</p>

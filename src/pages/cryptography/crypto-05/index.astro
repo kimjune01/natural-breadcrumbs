@@ -96,8 +96,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Same secret? ") (display (= alice-secret bob-secret))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Diffie-Hellman in Python
 p, g = 23, 5  # prime and generator
 
@@ -117,7 +116,7 @@ print(f"Alice's shared secret: {alice_secret}")
 print(f"Bob's shared secret:   {bob_secret}")
 print(f"Same? {alice_secret == bob_secret}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Discrete log problem -->

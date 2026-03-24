@@ -104,8 +104,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Exact:  1/3 = 0.3333...")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Left Riemann sum for integral of x^2 from 0 to 1
 def riemann_sum(f, a, b, n):
     dx = (b - a) / n
@@ -116,7 +115,7 @@ for n in [4, 10, 100, 1000]:
     print(f"n={n:<5} sum = {riemann_sum(f, 0, 1, n):.6f}")
 print("Exact: 1/3 = 0.333333...")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Definite integral -->
@@ -145,8 +144,7 @@ print("Exact: 1/3 = 0.333333...")
 (display (/ (round (* (integrate sin 0 (* 2 pi) 1000) 10000)) 10000))  ; 0.0
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Signed area: sin(x) from 0 to 2*pi
@@ -158,7 +156,7 @@ print("sin from 0 to pi:  {:.4f}".format(integrate(math.sin, 0, math.pi)))    # 
 print("sin from pi to 2pi:{:.4f}".format(integrate(math.sin, math.pi, 2*math.pi)))  # -2.0
 print("sin from 0 to 2pi: {:.4f}".format(integrate(math.sin, 0, 2*math.pi)))  # 0.0
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. FTC Part 1 -->
@@ -191,8 +189,7 @@ print("sin from 0 to 2pi: {:.4f}".format(integrate(math.sin, 0, 2*math.pi)))  # 
 (display "f(3)  = ") (display (f 3))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# FTC Part 1: d/dx[integral from 0 to x of t^2 dt] = x^2
 def integrate(f, a, b, n=500):
     dx = (b - a) / n
@@ -207,7 +204,7 @@ for x in [2, 3]:
     print("F'({}) = {:.3f}".format(x, F_prime))
     print("f({})  = {}".format(x, f(x)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. FTC Part 2 -->
@@ -237,8 +234,7 @@ for x in [2, 3]:
 (display "Numerical:     ") (display (/ (round (* numerical 1000)) 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# FTC Part 2: integral of f from a to b = F(b) - F(a)
 # f(x) = 3x^2, F(x) = x^3
 def integrate(f, a, b, n=10000):
@@ -253,7 +249,7 @@ numerical = integrate(f, 1, 4)
 print("F(4) - F(1) =", exact)
 print("Numerical:    {:.3f}".format(numerical))
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Antiderivatives -->
@@ -286,8 +282,7 @@ print("Numerical:    {:.3f}".format(numerical))
 (display "sin(1) = ") (display (/ (round (* (sin 1) 10000)) 10000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Common antiderivatives verified numerically
@@ -304,7 +299,7 @@ G = lambda x: -math.cos(x)
 print("G'(1) = {:.4f}".format(deriv(G, 1)))
 print("sin(1) = {:.4f}".format(math.sin(1)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

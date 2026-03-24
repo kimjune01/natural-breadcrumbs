@@ -100,8 +100,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "P2 PC: ") (display (pcb-get p2 'pc))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Process Control Block in Python
 class PCB:
     def __init__(self, pid, state, pc, registers):
@@ -131,7 +130,7 @@ p1, p2 = context_switch(p1, p2)
 print(p1)
 print(p2)
 `} />
-    </details>
+    </div>
 
     <h3>Context switching</h3>
     <p>When the OS switches from one process to another, it saves the entire CPU state (registers, program counter, stack pointer) into the outgoing PCB and loads the state from the incoming PCB. This is pure overhead. The faster you can do it, the more responsive the system feels. Hardware support (like special save/restore instructions) helps.</p>

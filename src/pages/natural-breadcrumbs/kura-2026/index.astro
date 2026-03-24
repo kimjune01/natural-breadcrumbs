@@ -106,8 +106,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; (raw ranked 3) — indices chain, handshake holds
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Indexed computation in Python
 class Indexed:
     def __init__(self, start, end, val):
@@ -126,7 +125,7 @@ step2 = lambda v: Indexed("filtered", "ranked", len(v))
 
 print(step1.bind(step2))
 `} />
-    </details>
+    </div>
 
     <!-- 2. Grading on top -->
     <h3>Adding grades on top</h3>
@@ -218,8 +217,7 @@ print(step1.bind(step2))
 ; (raw filtered 3 3) — indices chain, grades add
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Indexed graded computation in Python
 class IndexedGraded:
     def __init__(self, start, end, grade, val):
@@ -240,7 +238,7 @@ step2 = lambda v: IndexedGraded("cached", "filtered", 1, len(v))
 print(step1.bind(step2))
 # (raw -> filtered, grade=3: 3)
 `} />
-    </details>
+    </div>
 
     <!-- 3. Restricted pointwise order -->
     <h3>The restricted pointwise order</h3>
@@ -291,8 +289,7 @@ print(step1.bind(step2))
 ; #f — looser postcondition can't refine tighter
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Restricted pointwise order in Python
 def refines(Q, e, Q_prime, e_prime, test_vals):
     """(Q, e) refines (Q', e') iff e <= e' and Q(x) => Q'(x) for all x"""
@@ -310,7 +307,7 @@ print(f"(x>10, cost=1) refines (x>0, cost=3)? {refines(Q_strong, 1, Q_weak, 3, v
 print(f"(x>0, cost=3) refines (x>10, cost=1)? {refines(Q_weak, 3, Q_strong, 1, vals)}")
 # False — looser postcondition can't refine tighter
 `} />
-    </details>
+    </div>
 
     <!-- 4. The handshake (Def 7) -->
     <h3>The handshake — Definition 7</h3>
@@ -391,8 +388,7 @@ print(f"(x>0, cost=3) refines (x>10, cost=1)? {refines(Q_weak, 3, Q_strong, 1, v
 ; Error: precondition of c3 fails — 7 is not > 100
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Definition 7: Indexed graded Hoare triple composition
 class Triple:
     def __init__(self, pre, post, start, end, grade, fn):
@@ -430,7 +426,7 @@ bad = c1.compose(c3)
 print(f"run(-7) with bad pipeline: {bad.run(-7)}")
 # AssertionError: Precondition failed on 7
 `} />
-    </details>
+    </div>
 
     <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> Captures the composition law. The paper's version works over graded Freyd categories with a preordered semiring.</p>
 
@@ -469,8 +465,7 @@ vals)
 ; Higher grade => more inputs pass the weakest precondition
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Graded lifting: weakest precondition adjusted by grade
 def graded_wp(c, grade, Q):
     """Returns predicate: does x satisfy wp of c for Q at this grade?"""
@@ -492,7 +487,7 @@ for x in [80, 90, 95, 97, 100, 103, 110, 120]:
     print(f"{x}  grade=1:{t}  grade=4:{l}")
 # Higher grade => more inputs pass
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

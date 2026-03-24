@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (from-z 2 sat-mean sat-sd))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Z-scores in Python
 def z_score(x, mean, sd):
     return (x - mean) / sd
@@ -88,7 +87,7 @@ print(f"SAT 1250, Z = {z_score(1250, sat_mean, sat_sd):.2f}")
 print(f"SAT 900,  Z = {z_score(900, sat_mean, sat_sd):.2f}")
 print(f"Score at Z=2: {sat_mean + 2 * sat_sd}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Binomial Distribution -->

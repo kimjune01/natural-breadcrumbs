@@ -64,8 +64,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (square 12))            ; 144
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def square(x):
     return x * x
 
@@ -74,7 +73,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 print(square(5))   # 25
 print(square(12))  # 144
 `} />
-    </details>
+    </div>
 
     <!-- 2. Applying simple procedures -->
     <h3>Applying simple procedures</h3>
@@ -94,8 +93,7 @@ print(square(12))  # 144
 (display (add5 (add10 1)))      ; 16
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def make_adder(n):
     return lambda x: x + n
 
@@ -106,7 +104,7 @@ print(add5(3))          # 8
 print(add10(3))         # 13
 print(add5(add10(1)))   # 16
 `} />
-    </details>
+    </div>
 
     <!-- 3. Frames as repositories of local state -->
     <h3>Frames as repositories of local state</h3>
@@ -131,8 +129,7 @@ print(add5(add10(1)))   # 16
 (display (c2))            ; 2
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def make_counter():
     count = [0]  # mutable cell for closure
     def counter():
@@ -149,7 +146,7 @@ print(c1())  # 3
 print(c2())  # 1 — independent
 print(c2())  # 2
 `} />
-    </details>
+    </div>
 
     <!-- 4. Internal definitions -->
     <h3>Internal definitions</h3>
@@ -173,8 +170,7 @@ print(c2())  # 2
 (display (sqrt 100))           ; ~10.0
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def sqrt(x):
     def good_enough(guess):
         return abs(guess * guess - x) < 0.001
@@ -190,7 +186,7 @@ print(f"{sqrt(2):.4f}")    # ~1.4142
 print(f"{sqrt(9):.4f}")    # ~3.0000
 print(f"{sqrt(100):.4f}")  # ~10.0000
 `} />
-    </details>
+    </div>
 
     <SchemeRepl client:load initialCode={`; Visualizing scope chains:
 ; Each procedure call extends the environment
@@ -206,8 +202,7 @@ print(f"{sqrt(100):.4f}")  # ~10.0000
 (display (f 10))  ; 60
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def f(x):
     def g(y):
         def h(z):
@@ -217,7 +212,7 @@ print(f"{sqrt(100):.4f}")  # ~10.0000
 
 print(f(10))  # 60
 `} />
-    </details>
+    </div>
 
     <!-- Notation reference -->
     <h3>Notation reference</h3>

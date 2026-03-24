@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (check 0) (check 1) (check 5) (check 10) (check 100)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Verify sum formula by induction-style checking
 def sum_formula(n): return n * (n + 1) // 2
 def sum_actual(n): return sum(range(1, n + 1))
@@ -85,7 +84,7 @@ def sum_actual(n): return sum(range(1, n + 1))
 for n in [0, 1, 5, 10, 100]:
     print(f"n={n}: formula={sum_formula(n)}, actual={sum_actual(n)}, match={sum_formula(n) == sum_actual(n)}")
 `} />
-    </details>
+    </div>
 
     <h3>Strong induction</h3>
     <p>In <strong>strong induction</strong>, the inductive hypothesis assumes P(j) for ALL j &le; k, not just P(k). This is equivalent to weak induction but sometimes easier to use. Useful when the inductive step needs cases smaller than k-1.</p>

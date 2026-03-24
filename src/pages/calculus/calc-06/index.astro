@@ -63,8 +63,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "f(1)  = ") (display (f 1))              ; -1 (min value)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Find extrema of f(x) = x^3 - 3x + 1
 f = lambda x: x**3 - 3*x + 1
 fp = lambda x: 3*x**2 - 3
@@ -74,7 +73,7 @@ for x in [-1, 1]:
     kind = "MAX" if fpp(x) < 0 else "MIN"
     print(f"x={x}: f={f(x)}, f'={fp(x)}, f''={fpp(x)} -> {kind}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Related rates -->
@@ -97,8 +96,7 @@ for x in [-1, 1]:
 (display " cm/s")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Related rates: sphere V = (4/3) pi r^3
@@ -111,7 +109,7 @@ dr_dt = dV_dt / (4 * math.pi * r**2)
 print("When r = 5 and dV/dt = 100:")
 print("dr/dt = {:.4f} cm/s".format(dr_dt))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. L'Hopital's Rule -->
@@ -138,8 +136,7 @@ print("dr/dt = {:.4f} cm/s".format(dr_dt))
 (display "Limit = 1")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # L'Hopital: lim(x->0) sin(x)/x = cos(0)/1 = 1
@@ -153,7 +150,7 @@ print("(e^0.001 - 1)/0.001 =", (math.exp(0.001) - 1)/0.001)
 print("e^0 =", math.exp(0))
 print("Limit = 1")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Newton's Method -->
@@ -178,8 +175,7 @@ print("Limit = 1")
 ; Converges to sqrt(2) = 1.41421356...
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Newton's method: find sqrt(2) by solving x^2 - 2 = 0
 f = lambda x: x**2 - 2
 fp = lambda x: 2*x
@@ -190,7 +186,7 @@ for n in range(7):
     x = x - f(x)/fp(x)
 # Converges to sqrt(2) = 1.41421356...
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Curve sketching -->
@@ -221,8 +217,7 @@ for n in range(7):
 (for-each describe (list -2 -1 0 1 2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Curve sketching: f(x) = x^3 - 3x
 f = lambda x: x**3 - 3*x
 fp = lambda x: 3*x**2 - 3
@@ -233,7 +228,7 @@ for x in [-2, -1, 0, 1, 2]:
     curve = "concave up" if fpp(x) > 0 else ("concave down" if fpp(x) < 0 else "inflection")
     print("x={} f={} f'={} {} f''={} {}".format(x, f(x), fp(x), slope, fpp(x), curve))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

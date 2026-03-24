@@ -129,8 +129,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (try-commit 2)  ; 2 of 3 have it -> committed
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Raft log replication
 class RaftNode:
     def __init__(self, name):
@@ -167,7 +166,7 @@ append_entry("y=2")
 replicate(followers[0])  # F2 is slow
 try_commit(2)
 `} />
-    </details>
+    </div>
 
     <!-- 3. Safety -->
     <h3>Safety and liveness</h3>

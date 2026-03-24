@@ -96,15 +96,14 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (pbft-messages 10)  ; n=31 -> expensive
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# PBFT message complexity
 for f in [1, 2, 3, 10]:
     n = 3 * f + 1
     msgs = 1 + 2 * n * (n - 1)
     print(f"f={f}, n={n}, messages per request={msgs}")
 `} />
-    </details>
+    </div>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>

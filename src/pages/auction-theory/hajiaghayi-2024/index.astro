@@ -110,8 +110,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Sneaker-ad wins: high relevance AND high bid
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# RAG ad auction
 import numpy as np
 
@@ -137,7 +136,7 @@ ads = [
 for name, rel, bid, score in rag_auction(query, ads):
     print(name.ljust(12) + "  rel=" + str(round(rel, 3)) + "  bid=$" + str(bid) + "  score=" + str(round(score, 3)))
 `} />
-    </details>
+    </div>
 
     <h3>The design space</h3>
     <p>Key questions: How to price (VCG on the embedding scores? GSP?). How to ensure ad quality (reserve on relevance?). How to prevent the LLM from distorting the ad. The paper proposes using the retrieval relevance score as the quality signal, combined with a second-price payment rule.</p>

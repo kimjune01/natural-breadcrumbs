@@ -97,8 +97,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Sum = ") (display (sum-pmf 0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Binomial distribution
 from math import comb
 
@@ -110,7 +109,7 @@ for k in range(n+1):
     bar = "#" * int(binomial_pmf(n, p, k) * 200)
     print(f"P(X={k:2d}) = {binomial_pmf(n, p, k):.4f} {bar}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Poisson distribution -->
     <h3>Poisson distribution</h3>
@@ -200,8 +199,7 @@ for k in range(n+1):
 ; Shorter peak, wider spread
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Normal PDF
 import math
 
@@ -214,7 +212,7 @@ for x in [-3, -2, -1, 0, 1, 2, 3]:
     bar = "#" * int(normal_pdf(0, 1, x) * 100)
     print(f"f({x:+d}) = {normal_pdf(0, 1, x):.4f} {bar}")
 `} />
-    </details>
+    </div>
 
     <!-- 5. PMF vs PDF -->
     <h3>PMF vs PDF</h3>

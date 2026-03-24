@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "1/3 + 1/3 = ") (print-rat (add-rat one-third one-third))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Rational numbers in Python
 from math import gcd
 
@@ -105,7 +104,7 @@ print("1/2 + 1/3 =", end=" "); print_rat(add_rat(one_half, one_third))
 print("1/2 * 1/3 =", end=" "); print_rat(mul_rat(one_half, one_third))
 print("1/3 + 1/3 =", end=" "); print_rat(add_rat(one_third, one_third))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Abstraction barriers -->
@@ -140,8 +139,7 @@ print("1/3 + 1/3 =", end=" "); print_rat(add_rat(one_third, one_third))
 ; Both print 3/4
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Two representations behind the same interface
 from math import gcd
 
@@ -167,7 +165,7 @@ r2 = make_rat_v2(6, 8)
 print(f"v1: {r1[0]}/{r1[1]}")
 print(f"v2: {numer_v2(r2)}/{denom_v2(r2)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. What is data? -->
@@ -203,8 +201,7 @@ print(f"v2: {numer_v2(r2)}/{denom_v2(r2)}")
 (display (my-cdr (my-cdr nested)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Pairs from closures — no tuples, no classes
 def my_cons(x, y):
     def dispatch(m):
@@ -224,7 +221,7 @@ nested = my_cons(my_cons(1, 2), my_cons(3, 4))
 print(f"car(car(nested)) = {my_car(my_car(nested))}")
 print(f"cdr(cdr(nested)) = {my_cdr(my_cdr(nested))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Interval arithmetic -->
@@ -264,8 +261,7 @@ print(f"cdr(cdr(nested)) = {my_cdr(my_cdr(nested))}")
 (display "a * b = ") (print-interval (mul-interval a b))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Interval arithmetic in Python
 def make_interval(a, b): return (a, b)
 def lower(x): return x[0]
@@ -286,7 +282,7 @@ def fmt(x): return f"[{lower(x):.2f}, {upper(x):.2f}]"
 print(f"a + b = {fmt(add_interval(a, b))}")
 print(f"a * b = {fmt(mul_interval(a, b))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

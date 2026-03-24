@@ -131,8 +131,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "  (RPS: symmetric => each with prob 1/3)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Expected value method: make the opponent indifferent
 # Matrix (Player 1's payoffs):
 #        C    D
@@ -157,7 +156,7 @@ print(f"E(vs C) = {ev_C:.4f}")
 print(f"E(vs D) = {ev_D:.4f}")
 print(f"Indifferent? {abs(ev_C - ev_D) < 1e-10}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Why indifference works -->
     <h3>Why indifference works</h3>

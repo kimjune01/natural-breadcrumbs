@@ -98,8 +98,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; The arities are the morphisms n -> 1 that define the theory.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lawvere theory = collection of operations with arities
 def make_theory(name, ops):
     return {"name": name, "ops": ops}
@@ -110,7 +109,7 @@ group_theory = make_theory("group", {"mu": 2, "eta": 0, "inv": 1})
 print(f"Monoid ops: {monoid_theory['ops']}")
 print(f"Group ops:  {group_theory['ops']}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Models: interpreting the theory -->
@@ -152,8 +151,7 @@ print(f"Group ops:  {group_theory['ops']}")
 ; Same theory, three models. That's the functor at work.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# A model of the monoid theory: carrier set + binary op + unit
 class MonoidModel:
     def __init__(self, name, mu, eta):
@@ -168,7 +166,7 @@ lst_app = MonoidModel("list", lambda a, b: a + b, [])
 for m, a, b in [(int_add, 3, 4), (str_cat, "foo", "bar"), (lst_app, [1,2], [3,4])]:
     print(f"{m.name}: mu({a}, {b}) = {m.mu(a, b)},  eta = {m.eta}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. The free monoid Lawvere theory -->
@@ -308,8 +306,7 @@ for m, a, b in [(int_add, 3, 4), (str_cat, "foo", "bar"), (lst_app, [1,2], [3,4]
 ; List monad. Same as Ch. 16's free/forgetful result.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# The monad from L_Mon is the list monad.
 # T(a) = List(a), induced by the free/forgetful adjunction on Mon.
 
@@ -331,7 +328,7 @@ print(f"return 5: {T_return(5)}")
 print(f"join [[1,2],[3],[4,5]]: {T_join([[1,2],[3],[4,5]])}")
 print(f"bind [1,2,3] x->[x,x*10]: {T_bind([1,2,3], lambda x: [x, x*10])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. The exception theory: adding a nullary operation -->
@@ -372,8 +369,7 @@ print(f"bind [1,2,3] x->[x,x*10]: {T_bind([1,2,3], lambda x: [x, x*10])}")
 ; Maybe monad from a Lawvere theory with one nullary operation.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Maybe monad from the exception Lawvere theory
 def safe_div(a, b):
     return ("just", a // b) if b != 0 else ("nothing",)
@@ -387,7 +383,7 @@ print(f"100/5/2: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 2))}")
 print(f"100/0/2: {maybe_bind(safe_div(100, 0), lambda r: safe_div(r, 2))}")
 print(f"100/5/0: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 0))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 7. Lawvere theories vs monads -->

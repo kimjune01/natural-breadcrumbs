@@ -92,8 +92,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
               (< (abs (- mi-2 mi-3)) 0.0001)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -108,7 +107,7 @@ print(f"I(W;U) = {mi:.4f} bits")
 print(f"H(W) - H(W|U) = {h_w - (h_joint - h_u):.4f} bits")
 print(f"H(U) - H(U|W) = {h_u - (h_joint - h_w):.4f} bits")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Non-negativity and independence -->
     <h3>Non-negativity and independence</h3>

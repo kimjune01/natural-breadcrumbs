@@ -65,8 +65,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; flip=0.5 is useless: output is independent of input
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def bsc(x, flip_prob):
     """Binary symmetric channel: flips bit with given probability."""
     return {x: 1 - flip_prob, 1 - x: flip_prob}
@@ -76,7 +75,7 @@ print(f"Send 1, flip=0.1: {bsc(1, 0.1)}")
 print(f"Send 0, flip=0.5: {bsc(0, 0.5)}")
 print("flip=0.5: output independent of input (useless channel)")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Channel capacity -->
     <h3>Channel capacity</h3>
@@ -101,8 +100,7 @@ print("flip=0.5: output independent of input (useless channel)")
 ; flip=0 -> perfect channel (1 bit). flip=0.5 -> useless (0 bits).
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def binary_entropy(p):
@@ -115,7 +113,7 @@ def bsc_capacity(flip_prob):
 for p in [0.0, 0.01, 0.1, 0.25, 0.5]:
     print(f"flip={p:.2f}: C = {bsc_capacity(p):.4f} bits/use")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Noisy channel theorem -->
     <h3>Shannon's noisy channel theorem</h3>

@@ -80,8 +80,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Zero: no extra surprise when the model matches the truth.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def kl_divergence(p, q):
@@ -95,7 +94,7 @@ print(f"D(Q||P) = {kl_divergence(Q, P):.4f}")
 print(f"D(P||P) = {kl_divergence(P, P):.4f}")
 print("Asymmetric: D(P||Q) != D(Q||P). Not a distance.")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Gibbs' inequality -->
     <h3>Gibbs' inequality: always non-negative</h3>

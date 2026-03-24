@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "z2: ") (display z2)            ; ((1 2) 1 2) — independent
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python lists are mutable by default
 x = [1, 2, 3]
 print(f"before: {x}")
@@ -97,7 +96,7 @@ a[0] = 99
 print(f"z1: {z1}")  # [[99, 2], [99, 2]] — shared!
 print(f"z2: {z2}")  # [[1, 2], [1, 2]] — independent
 `} />
-    </details>
+    </div>
 
     <!-- 2. Representing queues -->
     <h3>Representing queues</h3>
@@ -136,8 +135,7 @@ print(f"z2: {z2}")  # [[1, 2], [1, 2]] — independent
 (print-queue q)               ; (b c)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from collections import deque
 
 q = deque()
@@ -152,7 +150,7 @@ print(list(q))   # ['b', 'c']
 # Under the hood, deque uses a doubly-linked list
 # SICP's version is a singly-linked list with a rear pointer
 `} />
-    </details>
+    </div>
 
     <!-- 3. Representing tables -->
     <h3>Representing tables</h3>
@@ -184,8 +182,7 @@ print(list(q))   # ['b', 'c']
 (display (lookup 'd t))            ; #f
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python dict is the built-in table
 t = {}
 t['a'] = 1
@@ -197,7 +194,7 @@ t['b'] = 99          # update
 print(t.get('b'))    # 99
 print(t.get('d'))    # None
 `} />
-    </details>
+    </div>
 
     <!-- 4. Digital circuit simulator -->
     <h3>A simulator for digital circuits</h3>
@@ -242,8 +239,7 @@ print(t.get('d'))    # None
 (display "out: ") (display (get-signal out))             ; 0
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`class Wire:
     def __init__(self):
         self.signal = 0
@@ -272,7 +268,7 @@ print(f"out: {w_out.get_signal()}")  # 1
 w_in.set_signal(1)
 print(f"out: {w_out.get_signal()}")  # 0
 `} />
-    </details>
+    </div>
 
     <!-- Notation reference -->
     <h3>Notation reference</h3>

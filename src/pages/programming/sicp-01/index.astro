@@ -69,8 +69,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; => 495
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Primitive expressions in Python
 print(486)          # 486
 print("hello")      # hello
@@ -78,7 +77,7 @@ print(137 + 349)    # 486
 print(1000 - 334)   # 666
 print(5 * 99)       # 495
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Combinations -->
@@ -103,15 +102,14 @@ print(5 * 99)       # 495
 ; => 57
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Combinations — Python uses infix, so precedence matters
 print(21 + 35 + 12 + 7)        # 75
 print(25 * 4 * 12)              # 1200
 print(3 * 5 + (10 - 6))         # 19
 print(3 * (2 * 4 + (3 + 5)) + ((10 - 7) + 6))  # 57
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Naming with define -->
@@ -139,8 +137,7 @@ print(3 * (2 * 4 + (3 + 5)) + ((10 - 7) + 6))  # 57
 ; => 62.8318
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Naming in Python
 size = 2
 print(f"size = {size}")         # 2
@@ -152,7 +149,7 @@ radius = 10
 circumference = 2 * pi * radius
 print(f"circumference = {circumference:.4f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Conditional expressions -->
@@ -177,8 +174,7 @@ print(f"circumference = {circumference:.4f}")
 (display "abs2(-7) = ") (display (abs2 -7))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Conditional expressions in Python
 def abs_val(x):
     if x > 0:
@@ -196,7 +192,7 @@ print(f"abs(3)  = {abs_val(3)}")
 abs2 = lambda x: -x if x < 0 else x
 print(f"abs2(-7) = {abs2(-7)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. The substitution model -->
@@ -224,8 +220,7 @@ print(f"abs2(-7) = {abs2(-7)}")
 (display (f 5))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Substitution model in Python
 def square(x):
     return x * x
@@ -240,7 +235,7 @@ def f(a):
 #       -> 36 + 100 -> 136
 print(f"f(5) = {f(5)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

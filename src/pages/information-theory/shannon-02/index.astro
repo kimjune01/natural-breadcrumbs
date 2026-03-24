@@ -90,8 +90,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " bits")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -102,7 +101,7 @@ print(f"loaded coin: {entropy([0.9, 0.1]):.4f} bits")
 print(f"fair die:    {entropy([1/6]*6):.4f} bits")
 print(f"certain:     {entropy([1.0]):.4f} bits")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Entropy is maximized by uniform -->
     <h3>Uniform distributions maximize entropy</h3>

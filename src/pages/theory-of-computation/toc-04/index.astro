@@ -100,8 +100,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
       (loop (+ n 1)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# CFG for balanced parentheses: S -> (S) | SS | epsilon
 import random
 
@@ -123,7 +122,7 @@ for _ in range(6):
     s = generate()
     print(f'  "{s}" balanced? {balanced(s)}')
 `} />
-    </details>
+    </div>
 
 
     <!-- Ambiguity -->

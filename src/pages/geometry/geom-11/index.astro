@@ -50,8 +50,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         (list 3 4)))  ; inside -> -3
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def power_of_point(x, center, radius):
     d_sq = sum((a-b)**2 for a,b in zip(x, center))
     return d_sq - radius**2
@@ -63,7 +62,7 @@ for x in [(3,3), (5,3), (6,3), (3,4)]:
     status = "outside" if pw > 0 else "on circle" if pw == 0 else "inside"
     print(f"pow({x}) = {pw} ({status})")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Power cells -->

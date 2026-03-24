@@ -60,8 +60,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (midpoint 1 1 5 3))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def midpoint(x1, y1, x2, y2):
@@ -74,7 +73,7 @@ print(f"Midpoint of (0,0) and (6,4): {midpoint(0, 0, 6, 4)}")
 print(f"Distance from (0,0) to (3,4): {distance(0, 0, 3, 4)}")
 print(f"Midpoint of (1,1) and (5,3): {midpoint(1, 1, 5, 3)}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Congruence and similarity -->
     <h3>Congruence and similarity</h3>
@@ -162,8 +161,7 @@ print(f"Midpoint of (1,1) and (5,3): {midpoint(1, 1, 5, 3)}")
 (display (right-triangle? 3 4 6))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def hypotenuse(a, b):
@@ -179,7 +177,7 @@ def is_right_triangle(a, b, c):
 print(f"Is 3-4-5 a right triangle? {is_right_triangle(3, 4, 5)}")
 print(f"Is 3-4-6 a right triangle? {is_right_triangle(3, 4, 6)}")
 `} />
-    </details>
+    </div>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>

@@ -97,8 +97,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; H(X,Y) = H(X) + H(Y|X). Composition preserved.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -117,7 +116,7 @@ print(f"H(Y|X)       = {h_y_given_x:.4f}")
 print(f"H(X)+H(Y|X)  = {h_x + h_y_given_x:.4f}")
 print("Chain rule: composition preserved.")
 `} />
-    </details>
+    </div>
 
     <!-- 2. The three axioms -->
     <h3>The three axioms</h3>
@@ -197,8 +196,7 @@ print("Chain rule: composition preserved.")
 ; Shannon entropy is the ONLY measure with this property.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -217,7 +215,7 @@ print(f"Loss(composite) = {total:.4f}")
 print(f"Sum of parts    = {loss1 + loss2:.4f}")
 print("Functorial: the ONLY measure that adds up this way.")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

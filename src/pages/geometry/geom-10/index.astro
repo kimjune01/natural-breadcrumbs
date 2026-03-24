@@ -44,8 +44,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (in-circumcircle? 0 0 4 0 2 3 10 10))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def in_circumcircle(ax, ay, bx, by, cx, cy, dx, dy):
     """Returns True if (dx,dy) is inside circumcircle of (a,b,c) in CCW order."""
     adx, ady = ax - dx, ay - dy
@@ -59,7 +58,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 print(f"(2,1) inside circumcircle? {in_circumcircle(0,0, 4,0, 2,3, 2,1)}")
 print(f"(10,10) inside circumcircle? {in_circumcircle(0,0, 4,0, 2,3, 10,10)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Maximizes minimum angle -->

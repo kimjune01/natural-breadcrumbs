@@ -103,8 +103,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display total) (display " caught")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Ali Baba cave simulation
 import random
 random.seed(42)
@@ -125,7 +124,7 @@ print(f"Honest prover: {simulate_cave(True)}")
 caught = sum(1 for _ in range(1000) if not simulate_cave(False))
 print(f"Fake prover: {caught}/1000 caught")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Interactive vs non-interactive -->
     <h3>Interactive vs non-interactive</h3>

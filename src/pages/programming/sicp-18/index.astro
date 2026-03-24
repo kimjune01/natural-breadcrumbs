@@ -94,8 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "gcd(270, 192)= ") (display (gcd-machine 270 192))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# GCD register machine in Python — explicit register transfers
 
 def gcd_machine(a, b):
@@ -117,7 +116,7 @@ print(f"gcd(206, 40) = {gcd_machine(206, 40)}")
 print(f"gcd(48, 36)  = {gcd_machine(48, 36)}")
 print(f"gcd(270, 192)= {gcd_machine(270, 192)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Abstraction in machine design -->
@@ -196,8 +195,7 @@ print(f"gcd(270, 192)= {gcd_machine(270, 192)}")
 (display "21 * 2 = ") (display (doubler 'get 'result))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Register machine simulator in Python
 
 class RegisterMachine:
@@ -244,7 +242,7 @@ doubler.set('n', 21)
 doubler.run()
 print(f"21 * 2 = {doubler.get('result')}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Subroutines and the stack -->
@@ -299,8 +297,7 @@ print(f"21 * 2 = {doubler.get('result')}")
 (display "Pop: ") (display (restore))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Stack for subroutine calls in Python
 
 class Stack:
@@ -337,7 +334,7 @@ def gcd_subroutine(a, b):
 
 print(f"2 * gcd(206, 40) = {gcd_subroutine(206, 40)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Recursive machines — factorial -->
@@ -384,8 +381,7 @@ print(f"2 * gcd(206, 40) = {gcd_subroutine(206, 40)}")
 (display "1! = ") (display (fact-machine 1))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Factorial register machine in Python — explicit stack
 
 def fact_machine(n):
@@ -412,7 +408,7 @@ print(f"5!  = {fact_machine(5)}")
 print(f"10! = {fact_machine(10)}")
 print(f"1!  = {fact_machine(1)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Fibonacci machine -->
@@ -451,8 +447,7 @@ print(f"1!  = {fact_machine(1)}")
 (display "fib(15) = ") (display (fib-machine 15))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Fibonacci register machine in Python — explicit stack
 # Simulates tree recursion with a work stack.
 
@@ -474,7 +469,7 @@ def fib_machine(n):
 for i in [0, 1, 5, 10, 15]:
     print(f"fib({i:2d}) = {fib_machine(i)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

@@ -131,8 +131,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 `} />
 
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Right Kan extension: conservative estimate
 I = ["mon", "tue"]
 A = ["mon", "tue", "wed", "thu", "fri"]
@@ -151,7 +150,7 @@ def ran_K_D(a):
 for a in A:
     print(f"  Ran_K D({a}) = {ran_K_D(a)}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Left Kan extension -->
     <h3>Left Kan extension: the liberal approximation</h3>
@@ -217,8 +216,7 @@ for a in A:
 ; wed->20, thu->20, fri->20 (liberal: max of reachable values)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Left Kan extension: liberal estimate
 def lan_K_D(a):
     """Left Kan extension: max over D-values that reach a"""
@@ -229,7 +227,7 @@ for a in A:
     print(f"  Lan_K D({a}) = {lan_K_D(a)}")
 # Liberal: extends D by taking the largest contributing value.
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Haskell types -->
@@ -315,8 +313,7 @@ for a in A:
 (display "  = Ran_K D (*) where K : I -> 1")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Limit = Right Kan extension along K : I -> 1
 from itertools import product
 
@@ -327,7 +324,7 @@ print(f"D(a)={{1,2}}, D(b)={{3,4}}, D(c)={{5}}")
 print(f"Limit (product): {lim}")
 print("  = Ran_K D(*) where K : I -> 1")
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. Adjunctions as Kan extensions -->
@@ -416,8 +413,7 @@ print("  = Ran_K D(*) where K : I -> 1")
 ; fmap composes the functions; the box is never touched.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Free functor: gives fmap to any type constructor
 class Box:
     """A container with no map method."""
@@ -449,7 +445,7 @@ print(f"original: {b.val}")
 print(f"after fmap (*3): {mapped.run()}")
 print(f"after fmap (+1): {mapped2.run()}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

@@ -83,8 +83,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; O(log N) rounds to inform everyone
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Gossip convergence time
 import math
 
@@ -92,7 +91,7 @@ for n in [4, 8, 16, 64, 1024, 1_000_000]:
     rounds = math.ceil(math.log2(n))
     print(f"N={n:>10}, rounds to converge: {rounds}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Failure detection -->
     <h3>Failure detection with gossip</h3>

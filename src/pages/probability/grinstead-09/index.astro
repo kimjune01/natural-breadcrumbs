@@ -83,8 +83,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; As n grows, values cluster around 0 — the CLT in action
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import random
 random.seed(42)
 
@@ -99,7 +98,7 @@ for n in [1, 10, 100]:
     print(f"n={n:>3}: {vals}")
 # n=100 values cluster near 0
 `} />
-    </details>
+    </div>
 
     <!-- 2. Continuity correction -->
     <h3>Continuity correction</h3>

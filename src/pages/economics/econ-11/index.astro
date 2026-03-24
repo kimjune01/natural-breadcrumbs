@@ -144,8 +144,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "  Incentive: graze more than your share")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Tragedy of the commons simulation
 max_cap = 100
 n_herders = 5
@@ -172,7 +171,7 @@ q = int(quality(total) * 100) / 100.0
 print("Final: total=" + str(total) + ", quality=" + str(q))
 print("Commons depleted by individual rationality")
 `} />
-    </details>
+    </div>
 
 
     <!-- Cross-reference -->

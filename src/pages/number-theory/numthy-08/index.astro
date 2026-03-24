@@ -84,8 +84,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   (display (car r)) (display "/") (display (cadr r)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Continued fractions
 def cf_rational(p, q):
     """Continued fraction expansion of p/q."""
@@ -116,7 +115,7 @@ for p, q in convs[:6]:
     print(f"  {p}/{q} = {p/q:.10f}")
 print(f"  sqrt(2)   = {2**0.5:.10f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Pell's equation -->

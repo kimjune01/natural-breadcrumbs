@@ -117,8 +117,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Truth-telling is weakly dominant.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Incentive compatibility in Vickrey auction
 def payoff(my_value, my_bid, other_bids):
     all_bids = sorted([my_bid] + other_bids, reverse=True)
@@ -132,7 +131,7 @@ others = [30, 20, 45]
 for bid, label in [(50, "Truthful"), (80, "Overbid"), (40, "Underbid")]:
     print(str(label) + " (bid=" + str(bid) + "): " + str(payoff(my_value, bid, others)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. VCG Mechanism -->

@@ -152,8 +152,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "without seeing the query.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# VCG auction: enclave logic
 # Second-price auction: winner pays second-highest bid
 
@@ -176,7 +175,7 @@ print("Pays:", price, "(second-highest)")
 print("\\nOperator sees only: winner=" + str(winner) + ", price=" + str(price))
 print("Operator never sees individual bids.")
 `} />
-    </details>
+    </div>
 
     <p class="text-sm mt-4">This is the architecture behind the <a href="https://june.kim/vector-space">Vector Space</a> privacy-preserving ad auction. The enclave implementation is at <a href="https://github.com/kimjune01/vectorspace-enclave">vectorspace-enclave</a>.</p>
 

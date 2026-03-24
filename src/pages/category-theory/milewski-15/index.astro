@@ -98,8 +98,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Each row is a different functor. Distinct objects give distinct functors.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# 3-object category: A, B, C
 # Morphisms: f: A->B, g: B->C, gf: A->C, plus identities
 
@@ -118,7 +117,7 @@ for a in ["A", "B", "C"]:
     row = " ".join(f"{x}->{yoneda_embed(a)[x]}" for x in ["A","B","C"])
     print(f"Y({a}): {row}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Faithfulness -->
@@ -187,8 +186,7 @@ for a in ["A", "B", "C"]:
 (display (hom 'B 'C))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Co-Yoneda: Y^op(a) = C(-, a)
 def co_yoneda_embed(a):
     return {x: hom(x, a) for x in ["A", "B", "C"]}
@@ -201,7 +199,7 @@ for a in ["A", "B", "C"]:
 print(f"\\nNat(Y^op(A), Y^op(B)) ≅ hom(A,B) = {hom('A','B')}")
 print(f"Nat(Y^op(B), Y^op(C)) ≅ hom(B,C) = {hom('B','C')}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Preserves and reflects isomorphisms -->
     <h3>Preserving and reflecting isomorphisms</h3>
@@ -277,8 +275,7 @@ print(f"Nat(Y^op(B), Y^op(C)) ≅ hom(B,C) = {hom('B','C')}")
 ; 15 — same as (btoa 5)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# CPS = Yoneda embedding in programming
 # forall x. (a -> x) -> (b -> x) ≅ (b -> a)
 
@@ -297,7 +294,7 @@ print(f"k=str:      {from_y(str)(5)}")
 recovered = from_y(lambda x: x)
 print(f"recovered btoa(5) = {recovered(5)}")  # 15
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. Preorder example -->

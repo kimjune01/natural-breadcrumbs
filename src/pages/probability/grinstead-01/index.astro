@@ -61,8 +61,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "size of event: ") (display (length even-event))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Sample space and events
 die = [1, 2, 3, 4, 5, 6]
 even_event = [x for x in die if x % 2 == 0]
@@ -71,7 +70,7 @@ print(f"sample space: {die}")
 print(f"even event:   {even_event}")
 print(f"size of event: {len(even_event)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Probability function -->
     <h3>The probability function axioms</h3>
@@ -114,8 +113,7 @@ print(f"size of event: {len(even_event)}")
 (display (prob-event P '(1 3 5)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Probability function on a fair die
 probs = {i: 1/6 for i in range(1, 7)}
 
@@ -130,7 +128,7 @@ even = [2, 4, 6]
 print(f"P(even) = {sum(probs[x] for x in even):.4f}")
 print(f"P(odd)  = {sum(probs[x] for x in [1,3,5]):.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Uniform distribution -->
     <h3>Uniform distribution on finite sets</h3>
@@ -163,8 +161,7 @@ print(f"P(odd)  = {sum(probs[x] for x in [1,3,5]):.4f}")
 (display "P(doubles) = ") (display (uniform-prob doubles two-dice))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Uniform distribution: count favorable / total
 from itertools import product
 
@@ -178,7 +175,7 @@ print(f"P(sum=7) = {len(sum_7)/len(two_dice):.4f}")
 doubles = [(a,b) for a,b in two_dice if a == b]
 print(f"P(doubles) = {len(doubles)/len(two_dice):.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Coin flips -->
     <h3>Coin flips and repeated trials</h3>

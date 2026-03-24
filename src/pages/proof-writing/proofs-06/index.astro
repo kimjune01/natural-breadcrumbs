@@ -136,8 +136,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; g(f(4)) = g(9) = 29. gf-inv(29) = f-inv(g-inv(29)) = f-inv(9) = 4.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bijection and inverse in Python
 f = lambda x: 2 * x + 1
 f_inv = lambda y: (y - 1) // 2
@@ -148,7 +147,7 @@ for x in range(-3, 4):
     back = f_inv(y)
     print(f"f({x:2d}) = {y:3d}, f_inv({y:3d}) = {back:2d}, round-trip: {back == x}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Composition -->
     <h3>Composition</h3>

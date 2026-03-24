@@ -128,8 +128,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Fundamental (n=1) is the pitch you hear.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Standing wave harmonics
 L, v = 0.65, 250  # m, m/s
 
@@ -139,7 +138,7 @@ for n in range(1, 7):
     f = n*v/(2*L)
     print(f"  n={n}  lambda={lam*1000:.0f}mm  f={f:.0f}Hz")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Fourier -->

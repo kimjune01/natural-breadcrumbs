@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (run-cycle working-memory productions 3)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Minimal production system in Python
 wm = {"hungry", "see-food"}
 
@@ -111,7 +110,7 @@ for _ in range(3):
     wm = matched[0][1](wm)
 print(f"Final WM: {wm}")
 `} />
-    </details>
+    </div>
 
 
     <!-- ACT-R -->
@@ -142,8 +141,7 @@ print(f"Final WM: {wm}")
 (display "Higher activation = faster retrieval = lower RT")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# ACT-R base-level activation
 import math
 
@@ -159,7 +157,7 @@ print("Activation (Paris, recent use): " + "{:.4f}".format(base_level(paris)))
 print("Activation (Ouagadougou, old):  " + "{:.4f}".format(base_level(ouaga)))
 print("Higher activation = faster retrieval = lower RT")
 `} />
-    </details>
+    </div>
 
 
     <!-- Soar -->
@@ -200,8 +198,7 @@ print("Higher activation = faster retrieval = lower RT")
 (solve-with-chunking "3+4")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Soar-style chunking: solve, then cache as a rule
 known_rules = {}
 
@@ -221,7 +218,7 @@ solve("3+4")
 print()
 solve("3+4")  # second time: retrieved directly
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

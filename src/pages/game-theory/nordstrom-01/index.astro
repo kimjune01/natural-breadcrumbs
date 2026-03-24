@@ -78,8 +78,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "(B, Y) -> ") (display (payoff 'B 'Y))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# A game: players, strategies, payoffs
 payoffs = {
     ("A", "X"): (3, 2),
@@ -95,7 +94,7 @@ for s1 in p1_strategies:
     for s2 in p2_strategies:
         print(f"({s1}, {s2}) -> {payoffs[(s1, s2)]}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Self-interest and rationality -->
     <h3>Two assumptions that drive everything</h3>

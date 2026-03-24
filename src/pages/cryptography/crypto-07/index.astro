@@ -112,8 +112,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "3G = ") (display G3)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Elliptic curve arithmetic over a finite field
 # Curve: y^2 = x^3 + 7 (mod 97) — tiny secp256k1
 
@@ -153,7 +152,7 @@ print(f"2G = {G2}")
 G3 = ec_add(G, G2)
 print(f"3G = {G3}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Scalar multiplication -->
     <h3>Scalar multiplication</h3>

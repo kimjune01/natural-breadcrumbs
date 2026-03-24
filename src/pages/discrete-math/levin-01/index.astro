@@ -58,8 +58,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (* soups mains))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Additive: disjoint choices
 soups, salads = 4, 5
 print(f"Starters (add): {soups + salads}")
@@ -68,7 +67,7 @@ print(f"Starters (add): {soups + salads}")
 mains = 3
 print(f"Soup+main combos (multiply): {soups * mains}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Binomial Coefficients -->
@@ -93,8 +92,7 @@ print(f"Soup+main combos (multiply): {soups * mains}")
 (display (choose 5 3))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from math import comb
 
 print(f"C(5,3) = {comb(5,3)}")
@@ -104,7 +102,7 @@ print(f"C(10,4) = {comb(10,4)}")
 print(f"C(4,2) + C(4,3) = {comb(4,2) + comb(4,3)}")
 print(f"C(5,3) = {comb(5,3)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Permutations vs Combinations -->
@@ -129,8 +127,7 @@ print(f"C(5,3) = {comb(5,3)}")
 (display "3! = ") (display (fact 3))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from math import perm, comb, factorial
 
 print(f"P(5,3) = {perm(5,3)}")
@@ -138,7 +135,7 @@ print(f"C(5,3) = {comb(5,3)}")
 print(f"Ratio P/C = {perm(5,3) // comb(5,3)}")
 print(f"3! = {factorial(3)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Stars and Bars -->
@@ -166,8 +163,7 @@ print(f"3! = {factorial(3)}")
 (display (stars-and-bars 5 4))  ; C(8,3) = 56
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from math import comb
 
 def stars_and_bars(n, k):
@@ -176,7 +172,7 @@ def stars_and_bars(n, k):
 print(f"7 cookies, 3 kids: {stars_and_bars(7, 3)}")
 print(f"5 balls, 4 boxes: {stars_and_bars(5, 4)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Inclusion-Exclusion -->
@@ -213,8 +209,7 @@ print(f"5 balls, 4 boxes: {stars_and_bars(5, 4)}")
 (display "Div by 2, 3, or 5: ") (display union3) ; 74
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# PIE for two sets
 div2 = 100 // 2   # 50
 div3 = 100 // 3   # 33
@@ -229,7 +224,7 @@ div30 = 100 // 30
 result = div2 + div3 + div5 - div6 - div10 - div15 + div30
 print(f"Div by 2, 3, or 5: {result}")  # 74
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

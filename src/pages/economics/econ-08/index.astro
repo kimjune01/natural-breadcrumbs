@@ -92,8 +92,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     (loop (adjust p 3) (+ n 1))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Market convergence simulation
 def demand(p): return 100 - 2*p
 def supply(p): return 3*p
@@ -112,7 +111,7 @@ for _ in range(6):
     print("  P=" + str(p).rjust(2) + "  Qd=" + str(qd).rjust(3) + "  Qs=" + str(qs).rjust(3) + "  " + state)
     p = adjust(p)
 `} />
-    </details>
+    </div>
 
 
     <h3>Price ceilings and floors</h3>

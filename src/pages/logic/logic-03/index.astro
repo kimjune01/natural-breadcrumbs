@@ -74,8 +74,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (show-row #f #f)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Truth tables for all connectives
 from itertools import product
 
@@ -88,7 +87,7 @@ for p, q in product([True, False], repeat=2):
     t = lambda b: "T" if b else "F"
     print(f"{t(p)} | {t(q)} |   {t(not p)}   |    {t(p and q)}    |   {t(p or q)}    |  {t(impl(p,q))}   |   {t(bicond(p,q))}")
 `} />
-    </details>
+    </div>
 
     <h3>Evaluating compound formulas</h3>
     <p>To evaluate a compound formula, recursively evaluate subformulas bottom-up, applying each connective's truth table.</p>

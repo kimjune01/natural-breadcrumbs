@@ -62,8 +62,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (get-conclusion arg1))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# An argument: premises + conclusion
 arg1 = {
     "premises": ["All humans are mortal", "Socrates is human"],
@@ -73,7 +72,7 @@ arg1 = {
 print(f"Premises: {arg1['premises']}")
 print(f"Conclusion: {arg1['conclusion']}")
 `} />
-    </details>
+    </div>
 
     <h3>Validity vs soundness</h3>
     <p>An argument is <strong>valid</strong> if the conclusion follows necessarily from the premises. An argument is <strong>sound</strong> if it is valid AND all premises are actually true. A valid argument can have false premises. A sound argument cannot.</p>

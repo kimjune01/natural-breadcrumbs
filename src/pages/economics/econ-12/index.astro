@@ -166,8 +166,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Deadweight loss: $") (display dwl)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Monopoly vs perfect competition
 demand = lambda q: 100 - q
 mr = lambda q: 100 - 2*q  # marginal revenue
@@ -188,7 +187,7 @@ dwl = 0.5 * (q_c - q_m) * (p_m - p_c)
 print("Deadweight loss: $" + str(dwl))
 print("Monopoly restricts " + str(q_c - q_m) + " units, charges $" + str(p_m - p_c) + " more")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Natural monopoly -->

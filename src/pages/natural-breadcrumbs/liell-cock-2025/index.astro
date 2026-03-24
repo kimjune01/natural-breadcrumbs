@@ -43,8 +43,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Imprecise = we don't know which distribution governs the coin
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Credal sets in Python
 precise = [{"heads": 0.5, "tails": 0.5}]
 imprecise = [
@@ -55,7 +54,7 @@ imprecise = [
 print(f"Precise: {len(precise)} distribution")
 print(f"Imprecise: {len(imprecise)} distributions")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Para construction -->
     <h3>The Para construction</h3>

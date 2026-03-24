@@ -69,8 +69,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; dist1 and dist2 have the same shadow — different probabilities, same reachability
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Possibilistic shadow in Python
 def support(dist):
     return {k for k, v in dist.items() if v > 0}
@@ -81,7 +80,7 @@ dist2 = {"a": 0.99, "b": 0.0, "c": 0.01}
 print("dist1 shadow:", support(dist1))
 print("dist2 shadow:", support(dist2))
 `} />
-    </details>
+    </div>
 
     <!-- 2. support_pure -->
     <h3>support_pure — pure maps to singleton</h3>
@@ -147,8 +146,7 @@ print("dist2 shadow:", support(dist2))
 
     <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> Finite sets, not measurable spaces. Same algebraic law.</p>
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# support_bind in Python
 def support(d): return {k for k,v in d.items() if v > 0}
 
@@ -178,7 +176,7 @@ print(f"compose then support: {path1}")
 print(f"support then compose: {path2}")
 print(f"equal? {path1 == path2}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Why it matters -->
     <h3>Why possibilistic reasoning is sound</h3>
@@ -205,8 +203,7 @@ print(f"equal? {path1 == path2}")
 ; No probabilities needed for this gate.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Possibilistic gating in Python
 def support(d): return {k for k, v in d.items() if v > 0}
 
@@ -220,7 +217,7 @@ for src in ["cat", "dog", "rock"]:
         ok = obs in support(sensor(src))
         if ok: print(f"  {src} -> {obs}: possible")
 `} />
-    </details>
+    </div>
 
     <!-- 5. The monad morphism diagram -->
     <h3>The monad morphism square</h3>

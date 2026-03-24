@@ -111,8 +111,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (wff? (quote P)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Formulas as nested tuples
 # ("not", P)  ("and", P, Q)  ("implies", P, Q)
 
@@ -131,7 +130,7 @@ print(f'("implies", ("and", "P", "Q"), "R"): {is_wff(("implies", ("and", "P", "Q
 print(f'("and", "P"): {is_wff(("and", "P"))}')
 print(f'"P": {is_wff("P")}')
 `} />
-    </details>
+    </div>
 
     <h3>Parsing</h3>
     <p>Parsing a formula means recovering its tree structure. The <strong>main connective</strong> is the root of the parse tree: the last connective applied. For (P &and; Q) &rarr; R, the main connective is &rarr; because implication was applied last.</p>

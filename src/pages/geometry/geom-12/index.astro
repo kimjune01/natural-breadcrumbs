@@ -99,8 +99,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Distances preserved.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def rotate(theta, p):
@@ -118,7 +117,7 @@ print("Original:", dist(a,b), dist(b,c), dist(c,a))
 print("Rotated: ", dist(a2,b2), dist(b2,c2), dist(c2,a2))
 print("Distances preserved.")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. The hierarchy -->

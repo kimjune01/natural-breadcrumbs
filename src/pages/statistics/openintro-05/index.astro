@@ -109,8 +109,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " and ") (display ci-upper)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Confidence interval in Python
 import math
 
@@ -127,7 +126,7 @@ print(f"Point estimate: {x_bar:.1f}")
 print(f"Margin of error: {margin:.2f}")
 print(f"95% CI: ({x_bar - margin:.2f}, {x_bar + margin:.2f})")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Hypothesis Testing -->

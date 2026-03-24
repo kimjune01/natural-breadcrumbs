@@ -101,8 +101,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (simulate 0.0 0.0 1.0 200)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# State-space: mass-spring-damper
 # x' = Ax + Bu, y = Cx
 m, c, k = 1.0, 0.5, 2.0
@@ -119,7 +118,7 @@ for step in range(200):
     if step % 20 == 0:
         print(f"  t={step*dt:5.2f}  pos={x1:.4f}  vel={x2:.4f}")
 `} />
-    </details>
+    </div>
 
     <h3>Neighbors</h3>
     <ul class="neighbors">

@@ -105,8 +105,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Search 25: ") (display (bst-search t 25))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# BST in Python
 class Node:
     def __init__(self, key):
@@ -138,7 +137,7 @@ print(f"Inorder: {inorder(root)}")
 print(f"Search 15: {search(root, 15)}")
 print(f"Search 25: {search(root, 25)}")
 `} />
-    </details>
+    </div>
 
     <h3>Tree traversals</h3>
     <p><strong>Inorder</strong> (left, root, right) gives sorted output. <strong>Preorder</strong> (root, left, right) gives a serialization that can reconstruct the tree. <strong>Postorder</strong> (left, right, root) evaluates expressions bottom-up.</p>

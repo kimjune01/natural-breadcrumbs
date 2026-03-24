@@ -107,8 +107,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (lookup "data.bin")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Inode-based file system simulation
 class Inode:
     def __init__(self, size, perms, direct, indirect=None):
@@ -133,7 +132,7 @@ def ls():
 
 ls()
 `} />
-    </details>
+    </div>
 
     <h3>Allocation strategies</h3>
     <p><strong>Contiguous</strong>: file occupies consecutive blocks. Fast reads, but causes fragmentation. <strong>Linked</strong>: each block has a pointer to the next. No fragmentation, but random access is slow. <strong>Indexed</strong>: an index block holds all pointers. Best of both, at the cost of index overhead. Unix inodes use indexed allocation with direct and indirect pointers.</p>

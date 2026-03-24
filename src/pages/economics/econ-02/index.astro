@@ -71,8 +71,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (supply p-star))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Supply and demand equilibrium
 def demand(p): return 100 - 2*p   # slopes down
 def supply(p): return 3*p          # slopes up
@@ -85,7 +84,7 @@ print("Equilibrium price:  " + str(p_star))
 print("Equilibrium quantity: " + str(q_star))
 print("Check — demand(P*): " + str(demand(p_star)) + ", supply(P*): " + str(supply(p_star)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Shifts -->

@@ -74,8 +74,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Test size: ") (display (length test))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">Python equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Train/test split
 data = [(x, 2*x + 1) for x in range(1, 11)]
 
@@ -87,7 +86,7 @@ print("Test set:", test)
 print("Train size:", len(train))
 print("Test size:", len(test))
 `} />
-    </details>
+    </div>
 
     <!-- 2. Nearest-neighbor classifier -->
     <h3>Nearest-neighbor classifier</h3>
@@ -119,8 +118,7 @@ print("Test size:", len(test))
 (display "Predicted class: ") (display (caddr nn))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">Python equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Nearest-neighbor classifier
 import math
 
@@ -139,7 +137,7 @@ print("Query:", query)
 print("Nearest:", nn)
 print("Predicted class:", nn[2])
 `} />
-    </details>
+    </div>
 
     <!-- 3. Evaluating accuracy -->
     <h3>Evaluating accuracy</h3>
@@ -182,8 +180,7 @@ print("Predicted class:", nn[2])
 (display "Accuracy: ") (display (* acc 100)) (display "%")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">Python equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Evaluate accuracy
 import math
 
@@ -202,7 +199,7 @@ correct = sum(1 for p in test if predict(p, train) == p[2])
 print("Correct:", correct, "/", len(test))
 print("Accuracy:", correct / len(test) * 100, "%")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

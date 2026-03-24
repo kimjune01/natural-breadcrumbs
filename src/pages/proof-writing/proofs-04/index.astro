@@ -72,15 +72,14 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (verify 100)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Induction: 1 + 2 + ... + n = n*(n+1)//2
 for n in [1, 5, 10, 50, 100]:
     actual = sum(range(1, n + 1))
     formula = n * (n + 1) // 2
     print(f"n={n:3d}  sum={actual:5d}  formula={formula:5d}  match={actual == formula}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Inequality -->
     <h3>Example: 2^n > n for all n at least 0</h3>

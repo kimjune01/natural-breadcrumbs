@@ -77,8 +77,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (and (divides? 2 6) (divides? 6 18) (divides? 2 18)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Divisibility
 def divides(a, b):
     return b % a == 0
@@ -88,7 +87,7 @@ print(f"3 | 7?  {divides(3, 7)}")
 print(f"5 | 0?  {divides(5, 0)}")
 print(f"2|6 and 6|18, so 2|18? {divides(2,6) and divides(6,18) and divides(2,18)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Division algorithm -->
@@ -129,8 +128,7 @@ print(f"2|6 and 6|18, so 2|18? {divides(2,6) and divides(6,18) and divides(2,18)
 (display "Steps: 48->18->12->6->done")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Euclidean algorithm
 def gcd(a, b):
     while b != 0:
@@ -141,7 +139,7 @@ print(f"gcd(48, 18) = {gcd(48, 18)}")
 print(f"gcd(100, 75) = {gcd(100, 75)}")
 print(f"gcd(17, 5) = {gcd(17, 5)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Bezout's identity -->
@@ -168,8 +166,7 @@ print(f"gcd(17, 5) = {gcd(17, 5)}")
   (display " = ") (display (+ (* 48 (cadr result)) (* 18 (caddr result)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Extended Euclidean algorithm
 def extended_gcd(a, b):
     if b == 0:
@@ -182,7 +179,7 @@ print(f"gcd(48,18) = {g}")
 print(f"x = {x}, y = {y}")
 print(f"Check: 48*{x} + 18*{y} = {48*x + 18*y}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Neighbors -->

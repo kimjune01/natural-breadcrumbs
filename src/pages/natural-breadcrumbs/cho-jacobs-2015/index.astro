@@ -45,8 +45,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   '(0 3 5 8 10 15))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Effects: fuzzy predicates X -> [0,1]
 classical_even = lambda x: 1 if x % 2 == 0 else 0
 fuzzy_big = lambda x: min(1.0, max(0.0, x / 10.0))
@@ -57,7 +56,7 @@ print()
 for x in [0, 3, 5, 8, 10, 15]:
     print(f"  big({x}) = {fuzzy_big(x)}")
 `} />
-    </details>
+    </div>
 
     <h3>States — dual to effects</h3>
     <p>A state on X is a morphism 1 → D(X) — a distribution over X. States pick points (probabilistically). Effects test points (fuzzily). They're dual: pairing a state with an effect gives a probability.</p>
@@ -119,8 +118,7 @@ for x in [0, 3, 5, 8, 10, 15]:
 ; 0.5 — the probability that x > 2 under this state
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# State-effect pairing = probability
 state = {1: 0.2, 2: 0.3, 3: 0.5}
 effect = lambda x: 1.0 if x > 2 else 0.0
@@ -128,7 +126,7 @@ effect = lambda x: 1.0 if x > 2 else 0.0
 prob = sum(p * effect(x) for x, p in state.items())
 print(f"P(x > 2) = {prob}")
 `} />
-    </details>
+    </div>
 
     <h3>The Born rule</h3>
     <p>The pairing of state and effect is the <a href="https://en.wikipedia.org/wiki/Born_rule">🅦 Born rule</a>: probability = ⟨state | effect⟩. In quantum mechanics, this is |⟨ψ|φ⟩|². In the effectus framework, it's the categorical pairing. Classical probability and quantum probability are both instances.</p>

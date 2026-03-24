@@ -85,8 +85,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (show 6)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def utility(n):
@@ -100,7 +99,7 @@ print("----   -------  ----------")
 for n in range(1, 7):
     print(str(n).rjust(4) + "  " + str(round(utility(n),2)).rjust(8) + "  " + str(round(marginal_utility(n),2)).rjust(10))
 `} />
-    </details>
+    </div>
 
 
     <h3>Consumer surplus</h3>

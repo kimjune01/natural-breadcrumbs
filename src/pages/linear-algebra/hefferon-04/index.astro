@@ -159,8 +159,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Should be 0 (rows are in arithmetic progression)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# 2x2 and 3x3 determinants
 def det2(a, b, c, d):
     return a*d - b*c
@@ -175,7 +174,7 @@ print(f"det 2x2: {det2(3,1,1,2)}")      # 5
 A = [[1,2,3],[4,5,6],[7,8,9]]
 print(f"det 3x3: {det3(A)}")             # 0
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Properties -->
@@ -205,8 +204,7 @@ print(f"det 3x3: {det3(A)}")             # 0
 (display "Equal? ") (display (= (* detA detB) detAB))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Multiplicativity: det(AB) = det(A)*det(B)
 det2 = lambda a,b,c,d: a*d - b*c
 
@@ -222,7 +220,7 @@ print("det(A)*det(B) = " + str(detA * detB))
 print("det(AB) = " + str(detAB))
 print("Equal? " + str(detA * detB == detAB))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Row operations -->
@@ -256,8 +254,7 @@ print("Equal? " + str(detA * detB == detAB))
 (display (* -1 1 -2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Determinant via row reduction
 det2 = lambda a,b,c,d: a*d - b*c
 
@@ -270,7 +267,7 @@ print("Via pivots: 2 * 1 = " + str(2 * 1))
 # Pivots become 1, -2; one swap
 print("With swap: (-1) * 1 * (-2) = " + str((-1) * 1 * (-2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Geometric interpretation -->
@@ -303,8 +300,7 @@ print("With swap: (-1) * 1 * (-2) = " + str((-1) * 1 * (-2)))
 (display (det2 0 1 1 0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Signed area of parallelograms
 det2 = lambda a,b,c,d: a*d - b*c
 
@@ -313,7 +309,7 @@ print("Shear (1,0)x(1,1): area = " + str(det2(1, 1, 0, 1)))
 print("Collapsed (1,2)x(2,4): area = " + str(det2(1, 2, 2, 4)))
 print("Reflection (0,1)x(1,0): signed area = " + str(det2(0, 1, 1, 0)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

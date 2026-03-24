@@ -137,8 +137,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Lookup 7: ") (display (hash-lookup idx 7))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Demonstrating index usage with SQLite
 import sqlite3
 
@@ -161,7 +160,7 @@ c.execute("CREATE INDEX idx_price ON items(price)")
 c.execute("EXPLAIN QUERY PLAN SELECT * FROM items WHERE price > 500")
 print("With index:   ", c.fetchone())
 `} />
-    </details>
+    </div>
 
 
     <!-- Neighbors -->

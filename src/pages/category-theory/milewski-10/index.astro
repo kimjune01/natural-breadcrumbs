@@ -44,8 +44,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Works uniformly for any type — that's the "natural" part.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# safeHead: a natural transformation List -> Maybe
 def safe_head(lst):
     if not lst:
@@ -56,7 +55,7 @@ print(f"safe_head([1,2,3]) = {safe_head([1,2,3])}")
 print(f"safe_head([])      = {safe_head([])}")
 print(f"safe_head(['a','b']) = {safe_head(['a','b'])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. The naturality condition -->
@@ -137,8 +136,7 @@ print(f"safe_head(['a','b']) = {safe_head(['a','b'])}")
 (display "equal? ") (display (equal? p1-empty p2-empty))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Verify naturality: fmap f . alpha = alpha . map f
 def safe_head(lst):
     return None if not lst else lst[0]
@@ -158,7 +156,7 @@ print(f"map then transform: {path1}")
 print(f"transform then map: {path2}")
 print(f"equal? {path1 == path2}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. length as a natural transformation -->
@@ -225,8 +223,7 @@ print(f"equal? {path1 == path2}")
 (display "equal? ") (display (equal? path3 path4))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Theorems for free: reverse and tail are natural transformations
 double = lambda x: x * 2
 xs = [1, 2, 3, 4, 5]
@@ -245,7 +242,7 @@ print(f"map-then-tail: {p3}")
 print(f"tail-then-map: {p4}")
 print(f"equal? {p3 == p4}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Functor categories -->
@@ -320,8 +317,7 @@ print(f"equal? {p3 == p4}")
 (display "equal? ") (display (equal? p1 p2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Natural transformations Maybe -> List: only two options
 def maybe_to_list_1(m):
     """Nothing -> [], Just x -> [x]"""
@@ -344,7 +340,7 @@ print(f"map-then-transform: {p1}")
 print(f"transform-then-map: {p2}")
 print(f"equal? {p1 == p2}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

@@ -99,8 +99,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (scan-schedule '(20 40 80 110 160) 50 199)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# SCAN (elevator) disk scheduling
 def scan(requests, start, max_track=199):
     right = sorted(r for r in requests if r >= start)
@@ -115,7 +114,7 @@ def scan(requests, start, max_track=199):
 
 scan([20, 40, 80, 110, 160], start=50)
 `} />
-    </details>
+    </div>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>

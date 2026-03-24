@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Converges to stationary distribution (5/8, 3/8)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 P = np.array([[0.7, 0.3],
@@ -104,7 +103,7 @@ for i in [1, 2, 5, 10, 50]:
     print(f"day {i:>2}: [{d_i[0]:.4f}, {d_i[1]:.4f}]")
 # Converges to [0.625, 0.375]
 `} />
-    </details>
+    </div>
 
     <!-- 2. Stationary distribution -->
     <h3>Stationary distribution</h3>

@@ -94,8 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (binary-search arr 10 0 9))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Binary search in Python
 def binary_search(arr, target):
     lo, hi = 0, len(arr) - 1
@@ -111,7 +110,7 @@ print(f"Search for 15: index {binary_search(arr, 15)}")
 print(f"Search for 27: index {binary_search(arr, 27)}")
 print(f"Search for 10: index {binary_search(arr, 10)}")
 `} />
-    </details>
+    </div>
 
     <h3>Hash tables</h3>
     <p>Compute a hash function h(key) to find the position directly. Expected O(1) for insert, delete, and lookup. Worst case O(n) if many keys collide. The trade-off: O(1) time for no ordering.</p>

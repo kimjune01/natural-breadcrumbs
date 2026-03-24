@@ -71,8 +71,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Every sum of two evens is even.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Direct proof: sum of two evens is even
 def is_even(n):
     return n % 2 == 0
@@ -82,7 +81,7 @@ for a, b in [(4, 6), (10, 22), (0, 8), (2, 2)]:
     total = a + b
     print(f"{a} + {b} = {total}, even? {is_even(total)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Example: product of rationals -->
     <h3>Example: product of rationals is rational</h3>

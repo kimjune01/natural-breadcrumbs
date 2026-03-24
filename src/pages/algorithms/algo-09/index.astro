@@ -100,8 +100,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; fib(30) naive would take billions of calls
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Fibonacci: three approaches
 from functools import lru_cache
 
@@ -123,7 +122,7 @@ print(f"fib(10) = {fib_dp(10)}")
 print(f"fib(30) = {fib_dp(30)}")
 print(f"fib(50) = {fib_dp(50)}")
 `} />
-    </details>
+    </div>
 
     <h3>Edit distance</h3>
     <p>Given two strings, find the minimum number of insertions, deletions, and replacements to transform one into the other. The DP table has size m x n. Each cell depends on three neighbors.</p>

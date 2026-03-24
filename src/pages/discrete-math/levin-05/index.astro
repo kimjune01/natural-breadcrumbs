@@ -92,8 +92,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   subsets)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from itertools import combinations
 
 edges = [(1,'a'),(1,'b'),(2,'a'),(2,'c'),(3,'b'),(3,'c')]
@@ -106,7 +105,7 @@ for size in range(1, len(left)+1):
         ns = set().union(*(nbrs(v) for v in s))
         print(f"  S={s} N(S)={ns} |N(S)|>={len(s)}? {len(ns)>=len(s)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Ramsey theory -->
@@ -158,8 +157,7 @@ for size in range(1, len(left)+1):
 (display "R(4,4) = 18")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from itertools import combinations
 
 # K5 cycle coloring: no monochromatic triangle
@@ -176,7 +174,7 @@ print(f"Red triangle? {has_mono(is_red)}")
 print(f"Blue triangle? {has_mono(lambda a,b: not is_red(a,b))}")
 print("R(3,3) > 5 confirmed. R(3,3) = 6.")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Generating functions -->
@@ -222,8 +220,7 @@ print("R(3,3) > 5 confirmed. R(3,3) = 6.")
 (display "(1+x)^4 = ") (display (poly-mul cubed one-plus-x))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 # Polynomial multiplication via numpy
@@ -240,7 +237,7 @@ for _ in range(8):
     fib.append(fib[-1] + fib[-2])
 print(f"Fibonacci: {fib}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

@@ -67,8 +67,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Three distinct cosets, each of size 2.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Cosets of H = [0,3] in Z6
 H = [0, 3]
 for g in range(6):
@@ -76,7 +75,7 @@ for g in range(6):
     print(str(g) + "+H = " + str(coset))
 # Three distinct cosets: [0,3], [1,4], [2,5]
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Lagrange's theorem -->
@@ -105,8 +104,7 @@ for g in range(6):
     (loop (+ g 1))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lagrange's theorem: all subgroup orders divide |G|=12
 def cyclic(gen, n):
     elts = [0]
@@ -121,7 +119,7 @@ for g in range(12):
     divides = 12 % len(sub) == 0
     print("<" + str(g) + "> order=" + str(len(sub)).rjust(2) + "  divides 12: " + str(divides))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

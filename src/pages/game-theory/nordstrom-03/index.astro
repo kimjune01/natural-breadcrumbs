@@ -74,8 +74,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (zero-sum? prisoners '(C D) '(C D)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Check if a game is zero-sum
 def is_zero_sum(payoffs):
     sums = [a + b for a, b in payoffs.values()]
@@ -94,7 +93,7 @@ prisoners = {
 print(f"Matching Pennies: {is_zero_sum(matching_pennies)}")
 print(f"Prisoner's Dilemma: {is_zero_sum(prisoners)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Why zero-sum matters -->
     <h3>Why zero-sum matters</h3>

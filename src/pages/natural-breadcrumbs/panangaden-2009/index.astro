@@ -40,8 +40,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; s2 is absorbing: once you're there, you stay
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# LMP as a transition function
 def transition(state, label):
     lmp = {
@@ -54,7 +53,7 @@ def transition(state, label):
 for s in ["s0", "s1", "s2"]:
     print(f"  {s} --a--> {transition(s, 'a')}")
 `} />
-    </details>
+    </div>
 
     <h3>Bisimulation — behavioral equivalence</h3>
     <p>Two states are <a href="https://en.wikipedia.org/wiki/Bisimulation">🅦 bisimilar</a> if they can't be distinguished by any sequence of observations. Formally: s ~ t if for every label a, the distributions transition(s,a) and transition(t,a) assign the same total probability to every equivalence class of ~.</p>
@@ -166,8 +165,7 @@ for s in ["s0", "s1", "s2"]:
 ; Nonzero — s0 and s1 are behaviorally different
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bisimulation metric (total variation approximation)
 def tv_distance(d1, d2):
     keys = set(d1) | set(d2)
@@ -178,7 +176,7 @@ d2 = {"s0": 0.5, "s1": 0.5}
 print(f"TV(s0->a, s1->a) = {tv_distance(d1, d2)}")
 print("Nonzero = behaviorally distinguishable")
 `} />
-    </details>
+    </div>
 
     <h3>Logical characterization</h3>
     <p>The metric has a logical counterpart: two states are distance d apart iff there exists a formula in a quantitative logic that evaluates to values differing by d on the two states. Behavioral distance = logical distance. This is the quantitative analogue of the Hennessy-Milner theorem.</p>

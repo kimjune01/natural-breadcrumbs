@@ -105,8 +105,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Var ~ 2.917, SD ~ 1.708
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Expected value and variance
 import math
 
@@ -126,7 +125,7 @@ print(f"E[X] = {mu:.4f}")
 print(f"Var(X) = {var:.4f}")
 print(f"SD(X) = {math.sqrt(var):.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Linearity of expectation -->
     <h3>Linearity of expectation</h3>

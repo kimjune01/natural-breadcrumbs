@@ -97,8 +97,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; add-ten expects a number, not a pair.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Functions that return value + log
 def to_upper(s):
     return (s.upper(), "to_upper ")
@@ -111,7 +110,7 @@ print(f"to_words: {to_words('HELLO WORLD')}")
 
 # to_words(to_upper("hello")) fails — type mismatch
 `} />
-    </details>
+    </div>
 
     <!-- 2. The Writer type and Kleisli composition -->
     <h3>The Writer type and Kleisli composition</h3>
@@ -144,8 +143,7 @@ print(f"to_words: {to_words('HELLO WORLD')}")
 `} />
 
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Kleisli composition for Writer
 def fish(f, g):
     def composed(x):
@@ -164,7 +162,7 @@ to_upper_words = fish(to_upper, to_words)
 print(to_upper_words("hello world"))
 # (["HELLO", "WORLD"], "to_upper to_words ")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Identity and the category laws -->
     <h3>Identity and the category laws</h3>
@@ -242,8 +240,7 @@ print(to_upper_words("hello world"))
 ; Every step is pure. The log assembles itself through composition.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Logging pipeline — no mutation, no global state
 def fish(f, g):
     def composed(x):
@@ -270,7 +267,7 @@ pipeline = fish(fish(validate_age, categorize), format_result)
 print(pipeline(25))
 print(pipeline(200))
 `} />
-    </details>
+    </div>
 
     <!-- 5. Beyond Writer: the Kleisli pattern -->
     <h3>Beyond Writer: the Kleisli pattern</h3>

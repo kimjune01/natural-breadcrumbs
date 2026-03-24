@@ -120,8 +120,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (bfs graph "A"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# BFS in Python
 from collections import deque
 
@@ -146,7 +145,7 @@ def bfs(graph, start):
 
 print(f"BFS from A: {bfs(graph, 'A')}")
 `} />
-    </details>
+    </div>
 
     <h3>Depth-first search</h3>
     <p>DFS uses a stack (or recursion). It explores as deep as possible before backtracking. Useful for topological sort, cycle detection, and connected components.</p>

@@ -93,8 +93,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "modifies: ") (display (registers-modified seq2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Instruction sequences with register metadata
 from dataclasses import dataclass
 
@@ -123,7 +122,7 @@ seq2 = InstructionSeq(
 print(f"needs: {seq2.needs}")
 print(f"modifies: {seq2.modifies}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Compiling expressions -->
@@ -182,8 +181,7 @@ print(f"modifies: {seq2.modifies}")
           (compile '(if x 1 2) 'val))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# compile: dispatch on expression type
 def compile_exp(exp, target='val'):
     if isinstance(exp, (int, float)):
@@ -229,7 +227,7 @@ print("--- compile (if x 1 2) ---")
 for inst in compile_exp(['if', 'x', 1, 2]):
     print(f"  {inst}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Compiling combinations -->
@@ -282,8 +280,7 @@ for inst in compile_exp(['if', 'x', 1, 2]):
           (compile-application '(+ 3 7) 'val))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Compiling function application (f a b)
 def compile_application(exp, target='val'):
     operator = exp[0]
@@ -318,7 +315,7 @@ print("--- compile (+ 3 7) ---")
 for inst in compile_application(['+', 3, 7]):
     print(f"  {inst}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Lexical addressing -->
@@ -354,8 +351,7 @@ for inst in compile_application(['+', 3, 7]):
 (display "z -> ") (display (find-variable 'z cenv))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lexical addressing: compile-time variable lookup
 def find_variable(var, compile_env):
     for depth, frame in enumerate(compile_env):
@@ -376,7 +372,7 @@ print(f"b -> {find_variable('b', cenv)}")
 print(f"top -> {find_variable('top', cenv)}")
 print(f"z -> {find_variable('z', cenv)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Interfacing compiled and interpreted code -->
@@ -422,8 +418,7 @@ print(f"z -> {find_variable('z', cenv)}")
 (display "Interface: same registers, different execution paths")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Compiled vs interpreted: same calling convention
 # In Python, both are just functions — the distinction is at the bytecode level
 
@@ -446,7 +441,7 @@ print(f"compiled_fact_double(5) = {compiled_fact_double(5)}")
 print(f"compiled_fact_double(6) = {compiled_fact_double(6)}")
 print("Interface: same calling convention, different execution")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

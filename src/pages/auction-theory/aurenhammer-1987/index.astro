@@ -88,8 +88,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Equal? ") (display (= pa0 pb0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Power diagram assignment
 import math
 
@@ -106,7 +105,7 @@ for x in range(0, 11):
     winner = "A" if dists[0] < dists[1] else "B"
     print("x=" + str(x) + ": A=" + str(int(dists[0])) + ", B=" + str(int(dists[1])) + " -> " + winner)
 `} />
-    </details>
+    </div>
 
     <h3>Why this matters for ad auctions</h3>
     <p>In embedding-space auctions, each advertiser is a site in the embedding space and their bid is the weight. The power diagram determines which advertiser wins for each query embedding. Higher bids expand your territory, but relevance (proximity) still matters.</p>

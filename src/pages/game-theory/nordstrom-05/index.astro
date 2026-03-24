@@ -71,8 +71,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Uniform: ") (display rps-uniform)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Mixed strategy as probability distribution
 def mixed_strategy(actions, probs):
     assert abs(sum(probs) - 1.0) < 1e-9, "must sum to 1"
@@ -84,7 +83,7 @@ print(f"Mixed strategy: {rps_mix}")
 rps_uniform = mixed_strategy(["rock", "paper", "scissors"], [1/3, 1/3, 1/3])
 print(f"Uniform: {rps_uniform}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Expected value -->
     <h3>Expected value</h3>
@@ -148,8 +147,7 @@ print(f"Uniform: {rps_uniform}")
 (display (+ (* 0.6 0.3 3) (* 0.6 0.7 -1) (* 0.4 0.3 -2) (* 0.4 0.7 4)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Expected value with mixed strategies
 payoffs = [[3, -1], [-2, 4]]
 row_probs = [0.6, 0.4]
@@ -170,7 +168,7 @@ terms = [
 for rp, cp, v in terms:
     print(f"  {rp}*{cp}*{v:+d} = {rp*cp*v:+.2f}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

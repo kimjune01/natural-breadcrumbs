@@ -55,8 +55,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " eV")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`h = 6.626e-34
 c = 3e8
 
@@ -73,7 +72,7 @@ print(f"Baseball wavelength: {de_broglie(0.145, 40):.3e} m")
 E = photon_energy(532e-9)
 print(f"Green photon: {E:.3e} J = {E/1.6e-19:.2f} eV")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Uncertainty principle -->

@@ -111,8 +111,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "P1->P2->P3->P1: cycle? ") (display (has-cycle? cycle-graph))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Deadlock detection via cycle detection in wait-for graph
 def has_cycle(graph):
     visited = set()
@@ -139,7 +138,7 @@ print("P1->P2->P3:", has_cycle({"P1": ["P2"], "P2": ["P3"], "P3": []}))
 # Deadlock
 print("P1->P2->P3->P1:", has_cycle({"P1": ["P2"], "P2": ["P3"], "P3": ["P1"]}))
 `} />
-    </details>
+    </div>
 
     <h3>Prevention</h3>
     <p>Break one of the four conditions. Impose a total ordering on resources (break circular wait). Require processes to request all resources at once (break hold-and-wait). Allow preemption of resources.</p>

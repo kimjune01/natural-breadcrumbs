@@ -79,8 +79,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   (display (/ lik-all total)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Size principle in Python
 def size_principle(h_size, n):
     return (1.0 / h_size) ** n
@@ -93,7 +92,7 @@ total = sum(liks.values())
 for h, l in liks.items():
     print(f"P({h:15s} | data) = {l/total:.6f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Causal reasoning -->
@@ -132,8 +131,7 @@ for h, l in liks.items():
 (wet-grass-model)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Causal reasoning: rain vs sprinkler
 p_rain = 0.2
 # Joint probabilities for wet grass
@@ -150,7 +148,7 @@ p_wet_spr = j1 + j3
 print("P(rain | wet, sprinkler on) = " + "{:.4f}".format(j1 / p_wet_spr))
 # Rain less likely once sprinkler explains wetness
 `} />
-    </details>
+    </div>
 
 
     <!-- Blessing of abstraction -->
@@ -178,8 +176,7 @@ print("P(rain | wet, sprinkler on) = " + "{:.4f}".format(j1 / p_wet_spr))
 (display "Abstraction makes prediction before seeing ANY Island 3 data.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Blessing of abstraction
 # Without abstraction: uniform prior
 print("P(small animals on Island 3)")
@@ -189,7 +186,7 @@ print("  Without abstraction: 0.5")
 print("  With abstraction:    0.75")
 print("Abstraction makes prediction before seeing ANY Island 3 data.")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

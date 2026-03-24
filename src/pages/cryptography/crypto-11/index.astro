@@ -98,8 +98,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Tampered passes? ") (display (= tampered-hash expected-hash))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Attestation: hash the code, check against known-good
 import hashlib
 
@@ -118,7 +117,7 @@ print(f"\\nVerifier expects: {expected}")
 print(f"Honest passes?  {honest_hash == expected}")
 print(f"Tampered passes? {tampered_hash == expected}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. The hardware key -->
     <h3>The hardware-bound key</h3>

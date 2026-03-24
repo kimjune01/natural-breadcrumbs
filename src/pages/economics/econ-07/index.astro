@@ -79,8 +79,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (show 10)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def ppf(guns):
@@ -94,7 +93,7 @@ for g in [0, 2, 4, 6, 8, 10]:
     opp = (ppf(g-1) - ppf(g)) if g > 0 else 0
     print(str(g).rjust(4) + "  " + str(round(b,2)).rjust(6) + "  " + str(round(opp,2)).rjust(8))
 `} />
-    </details>
+    </div>
 
 
     <h3>Increasing opportunity cost</h3>

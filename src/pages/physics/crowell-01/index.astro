@@ -108,8 +108,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (kinetic-energy 2 20))            ; 400 J
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Kinetic energy
 def kinetic_energy(m, v):
     return 0.5 * m * v**2
@@ -117,7 +116,7 @@ def kinetic_energy(m, v):
 for v in [1, 2, 3, 10, 20]:
     print(f"KE at {v:2d} m/s: {kinetic_energy(2, v):6.1f} J")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Potential Energy -->
@@ -189,8 +188,7 @@ for v in [1, 2, 3, 10, 20]:
 (display "W = delta KE? ") (display (= W KE-final))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Work-energy theorem
 import math
 
@@ -203,7 +201,7 @@ print(f"Final speed: {v_final:.2f} m/s")
 print(f"KE_final: {0.5 * m * v_final**2} J")
 print(f"W = delta KE? {abs(W - 0.5 * m * v_final**2) < 1e-10}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Conservation -->

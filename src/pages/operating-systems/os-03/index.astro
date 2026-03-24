@@ -82,8 +82,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Lost update: expected 2, got 1
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Race condition demonstration
 # In real threading, this would be non-deterministic
 
@@ -110,7 +109,7 @@ t1.start(); t2.start()
 t1.join(); t2.join()
 print(f"Threaded:   {count}")  # likely < 200000
 `} />
-    </details>
+    </div>
 
     <h3>Critical sections</h3>
     <p>A <strong>critical section</strong> is the part of code that accesses shared resources. The goal: ensure that at most one thread is in its critical section at any time. Three requirements: mutual exclusion, progress (no unnecessary blocking), and bounded waiting (no starvation).</p>

@@ -149,8 +149,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " degrees")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def haversine(lat1, lon1, lat2, lon2):
@@ -170,7 +169,7 @@ print(f"Flat triangle: 180 degrees")
 print(f"Spherical triangle (area=1): {180 + 180/math.pi:.1f} degrees")
 print(f"Hyperbolic triangle (area=0.5): {180 - 0.5*180/math.pi:.1f} degrees")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Gauss-Bonnet -->
     <h3>The Gauss-Bonnet theorem (preview)</h3>

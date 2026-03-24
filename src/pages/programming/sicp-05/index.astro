@@ -119,8 +119,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (my-map (lambda (x) (* x x)) xs))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Building and traversing lists
 xs = [1, 2, 3, 4, 5]
 print(f"list:   {xs}")
@@ -132,7 +131,7 @@ print(f"length: {len(xs)}")
 # map — apply f to every element
 print(f"map square: {[x*x for x in xs]}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Hierarchical structures -->
     <h3>Hierarchical structures</h3>
@@ -162,8 +161,7 @@ print(f"map square: {[x*x for x in xs]}")
 (display (scale-tree tree 10))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Trees as nested lists
 tree = [[1, 2], [3, [4, 5]]]
 print(f"tree: {tree}")
@@ -186,7 +184,7 @@ def scale_tree(t, factor):
 
 print(f"scale by 10: {scale_tree(tree, 10)}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Sequence operations -->
     <h3>Sequence operations</h3>
@@ -223,8 +221,7 @@ print(f"scale by 10: {scale_tree(tree, 10)}")
   (map square (my-filter odd? xs))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from functools import reduce
 
 xs = list(range(1, 11))
@@ -242,7 +239,7 @@ print(f"product of odds: {reduce(lambda a, b: a*b, odds, 1)}")
 # Pipeline: sum of squares of odd numbers
 print(f"sum of odd squares: {sum(x*x for x in xs if x % 2 == 1)}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Nested mappings -->
     <h3>Nested mappings</h3>
@@ -290,8 +287,7 @@ print(f"sum of odd squares: {sum(x*x for x in xs if x % 2 == 1)}")
 (display (prime-sum-pairs 6))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from math import isqrt
 
 def is_prime(n):
@@ -312,7 +308,7 @@ def prime_sum_pairs(n):
 
 print(f"prime-sum pairs up to 6: {prime_sum_pairs(6)}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

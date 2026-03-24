@@ -111,8 +111,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "output: ") (display (caddr result))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Forward pass: 2-layer network
 def relu(x):
     return max(0, x)
@@ -135,7 +134,7 @@ print("z1 (pre-relu):", [round(v,3) for v in z1])
 print("h  (post-relu):", [round(v,3) for v in h])
 print("output:", [round(v,3) for v in y])
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Backprop by hand -->
@@ -222,8 +221,7 @@ print("output:", [round(v,3) for v in y])
 (display "dL/dh = ") (display dL/dh)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Backprop by hand for a 2-layer network
 def relu(x): return max(0, x)
 def relu_d(x): return 1 if x > 0 else 0
@@ -251,7 +249,7 @@ print("dL/dy = {:.3f}".format(dL_dy))
 print("dL/dW2 =", [round(v,3) for v in dL_dW2])
 print("dL/dh =", [round(v,3) for v in dL_dh])
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Training loop on XOR -->
@@ -299,8 +297,7 @@ print("dL/dh =", [round(v,3) for v in dL_dh])
 (display "(Full training loop needs mutable state)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import random
 random.seed(1)
 
@@ -341,7 +338,7 @@ for x, t in data:
     y = sum(W2[j]*h[j] for j in range(4)) + b2
     print("  {} -> {:.3f} (target {})".format(x, y, t))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

@@ -86,8 +86,7 @@ weather_to_temp = {'{'}
 ; All three are morphisms in FinStoch.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Markov kernels as Python dicts
 
 def fair_coin(x):
@@ -99,7 +98,7 @@ def deterministic_double(x):
 print("fair_coin:", fair_coin(None))
 print("double(3):", deterministic_double(3))
 `} />
-    </details>
+    </div>
 
     <!-- Copy and determinism -->
     <h3>Copy detects determinism</h3>
@@ -197,8 +196,7 @@ print("double(3):", deterministic_double(3))
 ; #f — stochastic! coin;copy has 2 outcomes, copy;coin⊗coin has 4
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Copy-naturality in Python (with randomness demo)
 import random
 
@@ -216,7 +214,7 @@ for _ in range(4):
     a, b = coin(5), coin(5)
     print(f"  coin: ({a}, {b}) — {'=' if a==b else '≠'}")
 `} />
-    </details>
+    </div>
 
     <!-- Kleisli composition -->
     <h3>Kleisli composition</h3>
@@ -319,8 +317,7 @@ for _ in range(4):
 ; ((6 . 0.5) (8 . 0.5))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Same thing in Python
 
 def f(x):
@@ -340,7 +337,7 @@ def kleisli(f, g):
 
 print(f"(f >=> g)(3) = {kleisli(f, g)(3)}")
 `} />
-    </details>
+    </div>
 
     <!-- Support -->
     <h3>Support — which outputs are possible</h3>
@@ -360,8 +357,7 @@ print(f"(f >=> g)(3) = {kleisli(f, g)(3)}")
 ; (5 6 7) — these are the possible outputs
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Support in Python
 
 def f(x):
@@ -373,7 +369,7 @@ def support(dist):
 print(f"f(5) = {f(5)}")
 print(f"support(f(5)) = {support(f(5))}")
 `} />
-    </details>
+    </div>
 
     <!-- Informativeness -->
     <h3>Informativeness preorder</h3>
@@ -394,8 +390,7 @@ print(f"support(f(5)) = {support(f(5))}")
 ; but not the reverse: just-square loses the sign
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Informativeness in Python
 full_data = lambda x: {(x, x**2): 1.0}
 just_square = lambda x: {x**2: 1.0}
@@ -405,7 +400,7 @@ print(f"just_square(-3) = {just_square(-3)}")
 print("full_data ≥ just_square — recoverable")
 print("just_square loses the sign — not recoverable")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

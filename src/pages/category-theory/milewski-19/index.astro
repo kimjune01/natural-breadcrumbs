@@ -94,8 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Each call collapses ONE layer. Not recursive yet.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# F-algebra: functor + carrier + evaluator
 # NatF(a) = ("zero",) | ("succ", a)
 
@@ -112,7 +111,7 @@ print(f"eval Zero: {eval_int(('zero',))}")
 print(f"eval Succ(0): {eval_int(('succ', 0))}")
 print(f"eval Succ(2): {eval_int(('succ', 2))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Fixed points and initial algebras -->
@@ -230,8 +229,7 @@ print(f"eval Succ(2): {eval_int(('succ', 2))}")
 ; The catamorphism is the universal fold.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Catamorphism: the universal fold
 def fix(x): return ("fix", x)
 def unfix(x): return x[1]
@@ -263,7 +261,7 @@ def fib_alg(x):
 six = succ(succ(succ(three)))
 print(f"fib(6): {cata(natf_map, fib_alg, six)[0]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Lists as initial algebra -->
@@ -310,8 +308,7 @@ print(f"fib(6): {cata(natf_map, fib_alg, six)[0]}")
 ; foldr IS cata. Every fold is a catamorphism.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lists as initial algebra of ListF
 def listf_map(f, x):
     if x[0] == "nil": return x
@@ -334,7 +331,7 @@ print(f"sum [10,20,30]: {cata(listf_map, sum_alg, my_list)}")
 print(f"length [10,20,30]: {cata(listf_map, len_alg, my_list)}")
 print(f"to-list: {cata(listf_map, to_list_alg, my_list)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Coalgebras and anamorphisms -->

@@ -68,8 +68,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (modus-tollens #t rain-implies-wet))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Proof rules as functions
 def modus_ponens(p, p_implies_q):
     """From P and P->Q, derive Q"""
@@ -87,7 +86,7 @@ result = modus_ponens(True, rain_implies_wet)
 print(f"Modus ponens: rain + (rain->wet) = wet: {result}")
 print(f"Modus tollens: not wet + (rain->wet) = not rain: {modus_tollens(True, True)}")
 `} />
-    </details>
+    </div>
 
     <h3>Conjunction and disjunction rules</h3>
     <p>Conjunction introduction (&and;I): from P and Q separately, conclude P &and; Q. Conjunction elimination (&and;E): from P &and; Q, conclude P (or Q). Disjunction introduction (&or;I): from P, conclude P &or; Q for any Q. Disjunction elimination (&or;E): from P &or; Q, if P leads to R and Q leads to R, conclude R.</p>

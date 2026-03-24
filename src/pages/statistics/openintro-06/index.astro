@@ -38,8 +38,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (if (> (abs z) 1.96) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# One-proportion Z-test
 import math
 
@@ -55,7 +54,7 @@ print(f"SE    = {se:.4f}")
 print(f"Z     = {z:.2f}")
 print(f"Reject H0 at alpha=0.05? {'Yes' if abs(z) > 1.96 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Two-proportion Z-test -->
@@ -123,8 +122,7 @@ print(f"Reject H0 at alpha=0.05? {'Yes' if abs(z) > 1.96 else 'No'}")
 (display (if (> (abs z) 1.96) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Two-proportion Z-test
 import math
 
@@ -141,7 +139,7 @@ print(f"pooled = {p_pool}")
 print(f"Z = {z:.3f}")
 print(f"Reject H0? {'Yes' if abs(z) > 1.96 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Chi-square goodness of fit -->
@@ -171,8 +169,7 @@ print(f"Reject H0? {'Yes' if abs(z) > 1.96 else 'No'}")
 (display (if (> chi-sq 11.07) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Chi-square goodness of fit
 observed = [8, 12, 10, 14, 7, 9]
 expected = [10, 10, 10, 10, 10, 10]
@@ -184,7 +181,7 @@ print(f"df = 5")
 print(f"Critical value (alpha=0.05) = 11.07")
 print(f"Reject H0? {'Yes' if chi_sq > 11.07 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Chi-square test for independence -->
@@ -218,8 +215,7 @@ print(f"Reject H0? {'Yes' if chi_sq > 11.07 else 'No'}")
 (display (if (> chi-sq 3.84) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Chi-square test for independence
 # 2x2 table: Treatment(40,60), Control(30,70)
 n = 200
@@ -237,7 +233,7 @@ print(f"Chi-sq = {chi_sq:.3f}")
 print(f"df = 1, critical = 3.84")
 print(f"Reject H0? {'Yes' if chi_sq > 3.84 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

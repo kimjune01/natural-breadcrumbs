@@ -85,8 +85,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (try-all 0)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# SAT solver: brute force all assignments
 from itertools import product
 
@@ -102,7 +101,7 @@ for x1, x2, x3 in product([False, True], repeat=3):
         print("SAT! x1=" + str(x1) + ", x2=" + str(x2) + ", x3=" + str(x3))
         break
 `} />
-    </details>
+    </div>
 
 
     <!-- Polynomial-time reductions -->

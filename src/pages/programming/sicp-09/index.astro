@@ -60,8 +60,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (W 15))             ; 35
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def make_withdraw(balance):
     b = [balance]  # mutable cell
     def withdraw(amount):
@@ -77,7 +76,7 @@ print(W(25))   # 50
 print(W(60))   # Insufficient funds
 print(W(15))   # 35
 `} />
-    </details>
+    </div>
 
     <p>A full bank account bundles deposit and withdraw behind a message-passing interface:</p>
 
@@ -103,8 +102,7 @@ print(W(15))   # 35
 (display ((acc 'withdraw) 60))            ; 30
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`class Account:
     def __init__(self, balance):
         self.balance = balance
@@ -122,7 +120,7 @@ print(acc.withdraw(50))  # 50
 print(acc.deposit(40))   # 90
 print(acc.withdraw(60))  # 30
 `} />
-    </details>
+    </div>
 
     <!-- 2. Costs of assignment -->
     <h3>The costs of introducing assignment</h3>
@@ -151,8 +149,7 @@ print(acc.withdraw(60))  # 30
 (display (W 25))            ; 50 — not the same!
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Pure: same input, same output
 def decrement(balance, amount):
     return balance - amount
@@ -174,7 +171,7 @@ W = make_withdraw(100)
 print(W(25))  # 75
 print(W(25))  # 50 — not the same!
 `} />
-    </details>
+    </div>
 
     <!-- 3. Benefits of assignment: Monte Carlo -->
     <h3>The benefits of assignment: Monte Carlo</h3>
@@ -212,8 +209,7 @@ print(W(25))  # 50 — not the same!
 (display (sqrt (/ 6.0 fraction)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import random, math
 
 def monte_carlo(trials, experiment):
@@ -229,7 +225,7 @@ pi_est = (6 / fraction) ** 0.5 if fraction > 0 else 0
 print(f"fraction coprime: {fraction:.3f}")
 print(f"pi estimate:      {pi_est:.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Sameness and change -->
     <h3>Sameness and change</h3>
@@ -267,8 +263,7 @@ print(f"pi estimate:      {pi_est:.4f}")
 (display ((acc1 'withdraw) 0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`class Account:
     def __init__(self, balance):
         self.balance = balance
@@ -294,7 +289,7 @@ acc3.deposit(50)
 print(f"acc1 after acc3 deposit: {acc1.balance}")  # 120
 print(f"acc1 is acc3: {acc1 is acc3}")  # True
 `} />
-    </details>
+    </div>
 
     <!-- Notation reference -->
     <h3>Notation reference</h3>

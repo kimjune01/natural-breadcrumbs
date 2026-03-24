@@ -67,8 +67,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (integrate uniform-density 0.3 0.7 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Density function and numerical integration
 def integrate(f, a, b, n=1000):
     dx = (b - a) / n
@@ -81,7 +80,7 @@ print(f"P(0 < X < 1)     = {integrate(uniform, 0, 1):.4f}")
 print(f"P(0 < X < 0.5)   = {integrate(uniform, 0, 0.5):.4f}")
 print(f"P(0.3 < X < 0.7) = {integrate(uniform, 0.3, 0.7):.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Density functions -->
     <h3>Density functions</h3>
@@ -132,8 +131,7 @@ print(f"P(0.3 < X < 0.7) = {integrate(uniform, 0.3, 0.7):.4f}")
 (display (integrate normal-density -3 3 2000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Standard normal density and integration
 import math
 
@@ -148,7 +146,7 @@ print(f"P(-1 < X < 1) = {integrate(normal_density, -1, 1):.4f}")
 print(f"P(-2 < X < 2) = {integrate(normal_density, -2, 2):.4f}")
 print(f"P(-3 < X < 3) = {integrate(normal_density, -3, 3):.4f}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Cumulative distribution -->
     <h3>Cumulative distribution function</h3>

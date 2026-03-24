@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Forward acts, backward learns from consequences
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Optic in Python: forward + backward
 class Optic:
     def __init__(self, name, fwd, bwd):
@@ -90,7 +89,7 @@ thermostat = Optic("thermostat",
 print(f"fwd(18): {thermostat.fwd(18)}")
 print(f"bwd: {thermostat.bwd(18, 'heat', 21)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Parametrised optics -->
     <h3>Parametrised optics — agents with tunable parameters</h3>

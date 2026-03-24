@@ -82,8 +82,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "x")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Smith's pin factory
 solo_output = 1        # pins per worker per day (undivided)
 team_size = 10
@@ -96,7 +95,7 @@ print("Solo worker: " + str(solo_output) + " pin/day")
 print("Divided, per worker: " + str(int(per_worker)) + " pins/day")
 print("Productivity multiplier: " + str(int(multiplier)) + "x")
 `} />
-    </details>
+    </div>
 
 
     <!-- Why specialization works -->

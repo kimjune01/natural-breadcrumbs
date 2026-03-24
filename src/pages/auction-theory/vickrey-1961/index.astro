@@ -79,8 +79,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Now the $50 bidder wins and pays $45
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Second-price sealed-bid auction
 def second_price(bids):
     """Winner = highest bid, payment = second-highest bid."""
@@ -96,7 +95,7 @@ print(second_price([100, 50, 30]))
 # Underbid: loses
 print(second_price([45, 50, 30]))
 `} />
-    </details>
+    </div>
 
     <h3>The dominance argument</h3>
     <p>Truthful bidding weakly dominates every other strategy. No matter what others bid, you never do worse by bidding your true value, and sometimes you do strictly better. This is <a href="https://en.wikipedia.org/wiki/William_Vickrey">🅦 Vickrey's</a> central result.</p>

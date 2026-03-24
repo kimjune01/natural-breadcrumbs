@@ -88,8 +88,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Both give 7. The isomorphism is curry/uncurry.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Curry/uncurry: the product ⊣ exponential adjunction
 def left_adjunct(f):
     """(a, s) -> b  becomes  a -> s -> b"""
@@ -107,7 +106,7 @@ print(f"curried(3)(4) = {curried(3)(4)}")
 uncurried = right_adjunct(curried)
 print(f"uncurried((3,4)) = {uncurried((3, 4))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Unit and counit -->
@@ -246,8 +245,7 @@ print(f"uncurried((3,4)) = {uncurried((3, 4))}")
 ; The homomorphism is fully determined by f. That's the adjunction.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Free monoid ⊣ Forgetful
 from functools import reduce
 
@@ -268,7 +266,7 @@ print(f"product [1,2,3,4]: {prod_hom([1,2,3,4])}")
 concat_hom = extend(lambda c: c, lambda a, b: a + b, "")
 print(f"concat ['h','e','l','l','o']: {concat_hom(['h','e','l','l','o'])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. From adjunctions to monads -->
@@ -314,8 +312,7 @@ print(f"concat ['h','e','l','l','o']: {concat_hom(['h','e','l','l','o'])}")
 ; [1, 2]
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# List monad from the free/forgetful adjunction
 def monad_return(x):
     return [x]
@@ -334,7 +331,7 @@ print(f"bind [1,2,3] (x->[x,x*10]): {monad_bind([1,2,3], lambda x: [x, x*10])}")
 print(f"join . return [1,2]: {monad_join(monad_return([1,2]))}")
 print(f"join . map(return) [1,2]: {monad_join([monad_return(x) for x in [1,2]])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Curry/uncurry as adjunction, state monad -->
@@ -388,8 +385,7 @@ print(f"join . map(return) [1,2]: {monad_join([monad_return(x) for x in [1,2]])}
 ; ((0 1) . 2) — got 0 then 1, final state 2
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# State monad from product ⊣ exponential
 def state_return(a):
     return lambda s: (a, s)
@@ -412,7 +408,7 @@ two_ticks = state_bind(tick(), lambda a:
         state_return([a, b])))
 print(f"two ticks from 0: {two_ticks(0)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

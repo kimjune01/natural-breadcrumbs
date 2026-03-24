@@ -42,8 +42,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "a+(-a) = ") (display (op a (inverse a)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Integers under addition
 op = lambda a, b: a + b
 identity = 0
@@ -55,7 +54,7 @@ print("a+(b+c) = " + str(op(a, op(b,c))))
 print("a+0     = " + str(op(a, identity)))
 print("a+(-a)  = " + str(op(a, inverse(a))))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Symmetries -->
@@ -124,8 +123,7 @@ print("a+(-a)  = " + str(op(a, inverse(a))))
 ; Different! S3 is non-abelian.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# S3 as permutations
 def compose(p, q):
     return [p[q[i]-1] for i in range(3)]
@@ -142,7 +140,7 @@ print("r1 then s1 = " + str(compose(r1,s1)))
 print("s1 then r1 = " + str(compose(s1,r1)))
 # Last two differ: S3 is non-abelian
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Cayley tables -->
@@ -168,8 +166,7 @@ print("s1 then r1 = " + str(compose(s1,r1)))
 ; Every row is a permutation of 0,1,2,3.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Cayley table for Z4
 print("+  | 0  1  2  3")
 print("---+------------")
@@ -177,7 +174,7 @@ for i in range(4):
     row = "  ".join(str((i+j)%4) for j in range(4))
     print(str(i) + "  | " + row)
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

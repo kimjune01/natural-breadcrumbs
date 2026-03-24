@@ -95,8 +95,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (/ (round (* fp-payment 100)) 100))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Four auction types
 values = [80, 60, 45]
 n = len(values)
@@ -115,7 +114,7 @@ print("Winner pays: $" + str(round(max(fp_bids), 2)))
 
 print("\\nRevenue equivalence: ~$" + str(sorted_v[1]) + " vs ~$" + str(round(max(fp_bids), 2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Revenue Equivalence -->

@@ -68,8 +68,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Left and right limits differ: not differentiable")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Numerical derivative
 def deriv(f, c, h=1e-8):
     return (f(c + h) - f(c)) / h
@@ -81,7 +80,7 @@ g = lambda x: abs(x)
 print(f"|x|' at 0 from right: {deriv(g, 0, 0.001)}")
 print(f"|x|' at 0 from left:  {deriv(g, 0, -0.001)}")
 `} />
-    </details>
+    </div>
 
     <h3>Chain rule</h3>
     <p>If g is differentiable at c and f is differentiable at g(c), then (f &#x2218; g)'(c) = f'(g(c)) * g'(c). The derivative of a composition is the product of derivatives along the chain.</p>
@@ -109,8 +108,7 @@ print(f"|x|' at 0 from left:  {deriv(g, 0, -0.001)}")
 (display (sin 2.0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -127,7 +125,7 @@ print("  numerical (fog)'(1) =", deriv(fog, c))
 print("  f'(g(1)) * g'(1) =", deriv(f, g(c)) * deriv(g, c))
 print("  exact sin(2) =", math.sin(2.0))
 `} />
-    </details>
+    </div>
 
     <h3>Mean value theorem</h3>
     <p>If f is continuous on [a, b] and differentiable on (a, b), there exists c in (a, b) with f'(c) = (f(b) - f(a)) / (b - a). The tangent at c is parallel to the secant from a to b. <a href="https://en.wikipedia.org/wiki/Rolle%27s_theorem">🅦 Rolle's theorem</a> is the special case where f(a) = f(b), giving f'(c) = 0.</p>
@@ -153,8 +151,7 @@ print("  exact sin(2) =", math.sin(2.0))
 (display (< (abs (- (* 3 c-exact c-exact) avg-slope)) 0.0001))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -169,7 +166,7 @@ print("MVT point c = sqrt(13/3) =", c)
 print("f'(c) = 3c^2 =", 3 * c * c)
 print("Matches average slope?", abs(3 * c * c - avg_slope) < 0.0001)
 `} />
-    </details>
+    </div>
 
     <h3>L'Hopital's rule and Taylor's theorem</h3>
     <p><strong>L'Hopital's rule</strong>: if f(c) = g(c) = 0 and the limit of f'/g' exists, then lim f(x)/g(x) = lim f'(x)/g'(x). <strong>Taylor's theorem</strong>: f(x) = f(c) + f'(c)(x-c) + f''(c)(x-c)^2/2! + ... + R_n, with an explicit remainder term. The Taylor polynomial is the best polynomial approximation near c.</p>
@@ -197,8 +194,7 @@ print("Matches average slope?", abs(3 * c * c - avg_slope) < 0.0001)
 (display "Exact e = ") (display (exp 1.0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -214,7 +210,7 @@ for n in [1, 2, 3, 5, 10, 15]:
 
 print("Exact e =", math.e)
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

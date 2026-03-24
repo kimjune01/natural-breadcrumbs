@@ -85,8 +85,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; They agree everywhere. Not a coincidence.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy_uniform(n):
@@ -100,7 +99,7 @@ for n in [2, 3, 5, 10, 20]:
     logM = log_magnitude_uniform(n)
     print(f"  n={n:2d}: H={H:.4f}, log|A|={logM:.4f} {'match' if abs(H-logM)<0.001 else 'differ'}")
 `} />
-    </details>
+    </div>
 
     <h3>Beyond uniform: the weighted case</h3>
     <p>For non-uniform distributions, the connection goes through <strong>weighted magnitude</strong>. Given a metric space with a probability distribution (weights), the log of the weighted magnitude recovers the entropy of that distribution. The uniform case is the special case where all weights are equal.</p>

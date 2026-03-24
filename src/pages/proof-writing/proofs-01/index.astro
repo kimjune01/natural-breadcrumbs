@@ -109,8 +109,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (show-row #f #f)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Truth table for implication in Python
 def implies(p, q):
     return (not p) or q
@@ -122,7 +121,7 @@ for p in [True, False]:
         arrow = implies(p, q)
         print(f"{'T' if p else 'F'}     {'T' if q else 'F'}     {'T' if arrow else 'F'}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Logical equivalence -->
     <h3>Logical equivalence</h3>

@@ -38,8 +38,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "P(4,4) = ") (display (permutations 4 4))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Permutations
 from math import factorial, perm
 
@@ -47,7 +46,7 @@ print(f"5! = {factorial(5)}")
 print(f"P(5,3) = {perm(5,3)}")
 print(f"P(4,4) = {perm(4,4)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Combinations -->
     <h3>Combinations — order does not matter</h3>
@@ -73,8 +72,7 @@ print(f"P(4,4) = {perm(4,4)}")
 (display "C(10,7) = ") (display (choose 10 7))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Combinations
 from math import comb
 
@@ -83,7 +81,7 @@ print(f"C(8,3)  = {comb(8,3)}")
 print(f"C(10,3) = {comb(10,3)}")
 print(f"C(10,7) = {comb(10,7)}")
 `} />
-    </details>
+    </div>
 
     <!-- SVG: Pascal's triangle -->
     <h3>Pascal's triangle</h3>
@@ -206,8 +204,7 @@ print(f"C(10,7) = {comb(10,7)}")
 (display (exact->inexact p-flush))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Counting for probability
 from math import comb
 
@@ -221,7 +218,7 @@ print(f"P(3 heads in 10) = {coin_prob(10, 3):.4f}")
 p_flush = comb(4,1) * comb(13,5) / comb(52,5)
 print(f"P(flush) = {p_flush:.6f}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

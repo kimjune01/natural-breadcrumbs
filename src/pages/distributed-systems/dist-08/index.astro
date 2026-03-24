@@ -127,8 +127,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (run-saga steps compensations 3)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Saga pattern
 steps = ["reserve hotel", "book flight", "charge card"]
 compensations = ["cancel hotel", "cancel flight", "refund card"]
@@ -151,7 +150,7 @@ run_saga()
 print("\\n--- Fail at step 3 ---")
 run_saga(fail_at=2)
 `} />
-    </details>
+    </div>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>

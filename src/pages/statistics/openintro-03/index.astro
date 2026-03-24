@@ -95,8 +95,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Base rate matters.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bayes' theorem in Python
 p_disease = 0.01
 p_pos_given_disease = 0.95  # sensitivity
@@ -111,7 +110,7 @@ print(f"P(positive test) = {p_positive:.4f}")
 print(f"P(disease | positive) = {p_disease_given_pos:.4f}")
 print(f"Base rate matters.")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Independence -->

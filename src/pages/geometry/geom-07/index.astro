@@ -44,8 +44,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
              (+ (euclidean a b) (euclidean b c))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def euclidean(p, q):
@@ -58,7 +57,7 @@ print(f"d(b,c) = {euclidean(b, c)}")
 print(f"d(a,c) = {euclidean(a, c)}")
 print(f"triangle: d(a,c) <= d(a,b) + d(b,c)? {euclidean(a, c) <= euclidean(a, b) + euclidean(b, c)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Open balls -->
@@ -132,8 +131,7 @@ print(f"triangle: d(a,c) <= d(a,b) + d(b,c)? {euclidean(a, c) <= euclidean(a, b)
 (display "Discrete:   ") (display (d-discrete a b))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def d_euclidean(p, q):
@@ -154,7 +152,7 @@ print(f"Taxicab:    {d_taxicab(a, b)}")
 print(f"Chebyshev:  {d_chebyshev(a, b)}")
 print(f"Discrete:   {d_discrete(a, b)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Hausdorff distance -->

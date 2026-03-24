@@ -115,8 +115,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (show-ints 0 8)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Countable sets: bijections from N
 # N -> Evens
 print("N -> Evens:", [(n, 2*n) for n in range(8)])
@@ -126,7 +125,7 @@ def nat_to_int(n):
     return n // 2 if n % 2 == 0 else -(n + 1) // 2
 print("N -> Z:    ", [(n, nat_to_int(n)) for n in range(9)])
 `} />
-    </details>
+    </div>
 
     <!-- 3. Cantor's diagonal argument -->
     <h3>Cantor's diagonal argument</h3>

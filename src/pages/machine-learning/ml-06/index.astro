@@ -100,8 +100,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (cov y y)) (display "]")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Covariance matrix of 2D data
 data = [[1,2],[3,4],[5,6],[2,3],[4,5]]
 
@@ -119,7 +118,7 @@ print("Cov matrix:")
 print("  [{:.2f}  {:.2f}]".format(cov(x,x), cov(x,y)))
 print("  [{:.2f}  {:.2f}]".format(cov(y,x), cov(y,y)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Eigendecomposition -->
@@ -153,8 +152,7 @@ print("  [{:.2f}  {:.2f}]".format(cov(y,x), cov(y,y)))
 (display "%")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Eigenvalues of 2x2 matrix [[a,b],[c,d]]
@@ -172,7 +170,7 @@ print("PC1 direction: [0.707, 0.707]")
 print("PC2 direction: [0.707, -0.707]")
 print("Variance explained by PC1: {:.0f}%".format(100 * l1 / (l1 + l2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Projecting data -->
@@ -211,8 +209,7 @@ print("Variance explained by PC1: {:.0f}%".format(100 * l1 / (l1 + l2)))
   data)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Project 2D data onto PC1 = [0.707, 0.707]
 data = [[1,2],[3,4],[5,6],[2,3],[4,5]]
 mean_x, mean_y = 3.0, 4.0
@@ -226,7 +223,7 @@ print("Projections onto PC1:")
 for pt in data:
     print("  {} -> {:.3f}".format(pt, project(pt)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

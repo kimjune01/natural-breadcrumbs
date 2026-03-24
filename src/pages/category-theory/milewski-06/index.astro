@@ -73,8 +73,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (assoc '((1 2) 3)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Product types: pairs
 from itertools import product
 
@@ -90,7 +89,7 @@ print(f"swap((1, True)) = {swap((1, True))}")
 def flatten(p): return (p[0][0], p[0][1], p[1])
 print(f"flatten(((1, 2), 3)) = {flatten(((1, 2), 3))}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Records -->
     <h3>Records are named products</h3>
@@ -147,8 +146,7 @@ print(f"flatten(((1, 2), 3)) = {flatten(((1, 2), 3))}")
 (display inhabitants)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Sum types via tagged tuples
 def Left(x):  return ("left", x)
 def Right(x): return ("right", x)
@@ -167,7 +165,7 @@ print(f"false: {false_val}")
 inhabitants = [Left(True), Left(False), Right(())]
 print(f"Either Bool () has {len(inhabitants)} inhabitants")
 `} />
-    </details>
+    </div>
 
     <!-- 4. The algebra: Void, Unit, and identities -->
     <h3>The algebra: Void is 0, Unit is 1</h3>
@@ -257,8 +255,7 @@ print(f"Either Bool () has {len(inhabitants)} inhabitants")
 (display "10/0: ") (display (safe-div 10 0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Maybe a = 1 + a — Python uses None as Nothing
 def safe_div(a, b):
     return None if b == 0 else a / b
@@ -270,7 +267,7 @@ print(f"10/0 = {safe_div(10, 0)}")
 maybe_bools = [None, True, False]
 print(f"Maybe Bool: {maybe_bools} ({len(maybe_bools)} values)")
 `} />
-    </details>
+    </div>
 
     <!-- 6. Distributivity -->
     <h3>Distributivity: a × (b + c) = a × b + a × c</h3>
@@ -336,8 +333,7 @@ print(f"Maybe Bool: {maybe_bools} ({len(maybe_bools)} values)")
 ; 1 + a + a^2 + a^3 with a=2
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# List a = 1 + a * List a
 # x = 1 + a*x => x = 1 + a + a^2 + a^3 + ...
 from itertools import product
@@ -354,7 +350,7 @@ total = sum(len(lists_of_length(bools, n)) for n in range(4))
 print(f"total up to length 3: {total}")
 # 1 + 2 + 4 + 8 = 15
 `} />
-    </details>
+    </div>
 
     <!-- 8. The semiring summary -->
     <h3>The semiring of types</h3>

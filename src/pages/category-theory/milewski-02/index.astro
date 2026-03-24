@@ -104,8 +104,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "const-F: ") (display (always-f #t)) (display " ") (display (always-f #f))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Types are sets of values
 # bool = {True, False}
 
@@ -126,7 +125,7 @@ fns = {
 for name, f in fns.items():
     print(f"{name}: True->{f(True)}, False->{f(False)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Pure functions -->
@@ -154,8 +153,7 @@ for name, f in fns.items():
 ; Same answer, guaranteed. That's purity.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Pure functions compose reliably
 def square(x): return x * x
 def add1(x): return x + 1
@@ -176,7 +174,7 @@ print(f"impure_add(5) = {impure_add(5)}")  # 6
 print(f"impure_add(5) = {impure_add(5)}")  # 7 — different!
 # Same input, different output. Not a morphism.
 `} />
-    </details>
+    </div>
 
     <!-- 3. Bottom -->
     <h3>Bottom &mdash; the value that never arrives</h3>
@@ -253,8 +251,7 @@ print(f"impure_add(5) = {impure_add(5)}")  # 7 — different!
 (display "() is the terminal object in Set and Hask.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Unit type: Python has None as its unit value
 
 def f44(): return 44  # () -> int: picks 44
@@ -271,7 +268,7 @@ print(f"to_unit('hello') = {to_unit('hello')}")
 print(f"to_unit(True)    = {to_unit(True)}")
 # There's only one such function — it's the terminal morphism
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. Bool — the two-element set -->

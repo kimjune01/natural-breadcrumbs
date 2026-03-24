@@ -84,8 +84,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Q(B) should converge higher than Q(A)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Epsilon-greedy bandit in Python
 import random
 random.seed(42)
@@ -108,7 +107,7 @@ print(f"Q(A) = {q[0]:.3f} (true: {true_p[0]})")
 print(f"Q(B) = {q[1]:.3f} (true: {true_p[1]})")
 print(f"Pulls: A={n[0]}, B={n[1]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Temporal difference learning -->
@@ -148,8 +147,7 @@ print(f"Pulls: A={n[0]}, B={n[1]}")
 ; Values should start approaching [0, 0.2, 0.4, 0.6, 0.8, 0]
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# TD learning: 5-state random walk
 import random
 random.seed(42)
@@ -168,7 +166,7 @@ for episode in range(100):
 print("Values: " + str([round(x, 3) for x in v]))
 # Should approach [0, 0.2, 0.4, 0.6, 0.8, 0]
 `} />
-    </details>
+    </div>
 
 
     <!-- Q-learning -->
@@ -208,8 +206,7 @@ print("Values: " + str([round(x, 3) for x in v]))
 ; Q(0, go) picks up value from state 1's potential
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Q-learning: 2-state, 2-action MDP
 alpha, gamma = 0.1, 0.9
 q = [[0.0, 0.0], [0.0, 0.0]]  # q[state][action]
@@ -226,7 +223,7 @@ print()
 print("After action 'go' in state 0 (reward=0, arrive at state 1):")
 update_q(0, 1, 0.0, 1)
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

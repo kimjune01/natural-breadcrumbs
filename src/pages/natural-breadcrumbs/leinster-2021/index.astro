@@ -154,8 +154,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (hill-number dominated 2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def hill(p, q):
@@ -169,7 +168,7 @@ dominated = [0.9, 0.05, 0.03, 0.01, 0.01]
 for name, dist in [("uniform(5)", uniform), ("dominated", dominated)]:
     print(f"{name}: D0={hill(dist,0):.1f} D1={hill(dist,1):.2f} D2={hill(dist,2):.2f}")
 `} />
-    </details>
+    </div>
 
     <h3>q=0: species richness</h3>
     <p>At q=0, all nonzero probabilities contribute equally. D₀ just counts the number of species present. Rare and common species count the same.</p>

@@ -41,15 +41,14 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; 2 and 3 are incomparable: neither divides the other.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Divisibility partial order on divisors of 12
 divs = [1, 2, 3, 4, 6, 12]
 for a in divs:
     above = [b for b in divs if b != a and b % a == 0]
     print(str(a).rjust(2) + " divides: " + str(above))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Meet and join -->
@@ -77,8 +76,7 @@ for a in divs:
               (= 0 (modulo 6 (gcd 4 6)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Meet = GCD, Join = LCM
 from math import gcd
 lcm = lambda a, b: a * b // gcd(a, b)
@@ -88,7 +86,7 @@ print("join(4,6) = lcm = " + str(lcm(4,6)))
 print("meet(2,3) = gcd = " + str(gcd(2,3)))
 print("join(2,3) = lcm = " + str(lcm(2,3)))
 `} />
-    </details>
+    </div>
 
 
     <!-- SVG: diamond lattice -->
@@ -155,8 +153,7 @@ print("join(2,3) = lcm = " + str(lcm(2,3)))
 (display "  [a] v [a]'  = ") (display (name (join 1 (complement 1))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Boolean algebra: power set of {a, b}
 names = dict([(0,"[]"), (1,"[a]"), (2,"[b]"), (3,"[a,b]")])
 meet = lambda a, b: a & b
@@ -169,7 +166,7 @@ print("[a]'       = " + names[comp(1)])
 print("[a] ^ [a]' = " + names[meet(1, comp(1))])
 print("[a] v [a]' = " + names[join(1, comp(1))])
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

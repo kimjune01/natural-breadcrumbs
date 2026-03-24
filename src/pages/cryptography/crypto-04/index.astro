@@ -114,8 +114,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Attacker cannot compute tag without key")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# HMAC construction (simplified)
 IPAD = 0x36
 OPAD = 0x5C
@@ -140,7 +139,7 @@ print(f"HMAC(42, 'Hello') = {hmac(key, msg)}")
 print(f"HMAC(99, 'Hello') = {hmac(99, msg)}")
 print(f"HMAC(42, 'Hellp') = {hmac(key, [72,101,108,108,112])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Encrypt-then-MAC -->

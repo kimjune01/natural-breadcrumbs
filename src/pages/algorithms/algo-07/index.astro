@@ -108,8 +108,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
           result)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Dijkstra in Python
 import heapq
 
@@ -138,7 +137,7 @@ result = dijkstra(graph, 'S')
 for v in sorted(result):
     print(f"{v}: {result[v]}")
 `} />
-    </details>
+    </div>
 
     <h3>Bellman-Ford</h3>
     <p>Relax all edges V-1 times. Handles negative weights. Detects negative cycles on the V-th pass. O(VE).</p>

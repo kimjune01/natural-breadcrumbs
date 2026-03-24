@@ -98,8 +98,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (run-filter measurements 50.0 100.0 0)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Scalar Kalman filter
 true_value = 42.0
 R = 25.0   # measurement noise variance
@@ -122,7 +121,7 @@ for i, z in enumerate(measurements):
 
 print(f"Final estimate: {x_est:.2f} (true: {true_value})")
 `} />
-    </details>
+    </div>
 
     <h3>Neighbors</h3>
     <ul class="neighbors">

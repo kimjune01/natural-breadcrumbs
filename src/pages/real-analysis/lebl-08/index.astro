@@ -79,8 +79,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
              (+ (d-euclidean p q) (d-euclidean q r))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def d_euclid(p, q):
@@ -94,7 +93,7 @@ print(f"Euclidean d(p,q) = {d_euclid(p,q):.4f}")
 print(f"Manhattan d(p,q) = {d_manhattan(p,q)}")
 print(f"Triangle: {d_euclid(p,r):.4f} <= {d_euclid(p,q)+d_euclid(q,r):.4f}")
 `} />
-    </details>
+    </div>
 
     <h3>Open and closed sets</h3>
     <p>The <strong>open ball</strong> B(p, r) is the set of all x with d(x, p) &lt; r. A set is <strong>open</strong> if every point has an open ball around it contained in the set. A set is <strong>closed</strong> if its complement is open, equivalently if it contains all its limit points.</p>
@@ -124,8 +123,7 @@ print(f"Triangle: {d_euclid(p,r):.4f} <= {d_euclid(p,q)+d_euclid(q,r):.4f}")
 (display "[0,1] is closed (contains 0 and 1)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 print("For x in (0,1), ball radius that fits:")
 for x in [0.1, 0.5, 0.9, 0.01, 0.99]:
@@ -136,7 +134,7 @@ print("0 is a limit point of (0,1): 1/n -> 0, each 1/n in (0,1)")
 print("(0,1) is open but not closed")
 print("[0,1] is closed (contains 0 and 1)")
 `} />
-    </details>
+    </div>
 
     <h3>Compactness</h3>
     <p>A set is <strong>compact</strong> if every open cover has a finite subcover. In R^n, compact = closed and bounded (<a href="https://en.wikipedia.org/wiki/Heine%E2%80%93Borel_theorem">🅦 Heine-Borel</a>). Compact sets are where the extreme value theorem and uniform continuity live. Compactness is the topological substitute for "closed bounded interval."</p>
@@ -167,8 +165,7 @@ print("[0,1] is closed (contains 0 and 1)")
 (display "Compactness guarantees this max is attained")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -182,7 +179,7 @@ print("f(x) = sin(pi*x) - x/2 on [0,1]:")
 print("  max at x=" + str(round(xmax, 4)) + ", f(x)=" + str(round(fmax, 6)))
 print("Compactness guarantees this max is attained")
 `} />
-    </details>
+    </div>
 
     <h3>Completeness in metric spaces</h3>
     <p>A metric space is <strong>complete</strong> if every Cauchy sequence converges. The reals are complete (Ch. 2). The rationals are not. Complete metric spaces are where the <a href="https://en.wikipedia.org/wiki/Banach_fixed-point_theorem">🅦 Banach fixed-point theorem</a> lives: a contraction on a complete metric space has a unique fixed point.</p>
@@ -211,8 +208,7 @@ print("Compactness guarantees this max is attained")
   (display "Difference: ") (display (abs (- fp (cos fp)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -233,7 +229,7 @@ print("Fixed point: cos(x) = x at x =", fp)
 print("cos(fp) =", math.cos(fp))
 print("Difference:", abs(fp - math.cos(fp)))
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

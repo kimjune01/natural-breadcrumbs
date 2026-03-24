@@ -84,8 +84,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (equal? plaintext decrypted))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# XOR cipher in Python
 def xor_cipher(text, key_byte):
     return ''.join(chr(ord(c) ^ key_byte) for c in text)
@@ -100,7 +99,7 @@ decrypted = xor_cipher(encrypted, key)
 print(f"Decrypted: {decrypted}")
 print(f"Round-trip works? {plaintext == decrypted}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Caesar cipher -->
@@ -142,8 +141,7 @@ print(f"Round-trip works? {plaintext == decrypted}")
 (display "... (26 total)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Caesar cipher in Python
 def caesar(text, k):
     result = []
@@ -168,7 +166,7 @@ for k in range(5):
     print(f"{k}: {caesar(encrypted, 26 - k)}")
 print("... (26 total)")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Substitution cipher -->

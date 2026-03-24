@@ -129,8 +129,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Value 'X' chosen by majority.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Simplified Paxos
 class Acceptor:
     def __init__(self, id):
@@ -164,7 +163,7 @@ print("Phase 2: accept(1, 'X')")
 votes = sum(a.accept(1, "X") for a in acceptors)
 print(f"Value 'X' chosen by {votes}/3 (majority={votes >= 2})")
 `} />
-    </details>
+    </div>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>

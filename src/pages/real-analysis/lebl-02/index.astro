@@ -81,8 +81,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (verify-convergence 0.05)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Convergence of 1/n to 0
 import math
 
@@ -93,7 +92,7 @@ for eps in [0.1, 0.01, 0.001]:
     N = find_N(eps)
     print(f"eps={eps}, N={N}, a_N={1/N:.6f} < {eps}: {1/N < eps}")
 `} />
-    </details>
+    </div>
 
     <h3>Limit theorems</h3>
     <p>Limits respect arithmetic: if a_n &rarr; a and b_n &rarr; b, then a_n + b_n &rarr; a + b, a_n * b_n &rarr; a * b, and (if b &ne; 0) a_n / b_n &rarr; a / b. The squeeze theorem: if a_n &le; c_n &le; b_n and both a_n and b_n converge to L, then c_n &rarr; L.</p>
@@ -121,8 +120,7 @@ for eps in [0.1, 0.01, 0.001]:
 (display (/ 1.0 100))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -137,7 +135,7 @@ print("Squeeze: |sin(n)/n| <= 1/n -> 0")
 print("  sin(100)/100 =", math.sin(100)/100)
 print("  1/100         =", 1/100)
 `} />
-    </details>
+    </div>
 
     <h3>Monotone convergence theorem</h3>
     <p>Every bounded, monotone sequence converges. If a sequence is increasing and bounded above, it converges to its supremum. This is a direct consequence of the completeness axiom.</p>
@@ -166,8 +164,7 @@ print("  1/100         =", 1/100)
 (display (< (partial-e 15) 3))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -180,7 +177,7 @@ for n in [1, 2, 5, 10, 15]:
 
 print("Bounded above by 3?", partial_e(15) < 3)
 `} />
-    </details>
+    </div>
 
     <h3>Bolzano-Weierstrass theorem</h3>
     <p>Every bounded sequence has a convergent subsequence. This is the <a href="https://en.wikipedia.org/wiki/Bolzano%E2%80%93Weierstrass_theorem">🅦 Bolzano-Weierstrass theorem</a>, the key compactness result for sequences. Even if a sequence doesn't converge (like (-1)^n), some subsequence does.</p>
@@ -213,8 +210,7 @@ print("Bounded above by 3?", partial_e(15) < 3)
   (list 1 2 5 10 50 100))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 a = lambda n: (1 if n % 2 == 0 else -1) * (1 + 1/n)
 
@@ -227,7 +223,7 @@ for k in [1, 2, 5, 10, 50, 100]:
     n = 2 * k
     print("  a_" + str(n) + " =", a(n))
 `} />
-    </details>
+    </div>
 
     <h3>Cauchy sequences</h3>
     <p>A sequence is <strong>Cauchy</strong> if its terms get arbitrarily close to each other: for every &epsilon;, there exists N such that |a_m - a_n| &lt; &epsilon; for all m, n &ge; N. In the reals, a sequence converges if and only if it is Cauchy. This equivalence is another way to state completeness.</p>
@@ -258,8 +254,7 @@ for k in [1, 2, 5, 10, 50, 100]:
   (display (/ (* 3.141592653589793 3.141592653589793) 6.0)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Python equivalent
 import math
 
@@ -278,7 +273,7 @@ print("  |a_1000 - a_500| =", abs(a1000 - a500))
 print("  a_1000 =", a1000)
 print("  pi^2/6 =", math.pi**2 / 6)
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

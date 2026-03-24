@@ -44,8 +44,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; "val=9"
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Reader functor: fmap = post-compose
 def reader_fmap(f, h):
     return lambda a: f(h(a))
@@ -57,7 +56,7 @@ square_then_show = reader_fmap(show_int, square)
 print(square_then_show(5))  # val=25
 print(square_then_show(3))  # val=9
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. The Yoneda bijection -->
@@ -175,8 +174,7 @@ print(square_then_show(3))  # val=9
 ; (1 2 3) — the original element
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Yoneda bijection for lists
 def phi(alpha):
     return alpha(lambda x: x)  # apply to identity
@@ -192,7 +190,7 @@ print(f"alpha(square): {alpha(lambda x: x*x)}")
 print(f"alpha(str):    {alpha(str)}")
 print(f"phi recovers:  {phi(alpha)}")  # [1, 2, 3]
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Why it works: the id trick -->
@@ -264,8 +262,7 @@ print(f"phi recovers:  {phi(alpha)}")  # [1, 2, 3]
 ; Const(length) . fmap f = id . Const(length)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# length is natural: len(map(f, xs)) == len(xs)
 xs = [10, 20, 30, 40]
 print(f"len(xs):               {len(xs)}")
@@ -273,7 +270,7 @@ print(f"len(map(square, xs)):  {len(list(map(lambda x: x*x, xs)))}")
 print(f"len(map(str, xs)):     {len(list(map(str, xs)))}")
 # All 4 — length doesn't inspect elements.
 `} />
-    </details>
+    </div>
 
     <!-- 5. Yoneda embedding -->
     <h3>Yoneda embedding: objects as their morphisms</h3>
@@ -389,8 +386,7 @@ print(f"len(map(str, xs)):     {len(list(map(str, xs)))}")
 ; The value 42 is "inside" — you access it only through continuations.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# CPS is Yoneda with F = Identity
 def to_cps(val):
     return lambda k: k(val)
@@ -404,7 +400,7 @@ print(f"double:   {cps_42(lambda x: x*2)}")
 print(f"show:     {cps_42(str)}")
 print(f"is_big:   {cps_42(lambda x: x > 10)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

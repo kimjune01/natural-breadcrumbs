@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Each pays: $") (display (cadr r2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# VCG via LP (using simple optimization)
 def vcg_lp(values, k=1):
     """k items, unit demand. LP relaxation is tight."""
@@ -109,7 +108,7 @@ def vcg_lp(values, k=1):
 print("Single item:", vcg_lp([10, 7, 4], k=1))
 print("Two items:  ", vcg_lp([10, 7, 4, 3], k=2))
 `} />
-    </details>
+    </div>
 
     <h3>Why the LP matters</h3>
     <p>For combinatorial auctions (multiple items, complex bundles), brute-force VCG requires solving the allocation problem once per bidder. The LP formulation solves it once, and the dual gives all prices simultaneously. This is what makes VCG practical at scale.</p>

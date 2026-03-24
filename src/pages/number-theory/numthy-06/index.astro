@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "(7/13) = ") (display (legendre 7 13))             ; -1
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Legendre symbol via Euler's criterion
 def legendre(a, p):
     result = pow(a, (p - 1) // 2, p)
@@ -109,7 +108,7 @@ def qr(p):
 
 print(f"QR mod 13: {qr(13)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Quadratic reciprocity -->

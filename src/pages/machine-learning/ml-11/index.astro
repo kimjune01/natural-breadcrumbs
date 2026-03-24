@@ -119,8 +119,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
                                     (attention query keys values)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Scaled dot-product attention
@@ -151,7 +150,7 @@ values = [[1.0, 0.0], [0.0, 1.0], [0.5, 0.5]]
 result = attention(query, keys, values)
 print("Output: ", [round(x, 2) for x in result])
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Multi-head split -->
@@ -186,8 +185,7 @@ print("Output: ", [round(x, 2) for x in result])
 (display "Each head attends independently, then merge.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Multi-head split and concatenation
 def split_heads(vec, n_heads):
     d_head = len(vec) // n_heads
@@ -205,7 +203,7 @@ print("Head 2:        ", heads[1])
 print("Concatenated:  ", concat_heads(heads))
 print("n_heads=2, d_model=4 -> d_head=2")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Positional encoding -->
@@ -242,8 +240,7 @@ print("n_heads=2, d_model=4 -> d_head=2")
 ; The model can learn relative positions from these
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Sinusoidal positional encoding
@@ -260,7 +257,7 @@ for pos in range(4):
     enc = [round(x, 3) for x in pos_encoding(pos)]
     print("pos={}: {}".format(pos, enc))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

@@ -73,8 +73,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "2 * |E|: ") (display (* 2 (length edges)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`edges = [('a','b'), ('a','c'), ('b','c'), ('b','d'), ('c','d')]
 vertices = ['a', 'b', 'c', 'd']
 
@@ -85,7 +84,7 @@ for v in vertices:
 total = sum(degree(v) for v in vertices)
 print(f"Sum of degrees: {total}, 2*|E|: {2*len(edges)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Paths, cycles, and connectivity -->
@@ -117,8 +116,7 @@ print(f"Sum of degrees: {total}, 2*|E|: {2*len(edges)}")
 (display (= (length reachable) (length graph)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`from collections import deque
 
 graph = {'a': ['b','c'], 'b': ['a','c','d'], 'c': ['a','b','d'], 'd': ['b','c']}
@@ -136,7 +134,7 @@ reachable = bfs('a')
 print(f"Reachable from a: {reachable}")
 print(f"Connected? {len(reachable) == len(graph)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Trees -->
@@ -160,15 +158,14 @@ print(f"Connected? {len(reachable) == len(graph)}")
 (display (expt 5 3))           ; 125
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`tree_edges = [('a','b'), ('a','c'), ('b','d'), ('b','e')]
 tree_verts = ['a', 'b', 'c', 'd', 'e']
 
 print(f"|V|={len(tree_verts)}, |E|={len(tree_edges)}, |E|=|V|-1? {len(tree_edges)==len(tree_verts)-1}")
 print(f"Cayley(4) = {4**2}, Cayley(5) = {5**3}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Euler and Hamilton paths -->
@@ -206,8 +203,7 @@ print(f"Cayley(4) = {4**2}, Cayley(5) = {5**3}")
 (display (= (length sq-odd) 0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`konigsberg = [('A','C'),('A','C'),('A','D'),('B','C'),('B','C'),('B','D'),('C','D')]
 verts = ['A','B','C','D']
 
@@ -216,7 +212,7 @@ odd = [v for v in verts if deg(v) % 2 == 1]
 print(f"Odd-degree vertices: {odd} (count: {len(odd)})")
 print(f"Euler path? {len(odd) in (0, 2)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Planar graphs and coloring -->
@@ -259,8 +255,7 @@ print(f"Euler path? {len(odd) in (0, 2)}")
 (display (greedy-color graph))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Euler's formula
 for name, v, e, f in [("K4",4,6,4), ("Cube",8,12,6)]:
     print(f"{name}: V-E+F = {v - e + f}")
@@ -276,7 +271,7 @@ for v in graph:
     coloring[v] = next(c for c in range(1, 100) if c not in used)
 print(f"Greedy coloring: {coloring}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

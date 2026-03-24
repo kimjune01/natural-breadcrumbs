@@ -66,8 +66,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (convex? star-verts))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def cross_2d(o, a, b):
     return (a[0]-o[0])*(b[1]-o[1]) - (a[1]-o[1])*(b[0]-o[0])
 
@@ -82,7 +81,7 @@ star = [(2,0),(2.5,1.5),(4,2),(2.5,2.5),(2,4),(1.5,2.5),(0,2),(1.5,1.5)]
 print(f"Square convex? {is_convex(square)}")
 print(f"Star convex?   {is_convex(star)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Convex hull -->

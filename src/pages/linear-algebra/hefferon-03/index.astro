@@ -88,8 +88,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (scalar-mult 3 (h v)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Rotation by 90 degrees as a linear map
 def h(v):
     return [-v[1], v[0]]
@@ -106,7 +105,7 @@ print(f"h(v)+h(w)= {vec_add(h(v), h(w))}")
 print(f"h(3*v)   = {h(scalar_mult(3, v))}")
 print(f"3*h(v)   = {scalar_mult(3, h(v))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Matrix representation -->
@@ -140,8 +139,7 @@ print(f"3*h(v)   = {scalar_mult(3, h(v))}")
 (display (mat-vec-mult B '(4 5)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Matrix-vector multiplication
 def mat_vec(A, v):
     return [sum(a*x for a,x in zip(row, v)) for row in A]
@@ -154,7 +152,7 @@ print("A * (3,1) = " + str(mat_vec(A, [3, 1])))
 B = [[2, 0], [0, 3]]
 print("B * (4,5) = " + str(mat_vec(B, [4, 5])))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Kernel and image -->
@@ -183,8 +181,7 @@ print("B * (4,5) = " + str(mat_vec(B, [4, 5])))
 (display "dim(ker) + dim(im) = 1 + 1 = 2 = dim(R^2)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Projection onto x-axis: h((x,y)) = (x, 0)
 def proj(v):
     return [v[0], 0]
@@ -196,7 +193,7 @@ print("Kernel: the y-axis (all (0,y))")
 print("Image: the x-axis (all (x,0))")
 print("dim(ker) + dim(im) = 1 + 1 = 2 = dim(R^2)")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Rank-nullity -->
@@ -234,8 +231,7 @@ print("dim(ker) + dim(im) = 1 + 1 = 2 = dim(R^2)")
 (display "dim(R^3) = dim(ker) + dim(im) = 1 + 2 = 3")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Rank-nullity: h(x,y,z) = (x+y, y+z)
 def mat_vec(A, v):
     return [sum(a*x for a,x in zip(row, v)) for row in A]
@@ -248,7 +244,7 @@ print("Kernel basis: (1, -1, 1)")
 print("Image basis: (1,0) and (1,1)")
 print("dim(R^3) = dim(ker) + dim(im) = 1 + 2 = 3")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

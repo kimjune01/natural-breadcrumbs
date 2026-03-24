@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (show-poles 5.0)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Closed-loop poles: s^2 + 4s + (3+K) = 0
@@ -108,7 +107,7 @@ for K in [0.0, 0.5, 1.0, 3.0, 5.0]:
         imag = math.sqrt(-disc)
         print(f"  K={K:.1f}  poles: -2.00+/-{imag:.2f}j  STABLE")
 `} />
-    </details>
+    </div>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-04/">&larr; Stability</a>

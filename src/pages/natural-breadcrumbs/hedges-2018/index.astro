@@ -78,8 +78,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (game-play seller 'high)) (newline)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Open games in Python
 def buyer(price):
     return "buy" if price < 50 else "pass"
@@ -91,7 +90,7 @@ print(f"buyer(30) = {buyer(30)}")
 print(f"buyer(70) = {buyer(70)}")
 print(f"seller('high') = {seller('high')}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Selection functions -->
     <h3>Selection functions</h3>
@@ -335,8 +334,7 @@ print(f"seller('high') = {seller('high')}")
 
     <p class="text-sm text-gray-400">Confidence: <strong class="text-green-400">Simplified.</strong> Pure strategies over finite games. The paper works with mixed strategies and continuous action spaces.</p>
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Nash equilibrium check in Python
 def is_nash(strategies, utility_fns, action_spaces):
     for i in range(len(strategies)):
@@ -354,7 +352,7 @@ u2 = lambda s: {("C","C"):3, ("C","D"):5, ("D","C"):0, ("D","D"):1}[tuple(s)]
 print(f"(D,D) Nash? {is_nash(['D','D'], [u1,u2], [['C','D'],['C','D']])}")
 print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
 `} />
-    </details>
+    </div>
 
     <!-- 5. Why compositionality matters -->
     <h3>Why compositionality matters for games</h3>

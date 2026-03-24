@@ -105,8 +105,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Is it prime? ") (display (prime? witness))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Existential instantiation
 def is_prime(n):
     if n < 2: return False
@@ -117,7 +116,7 @@ witness = next(x for x in domain if x % 2 == 0 and is_prime(x))
 print(f"Witness for 'exists even prime': {witness}")
 print(f"Even? {witness % 2 == 0}, Prime? {is_prime(witness)}")
 `} />
-    </details>
+    </div>
 
     <h3>Existential generalization (&exist;I)</h3>
     <p>From P(c) for some specific c, conclude &exist;x P(x). If a particular thing has a property, then something has that property.</p>

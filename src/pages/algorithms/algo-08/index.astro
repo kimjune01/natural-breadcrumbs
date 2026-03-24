@@ -64,8 +64,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (cross 0 0 1 0 2 0))  ; zero = collinear
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Cross product orientation test
 def cross(p, q, r):
     return (q[0]-p[0]) * (r[1]-p[1]) - (q[1]-p[1]) * (r[0]-p[0])
@@ -74,7 +73,7 @@ print(f"Left turn:  {cross((0,0), (1,0), (0,1))}")   # positive
 print(f"Right turn: {cross((0,0), (1,0), (0,-1))}")   # negative
 print(f"Collinear:  {cross((0,0), (1,0), (2,0))}")    # zero
 `} />
-    </details>
+    </div>
 
     <h3>Graham scan</h3>
     <p>Sort points by polar angle around the lowest point. Walk through the sorted points, keeping only left turns. O(n log n) for the sort, O(n) for the scan.</p>

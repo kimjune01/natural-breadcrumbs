@@ -78,8 +78,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; 2/3 — knowing the roll is >3 makes "even" more likely
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Conditional probability
 p_a_and_b = 2/6  # even AND > 3
 p_b = 3/6        # > 3
@@ -88,7 +87,7 @@ p_a_given_b = p_a_and_b / p_b
 print(f"P(even | >3) = {p_a_given_b:.4f}")
 # 0.6667 — learning ">3" shifts the probability of "even"
 `} />
-    </details>
+    </div>
 
     <!-- 2. Multiplication rule -->
     <h3>The multiplication rule</h3>
@@ -142,8 +141,7 @@ print(f"P(even | >3) = {p_a_given_b:.4f}")
 (display "Most positives are healthy people.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bayes' theorem: medical test
 p_disease = 0.01
 p_pos_given_disease = 0.95
@@ -156,7 +154,7 @@ print(f"P(positive) = {p_pos:.4f}")
 print(f"P(disease | positive) = {p_disease_given_pos:.4f}")
 print("Most positives are false positives when prevalence is low.")
 `} />
-    </details>
+    </div>
 
     <!-- 4. Independence -->
     <h3>Independence</h3>

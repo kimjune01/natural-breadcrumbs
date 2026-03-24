@@ -79,8 +79,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (exact->inexact (- 1 p-disease-given-positive)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bayes' theorem in Python
 p_disease = 0.01
 p_healthy = 0.99
@@ -93,7 +92,7 @@ p_disease_given_pos = (p_pos_disease * p_disease) / p_positive
 print(f"P(disease | positive) = {p_disease_given_pos:.4f}")
 print(f"P(healthy | positive) = {1 - p_disease_given_pos:.4f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Priors and updating -->
@@ -131,8 +130,7 @@ print(f"P(healthy | positive) = {1 - p_disease_given_pos:.4f}")
 ; Tails pulls belief back toward fair
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Sequential Bayesian updating: fair vs biased coin
 def update(pf, pb, obs):
     pof = 0.5 if obs == "H" else 0.5
@@ -147,7 +145,7 @@ for obs in ["H", "H", "T"]:
     pf, pb = update(pf, pb, obs)
     print("After " + obs + ":   [" + "{:.4f}".format(pf) + ", " + "{:.4f}".format(pb) + "]")
 `} />
-    </details>
+    </div>
 
 
     <!-- Conjugate priors -->
@@ -188,8 +186,7 @@ for obs in ["H", "H", "T"]:
 ; More data = tighter posterior, converging on 0.7
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Beta-Binomial conjugacy
 def beta_mean(a, b):
     return a / (a + b)
@@ -207,7 +204,7 @@ a2, b2 = a + 70, b + 30
 print("After 70H 30T: Beta(" + str(a2) + ", " + str(b2) + ")")
 print("Posterior mean: " + "{:.4f}".format(beta_mean(a2, b2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation reference -->

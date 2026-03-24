@@ -47,8 +47,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; "ambiguous"
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Same toy disambiguation model in Python
 def predict_meaning(context):
     river_words = {"water", "fish", "stream", "paddle"}
@@ -65,7 +64,7 @@ print(predict_meaning(["water", "fish", "loan"]))
 print(predict_meaning(["cash", "deposit"]))
 print(predict_meaning(["tree", "cloud"]))
 `} />
-    </details>
+    </div>
 
 
     <!-- Marr's three levels -->
@@ -121,8 +120,7 @@ print(predict_meaning(["tree", "cloud"]))
 (display (add-direct 3 4))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Two algorithms for the same computation
 def add_by_increment(a, b):
     while b > 0:
@@ -136,7 +134,7 @@ def add_direct(a, b):
 print("increment: " + str(add_by_increment(3, 4)))
 print("direct:    " + str(add_direct(3, 4)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Simulation vs. explanation -->
@@ -173,8 +171,7 @@ print("direct:    " + str(add_direct(3, 4)))
 (display (model-b-rt 16))            ; 1200 — testable prediction
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Simulation vs explanation
 # Model A: lookup table (simulation)
 model_a = {1: 450, 2: 500, 4: 600, 8: 800}
@@ -187,7 +184,7 @@ print("Set size 16 (model A): " + str(model_a.get(16, 0)))
 print("Set size 16 (model B): " + str(model_b(16)))
 # Model B predicts novel inputs; Model A cannot.
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation reference -->

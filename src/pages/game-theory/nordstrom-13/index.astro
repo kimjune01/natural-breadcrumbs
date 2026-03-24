@@ -127,8 +127,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; As N rises, individual p drops, but p(nobody) rises
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Volunteer's Dilemma: diffusion of responsibility
 def volunteer_payoffs(choices):
     any_vol = "vol" in choices
@@ -144,7 +143,7 @@ for n in range(2, 11):
     p_nobody = (1 - p) ** n
     print(f"N={n:2d}  p(each)={p:.3f}  p(nobody)={p_nobody:.3f}")
 `} />
-    </details>
+    </div>
 
     <h3>Connection to Chicken</h3>
     <p>With N=2, the Volunteer's Dilemma reduces to Chicken. Volunteering is swerving: costly but safe. Not volunteering is going straight: you win big if someone else swerves, but if nobody does, everyone crashes. Nordstrom calls it "class-wide Chicken" for good reason.</p>

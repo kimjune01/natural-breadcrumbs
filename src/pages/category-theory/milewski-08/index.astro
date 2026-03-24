@@ -111,8 +111,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (bimap-pair (lambda (x) x) (lambda (x) x) p))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Bifunctor for pairs
 def bimap_pair(f, g, pair):
     return (f(pair[0]), g(pair[1]))
@@ -122,7 +121,7 @@ print(f"original: {p}")
 print(f"bimap:    {bimap_pair(lambda x: x*2, lambda x: -x, p)}")
 print(f"bimap id: {bimap_pair(lambda x: x, lambda x: x, p)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Either bifunctor -->
@@ -152,8 +151,7 @@ print(f"bimap id: {bimap_pair(lambda x: x, lambda x: x, p)}")
 ; Left maps the first function. Right maps the second.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Either bifunctor in Python
 class Left:
     def __init__(self, v): self.v = v
@@ -171,7 +169,7 @@ def bimap_either(f, g, e):
 print(bimap_either(lambda x: x*2, lambda x: x+100, Left(42)))
 print(bimap_either(lambda x: x*2, lambda x: x+100, Right(7)))
 `} />
-    </details>
+    </div>
 
     <!-- 3. Maybe from bifunctors -->
     <h3>Maybe from bifunctors: algebraic data types are functorial</h3>
@@ -228,8 +226,7 @@ print(bimap_either(lambda x: x*2, lambda x: x+100, Right(7)))
 ; 7 -> "7" -> not long.  1000000 -> "1000000" -> long.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Contravariant functor: predicates
 def contramap_pred(f, pred):
     return lambda x: pred(f(x))
@@ -244,7 +241,7 @@ print(f"long('category'): {long('category')}")
 print(f"long_number(7):       {long_number(7)}")
 print(f"long_number(1000000): {long_number(1000000)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Comparators as contravariant functors -->
@@ -310,8 +307,7 @@ print(f"long_number(1000000): {long_number(1000000)}")
 ; 5 — unchanged
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Profunctor: dimap for functions
 def dimap(f, g, h):
     return lambda x: g(h(f(x)))
@@ -329,7 +325,7 @@ print(adapted(1000000))  # 1000000 -> "1000000" -> 7 -> "length=7"
 same = dimap(lambda x: x, lambda x: x, char_count)
 print(f"dimap id id: {same('hello')}")  # 5
 `} />
-    </details>
+    </div>
 
 
     <!-- 7. The Const functor -->
@@ -393,8 +389,7 @@ print(f"dimap id id: {same('hello')}")  # 5
 ; The functor instance follows the sum/product structure automatically.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Tree functor — follows the ADT structure
 class Leaf:
     def __init__(self, v): self.v = v
@@ -413,7 +408,7 @@ tree = Branch(Leaf(1), Branch(Leaf(2), Leaf(3)))
 print(f"original: {tree}")
 print(f"doubled:  {fmap_tree(lambda x: x*2, tree)}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

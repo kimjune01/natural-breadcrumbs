@@ -68,8 +68,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   (list (list #t #t) (list #t #f) (list #f #t) (list #f #f)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Connectives
 impl = lambda p, q: (not p) or q
 bicon = lambda p, q: impl(p, q) and impl(q, p)
@@ -79,7 +78,7 @@ for p in [True, False]:
     for q in [True, False]:
         print(f"{p!s:5} {q!s:5} {impl(p, q)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Logical equivalences -->
@@ -124,8 +123,7 @@ for p in [True, False]:
 (display (check-contra))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Verify logical equivalences
 impl = lambda p, q: (not p) or q
 vals = [True, False]
@@ -143,7 +141,7 @@ contra = all(
 )
 print(f"Contrapositive holds? {contra}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Predicate logic and quantifiers -->
@@ -177,8 +175,7 @@ print(f"Contrapositive holds? {contra}")
                  (exists (lambda (x) (not (even? x))) domain)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`domain = list(range(1, 11))
 
 print(f"All even? {all(x % 2 == 0 for x in domain)}")
@@ -186,7 +183,7 @@ print(f"Some even? {any(x % 2 == 0 for x in domain)}")
 print(f"not(all even) == exists(odd)? "
       f"{(not all(x % 2 == 0 for x in domain)) == any(x % 2 != 0 for x in domain)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Proof methods -->
@@ -222,8 +219,7 @@ print(f"not(all even) == exists(odd)? "
 (display "sqrt(2) irrational: proved by contradiction")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Verify: if n^2 is even then n is even
 check = all(
     (n % 2 == 0) if (n * n) % 2 == 0 else True
@@ -231,7 +227,7 @@ check = all(
 )
 print(f"All pass (1..100)? {check}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

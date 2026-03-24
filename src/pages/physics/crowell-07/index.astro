@@ -76,8 +76,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (/ (B-wire 10 0.01) (B-wire 10 0.10)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 mu0 = 4 * math.pi * 1e-7
@@ -90,7 +89,7 @@ for r in [0.01, 0.05, 0.10]:
 
 print(f"Ratio B(1cm)/B(10cm): {B_wire(10, 0.01)/B_wire(10, 0.10):.1f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Lorentz force -->
@@ -126,8 +125,7 @@ print(f"Ratio B(1cm)/B(10cm): {B_wire(10, 0.01)/B_wire(10, 0.10):.1f}")
 (display " km")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def lorentz_force(q, v, B, theta):
@@ -147,7 +145,7 @@ r = cyclotron_radius(m, v, q, B)
 print(f"Force: {F:.2e} N")
 print(f"Cyclotron radius: {r:.1f} m ({r/1000:.1f} km)")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Ampere's law -->

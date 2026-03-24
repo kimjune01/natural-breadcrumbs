@@ -88,8 +88,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; => 42
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# A tiny eval in Python — dispatches on expression type.
 
 def my_eval(exp, env):
@@ -115,7 +114,7 @@ print(my_eval(['+', 'x', 5], env))       # 15
 print(my_eval(['*', 'x', 'x'], env))     # 100
 print(my_eval(['if', True, 42, 99], env)) # 42
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. apply -->
@@ -169,8 +168,7 @@ print(my_eval(['if', True, 42, 99], env)) # 42
 ; => 49
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# apply in Python — compound procedures carry their env.
 import operator
 
@@ -205,7 +203,7 @@ base_env = {'+': operator.add, '*': operator.mul}
 print(my_eval([['lambda', ['x'], ['*', 'x', 'x']], 7], base_env))
 # => 49
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Representing expressions -->
@@ -238,8 +236,7 @@ print(my_eval([['lambda', ['x'], ['*', 'x', 'x']], 7], base_env))
 (display "lambda?       ")  (display (lambda? '(lambda (x) x)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Expression classification in Python
 
 def self_evaluating(exp):
@@ -261,7 +258,7 @@ print(f"42 self-eval? {self_evaluating(42)}")
 print(f"if? on ['if',..]: {if_exp(['if', True, 1, 2])}")
 print(f"lambda?: {lambda_exp(['lambda', ['x'], 'x'])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Environments -->
@@ -301,8 +298,7 @@ print(f"lambda?: {lambda_exp(['lambda', ['x'], 'x'])}")
 ; => 30
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Environments as chained dicts in Python
 
 class Environment:
@@ -327,7 +323,7 @@ print(f"x in local: {local_env.lookup('x')}")   # 10 (shadowed)
 print(f"y in local: {local_env.lookup('y')}")   # 2 (from parent)
 print(f"z in local: {local_env.lookup('z')}")   # 30
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Running the evaluator -->
@@ -373,8 +369,7 @@ print(f"z in local: {local_env.lookup('z')}")   # 30
 ; => 3628800
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Complete tiny evaluator in Python
 import operator
 
@@ -411,7 +406,7 @@ fact_prog = [['lambda', ['f', 'n'], ['f', 'f', 'n']],
 
 print(f"10! = {tiny_eval(fact_prog, env)}")  # 3628800
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

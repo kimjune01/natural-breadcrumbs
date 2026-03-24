@@ -72,8 +72,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   '(H T))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Payoff matrix as a dictionary
 matching_pennies = {
     ("H", "H"): (1, -1),
@@ -87,7 +86,7 @@ for row in ["H", "T"]:
         print(f"({row},{col}) -> {matching_pennies[(row, col)]}", end="  ")
     print()
 `} />
-    </details>
+    </div>
 
     <!-- 2. Bigger matrices -->
     <h3>Larger games</h3>
@@ -166,8 +165,7 @@ for row in ["H", "T"]:
 (display (p2-best-response matrix 1))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Best responses in a matrix
 matrix = {
     ("A","X"):(1,2), ("A","Y"):(0,4), ("A","Z"):(3,1),
@@ -188,7 +186,7 @@ for c in ["X", "Y", "Z"]:
 for r in ["A", "B", "C"]:
     print(f"P2 best response to {r}: {p2_best(r)}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

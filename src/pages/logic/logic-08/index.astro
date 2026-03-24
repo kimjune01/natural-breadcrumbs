@@ -103,8 +103,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " (multiple evens exist)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Exists-unique
 domain = list(range(1, 11))
 
@@ -115,7 +114,7 @@ def exists_unique(pred, domain):
 print(f"Unique x=5: {exists_unique(lambda x: x == 5, domain)}")
 print(f"Unique even: {exists_unique(lambda x: x % 2 == 0, domain)}")
 `} />
-    </details>
+    </div>
 
     <h3>Definite descriptions</h3>
     <p>"The x such that P(x)" presupposes exactly one such x exists. In logic, "the even prime" means &exist;!x(even(x) &and; prime(x)), and the description refers to that unique witness.</p>

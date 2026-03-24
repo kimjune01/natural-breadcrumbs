@@ -68,8 +68,7 @@ print("Grades compose: 1 write + 1 write = 2 writes.")
 print("The type system tracks this statically.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <SchemeRepl client:load initialCode={`; Graded computation: value paired with grade
 ; (value . grade) where grade is a monoid element
 
@@ -90,7 +89,7 @@ print("The type system tracks this statically.")
 (display "grade: ") (display (cdr result))
 ; grade = 2 (composed effects)
 `} />
-    </details>
+    </div>
 
     <!-- SVG: Grade composition -->
     <div class="flex justify-center my-6">

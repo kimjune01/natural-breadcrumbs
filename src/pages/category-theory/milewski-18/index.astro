@@ -128,8 +128,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Should equal nats itself (extract gives back the original stream)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Stream comonad in Python
 class Stream:
     def __init__(self, head, tail_fn):
@@ -171,7 +170,7 @@ print(f"nats:  {nats.take(6)}")
 print(f"avg3:  {extend(avg3, nats).take(6)}")
 print(f"extract(duplicate(nats)).take(3) = {extract(duplicate(nats)).take(3)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. The Store comonad -->
@@ -231,8 +230,7 @@ print(f"extract(duplicate(nats)).take(3) = {extract(duplicate(nats)).take(3)}")
 ; 16 + 25 + 36 = 77
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Store comonad in Python
 class Store:
     def __init__(self, fn, pos):
@@ -262,7 +260,7 @@ print(f"blurred at 3: {extract(blurred)}")       # 29
 print(f"blurred at 0: {blurred.fn(0)}")           # 2
 print(f"blurred at 5: {blurred.fn(5)}")           # 77
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. 1D cellular automaton -->
@@ -321,8 +319,7 @@ print(f"blurred at 5: {blurred.fn(5)}")           # 77
 ; Sierpinski triangle emerges
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# 1D cellular automaton (Rule 90) via Store comonad
 class Store:
     def __init__(self, fn, pos):
@@ -351,7 +348,7 @@ for gen in range(5):
     print(f"gen {gen}: {vis}")
     state = extend(rule90, state)
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Duality table -->

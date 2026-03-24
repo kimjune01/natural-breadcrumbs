@@ -74,8 +74,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " mag=") (display (magnitude-polar z-polar))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Rectangular representation
@@ -104,7 +103,7 @@ z_polar = Polar(5, 0.9272952)
 print("Rectangular: real=" + str(z_rect.real_part) + " imag=" + str(z_rect.imag_part) + " mag=" + str(z_rect.magnitude))
 print("Polar:       real=" + format(z_polar.real_part, '.6f') + " imag=" + format(z_polar.imag_part, '.6f') + " mag=" + str(z_polar.magnitude))
 `} />
-    </details>
+    </div>
 
     <!-- 2. Tagged data -->
     <h3>Tagged data</h3>
@@ -143,8 +142,7 @@ print("Polar:       real=" + format(z_polar.real_part, '.6f') + " imag=" + forma
 (display "z2 magnitude: ") (display (magnitude z2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Tagged data: dict with a 'type' key
@@ -175,7 +173,7 @@ print("z2 real_part: " + format(rp2, '.6f'))
 print("z1 magnitude: " + str(m1))
 print("z2 magnitude: " + str(m2))
 `} />
-    </details>
+    </div>
 
     <!-- 3. Data-directed programming -->
     <h3>Data-directed programming</h3>
@@ -229,8 +227,7 @@ print("z2 magnitude: " + str(m2))
 (display "z2 magnitude: ") (display (apply-generic 'magnitude z2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Dispatch table: dict of (op, type) -> function
@@ -265,7 +262,7 @@ print("z2 real_part: " + format(apply_generic('real_part', z2), '.6f'))
 print("z1 magnitude: " + str(apply_generic('magnitude', z1)))
 print("z2 magnitude: " + str(apply_generic('magnitude', z2)))
 `} />
-    </details>
+    </div>
 
     <!-- 4. Message passing -->
     <h3>Message passing</h3>
@@ -301,8 +298,7 @@ print("z2 magnitude: " + str(apply_generic('magnitude', z2)))
 (display "z2 magnitude: ") (display (apply-generic 'magnitude z2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Message passing: object is a closure/dict
@@ -330,7 +326,7 @@ print("z1 magnitude: " + str(z1('magnitude')))
 print("z2 real_part: " + format(z2('real_part'), '.6f'))
 print("z2 magnitude: " + str(z2('magnitude')))
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

@@ -147,8 +147,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Small temperature difference = tiny efficiency.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Carnot efficiency
 def carnot(T_hot, T_cold):
     return 1 - T_cold / T_hot
@@ -161,7 +160,7 @@ cases = [
 for name, Th, Tc in cases:
     print(f"{name} ({Th}K/{Tc}K): {carnot(Th, Tc)*100:.1f}%")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Boltzmann -->

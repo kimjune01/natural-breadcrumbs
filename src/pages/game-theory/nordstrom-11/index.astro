@@ -143,8 +143,7 @@ bos-game)
 (display "Communication helps: both outcomes beat the mismatch")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Battle of the Sexes
 def bos_payoff(p1, p2):
     if p1 == "A" and p2 == "A": return (2, 1)
@@ -156,7 +155,7 @@ for moves in [("A","A"), ("C","C"), ("A","C"), ("C","A")]:
     total = sum(pay)
     print(f"{moves}: payoffs={pay}, sum={total}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Why zero-sum tools break -->
     <h3>Why zero-sum tools break</h3>

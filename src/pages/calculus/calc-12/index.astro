@@ -42,8 +42,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "f(2, 4) = ") (display (f 2 4))             ; 1
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Critical points of f(x,y) = x^2 + y^2 - 2x - 4y + 5
 def f(x, y):
     return x**2 + y**2 - 2*x - 4*y + 5
@@ -58,7 +57,7 @@ print("f(1, 2) = " + str(f(1, 2)))
 print("f(0, 0) = " + str(f(0, 0)))
 print("f(2, 4) = " + str(f(2, 4)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Second derivative test -->
@@ -95,8 +94,7 @@ print("f(2, 4) = " + str(f(2, 4)))
   (display "  => local minimum (D > 0, fxx > 0)"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 def f(x, y): return x**3 - 3*x*y + y**3
@@ -114,7 +112,7 @@ for pt in [(0,0), (1,1)]:
     elif fxx(x,y) > 0: print("  => local minimum")
     else: print("  => local maximum")
 `} />
-    </details>
+    </div>
 
 
     <!-- SVG: Contour plot with gradient arrows -->
@@ -190,8 +188,7 @@ for pt in [(0,0), (1,1)]:
 (display 0.5)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 # Maximize f(x,y) = xy on unit circle
@@ -202,7 +199,7 @@ i = np.argmax(vals)
 print(f"Max at x={x[i]:.4f}, y={y[i]:.4f}, f={vals[i]:.4f}")
 print(f"Exact: x=y=1/sqrt(2)={1/np.sqrt(2):.4f}, f=0.5")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

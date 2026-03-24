@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "absolutely better at both goods.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Ricardo's comparative advantage
 # Hours to produce one unit:
 eng_cloth, eng_wine = 100, 120
@@ -109,7 +108,7 @@ print()
 print("England: comparative advantage in cloth")
 print("Portugal: comparative advantage in wine")
 `} />
-    </details>
+    </div>
 
 
     <h3>Gains from trade</h3>

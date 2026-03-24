@@ -128,8 +128,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "x")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Figure skater conservation of angular momentum
 I_out, omega_out = 4.0, 2.0  # kg m^2, rad/s
 L = I_out * omega_out
@@ -141,7 +140,7 @@ print(f"Arms out: I={I_out}, omega={omega_out}, L={L}")
 print(f"Arms in:  I={I_in}, omega={omega_in:.2f}, L={I_in * omega_in}")
 print(f"Speed increase: {omega_in / omega_out:.1f}x")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Gyroscopes -->

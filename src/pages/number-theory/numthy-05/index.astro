@@ -107,8 +107,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Answer: 52.  52 mod 3 = 1, 52 mod 5 = 2, 52 mod 7 = 3
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Chinese Remainder Theorem
 def extended_gcd(a, b):
     if b == 0: return a, 1, 0
@@ -128,7 +127,7 @@ def crt(remainders, moduli):
 print(f"x=2 mod 3, x=3 mod 5: x = {crt([2,3], [3,5])}")
 print(f"x=1 mod 3, x=2 mod 5, x=3 mod 7: x = {crt([1,2,3], [3,5,7])}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Applications -->

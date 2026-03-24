@@ -97,8 +97,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Valid?     ") (display (= recovered message))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# RSA signature (tiny keys for demo)
 p, q = 61, 53
 n = p * q           # 3233
@@ -115,7 +114,7 @@ recovered = pow(signature, e, n)
 print(f"Recovered: {recovered}")
 print(f"Valid?     {recovered == message}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. ECDSA -->
     <h3>ECDSA</h3>

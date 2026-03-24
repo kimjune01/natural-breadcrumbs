@@ -96,8 +96,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (+ b0 (* b1 5)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Least squares regression
 xs = [1, 2, 3, 4, 5, 6, 7]
 ys = [52, 58, 65, 70, 74, 80, 85]
@@ -115,7 +114,7 @@ b0 = y_bar - b1 * x_bar
 print(f"y = {b0:.2f} + {b1:.2f} * x")
 print(f"Predicted y at x=5: {b0 + b1 * 5:.2f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Residuals -->
@@ -147,8 +146,7 @@ print(f"Predicted y at x=5: {b0 + b1 * 5:.2f}")
 (display "SSE: ") (display sse)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Residuals
 xs = [1, 2, 3, 4, 5, 6, 7]
 ys = [52, 58, 65, 70, 74, 80, 85]
@@ -159,7 +157,7 @@ print(f"Residuals: {[round(r, 2) for r in residuals]}")
 print(f"Sum: {sum(residuals):.4f}")
 print(f"SSE: {sum(r**2 for r in residuals):.2f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. R-squared -->
@@ -190,8 +188,7 @@ print(f"SSE: {sum(r**2 for r in residuals):.2f}")
 (display "% of variance")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# R-squared
 ys = [52, 58, 65, 70, 74, 80, 85]
 xs = [1, 2, 3, 4, 5, 6, 7]
@@ -205,7 +202,7 @@ r_sq = 1 - sse / sst
 print(f"R^2 = {r_sq:.4f}")
 print(f"Model explains {r_sq*100:.1f}% of variance")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Inference for slope -->
@@ -239,8 +236,7 @@ print(f"Model explains {r_sq*100:.1f}% of variance")
 (display (if (> (abs t-stat) 2.571) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Inference for slope
 import math
 
@@ -259,7 +255,7 @@ t = b1 / se_b1
 print(f"t = {t:.3f}, SE(b1) = {se_b1:.4f}")
 print(f"Reject H0? {'Yes' if abs(t) > 2.571 else 'No'}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Prediction intervals -->

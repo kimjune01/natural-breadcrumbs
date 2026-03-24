@@ -140,8 +140,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (has-cycle? edges))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Transaction simulation with sqlite3
 import sqlite3
 
@@ -174,7 +173,7 @@ for row in conn.execute("SELECT * FROM accounts"):
 print()
 transfer(conn, "Bob", "Alice", 200)  # should rollback
 `} />
-    </details>
+    </div>
 
 
     <!-- Neighbors -->

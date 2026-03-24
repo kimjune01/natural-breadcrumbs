@@ -62,8 +62,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (check 1000)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Big-O: f(n) = 3n + 5 is O(n)
 def f(n): return 3*n + 5
 def g(n): return 4*n
@@ -72,7 +71,7 @@ print("n\tf(n)\t4n\tf<=4n?")
 for n in [1, 5, 10, 100, 1000]:
     print(f"{n}\t{f(n)}\t{g(n)}\t{f(n) <= g(n)}")
 `} />
-    </details>
+    </div>
 
     <h3>Big-Omega and Big-Theta</h3>
     <p>Big-Omega is the mirror: f(n) is &Omega;(g(n)) if f grows <strong>at least as fast as</strong> g. Big-Theta is the sandwich: f(n) is &Theta;(g(n)) when both O and &Omega; hold. It means f and g grow at <strong>exactly the same rate</strong>.</p>

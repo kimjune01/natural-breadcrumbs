@@ -96,8 +96,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; English >= Second-price >= First-price
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Revenue ranking simulation
 import random
 
@@ -121,7 +120,7 @@ def simulate_revenues(n_bidders=5, common=50, n_trials=1000):
 
 simulate_revenues()
 `} />
-    </details>
+    </div>
 
     <h3>The linkage principle</h3>
     <p>Publicly revealing information that is affiliated with bidders' values raises expected revenue. The seller benefits from transparency because it reduces the information advantage of the winner (the <a href="https://en.wikipedia.org/wiki/Winner%27s_curse">🅦 winner's curse</a>), causing all bidders to bid more aggressively.</p>

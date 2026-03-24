@@ -90,8 +90,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; In 1D, the walk returns to 0 infinitely often
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import random
 random.seed(137)
 
@@ -111,7 +110,7 @@ print(f"returns: {ret}")
 _, ret100 = random_walk(100)
 print(f"100 steps, returns: {ret100}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Gambler's ruin -->
     <h3>Gambler&rsquo;s ruin</h3>

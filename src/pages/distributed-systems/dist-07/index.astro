@@ -66,8 +66,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "AP chose availability over consistency.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# CAP tradeoff during partition
 partitioned = True
 local_value = 41  # stale: leader updated to 42
@@ -87,7 +86,7 @@ except Exception as e:
     print(f"CP read: {e}")
 print(f"AP read: {ap_read()}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. The real choice -->
     <h3>The real choice: latency vs consistency</h3>

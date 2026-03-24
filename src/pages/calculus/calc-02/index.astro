@@ -151,8 +151,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (for-each show-angle names angles)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 angles = [0, math.pi/6, math.pi/4, math.pi/3, math.pi/2, math.pi]
@@ -162,7 +161,7 @@ for name, theta in zip(names, angles):
     c, s = math.cos(theta), math.sin(theta)
     print("{}: cos={:.3f} sin={:.3f} sum={:.3f}".format(name, c, s, c**2 + s**2))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. sin, cos, tan -->
@@ -187,8 +186,7 @@ for name, theta in zip(names, angles):
 (display "cos(-pi/3) = ") (display (/ (round (* (cos (- (/ pi 3))) 1000)) 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # tan = sin/cos
@@ -202,7 +200,7 @@ print("sin(-pi/3) = {:.3f}".format(math.sin(-math.pi/3)))
 print("cos(pi/3) = {:.3f}".format(math.cos(math.pi/3)))
 print("cos(-pi/3) = {:.3f}".format(math.cos(-math.pi/3)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Identities -->
@@ -230,8 +228,7 @@ print("cos(-pi/3) = {:.3f}".format(math.cos(-math.pi/3)))
 (display "sin(2a) formula: ") (display (/ (round (* rhs-double 10000)) 10000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 a, b = math.pi/6, math.pi/4
@@ -246,7 +243,7 @@ print(f"sin(a+b) formula: {rhs:.6f}")
 print(f"sin(2a) direct:  {math.sin(2*a):.6f}")
 print(f"sin(2a) formula: {2*math.sin(a)*math.cos(a):.6f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Inverse trig -->
@@ -270,8 +267,7 @@ print(f"sin(2a) formula: {2*math.sin(a)*math.cos(a):.6f}")
 ; -3pi/4 = -2.3562
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # asin(sin(x)) = x for x in [-pi/2, pi/2]
@@ -285,7 +281,7 @@ print("atan(1) = {:.4f}".format(math.atan(1)))  # 0.7854
 print("atan2(1, 1) = {:.4f}".format(math.atan2(1, 1)))
 print("atan2(-1, -1) = {:.4f}".format(math.atan2(-1, -1)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

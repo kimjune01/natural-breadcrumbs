@@ -68,8 +68,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "I share: ") (display (round (* 100 (/ I GDP)))) (display "%")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# GDP = C + I + G + NX
 C, I, G, NX = 18.5, 4.9, 4.6, -0.8
 GDP = C + I + G + NX
@@ -79,7 +78,7 @@ for name, val in [("C", C), ("I", I), ("G", G), ("NX", NX)]:
 print("GDP = $" + str(GDP) + "T")
 print("C share: " + str(round(C/GDP*100, 2)) + "%")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Nominal vs Real GDP -->

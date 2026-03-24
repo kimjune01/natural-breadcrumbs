@@ -68,8 +68,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "20! = ") (display (factorial 20))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Linear recursive factorial
 def factorial(n):
     if n == 1:
@@ -80,7 +79,7 @@ print(f"6!  = {factorial(6)}")
 print(f"10! = {factorial(10)}")
 print(f"20! = {factorial(20)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Iterative process -->
@@ -103,8 +102,7 @@ print(f"20! = {factorial(20)}")
 ; Same results, but constant stack space.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Iterative factorial — a loop is the natural Python form
 def factorial(n):
     product = 1
@@ -117,7 +115,7 @@ print(f"10! = {factorial(10)}")
 print(f"20! = {factorial(20)}")
 # Python doesn't optimize tail calls, so loops are preferred.
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Tree recursion -->
@@ -146,8 +144,7 @@ print(f"20! = {factorial(20)}")
 (display "fib-iter(30) = ") (display (fib-iter 30))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Tree recursion vs iterative Fibonacci
 def fib(n):
     if n == 0: return 0
@@ -166,7 +163,7 @@ def fib_iter(n):
 print(f"fib_iter(10) = {fib_iter(10)}")
 print(f"fib_iter(30) = {fib_iter(30)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Orders of growth -->
@@ -200,8 +197,7 @@ print(f"fib_iter(30) = {fib_iter(30)}")
 (display "2^20 (fast)      = ") (display (fast-expt 2 20))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Three approaches to exponentiation
 def expt_rec(b, n):
     if n == 0: return 1
@@ -223,7 +219,7 @@ print(f"2^10 (iterative) = {expt_iter(2, 10)}")
 print(f"2^10 (fast)      = {fast_expt(2, 10)}")
 print(f"2^20 (fast)      = {fast_expt(2, 20)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

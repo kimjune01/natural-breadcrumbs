@@ -40,8 +40,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (entropy '(1.0)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(dist):
@@ -67,7 +66,7 @@ print()
 print("More surprise = more entropy.")
 print("Certain = 0 bits. Fair coin = 1 bit.")
 `} />
-    </details>
+    </div>
 
     <!-- SVG: Entropy as functor -->
     <div class="flex justify-center my-6">
@@ -127,8 +126,7 @@ print("Certain = 0 bits. Fair coin = 1 bit.")
 ; Total = Loss 1 + Loss 2. That's functoriality.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(dist):
@@ -142,7 +140,7 @@ h0, h1, h2 = entropy(input_dist), entropy(after1), entropy(after2)
 print(f"Loss 1: {h0-h1:.2f}, Loss 2: {h1-h2:.2f}, Total: {h0-h2:.2f}")
 print(f"Functorial: {h0-h2:.2f} = {(h0-h1)+(h1-h2):.2f} ✓")
 `} />
-    </details>
+    </div>
 
     <!-- Data processing inequality -->
     <h3>Data processing inequality</h3>
@@ -164,8 +162,7 @@ print(f"Functorial: {h0-h2:.2f} = {(h0-h1)+(h1-h2):.2f} ✓")
 ; H(output) <= H(input). You can't gain bits by computing.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(dist):
@@ -177,7 +174,7 @@ h_lossy = entropy({"low": 0.3, "high": 0.7})
 print(f"H(input) = {h_in:.3f}, H(lossy) = {h_lossy:.3f}")
 print(f"Lost: {h_in - h_lossy:.3f} bits. DPI holds ✓")
 `} />
-    </details>
+    </div>
 
     <!-- Uniqueness -->
     <h3>The uniqueness theorem</h3>
@@ -207,8 +204,7 @@ print(f"Lost: {h_in - h_lossy:.3f} bits. DPI holds ✓")
 ; Shannon didn't choose entropy. The axioms forced it.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(dist):
@@ -219,7 +215,7 @@ h_out = entropy({"A": 0.5, "B": 0.5})
 print(f"F(f) = {h_in:.2f} - {h_out:.2f} = {h_in - h_out:.2f} bits")
 print("The only functorial, convex-linear, continuous measure.")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

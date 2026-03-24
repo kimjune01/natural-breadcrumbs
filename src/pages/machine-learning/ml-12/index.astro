@@ -112,8 +112,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     (display "Merge 2: ") (display best2) (display " -> ") (display merged2)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Simplified BPE tokenization
 from collections import Counter
 
@@ -143,7 +142,7 @@ for step in range(3):
     tokens = merge_pair(tokens, best)
     print("Merge {}: {} -> {}".format(step+1, best, tokens))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Next-token sampling -->
@@ -174,8 +173,7 @@ for step in range(3):
 (show-dist "T=3.0 (flat):" (softmax-with-temp logits 3.0))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Next-token sampling with temperature
@@ -195,7 +193,7 @@ for temp, label in [(1.0,"normal"), (0.3,"sharp"), (3.0,"flat")]:
     for word, p in zip(vocab, probs):
         print("  {}: {:.3f}".format(word, p))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Simple prompt template -->
@@ -233,8 +231,7 @@ for temp, label in [(1.0,"normal"), (0.3,"sharp"), (3.0,"flat")]:
 (display "Context window: ~4k to ~1M tokens")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Prompt template for few-shot in-context learning
 def make_prompt(examples, query):
     formatted = [
@@ -258,7 +255,7 @@ print()
 print("Examples:", len(examples))
 print("Context window: ~4k to ~1M tokens")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

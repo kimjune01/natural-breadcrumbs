@@ -45,8 +45,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; One object, one arrow. That's a valid category.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Finite categories in Python
 class FiniteCat:
     def __init__(self, objects, morphisms):
@@ -66,7 +65,7 @@ print(f"Empty: {len(empty.objects)} objects, {len(empty.morphisms)} arrows")
 print(f"One:   {len(one.objects)} objects, {len(one.morphisms)} arrows")
 print(f"Two:   {len(two.objects)} objects, {len(two.morphisms)} arrows")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Free categories -->
     <h3>Free categories — from graphs to categories</h3>
@@ -164,8 +163,7 @@ print(f"Two:   {len(two.objects)} objects, {len(two.morphisms)} arrows")
 (display "3 and 7 comparable? ") (display (comparable? 3 7))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Integers with <= as a category
 def hom_set(a, b):
     """Morphism exists iff a <= b"""
@@ -185,7 +183,7 @@ print(f"5<=3: {hom_set(5, 3)}")
 # Total: every pair comparable
 print(f"3,7 comparable? {bool(hom_set(3,7) or hom_set(7,3))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- SVG: Monoid as single-object category -->
@@ -245,8 +243,7 @@ print(f"3,7 comparable? {bool(hom_set(3,7) or hom_set(7,3))}")
 ; The hom-set M(*,*) = all strings = the monoid itself.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# String monoid as a single-object category
 # One object. Morphisms = strings. Composition = concatenation.
 
@@ -265,7 +262,7 @@ print(f"f . id = {compose(f, identity)!r}")
 print(f"(f.g).h = {compose(compose(f, g), h)!r}")
 print(f"f.(g.h) = {compose(f, compose(g, h))!r}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Hom-sets -->

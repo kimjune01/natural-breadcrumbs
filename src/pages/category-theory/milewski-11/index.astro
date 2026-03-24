@@ -182,8 +182,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; '() is the terminal object — the limit of nothing.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Product as a limit over a discrete two-object diagram
 fst = lambda p: p[0]
 snd = lambda p: p[1]
@@ -206,7 +205,7 @@ print(f"snd(m(42)) == show(42)?    {snd(m(42)) == show(42)}")
 unit = lambda x: None
 print(f"unit(42) = {unit(42)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Equalizers -->
@@ -244,8 +243,7 @@ print(f"unit(42) = {unit(42)}")
 ; factors through eq-set via a unique function.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Equalizer: elements where f(x) == g(x)
 def equalizer(f, g, domain):
     return [x for x in domain if f(x) == g(x)]
@@ -262,7 +260,7 @@ print(f"Equalizer: {eq_set}")
 for x in eq_set:
     print(f"  f({x}) = {f(x)}, g({x}) = {g(x)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Pullbacks -->
@@ -359,8 +357,7 @@ for x in eq_set:
   matches)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Pullback: pairs (x, y) where f(x) == g(y)
 def pullback(f, g, domain_a, domain_c):
     return [(x, y) for x in domain_a for y in domain_c if f(x) == g(y)]
@@ -376,7 +373,7 @@ print("Student-course pairs in the same department:")
 for s, c in matches:
     print(f"  {s} - {c} ({dept_student[s]})")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Colimits -->

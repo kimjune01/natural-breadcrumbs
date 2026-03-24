@@ -86,8 +86,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "fmap square: ") (display (fmap-box (lambda (x) (* x x)) b))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Simplest functor: a box holding one value
 class Box:
     def __init__(self, v): self.v = v
@@ -101,7 +100,7 @@ print(f"box: {b}")
 print(f"fmap add1: {fmap_box(lambda x: x+1, b)}")
 print(f"fmap square: {fmap_box(lambda x: x*x, b)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. The Maybe functor -->
     <h3>The Maybe functor</h3>
@@ -135,8 +134,7 @@ print(f"fmap square: {fmap_box(lambda x: x*x, b)}")
 `} />
 
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Maybe functor in Python (using None for nothing)
 def fmap_maybe(f, m):
     if m is None:
@@ -151,7 +149,7 @@ result = fmap_maybe(lambda x: x*x, fmap_maybe(lambda x: x+1, 4))
 print(f"fmap square (fmap add1 (just 4)): {result}")
 # 25
 `} />
-    </details>
+    </div>
 
     <!-- 3. The List functor -->
     <h3>The List functor</h3>
@@ -177,8 +175,7 @@ print(f"fmap square (fmap add1 (just 4)): {result}")
 `} />
 
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# List functor: fmap = map
 def fmap_list(f, xs):
     return [f(x) for x in xs]
@@ -187,7 +184,7 @@ print(f"fmap add1 [1,2,3]: {fmap_list(lambda x: x+1, [1,2,3])}")
 print(f"fmap square [1,2,3,4]: {fmap_list(lambda x: x*x, [1,2,3,4])}")
 print(f"fmap add1 []: {fmap_list(lambda x: x+1, [])}")
 `} />
-    </details>
+    </div>
 
     <!-- 4. The functor laws -->
     <h3>The functor laws</h3>
@@ -298,8 +295,7 @@ print(f"fmap add1 []: {fmap_list(lambda x: x+1, [])}")
 `} />
 
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Functor laws verified for list and Maybe
 def fmap_list(f, xs): return [f(x) for x in xs]
 def fmap_maybe(f, m): return None if m is None else f(m)
@@ -326,7 +322,7 @@ lhs2 = fmap_maybe(lambda x: g(f(x)), 3)
 rhs2 = fmap_maybe(g, fmap_maybe(f, 3))
 print(f"Maybe composition: {lhs2 == rhs2}  {lhs2}")
 `} />
-    </details>
+    </div>
 
     <!-- 5. The Reader functor -->
     <h3>The Reader functor</h3>

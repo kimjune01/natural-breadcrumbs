@@ -142,8 +142,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (exact->inexact total-exact))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Money multiplier: geometric series
 deposit = 1000
 reserve_ratio = 0.10
@@ -161,7 +160,7 @@ print("Total after 10 rounds: $" + str(round(total, 2)))
 print("Exact (geometric series): $" + str(round(1000 / reserve_ratio, 2)))
 print("Multiplier: " + str(1 / reserve_ratio))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Money supply -->

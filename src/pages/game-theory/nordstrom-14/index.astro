@@ -132,8 +132,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; TFT vs D: TFT gets hurt round 1 then matches
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Repeated PD: strategy tournament
 def pd(me, other):
     return {("C","C"):3, ("C","D"):0, ("D","C"):5, ("D","D"):1}[(me,other)]
@@ -158,7 +157,7 @@ print(f"TFT vs always-D: {play(tft, always_d)}")
 print(f"always-D vs D:   {play(always_d, always_d)}")
 print(f"always-C vs D:   {play(always_c, always_d)}")
 `} />
-    </details>
+    </div>
 
     <h3>The shadow of the future</h3>
     <p>Cooperation holds when the expected value of future cooperation exceeds the one-time gain from defecting. With a discount factor d (probability the game continues), cooperation via tit-for-tat is sustainable when the present value of cooperation outweighs the temptation to defect. As d approaches 1, the future looms large and cooperation stabilizes.</p>

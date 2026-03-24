@@ -94,8 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; The output type of A matches the input type of B.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Boxes as typed interfaces
 box_A = {"name": "filter", "ins": ["signal"], "outs": ["filtered"]}
 box_B = {"name": "amplify", "ins": ["filtered"], "outs": ["output"]}
@@ -104,7 +103,7 @@ print(f"A: {box_A['ins']} -> {box_A['outs']}")
 print(f"B: {box_B['ins']} -> {box_B['outs']}")
 print("Output type of A matches input type of B.")
 `} />
-    </details>
+    </div>
 
     <h3>Supplier assignment</h3>
     <p>Wiring a diagram means assigning a <strong>supplier</strong> to each input port. Every input must get its value from exactly one output port (or from an external input of the outer box). The assignment must respect types: a port of type T can only be wired to an output of type T.</p>
@@ -131,8 +130,7 @@ print("Output type of A matches input type of B.")
 ; amplify.filtered <- filter.filtered
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Supplier assignment in Python
 wiring = {
     ("filter", "signal"): ("outer", "signal"),
@@ -146,7 +144,7 @@ print()
 print("Every input has exactly one supplier.")
 print("Types must match at every wire.")
 `} />
-    </details>
+    </div>
 
     <h3>Composing boxes</h3>
     <p>The operad operation: given an outer box with inner boxes wired together, collapse the inner structure into a single box. The composite box has the outer box's interface. The internal wiring is hidden — encapsulation.</p>
@@ -170,8 +168,7 @@ print("Types must match at every wire.")
 ; From outside: signal -> output. Interior is hidden.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Composition hides internal wiring
 def compose(outer_ins, outer_outs, inner_boxes, wiring):
     return {
@@ -191,7 +188,7 @@ pipeline = compose(
 print(f"Pipeline: {pipeline['ins']} -> {pipeline['outs']}")
 print(f"  ({pipeline['internal']} internal wires, hidden)")
 `} />
-    </details>
+    </div>
 
     <h3>Operadic composition is associative</h3>
     <p>The key property: composing (A then B) then C gives the same wiring diagram as composing A then (B then C). The wiring diagram operad is a genuine <a href="https://en.wikipedia.org/wiki/Operad">🅦 operad</a> — composition is associative and there's an identity (the box that passes all ports through unchanged).</p>
@@ -216,8 +213,7 @@ print(f"  ({pipeline['internal']} internal wires, hidden)")
 ; Associativity holds — this is the operad law.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Associativity check
 a = lambda x: x + 1
 b = lambda x: x * 2
@@ -229,7 +225,7 @@ print(f"(a;b);c = {left}")
 print(f"a;(b;c) = {right}")
 print(f"Equal: {left == right}")
 `} />
-    </details>
+    </div>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">

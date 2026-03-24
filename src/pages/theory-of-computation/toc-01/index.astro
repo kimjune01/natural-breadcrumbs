@@ -105,8 +105,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "0101: ") (display (run-dfa "0101"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# DFA for strings ending in "01"
 def run_dfa(input_str):
     # transition[state][symbol] -> next state
@@ -123,7 +122,7 @@ def run_dfa(input_str):
 for s in ["101", "1001", "11", "01", "0101"]:
     print(s + ": " + str(run_dfa(s)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Language recognition -->

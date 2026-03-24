@@ -50,8 +50,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   (list (list 0 0) (list 3 3) (list 5 5) (list 6 1)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def dist(p, q):
@@ -65,7 +64,7 @@ sites = [(1,1), (4,2), (2,5), (6,4), (5,7)]
 for q in [(0,0), (3,3), (5,5), (6,1)]:
     print(f"Nearest to {q}: {nearest_site(q, sites)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- SVG: Voronoi diagram -->

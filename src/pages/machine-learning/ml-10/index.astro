@@ -100,8 +100,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
         (loop (cdr xs) h-new (+ step 1)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Simple RNN forward pass (scalar version)
@@ -116,7 +115,7 @@ for t, x in enumerate(xs, 1):
     h = rnn_step(h, x)
     print("t={}  x={:5.1f}  h={:.4f}".format(t, x, h))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. LSTM gate computation -->
@@ -160,8 +159,7 @@ for t, x in enumerate(xs, 1):
         (loop (cdr xs) (car result) (list-ref result 1) (+ step 1)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # LSTM gates (scalar version)
@@ -187,7 +185,7 @@ for t, x in enumerate(xs, 1):
     h, c, f, i, o = lstm_step(h, c, x)
     print("t={}  f={:.2f}  i={:.2f}  h={:.4f}".format(t, f, i, h))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Sequence prediction -->
@@ -225,8 +223,7 @@ for t, x in enumerate(xs, 1):
         (loop (cdr seq) (car result)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Next-element prediction on repeating pattern 0,1,2,0,1,2,...
@@ -249,7 +246,7 @@ for t in range(len(sequence) - 1):
     actual = sequence[t + 1]
     print("  {} -> {} (actual: {})".format(sequence[t], pred, actual))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

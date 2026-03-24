@@ -49,8 +49,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (* N EMF)) (display " V")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 r = 0.10
@@ -63,7 +62,7 @@ print(f"dB/dt: {dB_dt:.1f} T/s")
 print(f"Induced EMF: {EMF:.4f} V")
 print(f"EMF with 100 turns: {100*EMF:.2f} V")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Inductance -->
@@ -163,8 +162,7 @@ print(f"EMF with 100 turns: {100*EMF:.2f} V")
 ; that light is an electromagnetic wave.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 mu0 = 4 * math.pi * 1e-7
@@ -175,7 +173,7 @@ print(f"Predicted c: {c:.0f} m/s")
 print(f"Actual c:    299792458 m/s")
 print(f"Ratio:       {c/299792458:.6f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Electromagnetic waves -->

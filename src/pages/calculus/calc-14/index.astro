@@ -46,8 +46,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Exact: 0 (symmetry: positive and negative cancel)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Scalar line integral of f(x,y) = x+y along unit circle
 import math
 
@@ -62,7 +61,7 @@ result = total * dt
 print("Scalar line integral of (x+y) on unit circle = " + format(result, ".6f"))
 print("Exact: 0 (symmetry: positive and negative cancel)")
 `} />
-    </details>
+    </div>
 
 
     <!-- Vector line integrals (work) -->
@@ -133,8 +132,7 @@ print("Exact: 0 (symmetry: positive and negative cancel)")
 (display "Exact: 1")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 t = np.linspace(0, 1, 10000)
@@ -145,7 +143,7 @@ integrand = t**2 * 1 + t * 2*t  # F.r' = 3t^2
 work = np.sum(integrand * dt)
 print(f"Work = {work:.4f}, exact = 1.0")
 `} />
-    </details>
+    </div>
 
 
     <!-- Surface integrals -->
@@ -181,8 +179,7 @@ print(f"Work = {work:.4f}, exact = 1.0")
 (display "Exact: 1")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Surface integrals: flux through top of unit cube
 # F = (0,0,z), surface z=1, normal = (0,0,1)
 # F.n = 1 on z=1
@@ -198,7 +195,7 @@ flux2 = sum((dx*(i+0.5) + dx*(j+0.5)) * dx * dx for i in range(n) for j in range
 print("Flux of (0,0,x+y) through top = " + format(flux2, ".4f"))
 print("Exact: 1")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

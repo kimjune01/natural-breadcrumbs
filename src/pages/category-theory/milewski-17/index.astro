@@ -89,8 +89,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; join peels off one layer. Two Justs become one. Nothing stays Nothing.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Maybe monad: return and join
 def maybe_return(x):
     return ("just", x)
@@ -107,7 +106,7 @@ print(f"join(Just(Just(5))): {maybe_join(('just', ('just', 5)))}")
 print(f"join(Just(None)):    {maybe_join(('just', None))}")
 print(f"join(None):          {maybe_join(None)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Bind -->
@@ -181,8 +180,7 @@ print(f"join(None):          {maybe_join(None)}")
 ; Nothing propagates. No null checks needed.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Maybe bind in Python
 def maybe_bind(mx, f):
     if mx is None:
@@ -196,7 +194,7 @@ print(f"12 / 3 / 2:     {maybe_bind(safe_div(12, 3), lambda x: safe_div(x, 2))}"
 print(f"12 / 0 / 2:     {maybe_bind(safe_div(12, 0), lambda x: safe_div(x, 2))}")
 print(f"100 / 5 / 4 / 0: {maybe_bind(safe_div(100, 5), lambda a: maybe_bind(safe_div(a, 4), lambda b: safe_div(b, 0)))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. The monad laws -->
@@ -282,8 +280,7 @@ print(f"100 / 5 / 4 / 0: {maybe_bind(safe_div(100, 5), lambda a: maybe_bind(safe
 ; Bind is flatMap. Empty list is failure. List monad = backtracking search.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# List monad in Python
 def list_return(x): return [x]
 
@@ -302,7 +299,7 @@ sum4 = list_bind(dice, lambda a:
         [(a, b)] if a + b == 4 else []))
 print(f"sum to 4: {sum4}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Writer monad revisited -->
@@ -344,8 +341,7 @@ print(f"sum to 4: {sum4}")
 ; The log accumulates through bind. No global mutable state.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Writer monad in Python
 def writer_return(x): return (x, "")
 
@@ -364,7 +360,7 @@ result = writer_bind(to_upper("hello world"),
 print(f"result: {result[0]}")
 print(f"log:    {result[1]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 6. Verifying the monad laws -->

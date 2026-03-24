@@ -69,8 +69,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display " (elastic)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Midpoint elasticity formula
 def elasticity(p1, q1, p2, q2):
     pct_q = (q2 - q1) / (0.5 * (q1 + q2))
@@ -83,7 +82,7 @@ e_cer = elasticity(4, 500, 4.40, 350)
 print("Insulin elasticity: " + str(round(e_ins, 2)) + " (inelastic)")
 print("Cereal elasticity:  " + str(round(e_cer, 2)) + " (elastic)")
 `} />
-    </details>
+    </div>
 
 
     <h3>Revenue implications</h3>

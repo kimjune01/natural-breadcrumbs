@@ -43,8 +43,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "absurd is defined but uncallable — Void is empty")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Terminal object: unit returns None (the singleton)
 def unit(x):
     return None
@@ -59,7 +58,7 @@ print(f"unit('hello') = {unit('hello')}")
 def absurd(x):
     raise RuntimeError("Void has no values")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Universal construction -->
@@ -167,8 +166,7 @@ def absurd(x):
 ; The factorizer witnesses the universal property.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Product = tuple with fst, snd projections
 fst = lambda p: p[0]
 snd = lambda p: p[1]
@@ -188,7 +186,7 @@ print(f"m(7)  = {m(7)}")
 print(f"fst(m(42)) == is_even(42)? {fst(m(42)) == is_even(42)}")
 print(f"snd(m(42)) == show(42)?    {snd(m(42)) == show(42)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Coproducts -->
@@ -267,8 +265,7 @@ print(f"snd(m(42)) == show(42)?    {snd(m(42)) == show(42)}")
 (display (equal? (m (Right "hello")) (show-str "hello")))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Coproduct = tagged union (Either)
 class Either:
     def __init__(self, tag, value):
@@ -297,7 +294,7 @@ print(m(Right("hello")))
 print(f"m(Left(42)) == show_num(42)?       {m(Left(42)) == show_num(42)}")
 print(f"m(Right('hello')) == show_str('hello')? {m(Right('hello')) == show_str('hello')}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Duality -->

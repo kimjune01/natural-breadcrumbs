@@ -103,8 +103,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "ab:        ") (display (tm-anbncn "ab"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Turing machine for a^n b^n c^n
 def tm_anbncn(s):
     tape = list(s) + ['_']
@@ -126,7 +125,7 @@ def tm_anbncn(s):
 for s in ["abc", "aabbcc", "aaabbbccc", "aabbc", "ab"]:
     print(s.ljust(10) + ": " + str(tm_anbncn(s)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Church-Turing thesis -->

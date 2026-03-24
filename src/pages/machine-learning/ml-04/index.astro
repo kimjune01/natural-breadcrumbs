@@ -103,8 +103,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (+ (sigmoid 2) (sigmoid -2)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">Python equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Sigmoid function
 import math
 
@@ -117,7 +116,7 @@ for z in [-5, -1, 0, 1, 5]:
 # Key property: sigma(-z) = 1 - sigma(z)
 print("sigmoid(2) + sigmoid(-2) =", sigmoid(2) + sigmoid(-2))
 `} />
-    </details>
+    </div>
 
     <!-- 2. Cross-entropy loss -->
     <h3>Cross-entropy loss</h3>
@@ -143,8 +142,7 @@ print("sigmoid(2) + sigmoid(-2) =", sigmoid(2) + sigmoid(-2))
 (display "y=0, p=0.99: L = ") (display (cross-entropy 0 0.99))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">Python equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Cross-entropy loss
 import math
 
@@ -163,7 +161,7 @@ print("y=1, p=0.01: L =", round(cross_entropy(1, 0.01), 4))
 # Confident and wrong: catastrophic
 print("y=0, p=0.99: L =", round(cross_entropy(0, 0.99), 4))
 `} />
-    </details>
+    </div>
 
     <!-- 3. Gradient descent for logistic regression -->
     <h3>Gradient descent for logistic regression</h3>
@@ -211,8 +209,7 @@ print("y=0, p=0.99: L =", round(cross_entropy(0, 0.99), 4))
 (train 0 0 200)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">Python equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Logistic regression via gradient descent
 import math
 
@@ -242,7 +239,7 @@ for x, y in data:
     p = sigmoid(w * x + b)
     print("  x={} true={} pred={:.3f}".format(x, y, p))
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

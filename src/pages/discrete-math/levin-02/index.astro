@@ -64,8 +64,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (arith-sum 3 4 5))  ; 3+7+11+15+19+23 = 78
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Arithmetic sequence
 def arith(a0, d, n):
     return a0 + d * n
@@ -74,7 +73,7 @@ terms = [arith(3, 4, i) for i in range(6)]
 print(f"First 6 terms: {terms}")
 print(f"Sum: {sum(terms)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Geometric sequences -->
@@ -103,8 +102,7 @@ print(f"Sum: {sum(terms)}")
 (display (geom-sum 2 3 4))  ; 2+6+18+54+162 = 242
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Geometric sequence
 def geom(a0, r, n):
     return a0 * r ** n
@@ -113,7 +111,7 @@ terms = [geom(2, 3, i) for i in range(5)]
 print(f"First 5 terms: {terms}")
 print(f"Sum: {sum(terms)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Recurrence relations -->
@@ -147,8 +145,7 @@ print(f"Sum: {sum(terms)}")
     (loop (+ i 1))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Fibonacci (iterative)
 def fib(n):
     a, b = 0, 1
@@ -159,7 +156,7 @@ def fib(n):
 print(f"Fibonacci 0..10: {[fib(i) for i in range(11)]}")
 print(f"Hanoi moves: {[2**i - 1 for i in range(1, 7)]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Solving recurrences -->
@@ -198,8 +195,7 @@ print(f"Hanoi moves: {[2**i - 1 for i in range(1, 7)]}")
     (loop (+ i 1))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Characteristic root method
 closed = lambda n: (2**n - (-1)**n) // 3
 
@@ -213,7 +209,7 @@ def recur(n):
 for label, f in [("Closed", closed), ("Recur", recur)]:
     print(f"{label}:  {[f(i) for i in range(8)]}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Proof by induction -->
@@ -248,8 +244,7 @@ for label, f in [("Closed", closed), ("Recur", recur)]:
 (display (verify 20))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Verify sum formula by checking instances
 formula = lambda n: n * (n + 1) // 2
 direct = lambda n: sum(range(n + 1))
@@ -258,7 +253,7 @@ print(f"sum(0..10) formula: {formula(10)}")
 print(f"sum(0..10) direct:  {direct(10)}")
 print(f"All match 0..20? {all(formula(i) == direct(i) for i in range(21))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

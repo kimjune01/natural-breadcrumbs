@@ -62,8 +62,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Limit = 1")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def f(x): return math.sin(x) / x
@@ -73,7 +72,7 @@ for x in [1.0, 0.1, 0.01, 0.001, 0.0001]:
 
 print("Limit as x -> 0 is 1")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Epsilon-delta -->
@@ -107,8 +106,7 @@ print("Limit as x -> 0 is 1")
 (check-epsilon-delta 0.001)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Epsilon-delta: lim(2x+1) as x->3 = 7
 # delta = epsilon/2 works because |(2x+1)-7| = 2|x-3|
 def f(x): return 2*x + 1
@@ -121,7 +119,7 @@ for eps in [1.0, 0.1, 0.01, 0.001]:
     status = "OK" if error < eps else "FAIL"
     print("eps={} delta={} |f(x)-L|={:.5f} {}".format(eps, delta, error, status))
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Squeeze theorem -->
@@ -149,8 +147,7 @@ for eps in [1.0, 0.1, 0.01, 0.001]:
 (display "All three squeeze to 0")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 # Squeeze theorem: -|x| <= x*sin(1/x) <= |x|
@@ -161,7 +158,7 @@ for x in [1.0, 0.1, 0.01, 0.001]:
         x, -abs(x), f(x), abs(x)))
 print("All three squeeze to 0")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Continuity -->
@@ -184,8 +181,7 @@ print("All three squeeze to 0")
 (display "Left and right limits disagree: not continuous")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Continuity: lim f(x) must equal f(a)
 # Continuous: f(x) = x^2 at x = 2
 f = lambda x: x**2
@@ -200,7 +196,7 @@ print("g(0.001) =", 1/0.001)
 print("g(-0.001) =", 1/-0.001)
 print("Left and right limits disagree: not continuous")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. IVT -->
@@ -228,8 +224,7 @@ print("Left and right limits disagree: not continuous")
 (bisect 1.0 2.0 30)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# IVT + bisection to find sqrt(2)
 def f(x): return x**2 - 2
 
@@ -247,7 +242,7 @@ for _ in range(30):
 print("root ~", mid)
 print("f(root) ~", f(mid))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

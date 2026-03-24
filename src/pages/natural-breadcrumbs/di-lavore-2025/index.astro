@@ -72,8 +72,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "defined at (6,0)? ") (display (div-defined? '(6 0)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Partial functions and restriction
 def partial_div(x, y):
     if y == 0:
@@ -87,7 +86,7 @@ div_ok = restriction(partial_div)
 print(f"div(6,3) = {partial_div(6,3)}, defined: {div_ok(6,3)}")
 print(f"div(6,0) = {partial_div(6,0)}, defined: {div_ok(6,0)}")
 `} />
-    </details>
+    </div>
 
     <h3>Observations — conditioning on events</h3>
     <p>An observation is a partial morphism that "tests" whether an event occurred. If the event has zero probability, the observation is undefined — you can't condition on something that can't happen. This is the categorical version of "divide by zero in Bayes' rule."</p>
@@ -116,8 +115,7 @@ print(f"div(6,0) = {partial_div(6,0)}, defined: {div_ok(6,0)}")
 ; Conditioning on impossible event is undefined
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Conditioning on events
 def condition(dist, event):
     matching = {k: v for k, v in dist.items() if event(k)}
@@ -130,7 +128,7 @@ dist = {1: 0.3, 2: 0.5, 3: 0.2}
 print(f"P(even): {condition(dist, lambda x: x % 2 == 0)}")
 print(f"P(>10):  {condition(dist, lambda x: x > 10)}")
 `} />
-    </details>
+    </div>
 
     <h3>Bayes' theorem in the partial setting</h3>
     <p>Bayes' theorem becomes a theorem about partial morphisms: the posterior is defined exactly when the marginal likelihood is nonzero. The restriction structure tracks this automatically — no ad hoc division-by-zero guards needed.</p>

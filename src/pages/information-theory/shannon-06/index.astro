@@ -94,8 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; Processing Y->Z lost more information about X.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -113,7 +112,7 @@ print(f"I(X;Y) = {ixy:.4f}")
 print(f"I(X;Z) = {ixz:.4f}")
 print(f"I(X;Z) <= I(X;Y)? {ixz <= ixy}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Why it matters -->
     <h3>Why it matters</h3>
@@ -173,8 +172,7 @@ print(f"I(X;Z) <= I(X;Y)? {ixz <= ixy}")
 ; The function f can only destroy information.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -188,7 +186,7 @@ print(f"H(f(X)) = {hfx:.4f}")
 print(f"Lost    = {hx - hfx:.4f} bits")
 print(f"Functor can't increase: {hfx <= hx}")
 `} />
-    </details>
+    </div>
 
     <!-- Notation -->
     <h3>Notation reference</h3>

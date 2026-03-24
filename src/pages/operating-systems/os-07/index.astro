@@ -123,8 +123,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (fifo-replace '(7 0 1 2 0 3 0 4) 3)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# LRU page replacement
 from collections import OrderedDict
 
@@ -147,7 +146,7 @@ def lru_replace(refs, num_frames):
 
 lru_replace([7, 0, 1, 2, 0, 3, 0, 4], 3)
 `} />
-    </details>
+    </div>
 
     <h3>Thrashing</h3>
     <p>When a process has too few frames, it faults on almost every access. The OS spends more time swapping pages than executing instructions. This is <strong>thrashing</strong>. The fix: give the process more frames, or reduce the degree of multiprogramming.</p>

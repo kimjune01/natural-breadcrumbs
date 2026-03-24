@@ -93,8 +93,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "7^4 mod 12 = ") (display (mod-pow 7 4 12))  ; phi(12)=4, so 1
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Fast modular exponentiation
 def mod_pow(base, exp, mod):
     result = 1
@@ -112,7 +111,7 @@ print(f"3^12 mod 13 = {mod_pow(3, 12, 13)}")
 print(f"5^10 mod 11 = {mod_pow(5, 10, 11)}")
 print(f"7^4 mod 12 = {mod_pow(7, 4, 12)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Neighbors -->

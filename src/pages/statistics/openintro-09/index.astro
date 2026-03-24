@@ -79,8 +79,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display b2) (display " points")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Multiple regression prediction
 b0, b1, b2 = 30, 5, 3
 
@@ -91,7 +90,7 @@ print(f"Student B (8h study, 6h sleep): {predict(8, 6)}")
 print(f"Extra hour studying: +{b1} points")
 print(f"Extra hour sleeping: +{b2} points")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Adjusted R-squared -->
@@ -124,8 +123,7 @@ print(f"Extra hour sleeping: +{b2} points")
 (display (if (> r2-adj-2 r2-adj-1) "Yes" "No"))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Adjusted R-squared comparison
 n, sst = 50, 1000.0
 
@@ -134,7 +132,7 @@ for label, p, sse in [("1 predictor", 1, 300), ("3 predictors", 3, 280)]:
     r2_adj = 1 - (sse / (n - p - 1)) / (sst / (n - 1))
     print(f"{label}: R^2={r2:.3f}, R^2_adj={r2_adj:.3f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Multicollinearity -->
@@ -159,15 +157,14 @@ for label, p, sse in [("1 predictor", 1, 300), ("3 predictors", 3, 280)]:
 (display "Rule of thumb: VIF > 5 is concerning")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# VIF for different correlations
 vif = lambda r_sq: 1 / (1 - r_sq)
 
 for r in [0.0, 0.5, 0.7, 0.9, 0.95]:
     print(f"r = {r}: VIF = {vif(r**2):.2f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Logistic regression -->
@@ -198,8 +195,7 @@ for r in [0.0, 0.5, 0.7, 0.9, 0.95]:
 (display (/ (- b0) b1))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Logistic regression
 import math
 
@@ -212,7 +208,7 @@ for x in [0, 2, 4, 5, 6, 8, 10]:
     print(f"  x = {x} -> p = {predict(x):.4f}")
 print(f"Decision boundary at x = {-b0/b1}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 5. Odds ratios -->
@@ -241,8 +237,7 @@ print(f"Decision boundary at x = {-b0/b1}")
 (display "New prob:       ") (display (odds->prob new-odds))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Odds ratios
 import math
 
@@ -257,7 +252,7 @@ to_prob = lambda o: o / (1 + o)
 print(f"Baseline p = {to_prob(baseline_odds):.3f}")
 print(f"After x+1: p = {to_prob(new_odds):.3f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

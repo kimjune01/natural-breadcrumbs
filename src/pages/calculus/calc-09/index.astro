@@ -46,8 +46,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (/ 8.0 3))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Area between curves
 import numpy as np
 
@@ -60,7 +59,7 @@ area = np.sum((f(x) - g(x)) * dx)
 print(f"Area between x^2+1 and x on [0,2] = {area:.4f}")
 print(f"Exact: 8/3 = {8/3:.4f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Volumes of revolution -->
@@ -119,8 +118,7 @@ print(f"Exact: 8/3 = {8/3:.4f}")
 (display "Exact: 128*pi/5 = ") (display (* (/ 128 5.0) pi))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import numpy as np
 
 x = np.linspace(0, 4, 10000)
@@ -134,7 +132,7 @@ print(f"V (disk) = {vol_disk:.4f}, exact = {8*np.pi:.4f}")
 vol_shell = 2 * np.pi * np.sum(x * np.sqrt(x) * dx)
 print(f"V (shell) = {vol_shell:.4f}, exact = {128*np.pi/5:.4f}")
 `} />
-    </details>
+    </div>
 
 
     <!-- Arc length -->
@@ -163,8 +161,7 @@ print(f"V (shell) = {vol_shell:.4f}, exact = {128*np.pi/5:.4f}")
 (display (* (/ 2 27.0) (- (expt 10 1.5) 1)))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Arc length of y = x^(3/2) on [0, 4]
 import math
 
@@ -177,7 +174,7 @@ exact = (2/27) * (10**1.5 - 1)
 print("Arc length of y = x^(3/2) on [0,4] = " + format(arc_length, ".4f"))
 print("Exact: (2/27)*(10^1.5 - 1) = " + format(exact, ".4f"))
 `} />
-    </details>
+    </div>
 
 
     <!-- Work -->
@@ -203,8 +200,7 @@ print("Exact: (2/27)*(10^1.5 - 1) = " + format(exact, ".4f"))
 (display "Exact: k*d^2/2 = ") (display (* 0.5 k 0.3 0.3)) (display " J")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Work to stretch a spring (Hooke's law)
 k = 50  # N/m
 
@@ -218,7 +214,7 @@ print("Work = integral of 50x dx from 0 to 0.3")
 print("     = " + format(work, ".4f") + " J")
 print("Exact: k*d^2/2 = " + format(exact, ".4f") + " J")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

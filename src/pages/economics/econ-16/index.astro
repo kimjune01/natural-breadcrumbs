@@ -73,8 +73,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "Real output unchanged. Only prices adjust.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Quantity theory: MV = PQ
 V = 5   # velocity
 Q = 100 # real output
@@ -86,7 +85,7 @@ for M in [100, 200, 400, 800, 1600]:
 print("")
 print("Double M => double P (with V, Q constant)")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Demand-pull vs cost-push -->

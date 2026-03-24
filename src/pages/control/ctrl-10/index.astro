@@ -86,8 +86,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (simulate 2.0 500)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Lyapunov analysis: x' = -x^3
 # V(x) = x^2/2, dV/dt = -x^4 < 0 (stable)
 dt = 0.01
@@ -104,7 +103,7 @@ for step in range(500):
 
 print(f"  final   x={x:+.4f}  V={0.5*x**2:.6f}")
 `} />
-    </details>
+    </div>
 
     <h3>Neighbors</h3>
     <ul class="neighbors">

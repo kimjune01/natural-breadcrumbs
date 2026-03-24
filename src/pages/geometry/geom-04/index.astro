@@ -84,8 +84,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display "That is a point at infinity")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`def cross(p, q):
     return (
         p[1]*q[2] - p[2]*q[1],
@@ -106,7 +105,7 @@ print(f"Line through (1,0) and (0,1): {line}")
 meeting = cross((0,1,-1), (0,1,-2))
 print(f"Parallel lines meet at: {from_homogeneous(meeting)}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Duality -->
     <h3>Duality</h3>

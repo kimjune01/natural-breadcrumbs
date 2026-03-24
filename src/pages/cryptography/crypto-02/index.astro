@@ -121,8 +121,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (and (= plain-l (car dec)) (= plain-r (cadr dec))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Feistel network in Python
 def feistel_round(left, right, round_key):
     f_out = (right * round_key + 7) % 256
@@ -145,7 +144,7 @@ dec_l, dec_r = feistel(enc_l, enc_r, keys[::-1])
 print(f"Decrypted:  {dec_l} {dec_r}")
 print(f"Round-trip? {(dec_l, dec_r) == (plain_l, plain_r)}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. AES overview -->

@@ -103,8 +103,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 ; All match. f is a homomorphism, and it is bijective.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Z2 and {1,-1} are isomorphic
 z2_add = lambda a, b: (a + b) % 2
 signs_mul = lambda a, b: a * b
@@ -116,7 +115,7 @@ for a in [0, 1]:
         rhs = signs_mul(f(a), f(b))
         print("f("+str(a)+"+"+str(b)+")="+str(lhs)+"  f("+str(a)+")*f("+str(b)+")="+str(rhs)+"  match="+str(lhs==rhs))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Cayley's theorem -->
@@ -139,15 +138,14 @@ for a in [0, 1]:
 ; These three permutations form a subgroup of S3.
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Cayley's theorem for Z3
 for g in range(3):
     perm = [(g + x) % 3 for x in range(3)]
     print(str(g) + " -> " + str(perm))
 # Each element becomes a permutation of (0,1,2)
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

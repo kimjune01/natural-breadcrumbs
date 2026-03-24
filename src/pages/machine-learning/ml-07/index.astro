@@ -77,8 +77,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   K)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def rbf(x, y, l=1.0):
@@ -93,7 +92,7 @@ print("Kernel matrix (l=1.0):")
 for row in K:
     print("  [" + " ".join("{:.3f}".format(v) for v in row) + "]")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. GP prior samples -->
@@ -142,8 +141,7 @@ for row in K:
 (display "(smooth because RBF kernel correlates nearby points)")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math, random
 random.seed(42)
 
@@ -175,7 +173,7 @@ f = [sum(L[i][j]*z[j] for j in range(n)) for i in range(n)]
 print("GP prior sample at x={}:".format(xs))
 print("  f = [" + " ".join("{:.2f}".format(v) for v in f) + "]")
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. GP posterior prediction -->
@@ -225,8 +223,7 @@ print("  f = [" + " ".join("{:.2f}".format(v) for v in f) + "]")
 (display "  std  = ") (display (/ (round (* (sqrt post-var) 1000)) 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def rbf(x, y, l=1.0):
@@ -259,7 +256,7 @@ print("  mean = {:.3f}".format(mean))
 print("  var  = {:.3f}".format(var))
 print("  std  = {:.3f}".format(math.sqrt(var)))
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

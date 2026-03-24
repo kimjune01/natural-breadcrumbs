@@ -81,8 +81,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (vec-add v neg-v))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Vectors in Python using lists
 v = [1, 2, 3]
 w = [4, 5, 6]
@@ -95,7 +94,7 @@ print(f"3 * v = {scalar_mult(3, v)}")
 print(f"v + 0 = {vec_add(v, [0,0,0])}")
 print(f"v + (-v) = {vec_add(v, scalar_mult(-1, v))}")
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Linear independence -->
@@ -133,8 +132,7 @@ print(f"v + (-v) = {vec_add(v, scalar_mult(-1, v))}")
 ; = (0 0) with coefficients 1 and -1/2
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Linear independence check
 v1 = [1, 2]
 v2 = [3, 4]
@@ -149,7 +147,7 @@ check = [v1[i] - 0.5*v3[i] for i in range(2)]
 print("v1 - 0.5*v3 = " + str(check))
 # [0, 0] -- dependent
 `} />
-    </details>
+    </div>
 
 
     <!-- 3. Basis and dimension -->
@@ -181,8 +179,7 @@ print("v1 - 0.5*v3 = " + str(check))
 (display "dim(xy-plane in R^3) = 2")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Standard basis for R^3
 e1, e2, e3 = [1,0,0], [0,1,0], [0,0,1]
 
@@ -192,7 +189,7 @@ print("3*e1 + (-1)*e2 + 7*e3 = " + str(v))
 print("dim(R^3) = 3")
 print("dim(xy-plane in R^3) = 2")
 `} />
-    </details>
+    </div>
 
 
     <!-- 4. Subspaces -->
@@ -227,8 +224,7 @@ print("dim(xy-plane in R^3) = 2")
 (display "The solution plane has dimension 2.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Subspace: solutions of x + 2y + z = 0
 s1 = [-2, 1, 0]
 s2 = [-1, 0, 1]
@@ -243,7 +239,7 @@ print("Check: " + str(s3[0] + 2*s3[1] + s3[2]))
 
 print("The solution plane has dimension 2.")
 `} />
-    </details>
+    </div>
 
 
     <!-- Notation -->

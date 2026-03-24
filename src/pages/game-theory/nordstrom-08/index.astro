@@ -152,8 +152,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (mixed-play no-eq-game 0.6 0.5 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Simulating mixed strategies in repeated play
 import random
 random.seed(42)
@@ -171,7 +170,7 @@ def mixed_play(game, p1_prob, p2_prob, rounds):
 print(f"Avg (100 rounds):  {mixed_play(game, 0.6, 0.5, 100):.3f}")
 print(f"Avg (1000 rounds): {mixed_play(game, 0.6, 0.5, 1000):.3f}")
 `} />
-    </details>
+    </div>
 
     <!-- 3. Rock-Paper-Scissors -->
     <h3>Rock-Paper-Scissors: the classic mixed game</h3>

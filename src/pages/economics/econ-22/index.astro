@@ -132,8 +132,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 (display (/ (round (* (gini unequal) 1000)) 1000))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Gini coefficient computation
 def gini(incomes):
     n = len(incomes)
@@ -148,7 +147,7 @@ unequal = [5, 10, 20, 40, 175]
 for name, inc in [("Equal", equal), ("Moderate", moderate), ("Unequal", unequal)]:
     print(str(name) + ": Gini = " + str(round(gini(inc), 2)))
 `} />
-    </details>
+    </div>
 
 
     <!-- 2. Pareto Distribution -->

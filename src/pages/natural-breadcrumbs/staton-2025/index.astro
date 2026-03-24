@@ -141,8 +141,7 @@ print("Try: change sub1 to 'lambda y: y - 5'")
 print("     and see where Q breaks.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <SchemeRepl client:load initialCode={`; COMP rule — composition IS the language
 (define (compose f g) (lambda (x) (g (f x))))
 
@@ -155,7 +154,7 @@ print("     and see where Q breaks.")
 (display (pipeline 2)) (newline)
 (display (pipeline 3)) (newline)
 `} />
-    </details>
+    </div>
 
     <!-- 4. WHILE -->
     <h3>WHILE — loop invariants</h3>
@@ -337,8 +336,7 @@ print("ContractPreserving f Q  ↔  {⊤} f {Q}")
 print("That's the bridge theorem.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <SchemeRepl client:load initialCode={`; Contract = predicate on all outputs. {⊤} f {Q}.
 
 (define (contract-preserving? f Q inputs)
@@ -352,7 +350,7 @@ print("That's the bridge theorem.")
 
 (display (contract-preserving? f Q '(-3 -1 0 1 3)))
 `} />
-    </details>
+    </div>
 
     <details class="my-2">
       <summary class="text-xs text-gray-500 cursor-pointer">Lean proof</summary>
@@ -391,8 +389,7 @@ print("stochastic pipelines. The handshake chains")
 print("through the bind — same as your Lean proof.")
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">categorical equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <SchemeRepl client:load initialCode={`; Kleisli composition
 (define (kleisli f g)
   (lambda (x)
@@ -408,7 +405,7 @@ print("through the bind — same as your Lean proof.")
 (define (g y) (list (cons (* y 2) 1.0)))
 (display ((kleisli f g) 3))
 `} />
-    </details>
+    </div>
 
     <details class="my-2">
       <summary class="text-xs text-gray-500 cursor-pointer">Lean proof</summary>

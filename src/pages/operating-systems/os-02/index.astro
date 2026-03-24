@@ -135,8 +135,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
           (round-robin procs 2))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# Round-robin scheduling
 from collections import deque
 
@@ -157,7 +156,7 @@ procs = [("P1", 4), ("P2", 3), ("P3", 5)]
 for entry in round_robin(procs, 2):
     print(f"  {entry}")
 `} />
-    </details>
+    </div>
 
     <h3>Priority scheduling</h3>
     <p>Each process has a priority. Highest priority runs first. Risk: <strong>starvation</strong> of low-priority processes. Solution: <strong>aging</strong>, which gradually increases priority of waiting processes.</p>

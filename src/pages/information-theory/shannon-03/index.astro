@@ -91,8 +91,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
                (entropy (list p-umb-y p-umb-n)))))
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`import math
 
 def entropy(probs):
@@ -108,7 +107,7 @@ print(f"H(umbrella)         = {entropy(p_umbrella):.4f} bits")
 print(f"H(X)+H(Y)           = {entropy(p_weather)+entropy(p_umbrella):.4f} bits")
 print(f"dependent? {entropy(joint) < entropy(p_weather)+entropy(p_umbrella)}")
 `} />
-    </details>
+    </div>
 
     <!-- 2. Conditional entropy -->
     <h3>Conditional entropy</h3>

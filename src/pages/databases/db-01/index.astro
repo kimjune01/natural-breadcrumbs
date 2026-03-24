@@ -83,8 +83,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
   users)
 `} />
 
-    <details class="my-2">
-      <summary class="text-xs text-gray-500 cursor-pointer">imperative equivalent</summary>
+    <div class="python-block my-2" style="display:none">
       <Repl client:load initialCode={`# A relation as a list of dictionaries
 users = [
     {"id": 1, "name": "Alice", "email": "alice@db.io"},
@@ -95,7 +94,7 @@ users = [
 for row in users:
     print(row['name'] + " " + row['email'])
 `} />
-    </details>
+    </div>
 
 
     <!-- Keys -->
