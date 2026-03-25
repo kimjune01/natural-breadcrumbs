@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.20 — Ends and Coends" favicon="🐱">
@@ -487,7 +488,7 @@ for cls in uf.classes():
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -502,6 +503,7 @@ for cls in uf.classes():
       <li><a href="https://en.wikipedia.org/wiki/Yoneda_lemma">🅦 Yoneda lemma</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Dinatural_transformation">🅦 Dinatural transformation</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

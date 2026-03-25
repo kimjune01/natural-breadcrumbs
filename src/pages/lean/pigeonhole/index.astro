@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Pigeonhole.lean — No injection from n+1 to n" favicon="✏️">
@@ -68,10 +69,11 @@ print(f"  Collision guaranteed — no injection from"
       <li><a href="/reading/lean/axioms/">Axioms.lean</a> &mdash; capacity_bound gives the finite state space that pigeonhole needs</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/probability/grinstead-03/">🎰 Grinstead Ch3 Combinatorics</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/removal/">&larr; Removal.lean &middot; 9 of 25</a>

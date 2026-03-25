@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Nordstrom 4.1 — Non-Zero-Sum Games" favicon="🎲">
@@ -204,7 +205,7 @@ for moves in [("A","A"), ("C","C"), ("A","C"), ("C","A")]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Nordstrom sequence</p>
     <ul class="neighbors">
@@ -224,6 +225,7 @@ for moves in [("A","A"), ("C","C"), ("A","C"), ("C","A")]:
       <li><a href="https://en.wikipedia.org/wiki/Battle_of_the_sexes_(game_theory)">🅦 Battle of the Sexes</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Coordination_game">🅦 Coordination game</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

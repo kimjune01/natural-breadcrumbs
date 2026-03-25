@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.5 — Deadlock" favicon="🖥">
@@ -193,7 +194,7 @@ print("P1->P2->P3->P1:", has_cycle({"P1": ["P2"], "P2": ["P3"], "P3": ["P1"]}))
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/levin-04/">🔢 Graphs</a> — deadlock detection is cycle detection in a directed graph</li>
       <li><a href="/reading/game-theory/nordstrom-12/">♟ Game Theory Ch.12</a> — prisoner's dilemma: deadlock is the game-theoretic outcome where rational self-interest (holding resources) leads to mutual destruction</li>
@@ -206,6 +207,7 @@ print("P1->P2->P3->P1:", has_cycle({"P1": ["P2"], "P2": ["P3"], "P3": ["P1"]}))
       <li><a href="https://en.wikipedia.org/wiki/Banker%27s_algorithm">Banker's algorithm</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Resource_allocation_graph">Resource allocation graph</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-04/">&larr; Synchronization</a>

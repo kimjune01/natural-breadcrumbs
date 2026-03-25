@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Nordstrom §2.4 — Equilibrium Points" favicon="🎲">
@@ -185,7 +186,7 @@ print(f"Equilibria: {find_equilibria(matrix)}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Nordstrom series</p>
     <ul class="neighbors">
@@ -207,6 +208,7 @@ print(f"Equilibria: {find_equilibria(matrix)}")
       <li><a href="https://en.wikipedia.org/wiki/Nash_equilibrium">🅦 Nash equilibrium</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Saddle_point">🅦 Saddle point</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Source: <a href="https://nordstrommath.com/IntroGameTheory/S_EquilibPoints.html">Nordstrom §2.4</a>. Licensed CC BY-SA 4.0.

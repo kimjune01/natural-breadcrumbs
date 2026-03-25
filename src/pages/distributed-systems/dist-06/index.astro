@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Dist Ch.6 — Byzantine Fault Tolerance" favicon="🌐">
@@ -106,11 +107,12 @@ for f in [1, 2, 3, 10]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/cryptography/crypto-08/">&#x1F510; Cryptography Ch.8</a> — digital signatures authenticate messages, enabling BFT</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/distributed-systems/dist-05/">&larr; Raft</a>

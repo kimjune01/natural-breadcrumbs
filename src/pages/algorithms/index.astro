@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Algorithms and Data Structures" favicon="⚙">
@@ -108,13 +109,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/">MIT 6.006 Introduction to Algorithms</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/">🔢 Discrete Math</a> &mdash; graphs and combinatorics are the mathematical objects algorithms operate on</li>
       <li><a href="/reading/theory-of-computation/">🔀 Theory of Computation</a> &mdash; NP-completeness and complexity classes</li>
       <li><a href="/reading/probability/">🎰 Probability</a> &mdash; randomized algorithms and expected complexity</li>
       <li><a href="/reading/geometry/">△ Geometry</a> &mdash; computational geometry shares Voronoi and Delaunay structures</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

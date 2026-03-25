@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Levin Ch.1 — Counting" favicon="🔢">
@@ -250,7 +251,7 @@ print(f"Div by 2, 3, or 5: {result}")  # 74
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other chapter pages</p>
     <ul class="neighbors">
@@ -264,6 +265,7 @@ print(f"Div by 2, 3, or 5: {result}")  # 74
       <li><a href="https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)">Stars and bars</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle">Inclusion-exclusion principle</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

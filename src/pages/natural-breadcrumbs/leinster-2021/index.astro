@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Leinster 2021 — Entropy and Diversity" favicon="🍞">
@@ -279,7 +280,7 @@ for name, dist in [("uniform(5)", uniform), ("dominated", dominated)]:
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -299,6 +300,7 @@ for name, dist in [("uniform(5)", uniform), ("dominated", dominated)]:
       <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">🅦 Shannon entropy</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Magnitude_(mathematics)">🅦 Magnitude</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The Hill number computations are exact for finite distributions. The magnitude example is conceptual — solving the linear system Zw = 1 for arbitrary metric spaces requires matrix inversion, which the examples only sketch. For example: the magnitude discussion describes 3 points on a line. In the book, magnitude is defined for arbitrary enriched categories via the Euler characteristic of a category — a construction that subsumes metric spaces, posets, and graphs under one definition. The Hill numbers are the same; the categorical generalization of magnitude is not.</p>

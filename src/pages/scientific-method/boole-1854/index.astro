@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Boole 1854 — The Laws of Thought" favicon="🔬">
@@ -76,7 +77,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>This matters for science because scientific reasoning is a chain of inferences. If any link in the chain is invalid, the conclusion does not follow. Boole gave scientists a way to audit their own reasoning by translating it into a form where errors become visible. Mill gave them methods for extracting causes from observations. Boole gave them methods for checking whether their conclusions actually follow from their premises.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/scientific-method/">scientific method</a></li>
@@ -84,6 +85,7 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/scientific-method/peirce-1878/">Peirce 1878</a></li>
       <li><a href="/reading/logic/">logic</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

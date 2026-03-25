@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Levin Ch.4 — Graph Theory" favicon="🔢">
@@ -297,7 +298,7 @@ print(f"Greedy coloring: {coloring}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other chapter pages</p>
     <ul class="neighbors">
@@ -312,6 +313,7 @@ print(f"Greedy coloring: {coloring}")
       <li><a href="https://en.wikipedia.org/wiki/Four_color_theorem">Four color theorem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Eulerian_path">Eulerian path</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

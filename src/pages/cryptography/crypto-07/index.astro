@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.7 — Elliptic Curves" favicon="🔐">
@@ -286,7 +287,7 @@ print(f"3G = {G3}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">This series</p>
     <ul class="neighbors">
@@ -307,6 +308,7 @@ print(f"3G = {G3}")
       <li><a href="https://en.wikipedia.org/wiki/Elliptic_curve">&#x1F150; Elliptic curve</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman">&#x1F150; ECDH</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

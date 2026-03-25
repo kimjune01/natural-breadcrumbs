@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Stochasticity.lean — Determinism forces confusion forces error" favicon="✏️">
@@ -86,11 +87,12 @@ print("Stochasticity breaks the 'same state => same output' chain.")
       <li><a href="/reading/lean/removal/">Removal.lean</a> &mdash; A3 (attend must be stochastic) and Co1 use this argument</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/probability/grinstead-01/">🎰 Grinstead Ch1</a></li>
       <li><a href="/reading/information-theory/shannon-02/">📡 Shannon Ch2 Entropy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/pigeonhole/">&larr; Pigeonhole.lean &middot; 10 of 25</a>

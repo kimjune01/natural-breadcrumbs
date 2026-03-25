@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.18 — Comonads" favicon="🐱">
@@ -416,7 +417,7 @@ for gen in range(5):
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -435,6 +436,7 @@ for gen in range(5):
       <li><a href="https://en.wikipedia.org/wiki/Cellular_automaton">🅦 Cellular automaton</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">🅦 Conway's Game of Life</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

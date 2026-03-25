@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.4 — Stability" favicon="🎛">
@@ -100,10 +101,11 @@ check_stability(-0.3, 2.0)  # negative damping, unstable
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/hefferon-05/">&#x1F4D0; Hefferon Ch. 5 — Eigenvalues</a> &#x2014; poles are eigenvalues of the system matrix</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-03/">&larr; PID Control</a>

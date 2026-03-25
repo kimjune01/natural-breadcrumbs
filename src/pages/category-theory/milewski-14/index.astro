@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.14 — The Yoneda Lemma" favicon="🐱">
@@ -426,7 +427,7 @@ print(f"is_big:   {cps_42(lambda x: x > 10)}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -446,6 +447,7 @@ print(f"is_big:   {cps_42(lambda x: x > 10)}")
       <li><a href="https://en.wikipedia.org/wiki/Representable_functor">🅦 Representable functor</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Continuation-passing_style">🅦 Continuation-passing style</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

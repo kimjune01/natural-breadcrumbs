@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.19 — Fiscal and Monetary Policy" favicon="💰">
@@ -154,7 +155,7 @@ print("Equilibrium r* = " + str(round(r_star, 2)))
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
@@ -163,6 +164,7 @@ print("Equilibrium r* = " + str(round(r_star, 2)))
       <li><a href="https://en.wikipedia.org/wiki/Taylor_rule">Taylor rule</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Monetary_policy">Monetary policy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-18/">← GDP and Measurement</a>

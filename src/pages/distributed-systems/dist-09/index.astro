@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Dist Ch.9 — Gossip Protocols" favicon="🌐">
@@ -121,11 +122,12 @@ for n in [4, 8, 16, 64, 1024, 1_000_000]:
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/probability/grinstead-11/">&#x1F3B0; Probability Ch.11</a> — Markov chains: gossip spreading is a random process on a graph</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/distributed-systems/dist-08/">&larr; Distributed Transactions</a>

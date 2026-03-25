@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.8 — Functoriality" favicon="🐱">
@@ -434,7 +435,7 @@ print(f"doubled:  {fmap_tree(lambda x: x*2, tree)}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -454,6 +455,7 @@ print(f"doubled:  {fmap_tree(lambda x: x*2, tree)}")
       <li><a href="https://en.wikipedia.org/wiki/Functor#Covariance_and_contravariance">🅦 Contravariant functor</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Profunctor">🅦 Profunctor</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

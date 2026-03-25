@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Natural Breadcrumbs" favicon="🍞">
@@ -81,13 +82,14 @@ assert Q(z)</pre>
 
     <p class="text-gray-500 text-sm">Also: <a href="/reading/symbols/">symbol grid</a> · <a href="/reading/how/">how to use this site</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/category-theory/">🐱 Category Theory</a> &mdash; the mathematical language most papers use</li>
       <li><a href="/reading/probability/">🎰 Probability</a> &mdash; probability monads and Markov kernels throughout</li>
       <li><a href="/reading/information-theory/">📡 Information Theory</a> &mdash; entropy as a functor is central</li>
       <li><a href="/reading/lean/">✏️ Lean Proofs</a> &mdash; several results formalized</li>
     </ul>
+    </Neighbors>
 
 
   </main>

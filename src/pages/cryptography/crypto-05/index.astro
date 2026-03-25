@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.5 — Key Exchange" favicon="🔐">
@@ -206,7 +207,7 @@ print(f"Same? {alice_secret == bob_secret}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
@@ -219,6 +220,7 @@ print(f"Same? {alice_secret == bob_secret}")
       <li><a href="https://en.wikipedia.org/wiki/Discrete_logarithm">Discrete logarithm</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man-in-the-middle attack</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cryptography/crypto-04/">&larr; MACs and Authentication</a>

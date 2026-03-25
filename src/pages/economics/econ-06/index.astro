@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.6 — Marginal Utility" favicon="💰">
@@ -151,11 +152,12 @@ for n in range(1, 7):
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Marginal_utility">W Marginal utility</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Consumer_surplus">W Consumer surplus</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-05/">&larr; Elasticity</a>

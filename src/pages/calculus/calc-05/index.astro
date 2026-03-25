@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.5 — Derivative Rules" favicon="∫">
@@ -282,7 +283,7 @@ print("Numerical dy/dx = {:.4f}".format(numerical))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-04/">∫ Ch.4 The Derivative</a> — what these rules are shortcuts for</li>
       <li><a href="/reading/calculus/calc-06/">∫ Ch.6 Applications</a> — using derivatives to optimize and sketch curves</li>
@@ -291,6 +292,7 @@ print("Numerical dy/dx = {:.4f}".format(numerical))
       <li><a href="/reading/machine-learning/ml-03/">🤖 ML Ch.3</a> — the chain rule is the core of backpropagation in neural networks</li>
       <li><a href="/reading/real-analysis/lebl-05/">∞ Real Analysis Ch.5</a> — the mean value theorem is the rigorous foundation for derivative rules</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-04/">&larr; The Derivative</a>

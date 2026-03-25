@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.4 — Projective Geometry" favicon="△">
@@ -166,7 +167,7 @@ print(f"Parallel lines meet at: {from_homogeneous(meeting)}")
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Projective_geometry">Projective geometry</a></li>
@@ -174,6 +175,7 @@ print(f"Parallel lines meet at: {from_homogeneous(meeting)}")
       <li><a href="https://en.wikipedia.org/wiki/Cross-ratio">Cross-ratio</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Duality_(projective_geometry)">Duality (projective geometry)</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/geometry/geom-03/">← Transformations</a>

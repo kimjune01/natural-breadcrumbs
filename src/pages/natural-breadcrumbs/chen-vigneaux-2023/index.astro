@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Chen, Vigneaux 2023 — Categorical Magnitude and Entropy" favicon="🍞">
@@ -202,7 +203,7 @@ for n in [2, 3, 5, 10, 20]:
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -218,6 +219,7 @@ for n in [2, 3, 5, 10, 20]:
       <li><a href="https://en.wikipedia.org/wiki/Enriched_category">🅦 Enriched category</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Euler_characteristic">🅦 Euler characteristic</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The examples demonstrate the uniform-case identity (log magnitude = entropy) and the intuition behind weighted magnitude. Chen and Vigneaux's actual construction works through the Euler characteristic of categories enriched over a quantale, unifying the metric-space and probability-space cases via a change-of-base functor. For example: the "same construction, two enrichments" example on this page computes exp(H) and compares it to a count. In the paper, the comparison is between two Euler characteristics: one for a [0,∞)-enriched category (metric space) and one for a [0,1]-enriched category (probability space), connected by a lax monoidal functor between the enrichment bases. The numerical agreement is the same; the functorial explanation is not.</p>

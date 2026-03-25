@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Panangaden 2009 — Labelled Markov Processes" favicon="🍞">
@@ -226,7 +227,7 @@ print("Nonzero = behaviorally distinguishable")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -241,6 +242,7 @@ print("Nonzero = behaviorally distinguishable")
       <li><a href="https://en.wikipedia.org/wiki/Markov_decision_process">🅦 Markov decision process</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Kantorovich_metric">🅦 Kantorovich metric</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>All examples use finite state spaces with explicit transition tables. Panangaden works with labelled Markov processes over analytic spaces — continuous state spaces with σ-algebras, where bisimulation is defined via measurable partitions and the metric uses the Kantorovich (<a href="https://en.wikipedia.org/wiki/Wasserstein_metric">🅦 Wasserstein</a>-1) distance on probability measures. For example: the bisimulation metric on this page computes total variation between finite distributions. In the book, the Kantorovich metric lifts an arbitrary pseudometric on states to distributions over those states, and the bisimulation metric is the greatest fixed point of this lifting. The iterative structure is the same; the measure-theoretic foundations are not.</p>

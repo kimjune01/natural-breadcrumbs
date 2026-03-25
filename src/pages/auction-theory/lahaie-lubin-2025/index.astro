@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lahaie & Lubin 2025 — VCG as a Linear Program" favicon="💎">
@@ -113,12 +114,13 @@ print("Two items:  ", vcg_lp([10, 7, 4, 3], k=2))
     <h3>Why the LP matters</h3>
     <p>For combinatorial auctions (multiple items, complex bundles), brute-force VCG requires solving the allocation problem once per bidder. The LP formulation solves it once, and the dual gives all prices simultaneously. This is what makes VCG practical at scale, and what makes <a href="https://june.kim/vector-space">embedding-space ad auctions</a> computationally feasible: the allocation over continuous query space reduces to an LP whose dual prices the regions.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://june.kim/one-shot-bidding">june.kim/one-shot-bidding</a> &mdash; VCG in ad auction practice</li>
       <li><a href="/reading/linear-algebra/">📐 Linear Algebra</a> &mdash; hefferon-01: solving systems of equations</li>
       <li><a href="/reading/auction-theory/vcg-1973/">💎 VCG 1973</a> &mdash; the mechanism this paper makes computable</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/2507.03252">Read the paper</a>.

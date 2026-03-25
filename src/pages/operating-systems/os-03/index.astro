@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.3 — Threads and Concurrency" favicon="🖥">
@@ -115,7 +116,7 @@ print(f"Threaded:   {count}")  # likely < 200000
     <p>A <strong>critical section</strong> is the part of code that accesses shared resources. The goal: ensure that at most one thread is in its critical section at any time. Three requirements: mutual exclusion, progress (no unnecessary blocking), and bounded waiting (no starvation).</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/game-theory/nordstrom-12/">♟ Game Theory Ch.12</a> — prisoner's dilemma and race conditions: concurrent threads are like players in a game where uncoordinated choices cause data races</li>
       <li><a href="/reading/programming/sicp-18/">🪄 SICP Ch.18</a> — streams and delayed evaluation: threads are like lazy streams evaluated interleaved</li>
@@ -128,6 +129,7 @@ print(f"Threaded:   {count}")  # likely < 200000
       <li><a href="https://en.wikipedia.org/wiki/Race_condition">Race condition</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Critical_section">Critical section</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-02/">&larr; Scheduling</a>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.2 — Conservation of Momentum" favicon="⚛">
@@ -180,10 +181,11 @@ print(f"KE lost: {ke_before - ke_after} J ({(1 - ke_after/ke_before)*100:.0f}%)"
 `} />
 
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/physics/crowell-01/">&#x2190; Ch. 1: Conservation of Energy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.

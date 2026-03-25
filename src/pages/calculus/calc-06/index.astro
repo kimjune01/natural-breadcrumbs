@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.6 — Applications of Derivatives" favicon="∫">
@@ -252,7 +253,7 @@ for x in [-2, -1, 0, 1, 2]:
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-05/">∫ Ch.5 Derivative Rules</a> — the rules that make these applications possible</li>
       <li><a href="/reading/calculus/calc-07/">∫ Ch.7 The Integral</a> — the other half of calculus</li>
@@ -261,6 +262,7 @@ for x in [-2, -1, 0, 1, 2]:
       <li><a href="/reading/economics/econ-06/">💰 Economics Ch.6</a> — constrained optimization via Lagrange multipliers in utility theory</li>
       <li><a href="/reading/control/ctrl-08/">🎛 Control Ch.8</a> — optimal control is constrained optimization over trajectories</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-05/">&larr; Derivative Rules</a>

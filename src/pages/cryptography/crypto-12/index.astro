@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.12 — Trusted Execution Environments" favicon="🔐">
@@ -180,7 +181,7 @@ print("Operator never sees individual bids.")
     <p class="text-sm mt-4">This is the architecture behind the <a href="https://june.kim/vector-space">Vector Space</a> privacy-preserving ad auction. The enclave implementation is at <a href="https://github.com/kimjune01/vectorspace-enclave">vectorspace-enclave</a>.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">This series</p>
     <ul class="neighbors">
@@ -201,6 +202,7 @@ print("Operator never sees individual bids.")
       <li><a href="https://en.wikipedia.org/wiki/TrustZone">&#x1F150; ARM TrustZone</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Nitro_Enclaves">&#x1F150; AWS Nitro Enclaves</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cryptography/crypto-11/">&#8592; Remote Attestation</a>

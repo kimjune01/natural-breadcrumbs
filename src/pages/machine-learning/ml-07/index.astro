@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.7 — Gaussian Processes" favicon="🌊">
@@ -284,13 +285,14 @@ print("  std  = {:.3f}".format(math.sqrt(var)))
     <p class="text-sm text-gray-400">A GP is nonparametric: instead of fitting a fixed number of weights, it uses the kernel to define a prior over the entire function space. Conditioning on data is Bayes' rule applied to function space. The kernel matrix is a metric on the input space -- connecting GPs to Leinster's magnitude theory, where the magnitude of a metric space measures its "effective size."</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/probability/grinstead-06/">Probability Ch.6</a> — expected value: the posterior mean is a conditional expectation</li>
       <li><a href="/reading/leinster-2021/">Leinster 2021</a> — magnitude of metric spaces: the kernel matrix as a similarity structure</li>
     </ul>
 
     <!-- Ready for the real thing? -->
+    </Neighbors>
     <h3>Ready for the real thing?</h3>
     <p class="text-sm text-gray-400">This chapter covers prediction with a fixed kernel. For hyperparameter optimization (marginal likelihood), sparse approximations, and deep GPs, see Rasmussen & Williams's <em>Gaussian Processes for Machine Learning</em> (free online).</p>
 

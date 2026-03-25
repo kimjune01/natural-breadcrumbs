@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.11 — Mutable Data" favicon="🪄">
@@ -300,12 +301,13 @@ print(f"out: {w_out.get_signal()}")  # 0
     </ul>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="text-sm text-gray-400 mb-6">
       <li><a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia: Linked list</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">Wikipedia: Queue (abstract data type)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Hash_table">Wikipedia: Hash table</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-22.html#%_sec_3.3">Read SICP &sect;3.3</a>.

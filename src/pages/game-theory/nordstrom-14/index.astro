@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="🍞 Repeated Prisoner's Dilemma" favicon="🎲">
@@ -214,7 +215,7 @@ print(f"always-C vs D:   {play(always_c, always_d)}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Game theory foundations</p>
     <ul class="neighbors">
@@ -234,6 +235,7 @@ print(f"always-C vs D:   {play(always_c, always_d)}")
       <li><a href="https://en.wikipedia.org/wiki/Backward_induction">🅦 Backward induction</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)">🅦 Folk theorem</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The payoff matrix here uses Nordstrom's convention (CC=3, CD=0, DC=5, DD=1), which is the standard form from Axelrod's tournaments. The discount factor analysis simplifies the folk theorem to its core insight: cooperation in repeated games requires d above a threshold determined by the payoff ratios. Axelrod's three properties of successful strategies (responsive, nice, unexploitable) are demonstrated by the tit-for-tat implementation.</p>

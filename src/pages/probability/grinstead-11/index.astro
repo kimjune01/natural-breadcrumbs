@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 11 — Markov Chains" favicon="🎰">
@@ -196,7 +197,7 @@ for i in [1, 2, 5, 10, 50]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Probability chapters</p>
     <ul class="neighbors">
@@ -216,6 +217,7 @@ for i in [1, 2, 5, 10, 50]:
       <li><a href="https://en.wikipedia.org/wiki/Markov_chain">🅦 Markov chain</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Absorbing_Markov_chain">🅦 Absorbing Markov chain</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

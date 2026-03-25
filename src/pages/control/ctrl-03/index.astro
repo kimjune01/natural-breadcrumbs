@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.3 — PID Control" favicon="🎛">
@@ -104,10 +105,11 @@ print(f"Final: {temp:.3f}")
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method">&#x1F150; Ziegler-Nichols method</a> &#x2014; the classic PID tuning procedure</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-02/">&larr; Transfer Functions</a>

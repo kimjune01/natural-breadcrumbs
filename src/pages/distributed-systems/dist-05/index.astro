@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Dist Ch.5 — Raft" favicon="🌐">
@@ -173,12 +174,13 @@ try_commit(2)
     <p><strong>Safety</strong>: if an entry is committed, no future leader will have a different entry at that index. Raft guarantees this via the election restriction: a candidate must have a log at least as up-to-date as a majority. <strong>Liveness</strong>: the system makes progress as long as a majority of nodes and the network are working. Randomized election timeouts prevent livelock.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/distributed-systems/dist-04/">&#x1F310; Ch.4 Consensus</a> — the general consensus problem and FLP impossibility</li>
       <li><a href="/reading/distributed-systems/dist-06/">&#x1F310; Ch.6 Byzantine Fault Tolerance</a> — what happens when nodes can lie, not just crash</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/distributed-systems/dist-04/">&larr; Consensus</a>

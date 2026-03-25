@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Vaswani et al. 2017 — Attention Is All You Need" favicon="🏛️">
@@ -187,11 +188,12 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))</code></pre>
 
     <p>Everything that makes modern LLMs useful (<a href="/reading/cognitive-architecture/zhao-2023/">pre-training, RLHF, in-context learning</a>, <a href="/reading/cognitive-architecture/arunkumar-2026/">agent loops with tools and memory</a>) is built on top of this paper's foundation. The foundation itself is a single forward pass. What came next is the story of bolting on the missing pieces.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://june.kim/consolidation">consolidation (blog)</a></li>
       <li><a href="/reading/cognitive-architecture/">back to collection</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.3 — Transformations" favicon="△">
@@ -181,7 +182,7 @@ print(f"Two reflections of (3,4): {reflect_y(rx, ry)}")
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/abstract-algebra/judson-01/">🔗 Abstract Algebra Ch.1</a> — groups: the symmetries of a shape form a group under composition</li>
@@ -194,6 +195,7 @@ print(f"Two reflections of (3,4): {reflect_y(rx, ry)}")
       <li><a href="https://en.wikipedia.org/wiki/Symmetry_group">Symmetry group</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Dihedral_group">Dihedral group</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/geometry/geom-02/">← Coordinate Geometry</a>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.15 — Fundamental Theorems" favicon="∫">
@@ -251,7 +252,7 @@ print("  d^2 = 0 (curl of gradient = 0, div of curl = 0)")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Calculus sequence</p>
     <ul class="neighbors">
@@ -272,6 +273,7 @@ print("  d^2 = 0 (curl of gradient = 0, div of curl = 0)")
       <li><a href="https://en.wikipedia.org/wiki/Divergence_theorem">Divergence theorem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Generalized_Stokes_theorem">Generalized Stokes' theorem</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-14/">&larr; Line and Surface Integrals</a>

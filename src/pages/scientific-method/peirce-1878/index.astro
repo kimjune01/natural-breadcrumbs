@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Peirce 1878 — How to Make Our Ideas Clear" favicon="🔬">
@@ -106,7 +107,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>Peirce was the first to extend Boole's propositional logic with quantifiers and relations, laying the groundwork for predicate logic. Boole could express "all X are Y" but not "for every X there exists a Y such that R(X,Y)." Peirce added the notation for universal and existential quantification that <a href="https://en.wikipedia.org/wiki/Gottlob_Frege">🅦 Frege</a> would independently develop and that Russell and Whitehead would systematize. Without this extension, formal logic could handle categories but not structure. Science needs both.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/scientific-method/">scientific method</a></li>
@@ -114,6 +115,7 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/scientific-method/mill-1843/">Mill 1843</a></li>
       <li><a href="/reading/logic/">logic</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

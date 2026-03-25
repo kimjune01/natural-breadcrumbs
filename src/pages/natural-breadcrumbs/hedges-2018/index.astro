@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hedges 2018 — Compositional Game Theory" favicon="🍞">
@@ -439,7 +440,7 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -454,6 +455,7 @@ print(f"(C,C) Nash? {is_nash(['C','C'], [u1,u2], [['C','D'],['C','D']])}")
       <li><a href="https://en.wikipedia.org/wiki/Game_theory">🅦 Game theory</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Best_response">🅦 Best response</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

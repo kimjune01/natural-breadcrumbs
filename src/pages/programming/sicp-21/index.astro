@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.21 — Explicit-Control Evaluator" favicon="🪄">
@@ -450,7 +451,7 @@ print(f"  result = {eval_if(env['x'] > 50, 'big', 'small')}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other reading pages</p>
     <ul class="neighbors">
@@ -462,6 +463,7 @@ print(f"  result = {eval_if(env['x'] > 50, 'big', 'small')}")
       <li><a href="https://en.wikipedia.org/wiki/Control_flow">Control flow</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Continuation">Continuation</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

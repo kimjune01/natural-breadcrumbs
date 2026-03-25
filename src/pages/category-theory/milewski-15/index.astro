@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.15 — The Yoneda Embedding" favicon="🐱">
@@ -357,7 +358,7 @@ print(f"recovered btoa(5) = {recovered(5)}")  # 15
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -377,6 +378,7 @@ print(f"recovered btoa(5) = {recovered(5)}")  # 15
       <li><a href="https://en.wikipedia.org/wiki/Representable_functor">🅦 Representable functor</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Presheaf_(category_theory)">🅦 Presheaf</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

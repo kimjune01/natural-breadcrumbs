@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hartline, Hoy & Taggart 2023 — Reserve Pricing" favicon="💎">
@@ -106,12 +107,13 @@ for r in [0, 3, 6, 9, 12]:
     <h3>Why it preserves efficiency</h3>
     <p>Among bidders who clear the reserve, the allocation is still efficient (highest value wins) and truthful (dominant strategy is still to bid your value). The only "inefficiency" is when the item goes unsold because no bidder values it above the reserve. The seller gains because the payment floor is higher. Reserve pricing is one of the <a href="https://june.kim/three-levers">three levers</a> a platform can pull: it sets the minimum quality bar without distorting which ad wins among qualified candidates.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://june.kim/three-levers">june.kim/three-levers</a> &mdash; reserve price as a revenue lever</li>
       <li><a href="/reading/auction-theory/vcg-1973/">💎 VCG 1973</a> &mdash; the mechanism reserve pricing augments</li>
       <li><a href="/reading/auction-theory/milgrom-weber-1982/">💎 Milgrom &amp; Weber 1982</a> &mdash; revenue ranking of auction formats</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/2310.03702">Read the paper</a>.

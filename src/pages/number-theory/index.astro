@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Number Theory" favicon="#">
@@ -127,13 +128,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/">MIT 18.781 Theory of Numbers</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/abstract-algebra/">🔗 Abstract Algebra</a> &mdash; modular arithmetic is integers mod n, a ring</li>
       <li><a href="/reading/cryptography/">🔐 Cryptography</a> &mdash; RSA is Euler's theorem applied</li>
       <li><a href="/reading/discrete-math/">🔢 Discrete Math</a> &mdash; divisibility and primes are discrete-math territory</li>
       <li><a href="/reading/algorithms/">⚙ Algorithms</a> &mdash; primality testing and GCD algorithms</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

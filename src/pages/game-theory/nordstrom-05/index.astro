@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Nordstrom §2.3 — Probability and Expected Value" favicon="🎲">
@@ -191,7 +192,7 @@ for rp, cp, v in terms:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Nordstrom series</p>
     <ul class="neighbors">
@@ -205,6 +206,7 @@ for rp, cp, v in terms:
       <li><a href="https://en.wikipedia.org/wiki/Expected_value">🅦 Expected value</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)#Mixed_strategy">🅦 Mixed strategy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Source: <a href="https://nordstrommath.com/IntroGameTheory/S_Probability.html">Nordstrom §2.3</a>. Licensed CC BY-SA 4.0.

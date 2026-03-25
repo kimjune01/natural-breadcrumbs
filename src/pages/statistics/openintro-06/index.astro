@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OpenIntro Ch.6 — Inference for Proportions" favicon="📊">
@@ -258,13 +259,14 @@ print(f"Reject H0? {'Yes' if chi_sq > 3.84 else 'No'}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Z-test">Z-test</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Chi-squared_test">Chi-squared test</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Goodness_of_fit">Goodness of fit</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/statistics/openintro-05/">&larr; Foundations for Inference</a>

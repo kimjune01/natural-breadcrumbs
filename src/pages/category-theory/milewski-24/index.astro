@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.24 — Lawvere Theories" favicon="🐱">
@@ -455,7 +456,7 @@ print(f"100/5/0: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 0))}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -475,6 +476,7 @@ print(f"100/5/0: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 0))}")
       <li><a href="https://en.wikipedia.org/wiki/Universal_algebra">🅦 Universal algebra</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Finitary_functor">🅦 Finitary functor</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.10 — Natural Transformations" favicon="🐱">
@@ -365,7 +366,7 @@ print(f"equal? {p1 == p2}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -386,6 +387,7 @@ print(f"equal? {p1 == p2}")
       <li><a href="https://en.wikipedia.org/wiki/Functor_category">🅦 Functor category</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Parametric_polymorphism">🅦 Parametric polymorphism</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 12 — Random Walks" favicon="🎰">
@@ -235,7 +236,7 @@ print(f"100 steps, returns: {ret100}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Probability chapters</p>
     <ul class="neighbors">
@@ -251,6 +252,7 @@ print(f"100 steps, returns: {ret100}")
       <li><a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin">🅦 Gambler's ruin</a></li>
       <li><a href="https://en.wikipedia.org/wiki/P%C3%B3lya%27s_recurrence_theorem">🅦 P&oacute;lya's recurrence theorem</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

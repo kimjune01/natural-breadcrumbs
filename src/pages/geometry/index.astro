@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry" favicon="△">
@@ -113,13 +114,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/18-900-geometry-and-topology-in-the-plane-spring-2023/">MIT 18.900 Geometry and Topology</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/">📐 Linear Algebra</a> &mdash; dot products, projections, and transformations are geometric</li>
       <li><a href="/reading/calculus/">∫ Calculus</a> &mdash; differential geometry uses multivariable calculus</li>
       <li><a href="/reading/real-analysis/">∞ Real Analysis</a> &mdash; metric spaces generalize geometry</li>
       <li><a href="/reading/algorithms/">⚙ Algorithms</a> &mdash; Voronoi diagrams and Delaunay triangulation are computational geometry</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

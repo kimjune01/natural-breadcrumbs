@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="DB Ch.2 — Relational Algebra" favicon="🗄">
@@ -209,7 +210,7 @@ for r in result:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/logic/logic-06/">🔑 Logic Ch.6</a> — predicate logic: queries are predicates over tuples</li>
@@ -221,6 +222,7 @@ for r in result:
       <li><a href="https://en.wikipedia.org/wiki/Join_(SQL)">Join (SQL)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Projection_(relational_algebra)">Projection</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

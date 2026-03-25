@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 6 — Expected Value and Variance" favicon="🎰">
@@ -196,7 +197,7 @@ print(f"SD(X) = {math.sqrt(var):.4f}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Probability chapters</p>
     <ul class="neighbors">
@@ -221,6 +222,7 @@ print(f"SD(X) = {math.sqrt(var):.4f}")
       <li><a href="https://en.wikipedia.org/wiki/Variance">&#x1F150; Variance</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">&#x1F150; Shannon entropy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf">Read Grinstead &amp; Snell</a>, Chapter 6.

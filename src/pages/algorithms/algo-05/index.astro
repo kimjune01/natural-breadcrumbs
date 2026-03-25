@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.5 — Trees" favicon="⚙">
@@ -173,11 +174,12 @@ print(f"Search 25: {search(root, 25)}")
 (display "Postorder: ") (display (postorder tree))
 `} />
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-19/">🐱 Milewski Ch.19</a> &mdash; trees as initial algebras: fold over a tree is a catamorphism</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algorithms/algo-04/">&larr; Searching</a>

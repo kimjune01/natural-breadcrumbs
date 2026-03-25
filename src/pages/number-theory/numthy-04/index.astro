@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Number Theory Ch.4 — Euler and Fermat" favicon="#">
@@ -115,13 +116,14 @@ print(f"7^4 mod 12 = {mod_pow(7, 4, 12)}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cryptography/crypto-06/">&rarr; Cryptography Ch.6</a> — RSA correctness relies on Euler's theorem: decryption works because m^(ed) &#x2261; m (mod n)</li>
     
       <li><a href="/reading/cryptography/crypto-06/">🔐 Cryptography Ch.6</a> &mdash; RSA is Euler's theorem applied to encryption</li>
       <li><a href="/reading/abstract-algebra/judson-05/">🔗 Abstract Algebra Ch.5</a> &mdash; Lagrange's theorem is the group-theoretic proof of Fermat's little theorem</li>
     </ul>
+    </Neighbors>
 
 
 

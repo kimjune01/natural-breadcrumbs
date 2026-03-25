@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lovelace Ch.5 — Reinforcement Learning" favicon="🧠">
@@ -249,7 +250,7 @@ update_q(0, 1, 0.0, 1)
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cognitive-science/lovelace-06/">Lovelace Ch.6</a> — decision making and utility theory</li>
       <li><a href="/reading/game-theory/hedges-2018/">Hedges 2018</a> — open games formalize the same agent-environment structure categorically</li>
@@ -261,6 +262,7 @@ update_q(0, 1, 0.0, 1)
       <li><a href="/reading/cognitive-architecture/laird-2022/">🏛️ Soar</a> &mdash; reinforcement learning formalized in a cognitive architecture</li>
       <li><a href="https://june.kim/diagnosis-soar">Diagnosis of Soar</a> &mdash; where the RL cell fits and which cells remain empty</li>
     </ul>
+    </Neighbors>
 
 
     <h3>Translation notes</h3>

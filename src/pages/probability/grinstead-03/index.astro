@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 3 — Combinatorics" favicon="🎰">
@@ -242,7 +243,7 @@ print(f"P(flush) = {p_flush:.6f}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Adjacent chapters</p>
     <ul class="neighbors">
@@ -264,6 +265,7 @@ print(f"P(flush) = {p_flush:.6f}")
       <li><a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">🅦 Pascal's triangle</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Binomial_theorem">🅦 Binomial theorem</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf">Read Ch 3</a> of Grinstead &amp; Snell.

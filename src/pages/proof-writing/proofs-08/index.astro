@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Proofs Ch.8 — Cardinality" favicon="✎">
@@ -199,7 +200,7 @@ print("N -> Z:    ", [(n, nat_to_int(n)) for n in range(9)])
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/theory-of-computation/toc-07/">🔀 Theory of Computation Ch.7</a> — the halting problem uses diagonalization, the same trick Cantor invented</li>
     
@@ -207,6 +208,7 @@ print("N -> Z:    ", [(n, nat_to_int(n)) for n in range(9)])
       <li><a href="/reading/theory-of-computation/toc-07/">🔀 Theory of Computation Ch.7</a> &mdash; the diagonal argument reappears in Turing's undecidability proof</li>
       <li><a href="/reading/lean/pigeonhole/">✏️ Pigeonhole.lean</a> &mdash; the pigeonhole principle is a cardinality argument</li>
     </ul>
+    </Neighbors>
 
 
 

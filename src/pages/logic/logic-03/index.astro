@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Logic Ch.3 — Truth Tables" favicon="🔑">
@@ -154,10 +155,11 @@ for p, q in product([True, False], repeat=2):
 (display " <- contingency")
 `} />
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/theory-of-computation/toc-03/">🔀 ToC Ch.3</a> &mdash; regular expressions as logical formulas over strings</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/logic/logic-02/">&larr; Propositional Logic Syntax</a>

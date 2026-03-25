@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ho, Wu, Raad 2026 — Bayesian Separation Logic" favicon="🍞">
@@ -252,7 +253,7 @@ print("COMP chains evidence accumulation.")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -273,6 +274,7 @@ print("COMP chains evidence accumulation.")
       <li><a href="https://en.wikipedia.org/wiki/Hoare_logic">🅦 Hoare logic</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Bayesian_inference">🅦 Bayesian inference</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>All examples use finite distributions as dicts. Ho, Wu, and Raad work with s-finite kernels on measurable spaces — a generalization that handles continuous distributions, unnormalized measures, and measure-zero conditioning events. For example: the frame rule demonstration on this page uses a 2×2 joint distribution over coin flips. In the paper, the frame rule applies to arbitrary probabilistic programs with continuous random variables, and the separating conjunction is defined via product σ-algebras and independence of σ-sub-algebras. The "independent variables stay independent" intuition is the same; the measure-theoretic formalization is not.</p>

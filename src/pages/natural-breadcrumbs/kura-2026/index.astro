@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Kura 2026 — Indexed Graded Monads" favicon="🍞">
@@ -511,7 +512,7 @@ for x in [80, 90, 95, 97, 100, 103, 110, 120]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -526,6 +527,7 @@ for x in [80, 90, 95, 97, 100, 103, 110, 120]:
       <li><a href="https://en.wikipedia.org/wiki/Hoare_logic">🅦 Hoare logic</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Semiring">🅦 Semiring</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

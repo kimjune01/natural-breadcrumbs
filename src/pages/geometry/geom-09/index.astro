@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.9 — Voronoi Diagrams" favicon="△">
@@ -181,7 +182,7 @@ for q in [(0,0), (3,3), (5,5), (6,1)]:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Geometry chapters</p>
     <ul class="neighbors">
@@ -203,6 +204,7 @@ for q in [(0,0), (3,3), (5,5), (6,1)]:
       <li><a href="https://en.wikipedia.org/wiki/Fortune%27s_algorithm">&#x1d162; Fortune's algorithm</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search">&#x1d162; Nearest neighbor search</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

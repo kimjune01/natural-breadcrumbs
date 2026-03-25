@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.10 — Relativity" favicon="⚛">
@@ -195,7 +196,7 @@ for frac in [0, 0.1, 0.5, 0.9, 0.99, 0.999]:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Special_relativity">Special relativity</a></li>
@@ -204,6 +205,7 @@ for frac in [0, 0.1, 0.5, 0.9, 0.99, 0.999]:
       <li><a href="https://en.wikipedia.org/wiki/Length_contraction">Length contraction</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Mass%E2%80%93energy_equivalence">Mass-energy equivalence</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hoare/Bridge.lean — Contracts = Hoare triples" favicon="✏️">
@@ -69,10 +70,11 @@ print(f"They're the same thing:              {cp == tr}")
       <li><a href="/reading/lean/hoare-graded/">Hoare/Graded.lean</a> &mdash; graded_contract_bridge lifts this to graded triples</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/hoare-wp/">&larr; Hoare/WP.lean &middot; 16 of 25</a>

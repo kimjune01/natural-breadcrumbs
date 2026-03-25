@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.24 — Auctions" favicon="💰">
@@ -187,7 +188,7 @@ print("\\nRevenue equivalence: ~$" + str(sorted_v[1]) + " vs ~$" + str(round(max
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
@@ -204,6 +205,7 @@ print("\\nRevenue equivalence: ~$" + str(sorted_v[1]) + " vs ~$" + str(round(max
       <li><a href="https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_auction">VCG auction</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Dutch_auction">Dutch auction</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-23/">← Comparative Systems</a>

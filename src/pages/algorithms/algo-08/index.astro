@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.8 — Geometric Algorithms" favicon="⚙">
@@ -117,13 +118,14 @@ print(f"Collinear:  {cross((0,0), (1,0), (2,0))}")    # zero
 (display "Hull: ") (display hull)
 `} />
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-10/">&#x222B; Calculus Ch.10</a> &mdash; vectors: the linear algebra behind cross products and projections</li>
       <li><a href="https://june.kim/power-diagrams-ad-auctions">june.kim/power-diagrams-ad-auctions</a> &mdash; Voronoi diagrams with weighted sites partition embedding space for ad targeting</li>
       <li><a href="https://june.kim/keywords-are-tiny-circles">june.kim/keywords-are-tiny-circles</a> &mdash; keywords as degenerate Voronoi cells in continuous space</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algorithms/algo-07/">&larr; Shortest Paths</a>

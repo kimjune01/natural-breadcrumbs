@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="DB Ch.8 — Recovery" favicon="🗄">
@@ -238,13 +239,14 @@ print("Final state: " + str(db.db))
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Write-ahead_logging">Write-ahead logging</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Algorithms_for_Recovery_and_Isolation_Exploiting_Semantics">ARIES</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Database_checkpoint">Checkpoint</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

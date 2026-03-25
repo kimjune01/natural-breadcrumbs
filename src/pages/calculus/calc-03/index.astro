@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.3 — Limits and Continuity" favicon="∫">
@@ -265,7 +266,7 @@ print("f(root) ~", f(mid))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-04/">∫ Ch.4 The Derivative</a> — the derivative is defined as a limit</li>
       <li><a href="/reading/real-analysis/lebl-04/">∞ Lebl Ch.4 Continuity</a> — the epsilon-delta definition formalized in analysis</li>
@@ -273,6 +274,7 @@ print("f(root) ~", f(mid))
       <li><a href="/reading/logic/logic-03/">🔑 Logic Ch.3</a> — quantifiers formalize the "for all epsilon there exists delta" definition</li>
       <li><a href="/reading/proof-writing/proofs-03/">✏️ Proofs Ch.3</a> — epsilon-delta proofs are a canonical application of direct proof</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-02/">&larr; Trigonometry</a>

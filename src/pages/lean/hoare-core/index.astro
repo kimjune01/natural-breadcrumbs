@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hoare/Core.lean — Triples, COMP, AND, OR, consequence" favicon="✏️">
@@ -98,10 +99,11 @@ print(f"{{P}} clamp;double {{Q}}: {comp}  (by COMP)")
       <li><a href="/reading/lean/hoare-graded/">Hoare/Graded.lean</a> &mdash; adds cost bounds (grades) to triples</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/fractal/">&larr; Fractal.lean &middot; 14 of 25</a>

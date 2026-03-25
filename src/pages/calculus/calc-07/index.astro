@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.7 — The Integral" favicon="∫">
@@ -322,7 +323,7 @@ print("sin(1) = {:.4f}".format(math.sin(1)))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-04/">∫ Ch.4 The Derivative</a> — the FTC says integration is the inverse of differentiation</li>
       <li><a href="/reading/calculus/calc-08/">∫ Ch.8 Integration Techniques</a> — methods for finding antiderivatives</li>
@@ -331,6 +332,7 @@ print("sin(1) = {:.4f}".format(math.sin(1)))
       <li><a href="/reading/probability/grinstead-02/">🎰 Probability Ch.2</a> — continuous probability uses integrals for density functions</li>
       <li><a href="/reading/physics/crowell-01/">⚛ Physics Ch.1</a> — integration as accumulation of work and energy</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-06/">&larr; Applications of Derivatives</a>

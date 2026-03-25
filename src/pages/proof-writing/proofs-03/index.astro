@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Proofs Ch.3 — Contrapositive and Contradiction" favicon="✎">
@@ -157,11 +158,12 @@ print("All odd n give odd n^2.")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/logic/logic-05/">🔑 Logic Ch.5</a> — natural deduction formalizes these proof strategies</li>
       <li><a href="/reading/proof-writing/proofs-02/">✎ Proofs Ch.2</a> — direct proof, the baseline technique</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.1 — Euclidean Geometry" favicon="△">
@@ -180,7 +181,7 @@ print(f"Is 3-4-6 a right triangle? {is_right_triangle(3, 4, 6)}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/logic/logic-01/">🔑 Logic Ch.1</a> — axiomatic reasoning: Euclid's method is the prototype</li>
@@ -193,6 +194,7 @@ print(f"Is 3-4-6 a right triangle? {is_right_triangle(3, 4, 6)}")
       <li><a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean theorem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Congruence_(geometry)">Congruence</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

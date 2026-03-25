@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lebl Ch.6 — The Riemann Integral" favicon="∞">
@@ -199,7 +200,7 @@ print("sin(pi/4) =", math.sin(x0))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/real-analysis/lebl-05/">Ch. 5: The Derivative</a> — FTC connects integrals back to derivatives</li>
       <li><a href="/reading/real-analysis/lebl-04/">Ch. 4: Continuous Functions</a> — continuous functions are integrable</li>
@@ -208,6 +209,7 @@ print("sin(pi/4) =", math.sin(x0))
       <li><a href="/reading/probability/grinstead-02/">🎰 Probability Ch.2</a> — continuous probability distributions are Riemann integrals of density functions</li>
       <li><a href="/reading/physics/crowell-08/">⚛ Physics Ch.8</a> — work and energy: line integrals are the physical application of the Riemann integral</li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>Numerical integration (midpoint rule) converges at rate O(1/n^2). The upper/lower sum approach converges at O(1/n) for monotone functions. Neither is the Riemann integral itself: that is the common value they converge to. The FTC proof requires the mean value theorem, not computation.</p>

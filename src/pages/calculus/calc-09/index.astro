@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.9 — Applications of Integrals" favicon="∫">
@@ -238,7 +239,7 @@ print("Exact: k*d^2/2 = " + format(exact, ".4f") + " J")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Calculus sequence</p>
     <ul class="neighbors">
@@ -256,6 +257,7 @@ print("Exact: k*d^2/2 = " + format(exact, ".4f") + " J")
       <li><a href="https://en.wikipedia.org/wiki/Arc_length">Arc length</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Work_(physics)">Work (physics)</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-08/">&larr; Techniques of Integration</a>

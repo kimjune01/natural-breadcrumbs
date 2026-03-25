@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.22 — Compilation" favicon="🪄">
@@ -473,7 +474,7 @@ print("Interface: same calling convention, different execution")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other reading pages</p>
     <ul class="neighbors">
@@ -486,6 +487,7 @@ print("Interface: same calling convention, different execution")
       <li><a href="https://en.wikipedia.org/wiki/Compiler">Compiler</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">Just-in-time compilation</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

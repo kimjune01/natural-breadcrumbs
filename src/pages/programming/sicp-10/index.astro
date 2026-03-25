@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.10 — Environment Model" favicon="🪄">
@@ -244,12 +245,13 @@ print(f(10))  # 60
     </ul>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="text-sm text-gray-400 mb-6">
       <li><a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">Wikipedia: Scope (computer science)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Wikipedia: Closure (computer programming)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Call_stack">Wikipedia: Call stack</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-21.html#%_sec_3.2">Read SICP &sect;3.2</a>.

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.7 — Virtual Memory" favicon="🖥">
@@ -155,7 +156,7 @@ lru_replace([7, 0, 1, 2, 0, 3, 0, 4], 3)
     <p>The <strong>working set</strong> is the set of pages a process has referenced in the last N memory accesses. If the OS keeps the working set in memory, page faults stay low. The working set model prevents thrashing by refusing to run more processes than memory can support.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/algorithms/algo-04/">⚙ Algorithms Ch.4</a> — B-trees and page replacement: TLB misses trigger page table walks analogous to B-tree lookups</li>
       <li><a href="/reading/probability/grinstead-11/">🎰 Probability Ch.11</a> — Markov chains and LRU: page replacement policies (LRU, Clock) are analyzed as Markov chains over access patterns</li>
@@ -168,6 +169,7 @@ lru_replace([7, 0, 1, 2, 0, 3, 0, 4], 3)
       <li><a href="https://en.wikipedia.org/wiki/Page_replacement_algorithm">Page replacement algorithm</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)">Thrashing</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-06/">&larr; Memory Management</a>

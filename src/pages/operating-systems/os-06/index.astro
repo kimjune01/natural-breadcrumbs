@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.6 — Memory Management" favicon="🖥">
@@ -120,7 +121,7 @@ translate(13000)
     <p>Every memory access requires a page table lookup, which is itself a memory access. The <strong>TLB</strong> is a small, fast hardware cache of recent page-to-frame mappings. TLB hit: one memory access. TLB miss: two (or more, with multi-level page tables).</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/algorithms/algo-05/">⚙ Algorithms Ch.5</a> — hash tables and address translation: memory management uses page tables as hash maps from virtual to physical addresses</li>
       <li><a href="/reading/discrete-math/levin-01/">🔢 Discrete Math Ch.1</a> — set theory: memory allocation partitions the address space into disjoint segments</li>
@@ -133,6 +134,7 @@ translate(13000)
       <li><a href="https://en.wikipedia.org/wiki/Page_table">Page table</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer">Translation lookaside buffer</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-05/">&larr; Deadlock</a>

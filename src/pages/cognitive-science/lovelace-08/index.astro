@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lovelace Ch.8 — Cognitive Architecture" favicon="🧠">
@@ -243,7 +244,7 @@ solve("3+4")  # second time: retrieved directly
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://june.kim/diagnosis-soar">Diagnosis of Soar</a> — where Soar's learning cells are empty</li>
       <li><a href="https://june.kim/prescription-soar">Prescription for Soar</a> — consolidation mechanisms to fill the gaps</li>
@@ -253,6 +254,7 @@ solve("3+4")  # second time: retrieved directly
       <li><a href="https://en.wikipedia.org/wiki/ACT-R">ACT-R</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Soar_(cognitive_architecture)">Soar</a></li>
     </ul>
+    </Neighbors>
 
 
     <h3>Translation notes</h3>

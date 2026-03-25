@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Dist Ch.3 — Replication" favicon="🌐">
@@ -129,13 +130,14 @@ for R in range(1, N+1):
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/distributed-systems/dist-07/">&#x1F310; Ch.7 CAP Theorem</a> — the fundamental tradeoff between consistency and availability</li>
       <li><a href="/reading/distributed-systems/dist-10/">&#x1F310; Ch.10 CRDTs</a> — eventual consistency without coordination</li>
       <li><a href="https://june.kim/caches-all-the-way-down">june.kim/caches-all-the-way-down</a> — replication as caching: every replica is a cache of the leader's state</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/distributed-systems/dist-02/">&larr; Time and Clocks</a>

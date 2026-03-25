@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Kidney & Wu 2021 — Algebras for Weighted Search" favicon="🍞">
@@ -326,7 +327,7 @@ print(f"sum = {sum(after2.values()):.3f} (probability sums to 1)")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -341,6 +342,7 @@ print(f"sum = {sum(after2.values()):.3f} (probability sums to 1)")
       <li><a href="https://en.wikipedia.org/wiki/Semimodule">🅦 Semimodule</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Monad_(functional_programming)">🅦 Monad</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The examples use association lists with explicit semiring operations. Kidney and Wu work with free semimodule monads in Haskell, using type classes to abstract over the semiring. For example: the counting example above uses an explicit loop with <code>set-cdr!</code> to merge duplicates. In the paper, this is the free semimodule's universal property — the unique algebra morphism that folds a formal sum into a concrete semiring value. The computation is the same; the universality guarantee is not.</p>

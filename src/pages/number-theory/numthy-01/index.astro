@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Number Theory Ch.1 — Divisibility" favicon="#">
@@ -183,10 +184,11 @@ print(f"Check: 48*{x} + 18*{y} = {48*x + 18*y}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/algorithms/algo-02/">&rarr; Algorithms Ch.2</a> — recursion: the Euclidean algorithm is a classic recursive procedure</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

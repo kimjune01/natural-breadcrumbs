@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Machine Learning" favicon="🤖">
@@ -116,7 +117,7 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://cs229.stanford.edu/">Stanford CS229: Machine Learning</a> · <a href="https://www.3blue1brown.com/topics/neural-networks">3Blue1Brown: Neural Networks</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/">📐 Linear Algebra</a> &mdash; the language of weights, features, and transformations</li>
       <li><a href="/reading/probability/">🎰 Probability</a> &mdash; generative models and Bayesian inference</li>
@@ -124,6 +125,7 @@ import Layout from '../../layouts/Base.astro';
       <li><a href="/reading/information-theory/">📡 Information Theory</a> &mdash; cross-entropy loss and mutual information</li>
       <li><a href="/reading/cognitive-architecture/">🏛️ Cognitive Architecture</a> &mdash; transformers as cognitive models</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="DB Ch.1 — The Relational Model" favicon="🗄">
@@ -171,7 +172,7 @@ for row in users:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/abstract-algebra/judson-01/">🔗 Abstract Algebra Ch.1</a> — sets and operations: relations are sets of tuples, keys are set-theoretic constraints</li>
@@ -184,6 +185,7 @@ for row in users:
       <li><a href="https://en.wikipedia.org/wiki/Codd%27s_12_rules">Codd's 12 rules</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Primary_key">Primary key</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

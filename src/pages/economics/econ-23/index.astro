@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.23 — Comparative Systems" favicon="💰">
@@ -191,7 +192,7 @@ for p in range(1, 12):
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
@@ -200,6 +201,7 @@ for p in range(1, 12):
       <li><a href="https://en.wikipedia.org/wiki/Mixed_economy">Mixed economy</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Public_good_(economics)">Public goods</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-22/">← Inequality and Distribution</a>

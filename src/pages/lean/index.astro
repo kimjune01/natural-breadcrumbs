@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Lean Navigator — The Proof, File by File" favicon="✏️">
@@ -58,13 +59,14 @@ import Layout from '../../layouts/Base.astro';
       <li><a href="/reading/lean/supportmonadmorphism/">SupportMonadMorphism.lean</a> — support as monad morphism</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/logic/">🔑 Logic</a> &mdash; Lean implements dependent type theory as a logic</li>
       <li><a href="/reading/proof-writing/">✎ Proofs</a> &mdash; the same proof techniques, now machine-checked</li>
       <li><a href="/reading/category-theory/">🐱 Category Theory</a> &mdash; Kleisli, monads, and functors formalized</li>
       <li><a href="/reading/programming/">🪄 Programming</a> &mdash; type systems as a programming language foundation</li>
     </ul>
+    </Neighbors>
 
 
   </main>

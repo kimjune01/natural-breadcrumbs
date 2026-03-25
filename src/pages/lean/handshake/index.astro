@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Handshake.lean — Stage N's guarantee = Stage N+1's assumption" favicon="✏️">
@@ -96,11 +97,12 @@ print("\\nAll handshakes hold — pipeline composes safely.")
       <li><a href="/reading/lean/hoare-divergence/">Hoare/Divergence.lean</a> &mdash; NonExpanding characterized as threshold triples</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/kura-2026/">🍞 Kura 2026</a></li>
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/contracts/">&larr; Contracts.lean &middot; 5 of 25</a>

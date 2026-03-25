@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Nordstrom §1.1 — Players and Strategies" favicon="🎲">
@@ -177,7 +178,7 @@ for s1 in p1_strategies:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Next sections</p>
     <ul class="neighbors">
@@ -197,6 +198,7 @@ for s1 in p1_strategies:
       <li><a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)">🅦 Strategy</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Perfect_information">🅦 Perfect information</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://nordstrommath.com/IntroGameTheory/S_intro.html">Read Nordstrom §1.1</a>. The cake-cutting example is a great place to start.

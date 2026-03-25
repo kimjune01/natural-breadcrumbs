@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Contracts.lean — Postconditions on morphism outputs" favicon="✏️">
@@ -89,10 +90,11 @@ print(f"len shrinks: {len(data)} -> {len(filtered)}")
       <li><a href="/reading/lean/variational/">Variational.lean</a> &mdash; derives contracts from optimization problems</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/pipeline/">&larr; Pipeline.lean &middot; 4 of 25</a>

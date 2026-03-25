@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.8 — File Systems" favicon="🖥">
@@ -144,7 +145,7 @@ ls()
     <p>A <strong>journal</strong> (or log) records intended changes before applying them. If the system crashes mid-write, recovery replays or rolls back the journal. This turns a potentially corrupted file system into one that recovers in seconds instead of hours of fsck.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/levin-04/">🔢 Discrete Math Ch.4</a> — directed graphs: file system directories are DAGs (hard links can create cycles, hence the restriction)</li>
       <li><a href="/reading/databases/db-06/">💾 Databases Ch.6</a> — WAL and crash recovery: journaling filesystems use the same write-ahead logging technique as databases</li>
@@ -157,6 +158,7 @@ ls()
       <li><a href="https://en.wikipedia.org/wiki/Inode">Inode</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Journaling_file_system">Journaling file system</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-07/">&larr; Virtual Memory</a>

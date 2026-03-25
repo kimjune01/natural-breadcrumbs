@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.22 — Inequality and Distribution" favicon="💰">
@@ -215,7 +216,7 @@ for name, inc in [("Equal", equal), ("Moderate", moderate), ("Unequal", unequal)
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
@@ -224,6 +225,7 @@ for name, inc in [("Equal", equal), ("Moderate", moderate), ("Unequal", unequal)
       <li><a href="https://en.wikipedia.org/wiki/Pareto_distribution">Pareto distribution</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Wealth_inequality">Wealth inequality</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-21/">← Behavioral Economics</a>

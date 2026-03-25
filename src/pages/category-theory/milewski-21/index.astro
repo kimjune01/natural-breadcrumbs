@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.21 — Kan Extensions" favicon="🐱">
@@ -473,7 +474,7 @@ print(f"after fmap (+1): {mapped2.run()}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -492,6 +493,7 @@ print(f"after fmap (+1): {mapped2.run()}")
       <li><a href="https://en.wikipedia.org/wiki/End_(category_theory)">&#x1F160; End (category theory)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Adjoint_functors">&#x1F160; Adjoint functors</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

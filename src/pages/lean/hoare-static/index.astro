@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hoare/Static.lean — Iteration stability" favicon="✏️">
@@ -46,10 +47,11 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/handshake/">Handshake.lean</a> &mdash; iteration stability ensures the pipeline loop survives re-application</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/gaboardi-2021/">🍞 Gaboardi 2021</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/hoare-effects/">&larr; Hoare/Effects.lean &middot; 20 of 25</a>

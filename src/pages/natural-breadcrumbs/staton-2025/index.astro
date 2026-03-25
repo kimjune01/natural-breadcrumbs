@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Staton 2025 — Program Logics via Distributive Monoidal Categories" favicon="🍞">
@@ -469,7 +470,7 @@ print("through the bind — same as your Lean proof.")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -486,6 +487,7 @@ print("through the bind — same as your Lean proof.")
       <li><a href="https://en.wikipedia.org/wiki/Stochastic_matrix">🅦 Stochastic matrix</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Kleisli_category">🅦 Kleisli category</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.3 — Hash Functions" favicon="🔐">
@@ -143,7 +144,7 @@ print("One bit change, very different output.")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
@@ -157,6 +158,7 @@ print("One bit change, very different output.")
       <li><a href="https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction">Merkle-Damgard construction</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Birthday_attack">Birthday attack</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cryptography/crypto-02/">&larr; Block Ciphers</a>

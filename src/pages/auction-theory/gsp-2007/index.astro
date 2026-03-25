@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="GSP 2007 — Generalized Second-Price Auction" favicon="💎">
@@ -118,12 +119,13 @@ print(gsp([10, 8, 2], [100, 60, 20]))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://june.kim/one-shot-bidding">june.kim/one-shot-bidding</a> &mdash; GSP in practice</li>
       <li><a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> &mdash; the single-item version GSP generalizes</li>
       <li><a href="/reading/auction-theory/vcg-1973/">💎 VCG 1973</a> &mdash; the truthful alternative GSP approximates</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.1.242">Read the paper</a>.

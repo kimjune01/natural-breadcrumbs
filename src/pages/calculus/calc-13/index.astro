@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.13 — Multiple Integrals" favicon="∫">
@@ -208,7 +209,7 @@ print("Exact: pi*R^2 = " + format(math.pi * R**2, ".4f"))
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Calculus sequence</p>
     <ul class="neighbors">
@@ -227,6 +228,7 @@ print("Exact: pi*R^2 = " + format(math.pi * R**2, ".4f"))
       <li><a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian determinant</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">Spherical coordinates</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-12/">&larr; Optimization</a>

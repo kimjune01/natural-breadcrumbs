@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.6 — Electricity" favicon="⚛">
@@ -184,11 +185,12 @@ for r in [0.01, 0.1, 1.0, 10.0]:
 
 
     <!-- Cross-links -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/boelkins-14/">&#x222B; Calculus Ch. 14</a> &mdash; line integrals compute work done by electric fields along paths</li>
       <li><a href="/reading/physics/crowell-05/">&#x2190; Ch. 5: Waves</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.

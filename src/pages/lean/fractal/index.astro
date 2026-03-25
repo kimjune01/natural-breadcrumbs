@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Fractal.lean — Recursive consolidation with budget termination" favicon="✏️">
@@ -111,10 +112,11 @@ print("Terminates: budget hits 0 at depth=initial")
       <li><a href="/reading/lean/contracts/">Contracts.lean</a> &mdash; passthrough preserves any Contract</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-06/">📡 Shannon Ch6 DPI</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/induction/">&larr; Induction.lean &middot; 13 of 25</a>

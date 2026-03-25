@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Arunkumar et al. 2026 — Agentic AI Architectures" favicon="🏛️">
@@ -341,13 +342,14 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>Hierarchical verification (MAKER) takes <a href="/reading/cognitive-architecture/minsky-1986/">A-brain / B-brain</a> to scale. Worker agents act. Verifier agents challenge. Near-zero error on million-step chains. Minsky's reflection hierarchy, distributed across multiple agents. Also how <a href="/reading/cognitive-architecture/zhao-2023/">RLHF</a> works: one model generates, another judges. Minsky named the pattern forty years before anyone built it.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cognitive-architecture/zhao-2023/">Zhao et al. survey</a></li>
       <li><a href="/reading/cognitive-architecture/laird-2022/">Soar</a></li>
       <li><a href="https://june.kim/agents-standup">Agents Stand-Up (blog)</a></li>
       <li><a href="/reading/cognitive-architecture/">back to collection</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

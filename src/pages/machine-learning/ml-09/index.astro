@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.9 — Convolutional Networks" favicon="🤖">
@@ -239,11 +240,12 @@ print("After max-pool:", step3)
     <p class="text-sm text-gray-400">Convolution in signal processing flips the kernel; in deep learning, cross-correlation (no flip) is standard but still called "convolution." The Scheme code above implements cross-correlation. In practice, learned kernels absorb the flip.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-08/">&#x222B; Ch.8 Integration Techniques</a> &mdash; convolution as integral transform</li>
       <li><a href="/reading/information-theory/shannon-06/">&#x1F4E1; Shannon Ch.6</a> &mdash; channel capacity constrains what filters can extract</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-08/">&larr; Regularization</a>

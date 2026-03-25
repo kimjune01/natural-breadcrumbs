@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.10 — NP-Completeness" favicon="⚙">
@@ -138,7 +139,7 @@ print(f"{result}: {assignment}")
     <h3>Approximation</h3>
     <p>When exact solutions are intractable, approximation algorithms guarantee solutions within a factor of optimal. Vertex cover has a 2-approximation. Traveling salesman with triangle inequality has a 1.5-approximation (Christofides). General TSP has no constant-factor approximation unless P = NP.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/dm-03/">🔢 Discrete Math Ch.3</a> &mdash; logic: SAT is satisfiability of propositional formulas</li>
@@ -147,6 +148,7 @@ print(f"{result}: {assignment}")
       <li><a href="/reading/cryptography/">🔐 Cryptography</a> &mdash; every hard crypto problem relies on an NP-hard assumption</li>
       <li><a href="/reading/proof-writing/proofs-03/">✎ Proofs Ch.3</a> &mdash; NP-completeness proofs use contradiction and reduction</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

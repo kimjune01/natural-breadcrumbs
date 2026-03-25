@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hoare/WP.lean — Weakest precondition" favicon="✏️">
@@ -41,10 +42,11 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/hoare-comp/">Hoare/Comp.lean</a> &mdash; uses wp_comp implicitly through the chain of triple_comp calls</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/jacobs-2014/">🍞 Jacobs 2014</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/hoare-core/">&larr; Hoare/Core.lean &middot; 15 of 25</a>

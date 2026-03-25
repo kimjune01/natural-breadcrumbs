@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="DB Ch.5 — Indexing" favicon="🗄">
@@ -164,7 +165,7 @@ print("With index:   ", c.fetchone())
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/algorithms/algo-05/">⚙ Algorithms Ch.5</a> — trees: B-trees are balanced search trees optimized for disk</li>
@@ -176,6 +177,7 @@ print("With index:   ", c.fetchone())
       <li><a href="https://en.wikipedia.org/wiki/B%2B_tree">B+ tree</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Hash_table">Hash table</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

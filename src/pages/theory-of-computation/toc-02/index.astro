@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="ToC Ch.2 — Nondeterminism" favicon="🔀">
@@ -189,12 +190,13 @@ for (src, sym), dst in sorted(dfa_states.items(), key=lambda x: str(x)):
     <h3>NFA = DFA in power</h3>
     <p>The subset construction proves that NFAs and DFAs recognize the same class of languages: the regular languages. Nondeterminism is a convenience for design, not an increase in power. The trade-off is state count: the DFA may need exponentially more states.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/machine-learning/ml-10/">🤖 ML Ch.10</a> — sequence models: RNNs are nondeterministic automata trained by gradient descent</li>
       <li><a href="/reading/category-theory/milewski-13/">🐱 Category Theory Ch.13</a> — the powerset monad models nondeterministic computation</li>
       <li><a href="/reading/probability/grinstead-11/">🎰 Probability Ch.11</a> — Markov chains are probabilistic automata: states plus transition probabilities</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-01/">&larr; Finite Automata</a>

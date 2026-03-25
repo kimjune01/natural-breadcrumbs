@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hoare/Divergence.lean — NonExpanding as threshold triples" favicon="✏️">
@@ -33,11 +34,12 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/hoare-graded/">Hoare/Graded.lean</a> &mdash; graded triples are a richer quantitative view (cost bound per kernel, not just thresholds)</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/sato-2023/">🍞 Sato 2023</a></li>
       <li><a href="/reading/panangaden-2009/">🍞 Panangaden 2009</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/hoare-static/">&larr; Hoare/Static.lean &middot; 21 of 25</a>

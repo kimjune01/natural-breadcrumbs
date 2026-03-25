@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.13 — Oligopoly" favicon="💰">
@@ -185,7 +186,7 @@ print("Competition: Q=" + str(a-c) + ", P=$" + str(c))
 
 
     <!-- Cross-reference -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Related chapters</p>
     <ul class="neighbors">
@@ -199,6 +200,7 @@ print("Competition: Q=" + str(a-c) + ", P=$" + str(c))
       <li><a href="https://en.wikipedia.org/wiki/Bertrand_competition">Bertrand competition</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Cartel">Cartel</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.12 — Large Language Models" favicon="🤖">
@@ -283,7 +284,7 @@ print("Context window: ~4k to ~1M tokens")
     <p class="text-sm text-gray-400">The jump from transformer to LLM is primarily one of scale: billions of parameters, trillions of tokens, thousands of GPUs. Emergent abilities (chain-of-thought reasoning, code generation, tool use) appear at scale thresholds that we can't predict from smaller models. Whether this is true emergence or smooth scaling is debated. What's not debated: the practical capabilities are real. Whether scale alone produces <a href="https://june.kim/general-intelligence">general intelligence</a> is a separate question &mdash; one that depends on whether the system has a closed consolidation loop, not just a larger forward pass.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-01/">&#x1F4E1; Shannon Ch.1</a> &mdash; next-token prediction is minimizing surprise (cross-entropy)</li>
       <li><a href="/reading/cognitive-science/lovelace-08/">&#x1F9E0; Lovelace Ch.8</a> &mdash; cognitive architectures and the question of understanding</li>
@@ -291,6 +292,7 @@ print("Context window: ~4k to ~1M tokens")
     </ul>
 
     <!-- Ready for the real thing? -->
+    </Neighbors>
     <div class="bg-zinc-800 rounded-lg p-5 mt-8 mb-8 callout">
       <h3 class="mt-0">Ready for the real thing?</h3>
       <p><a href="https://d2l.ai/">Dive into Deep Learning</a> (d2l.ai) covers everything here with runnable PyTorch/JAX code, full math, and exercises. It's free, it's excellent, and it's where these chapters point when the scaffolding comes off.</p>

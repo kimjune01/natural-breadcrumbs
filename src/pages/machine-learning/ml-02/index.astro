@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.2 — Linear Regression" favicon="🤖">
@@ -230,7 +231,7 @@ print("MSE:", round(mse, 4))
     <p class="mt-2">In practice, gradient descent wins for large datasets because the normal equation requires inverting X&#x1D40;X, which is O(d&#xB3;) in the number of features. Gradient descent is O(nd) per step.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/hefferon-01/">📐 Hefferon Ch.1</a> &mdash; linear systems: the normal equation is a linear system in disguise</li>
       <li><a href="/reading/calculus/calc-12/">∫ Calculus Ch.12</a> &mdash; gradient: the direction of steepest ascent that gradient descent reverses</li>
@@ -239,6 +240,7 @@ print("MSE:", round(mse, 4))
       <li><a href="/reading/linear-algebra/hefferon-01/">📐 Linear Algebra Ch.1</a> &mdash; the normal equation solves a linear system</li>
       <li><a href="/reading/calculus/calc-12/">∫ Calculus Ch.12</a> &mdash; gradient descent is optimization by following partial derivatives</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 9 and <a href="https://d2l.ai/chapter_linear-regression/">D2L Ch. 3</a>.

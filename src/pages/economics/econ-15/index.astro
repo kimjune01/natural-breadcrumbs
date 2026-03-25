@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.15 — Money and Banking" favicon="💰">
@@ -189,7 +190,7 @@ print("Multiplier: " + str(1 / reserve_ratio))
 
 
     <!-- Cross-reference -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Related chapters</p>
     <ul class="neighbors">
@@ -203,6 +204,7 @@ print("Multiplier: " + str(1 / reserve_ratio))
       <li><a href="https://en.wikipedia.org/wiki/Money_multiplier">Money multiplier</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Geometric_series">Geometric series</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

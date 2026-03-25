@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Dist Ch.2 — Time and Clocks" favicon="🌐">
@@ -218,11 +219,12 @@ print(f"P2 sends, P1 receives, P1 clock={p1.time}")
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/logic/logic-07/">&#x1F511; Logic Ch.7</a> — partial orders: the mathematical structure behind happens-before</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/distributed-systems/dist-01/">&larr; What Makes It Hard</a>

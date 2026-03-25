@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="DB Ch.7 — Concurrency Control" favicon="🗄">
@@ -207,7 +208,7 @@ print("T1->T2->T3->T1:", detect_deadlock({
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/operating-systems/os-05/">🖥 OS Ch.5</a> — deadlock: same concept, different domain (OS resources vs database locks)</li>
@@ -219,6 +220,7 @@ print("T1->T2->T3->T1:", detect_deadlock({
       <li><a href="https://en.wikipedia.org/wiki/Multiversion_concurrency_control">MVCC</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Deadlock">Deadlock</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

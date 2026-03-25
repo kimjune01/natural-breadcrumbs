@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Pipeline.lean — Six stages, one cycle" favicon="✏️">
@@ -117,11 +118,12 @@ print(f"forward('hello', 'diverse'): {forward('hello', 'diverse')}")
       <li><a href="/reading/lean/uniqueness/">Uniqueness.lean</a> &mdash; proves this ordering is the only valid one</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a></li>
       <li><a href="/reading/kura-2026/">🍞 Kura 2026</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/axioms/">&larr; Axioms.lean &middot; 3 of 25</a>

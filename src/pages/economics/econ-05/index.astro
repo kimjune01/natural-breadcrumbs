@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.5 — Elasticity" favicon="💰">
@@ -136,11 +137,12 @@ print("Cereal elasticity:  " + str(round(e_cer, 2)) + " (elastic)")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Price_elasticity_of_demand">W Price elasticity of demand</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Price_elasticity_of_supply">W Price elasticity of supply</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-04/">&larr; Diminishing Returns</a>

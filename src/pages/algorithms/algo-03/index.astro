@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.3 — Sorting" favicon="⚙">
@@ -131,11 +132,12 @@ print(insertion_sort([5, 3, 8, 1, 7, 2, 6, 4]))
     <h3>The n log n lower bound</h3>
     <p>Any comparison-based sort must make at least log_2(n!) comparisons in the worst case. By Stirling, log_2(n!) is &Theta;(n log n). You cannot do better with comparisons alone. Non-comparison sorts (counting sort, radix sort) beat this by using extra information about the keys.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/programming/">🪄 SICP</a> &mdash; comparison: functional vs imperative approaches to the same algorithms</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algorithms/algo-02/">&larr; Recursion</a>

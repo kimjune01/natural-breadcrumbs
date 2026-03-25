@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="🍞 Prisoner's Dilemma and Chicken" favicon="🎲">
@@ -215,7 +216,7 @@ for s1 in strategies:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Game theory foundations</p>
     <ul class="neighbors">
@@ -235,6 +236,7 @@ for s1 in strategies:
       <li><a href="https://en.wikipedia.org/wiki/Chicken_(game)">🅦 Chicken (game)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Nash_equilibrium">🅦 Nash equilibrium</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>Nordstrom uses years in prison as PD payoffs (lower is better), which is the original formulation. Many textbooks flip the sign and use utility (higher is better). The Nash equilibrium analysis is identical either way. Chicken payoffs here follow Nordstrom's convention: +10 for winning, -1 for swerving alone, -100 for mutual crash.</p>

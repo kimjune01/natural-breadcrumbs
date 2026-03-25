@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.5 — Non-Euclidean Geometry" favicon="△">
@@ -176,7 +177,7 @@ print(f"Hyperbolic triangle (area=0.5): {180 - 0.5*180/math.pi:.1f} degrees")
     <p>All three geometries are unified by one formula: the angle sum of a triangle equals pi plus the integral of curvature over the triangle's area. Flat: curvature 0, angles sum to pi. Spherical: positive curvature, angles sum to more. Hyperbolic: negative curvature, angles sum to less. This is the <strong>Gauss-Bonnet theorem</strong>, which connects local curvature to global topology. Differential geometry (Chapter 6) makes this precise.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Non-Euclidean_geometry">Non-Euclidean geometry</a></li>
@@ -184,6 +185,7 @@ print(f"Hyperbolic triangle (area=0.5): {180 - 0.5*180/math.pi:.1f} degrees")
       <li><a href="https://en.wikipedia.org/wiki/Spherical_geometry">Spherical geometry</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Bonnet_theorem">Gauss-Bonnet theorem</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/geometry/geom-04/">← Projective Geometry</a>

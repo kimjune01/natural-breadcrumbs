@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hoare/Graded.lean — Grades from a preordered monoid" favicon="✏️">
@@ -84,10 +85,11 @@ print(f"total drop: {info(data):.1f} -> {info(after_attend):.1f}"
       <li><a href="/reading/lean/hoare-effects/">Hoare/Effects.lean</a> &mdash; Boolean effect embedding, a different cost algebra</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/gaboardi-2021/">🍞 Gaboardi 2021</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/hoare-comp/">&larr; Hoare/Comp.lean &middot; 18 of 25</a>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.1 — Functions and Graphs" favicon="∫">
@@ -241,7 +242,7 @@ print(f"log2(2^5) = {math.log2(2**5)}")    # 5.0
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-01/">&#x1F431; Milewski Ch.1</a> — composition is the same idea, abstracted to arrows in a category</li>
       <li><a href="/reading/programming/">&#x1FA84; Programming</a> — SICP builds everything from function application</li>
@@ -250,6 +251,7 @@ print(f"log2(2^5) = {math.log2(2**5)}")    # 5.0
       <li><a href="/reading/logic/logic-05/">🔑 Logic Ch.5</a> &mdash; predicate logic uses the same function notation</li>
       <li><a href="/reading/category-theory/milewski-01/">🧩 Category Theory Ch.1</a> &mdash; morphisms are generalized functions between objects</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

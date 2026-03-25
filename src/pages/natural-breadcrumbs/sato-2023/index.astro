@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Sato, Katsumata 2023 — Divergences on Monads" favicon="🍞">
@@ -182,7 +183,7 @@ print(f"ε-close? {dist <= epsilon}")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -199,6 +200,7 @@ print(f"ε-close? {dist <= epsilon}")
       <li><a href="https://en.wikipedia.org/wiki/Differential_privacy">🅦 Differential privacy</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Enriched_category">🅦 Enriched category</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>All examples use KL divergence over finite discrete distributions. The paper works with arbitrary divergences (Rényi, total variation, hockey-stick) over arbitrary monads on arbitrary base categories. For example: the ε-closeness test on this page checks KL divergence of two functions over a finite set. In the paper, the same construction applies to differential privacy of database queries — the monad is the randomized response mechanism, the divergence is the hockey-stick divergence, and ε-closeness is the privacy guarantee. The structure (divergence enriches the Kleisli category) is identical. The monad and divergence are not.</p>

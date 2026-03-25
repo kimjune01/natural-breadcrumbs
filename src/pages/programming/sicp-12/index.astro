@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.12 — Concurrency" favicon="🪄">
@@ -311,12 +312,13 @@ print(f"after:  a1={a1.balance}, a2={a2.balance}")
     </ul>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="text-sm text-gray-400 mb-6">
       <li><a href="https://en.wikipedia.org/wiki/Race_condition">Wikipedia: Race condition</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion">Wikipedia: Mutual exclusion</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Deadlock">Wikipedia: Deadlock</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-23.html#%_sec_3.4">Read SICP &sect;3.4</a>.

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Judson Ch.7 — Integral Domains and Fields" favicon="🔗">
@@ -201,7 +202,7 @@ for x in range(5):
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Algebra track</p>
     <ul class="neighbors">
@@ -215,6 +216,7 @@ for x in range(5):
     <ul>
       <li><a href="/reading/real-analysis/lebl-01/">∞ Lebl Ch.1 Real Numbers</a> &mdash; the reals as the motivating example of a complete ordered field</li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Proofs Ch.4 — Mathematical Induction" favicon="✎">
@@ -153,7 +154,7 @@ for n in [1, 5, 10, 50, 100]:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/logic/logic-09/">🔑 Logic Ch.9</a> — formal treatment of induction in predicate logic</li>
       <li><a href="/reading/discrete-math/levin-02/">🔢 Discrete Math Ch.2</a> — sequences and induction</li>
@@ -164,6 +165,7 @@ for n in [1, 5, 10, 50, 100]:
       <li><a href="/reading/lean/induction/">✏️ Induction.lean</a> &mdash; machine-checked induction proofs</li>
       <li><a href="/reading/algorithms/algo-02/">⚙ Algorithms Ch.2</a> &mdash; recursion uses the same inductive structure</li>
     </ul>
+    </Neighbors>
 
 
 

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Economics" favicon="💰">
@@ -176,13 +177,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/14-01-principles-of-microeconomics-fall-2023/">MIT 14.01 Microeconomics</a> · <a href="https://oyc.yale.edu/economics/econ-252">Yale ECON 252: Financial Markets (Shiller)</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/game-theory/">🎲 Game Theory</a> &mdash; oligopoly, mechanism design, and auctions are applied game theory</li>
       <li><a href="/reading/probability/">🎰 Probability</a> &mdash; expected utility and uncertainty</li>
       <li><a href="/reading/statistics/">📊 Statistics</a> &mdash; empirical methods in economics use the same tools</li>
       <li><a href="/reading/auction-theory/">🏷 Auction Theory</a> &mdash; the economics of market design</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

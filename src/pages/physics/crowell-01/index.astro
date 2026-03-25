@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.1 — Conservation of Energy" favicon="⚛">
@@ -238,10 +239,11 @@ print(f"W = delta KE? {abs(W - 0.5 * m * v_final**2) < 1e-10}")
 
 
     <!-- Cross-links -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/boelkins-07/">&#x222B; Calculus Ch. 7</a> &mdash; integrals compute work: W = integral of F dx</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.

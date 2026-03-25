@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Support.lean — Which outputs a computation can produce" favicon="✏️">
@@ -104,10 +105,11 @@ print(f"support(coin-flip >>= coin-flip)(3): {bind_support(coin_flip, coin_flip,
       <li><a href="/reading/lean/supportmonadmorphism/">SupportMonadMorphism.lean</a> &mdash; proves Support is a monad morphism to the reachability monad</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/fritz-perrone-2021/">🍞 Fritz-Perrone 2021</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

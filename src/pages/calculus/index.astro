@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Calculus" favicon="∫">
@@ -123,7 +124,7 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.3blue1brown.com/topics/calculus">3Blue1Brown: Essence of Calculus</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/real-analysis/">∞ Real Analysis</a> &mdash; the rigorous foundations that justify what calculus does</li>
       <li><a href="/reading/linear-algebra/">📐 Linear Algebra</a> &mdash; multivariable calculus and linear transformations share the same substrate</li>
@@ -131,6 +132,7 @@ import Layout from '../../layouts/Base.astro';
       <li><a href="/reading/machine-learning/">🤖 Machine Learning</a> &mdash; gradient descent lives in calculus</li>
       <li><a href="/reading/control/">🎛 Control Theory</a> &mdash; differential equations throughout</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

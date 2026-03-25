@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.9 — Optics" favicon="⚛">
@@ -215,7 +216,7 @@ print(f"Critical angle: {math.degrees(math.asin(1/1.5)):.2f} deg")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Snell%27s_law">Snell's law</a></li>
@@ -224,6 +225,7 @@ print(f"Critical angle: {math.degrees(math.asin(1/1.5)):.2f} deg")
       <li><a href="https://en.wikipedia.org/wiki/Diffraction">Diffraction</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Total_internal_reflection">Total internal reflection</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

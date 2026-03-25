@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Proofs Ch.1 — Statements and Logic" favicon="✎">
@@ -174,7 +175,7 @@ for p in [True, False]:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/logic/logic-02/">🔑 Logic Ch.2</a> — propositional logic formalized</li>
       <li><a href="/reading/logic/logic-03/">🔑 Logic Ch.3</a> — translation between English and formal logic</li>
@@ -183,6 +184,7 @@ for p in [True, False]:
       <li><a href="/reading/logic/logic-03/">🔑 Logic Ch.3</a> &mdash; truth tables and semantic consequence</li>
       <li><a href="/reading/discrete-math/levin-03/">🔢 Discrete Math Ch.3</a> &mdash; symbolic logic from a different angle</li>
     </ul>
+    </Neighbors>
 
 
 

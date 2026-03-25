@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lovelace Ch.1 — What is Computational Cognitive Science?" favicon="🧠">
@@ -209,11 +210,12 @@ print("Set size 16 (model B): " + str(model_b(16)))
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/David_Marr_(neuroscientist)">David Marr</a> — the neuroscientist behind the three levels</li>
       <li><a href="https://en.wikipedia.org/wiki/Computational_theory_of_mind">Computational theory of mind</a> — the broader philosophical context</li>
     </ul>
+    </Neighbors>
 
 
     <!-- Translation notes -->

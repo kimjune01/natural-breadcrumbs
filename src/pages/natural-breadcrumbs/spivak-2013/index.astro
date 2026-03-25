@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Spivak 2013 — The Operad of Wiring Diagrams" favicon="🍞">
@@ -247,7 +248,7 @@ print(f"Equal: {left == right}")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -262,6 +263,7 @@ print(f"Equal: {left == right}")
       <li><a href="https://en.wikipedia.org/wiki/String_diagram">🅦 String diagram</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Monoidal_category">🅦 Monoidal category</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The examples on this page use lists and symbols to represent typed ports and wiring. Spivak's paper works with operads in the category of typed finite sets — the supplier assignment is a genuine function between coproducts. For example: the wiring diagram above connects two boxes with string labels. In the paper, the same construction uses typed finite sets with a function φ from inner input ports to the disjoint union of outer inputs and other boxes' outputs. The compositional structure is identical. The set-theoretic precision is not.</p>

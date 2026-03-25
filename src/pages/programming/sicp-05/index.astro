@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.5 — Hierarchical Data" favicon="🪄">
@@ -340,7 +341,7 @@ print(f"prime-sum pairs up to 6: {prime_sum_pairs(6)}")
     <p class="mt-2">Python's list comprehensions do the work of <code>map</code>, <code>filter</code>, and <code>flatmap</code> in a single syntax. The Scheme decomposition is more explicit about the pipeline stages, which matters when you start composing them programmatically.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">SICP chapters</p>
     <ul class="neighbors">
@@ -358,6 +359,7 @@ print(f"prime-sum pairs up to 6: {prime_sum_pairs(6)}")
       <li><a href="https://en.wikipedia.org/wiki/Cons">🅦 Cons</a> — the pair primitive underlying all Lisp data structures</li>
       <li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)">🅦 Tree (data structure)</a> — hierarchical structures from recursive pairs</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-15.html#%_sec_2.2">Read SICP &sect;2.2</a>.

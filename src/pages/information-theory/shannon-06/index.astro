@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 6 — Data Processing Inequality" favicon="📡">
@@ -209,7 +210,7 @@ print(f"Functor can't increase: {hfx <= hx}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-04/">📡 Mutual information</a> &mdash; the quantity that DPI bounds</li>
@@ -219,6 +220,7 @@ print(f"Functor can't increase: {hfx <= hx}")
       <li><a href="https://en.wikipedia.org/wiki/Data_processing_inequality">&#x1F150; Data processing inequality</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Markov_chain">&#x1F150; Markov chain</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

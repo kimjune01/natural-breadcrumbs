@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lessig 2004 — Free Culture" favicon="⚖">
@@ -76,7 +77,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <hr class="border-zinc-700 my-8"/>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Free_Culture_(book)">Wikipedia: Free Culture</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Eldred_v._Ashcroft">Wikipedia: Eldred v. Ashcroft (2003)</a></li>
@@ -87,6 +88,7 @@ import Layout from '../../../layouts/Base.astro';
     </ul>
 
     <p class="text-sm text-gray-500 mt-6">Blog connection: Lessig built Creative Commons so authors could encode their permissions as machine-readable metadata. The legal structure has mathematical structure. CC BY is a functor; CC BY-SA adds a natural transformation. <a href="https://june.kim/licenses-are-functors"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Licenses Are Functors</a></p>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/commons/boyle-2003/">&larr; Boyle 2003 &middot; 5 of 8</a>

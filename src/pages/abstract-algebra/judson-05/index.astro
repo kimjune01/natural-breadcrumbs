@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Judson Ch.5 — Cosets and Lagrange's Theorem" favicon="🔗">
@@ -143,13 +144,14 @@ for g in range(12):
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Algebra track</p>
     <ul class="neighbors">
       <li><a href="/reading/abstract-algebra/judson-04/">&larr; Ch.4 Isomorphisms</a> &mdash; coset counting constrains possible isomorphisms</li>
       <li><a href="/reading/abstract-algebra/judson-06/">Ch.6 Rings</a> &mdash; adding a second operation</li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

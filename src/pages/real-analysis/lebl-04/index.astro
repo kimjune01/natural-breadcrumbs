@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lebl Ch.4 — Continuous Functions" favicon="∞">
@@ -240,7 +241,7 @@ print("No single delta works for all c on [0,inf)")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/real-analysis/lebl-02/">Ch. 2: Sequences</a> — sequential characterization of continuity</li>
       <li><a href="/reading/real-analysis/lebl-05/">Ch. 5: The Derivative</a> — differentiability implies continuity</li>
@@ -249,6 +250,7 @@ print("No single delta works for all c on [0,inf)")
       <li><a href="/reading/control/ctrl-04/">🎛 Control Ch.4</a> — stability theory depends on continuity of the vector field</li>
       <li><a href="/reading/probability/grinstead-04/">🎰 Probability Ch.4</a> — continuous probability distributions require continuity of the CDF</li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>Bisection is the constructive content of IVT. The sampling approach to EVT is not a proof; it misses the actual extremum by up to the sampling resolution. The real theorems depend on completeness and compactness, which have no computational shortcut.</p>

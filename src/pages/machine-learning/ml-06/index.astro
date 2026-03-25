@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.6 — PCA" favicon="📊">
@@ -251,13 +252,14 @@ for pt in data:
     <p class="text-sm text-gray-400">PCA is a change of basis that diagonalizes the covariance matrix. The principal components form an orthonormal basis aligned with the data's natural axes. Dimensionality reduction is projection onto a subspace -- the same operation as in linear algebra, but chosen to maximize information retention. The <a href="https://june.kim/embedding-gap">embedding gap</a> explores what happens when this kind of projection fails to capture the structure that matters.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/hefferon-04/">Linear Algebra Ch.4</a> — determinants and eigenvalues: the math behind PCA</li>
       <li><a href="/reading/machine-learning/ml-05/">ML Ch.5 Kernel Methods</a> — kernel PCA extends this to nonlinear structure</li>
     </ul>
 
     <!-- Ready for the real thing? -->
+    </Neighbors>
     <h3>Ready for the real thing?</h3>
     <p class="text-sm text-gray-400">This chapter covers the 2D intuition. For high-dimensional PCA, SVD-based computation, and connections to factor analysis, see Shalev-Shwartz & Ben-David Ch.23 or Bishop Ch.12.</p>
 

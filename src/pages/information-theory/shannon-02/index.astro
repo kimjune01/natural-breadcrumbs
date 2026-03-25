@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 02 — Entropy: expected surprise" favicon="📡">
@@ -193,7 +194,7 @@ print(f"certain:     {entropy([1.0]):.4f} bits")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-01/">📡 Shannon 01</a> &mdash; surprise: the atomic unit</li>
@@ -203,6 +204,7 @@ print(f"certain:     {entropy([1.0]):.4f} bits")
       <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">🅦 Entropy (information theory)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Binary_entropy_function">🅦 Binary entropy function</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

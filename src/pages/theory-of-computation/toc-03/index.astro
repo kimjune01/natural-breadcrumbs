@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="ToC Ch.3 — Regular Expressions" favicon="🔀">
@@ -145,12 +146,13 @@ print("No finite automaton can count unboundedly.")
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/programming/sicp-09/">🪄 SICP Ch.9</a> — pattern matching in Scheme: regular expressions as recognition procedures</li>
       <li><a href="/reading/information-theory/shannon-01/">📡 Information Theory Ch.1</a> — regular languages have finite entropy rate; their recognizers are minimal automata</li>
       <li><a href="/reading/databases/db-04/">💾 Databases Ch.4</a> — SQL LIKE patterns and database query languages descend from regular expression theory</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-02/">&larr; Nondeterminism</a>

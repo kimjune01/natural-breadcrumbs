@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.15 — Lazy Evaluation" favicon="🪄">
@@ -394,7 +395,7 @@ print(f"unless False:  {unless(False, lambda: 'ran the body', lambda: 'skipped')
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other reading pages</p>
     <ul class="neighbors">
@@ -408,6 +409,7 @@ print(f"unless False:  {unless(False, lambda: 'ran the body', lambda: 'skipped')
       <li><a href="https://en.wikipedia.org/wiki/Memoization">Memoization</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Lazy_evaluation">Lazy evaluation</a></li>
     </ul>
+    </Neighbors>
 
 
     <!-- Translation notes -->

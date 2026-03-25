@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lebl Ch.1 — Real Numbers" favicon="∞">
@@ -298,7 +299,7 @@ print("inf{1/n : n >= 1} = 0 (limit, not attained)")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/">Discrete Math</a> — proof techniques (induction, contradiction) used throughout</li>
       <li><a href="/reading/abstract-algebra/">Abstract Algebra</a> — field axioms in the algebraic context</li>
@@ -306,6 +307,7 @@ print("inf{1/n : n >= 1} = 0 (limit, not attained)")
       <li><a href="/reading/calculus/calc-03/">📐 Calculus Ch.3</a> — limits in calculus depend on the completeness of the reals</li>
       <li><a href="/reading/proof-writing/proofs-03/">📝 Proofs Ch.3</a> — proof by contradiction: used to prove the irrationality of √2</li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

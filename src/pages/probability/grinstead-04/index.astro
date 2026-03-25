@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 4 — Conditional Probability" favicon="🎰">
@@ -205,7 +206,7 @@ print("Most positives are false positives when prevalence is low.")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Adjacent chapters</p>
     <ul class="neighbors">
@@ -236,6 +237,7 @@ print("Most positives are false positives when prevalence is low.")
       <li><a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">🅦 Bayes' theorem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Independence_(probability_theory)">🅦 Independence</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf">Read Ch 4</a> of Grinstead &amp; Snell.

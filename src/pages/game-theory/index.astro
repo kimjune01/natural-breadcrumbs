@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Introduction to Game Theory" favicon="🎲">
@@ -137,7 +138,7 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://oyc.yale.edu/economics/econ-159">Yale ECON 159: Game Theory (Ben Polak)</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/probability/">🎰 Probability</a> &mdash; mixed strategies are probability distributions over pure strategies</li>
       <li><a href="/reading/economics/">💰 Economics</a> &mdash; Nash equilibrium and mechanism design connect</li>
@@ -145,6 +146,7 @@ import Layout from '../../layouts/Base.astro';
       <li><a href="/reading/auction-theory/">🏷 Auction Theory</a> &mdash; auctions as a class of mechanism design problem</li>
       <li>Applied: <a href="https://june.kim/power-diagrams-ad-auctions">power diagrams in ad auctions</a> and <a href="https://june.kim/one-shot-bidding">one-shot bidding strategy</a></li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

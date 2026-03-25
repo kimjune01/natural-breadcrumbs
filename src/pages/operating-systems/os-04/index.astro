@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.4 — Synchronization" favicon="🖥">
@@ -154,7 +155,7 @@ for r in results: print(r)
     <p>A <strong>monitor</strong> bundles the shared data, the operations on it, and the synchronization into one construct. Only one thread can be active inside the monitor at a time. Condition variables let threads wait inside the monitor for specific events.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/levin-04/">🔢 Discrete Math Ch.4</a> — graph theory: the happens-before relation for synchronization primitives is a directed acyclic graph</li>
       <li><a href="/reading/abstract-algebra/judson-01/">🔗 Abstract Algebra Ch.1</a> — groups and atomicity: mutex operations are the OS implementation of atomic group actions on shared state</li>
@@ -168,6 +169,7 @@ for r in results: print(r)
       <li><a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem">Dining philosophers problem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Monitor_(synchronization)">Monitor</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-03/">&larr; Threads and Concurrency</a>

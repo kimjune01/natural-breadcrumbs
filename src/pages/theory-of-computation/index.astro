@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Theory of Computation" favicon="🔀">
@@ -104,12 +105,13 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/">MIT 6.045J Automata, Computability, and Complexity</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/logic/">🔑 Logic</a> — Gödel's incompleteness theorems are the theoretical ceiling</li>
       <li><a href="/reading/algorithms/">⚙ Algorithms</a> — NP-completeness connects complexity to algorithm design</li>
       <li><a href="/reading/discrete-math/">🔢 Discrete Math</a> — formal grammars use combinatorial objects</li>
       <li><a href="/reading/cryptography/">🔐 Cryptography</a> — computational hardness assumptions underlie modern crypto</li>
     </ul>
+    </Neighbors>
   </main>
 </Layout>

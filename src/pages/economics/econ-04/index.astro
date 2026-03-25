@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.4 — Diminishing Returns" favicon="💰">
@@ -136,11 +137,12 @@ for n in [1, 2, 4, 9, 16, 25]:
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Diminishing_returns">W Diminishing returns</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Marginal_product">W Marginal product</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-03/">&larr; Comparative Advantage</a>

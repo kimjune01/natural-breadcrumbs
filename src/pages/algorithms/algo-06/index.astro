@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.6 — Graphs" favicon="⚙">
@@ -184,11 +185,12 @@ print(f"BFS from A: {bfs(graph, 'A')}")
 (display (dfs graph "A"))
 `} />
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/dm-04/">🔢 Discrete Math Ch.4</a> &mdash; graph theory: the mathematical foundations</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algorithms/algo-05/">&larr; Trees</a>

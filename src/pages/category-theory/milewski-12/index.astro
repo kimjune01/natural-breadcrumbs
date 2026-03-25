@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.12 — Free Monoids" favicon="🐱">
@@ -350,7 +351,7 @@ print(f'h2([])             = {h2([])}')
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -365,6 +366,7 @@ print(f'h2([])             = {h2([])}')
       <li><a href="https://en.wikipedia.org/wiki/Universal_property">🅦 Universal property</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Free_object">🅦 Free object</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

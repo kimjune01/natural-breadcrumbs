@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.13 — Streams" favicon="🪄">
@@ -350,12 +351,13 @@ print("partial sums:", list(islice(sums, 8)))
     </ul>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="text-sm text-gray-400 mb-6">
       <li><a href="https://en.wikipedia.org/wiki/Lazy_evaluation">Wikipedia: Lazy evaluation</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Generator_(computer_programming)">Wikipedia: Generator (computer programming)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Wikipedia: Sieve of Eratosthenes</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-24.html#%_sec_3.5">Read SICP &sect;3.5</a>.

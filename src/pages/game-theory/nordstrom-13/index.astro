@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="🍞 Volunteer's Dilemma" favicon="🎲">
@@ -169,7 +170,7 @@ for n in range(2, 11):
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Game theory foundations</p>
     <ul class="neighbors">
@@ -183,6 +184,7 @@ for n in range(2, 11):
       <li><a href="https://en.wikipedia.org/wiki/Bystander_effect">🅦 Bystander effect</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Diffusion_of_responsibility">🅦 Diffusion of responsibility</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The equilibrium mixing calculation assumes symmetric players and the specific 1/5 payoff ratio from Nordstrom. Different payoffs shift the equilibrium probability but the qualitative result holds: more players, lower individual probability of volunteering, and the group failure probability can increase with group size.</p>

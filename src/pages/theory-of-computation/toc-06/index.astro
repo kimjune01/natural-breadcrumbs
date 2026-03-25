@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="ToC Ch.6 — Turing Machines" favicon="🔀">
@@ -132,13 +133,14 @@ for s in ["abc", "aabbcc", "aaabbbccc", "aabbc", "ab"]:
     <h3>The Church-Turing thesis</h3>
     <p>Every model of computation that has been proposed (lambda calculus, recursive functions, register machines, your laptop) computes exactly the same class of functions as a Turing machine. This is not a theorem but a thesis: it cannot be proved because "computable" has no prior formal definition. It has never been refuted.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/programming/sicp-04/">🪄 SICP Ch.4</a> — the metacircular evaluator is a universal Turing machine in disguise</li>
       <li><a href="/reading/programming/sicp-18/">🪄 Programming Ch.18</a> — register machines are an implementation of Turing machines</li>
       <li><a href="/reading/logic/logic-10/">🔑 Logic Ch.10</a> — Turing's halting problem and Gödel's incompleteness are equivalent</li>
       <li><a href="/reading/lean/hoare-core/">✏️ Hoare/Core.lean</a> — Hoare logic reasons about programs that Turing machines compute</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

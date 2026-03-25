@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 03 — Joint and conditional entropy" favicon="📡">
@@ -208,7 +209,7 @@ print(f"dependent? {entropy(joint) < entropy(p_weather)+entropy(p_umbrella)}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-02/">📡 Shannon 02</a> &mdash; entropy: expected surprise</li>
@@ -218,6 +219,7 @@ print(f"dependent? {entropy(joint) < entropy(p_weather)+entropy(p_umbrella)}")
       <li><a href="https://en.wikipedia.org/wiki/Conditional_entropy">🅦 Conditional entropy</a></li>
       <li><a href="/reading/probability/grinstead-04/">🎰 Probability Ch.4</a> — conditional probability is the foundation of conditional entropy</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

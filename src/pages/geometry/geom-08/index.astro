@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.8 — Convex Geometry" favicon="△">
@@ -214,7 +215,7 @@ print(f"Star convex?   {is_convex(star)}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Geometry chapters</p>
     <ul class="neighbors">
@@ -234,6 +235,7 @@ print(f"Star convex?   {is_convex(star)}")
       <li><a href="https://en.wikipedia.org/wiki/Hyperplane_separation_theorem">&#x1d162; Hyperplane separation theorem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Minkowski_addition">&#x1d162; Minkowski addition</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

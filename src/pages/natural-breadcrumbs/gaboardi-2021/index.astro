@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="🍞 Gaboardi 2021 — Graded Hoare Logic" favicon="🍞">
@@ -287,7 +288,7 @@ print("The semiring handles the accounting.")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -303,6 +304,7 @@ print("The semiring handles the accounting.")
       <li><a href="https://en.wikipedia.org/wiki/Semiring">🅦 Semiring</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">🅦 Side effect</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

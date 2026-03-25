@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.1 — Symmetric Ciphers" favicon="🔐">
@@ -234,7 +235,7 @@ print("... (26 total)")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
@@ -248,6 +249,7 @@ print("... (26 total)")
       <li><a href="https://en.wikipedia.org/wiki/Substitution_cipher">Substitution cipher</a></li>
       <li><a href="https://en.wikipedia.org/wiki/One-time_pad">One-time pad</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

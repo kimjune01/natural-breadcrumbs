@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 7 — Channels and Capacity" favicon="📡">
@@ -169,7 +170,7 @@ for p in [0.0, 0.01, 0.1, 0.25, 0.5]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-06/">📡 Data processing inequality</a> &mdash; constrains what channels can transmit</li>
@@ -179,6 +180,7 @@ for p in [0.0, 0.01, 0.1, 0.25, 0.5]:
       <li><a href="https://en.wikipedia.org/wiki/Channel_capacity">&#x1F150; Channel capacity</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Binary_symmetric_channel">&#x1F150; Binary symmetric channel</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

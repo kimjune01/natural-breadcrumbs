@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Jacobs 2014 — Weakest Preconditions in Fibrations" favicon="🍞">
@@ -276,7 +277,7 @@ for x in range(0, 9):
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -292,6 +293,7 @@ for x in range(0, 9):
       <li><a href="https://en.wikipedia.org/wiki/Weakest_precondition">🅦 Weakest precondition</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Predicate_transformer_semantics">🅦 Predicate transformer semantics</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>All examples use finite distributions and boolean predicates. Jacobs works with order-enriched categories, where predicates form complete lattices and the fibration carries a rich adjunction structure (left and right adjoints to reindexing). For example: the wp computation on this page checks all elements of a small support set. In the paper, wp is a right adjoint to substitution in the fibration — a universal construction that works over arbitrary effect monads, not just distributions. The pointwise "for all y" check is the same; the categorical machinery that guarantees it exists is not.</p>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Bush 1945 — As We May Think" favicon="⚖">
@@ -61,7 +62,7 @@ import Layout from '../../../layouts/Base.astro';
     <p>The microfilm was wrong. The desk was wrong. The mechanical selectors were wrong. Bush was extrapolating analog technologies that digital ones would overtake within a decade. He also imagined the memex as personal — each researcher's trails private by default, sharing by physical copy. He did not foresee a network connecting all the memexes into a shared space.</p>
     <p>The diagnosis was exact. Knowledge retrieval is the bottleneck. Associative linking beats hierarchical filing. Trails encode thought. Selection is harder than production. These claims survive because they are claims about cognition, not about microfilm.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-03/">📡 IT Ch.3</a> — channel capacity: Shannon's compression is the mathematical answer to Bush's selection problem — keep what matters, discard what doesn't</li>
       <li><a href="/reading/commons/statute-of-anne-1710/">⚖ Statute of Anne 1710</a> — next in the Commons collection: if Bush asked how we find knowledge, the Statute asked who gets to own it</li>
@@ -70,6 +71,7 @@ import Layout from '../../../layouts/Base.astro';
     </ul>
 
     <p class="text-sm text-gray-500 mt-6">Bush imagined Ramanujan and Hardy finding each other through trails&mdash;two minds describing the same problem in different vocabularies, finally linked by association rather than index. <a href="https://june.kim/pageleft-manifesto"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>PageLeft Manifesto</a> imagines the same thing through embeddings: the trails are vectors now, but the problem Bush diagnosed has not changed.</p>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

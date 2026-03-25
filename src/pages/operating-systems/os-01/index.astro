@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.1 — Processes" favicon="🖥">
@@ -169,7 +170,7 @@ print(p2)
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/theory-of-computation/toc-06/">🔀 Turing Machines</a> — abstract processes: a tape, a head, and a state machine</li>
       <li><a href="/reading/theory-of-computation/toc-05/">💻 TOC Ch.5</a> — pushdown automata and stack machines: processes use a call stack that is a runtime instance of the pushdown automaton</li>
@@ -183,6 +184,7 @@ print(p2)
       <li><a href="https://en.wikipedia.org/wiki/Process_control_block">Process control block</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Context_switch">Context switch</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

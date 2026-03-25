@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Physics — Simple Nature" favicon="⚛">
@@ -110,12 +111,13 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://oyc.yale.edu/physics/phys-200">Yale PHYS 200: Fundamentals of Physics (Ramamurti Shankar)</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/">∫ Calculus</a> &mdash; calculus was invented to describe motion and force</li>
       <li><a href="/reading/linear-algebra/">📐 Linear Algebra</a> &mdash; quantum mechanics and electromagnetism use vectors and matrices</li>
       <li><a href="/reading/information-theory/">📡 Information Theory</a> &mdash; thermodynamics and entropy share a deep connection</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

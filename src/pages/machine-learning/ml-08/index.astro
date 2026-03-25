@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.8 — Neural Networks" favicon="🧠">
@@ -366,7 +367,7 @@ for x, t in data:
     <p class="text-sm text-gray-400">Backpropagation is the chain rule applied to a computation graph. Capucci (2021) shows this is a lens: the forward pass computes the function, the backward pass transports gradients. The universal approximation theorem says one hidden layer suffices for any continuous function -- but it says nothing about how many neurons you need or how easy it is to train.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-05/">Calculus Ch.5</a> — the chain rule: the mathematical foundation of backpropagation</li>
       <li><a href="/reading/capucci-2021/">Capucci 2021</a> — backprop as a lens: categorical perspective on gradient flow</li>
@@ -378,6 +379,7 @@ for x, t in data:
     </ul>
 
     <!-- Ready for the real thing? -->
+    </Neighbors>
     <h3>Ready for the real thing?</h3>
     <p class="text-sm text-gray-400">This chapter covers the core mechanics. For optimization (Adam, batch norm, dropout), architectures (CNNs, RNNs, transformers), and the theory of deep learning, see Goodfellow, Bengio & Courville's <em>Deep Learning</em> (free online).</p>
 

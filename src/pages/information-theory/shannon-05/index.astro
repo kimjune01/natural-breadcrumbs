@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 5 — KL Divergence" favicon="📡">
@@ -165,7 +166,7 @@ print("Asymmetric: D(P||Q) != D(Q||P). Not a distance.")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-04/">📡 Mutual information</a> &mdash; KL divergence between joint and product of marginals</li>
@@ -175,6 +176,7 @@ print("Asymmetric: D(P||Q) != D(Q||P). Not a distance.")
       <li><a href="https://en.wikipedia.org/wiki/Gibbs%27_inequality">&#x1F150; Gibbs' inequality</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Cross-entropy">&#x1F150; Cross-entropy</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

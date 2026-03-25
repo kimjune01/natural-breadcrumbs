@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.11 — Limits and Colimits" favicon="🐱">
@@ -512,7 +513,7 @@ for s, c in matches:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -533,6 +534,7 @@ for s, c in matches:
       <li><a href="https://en.wikipedia.org/wiki/Pullback_(category_theory)">🅦 Pullback</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Pushout_(category_theory)">🅦 Pushout</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.10 — Protection and Security" favicon="🖥">
@@ -117,7 +118,7 @@ for s, o, op in tests:
     <p>Even with good access control, a stolen disk bypasses the OS. <strong>Encryption at rest</strong> protects data on the physical medium. The OS decrypts transparently when the correct key is provided. Without the key, the data is indistinguishable from noise.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cryptography/crypto-02/">🔐 Symmetric Encryption</a> — the primitives that make encryption at rest possible</li>
       <li><a href="/reading/cryptography/crypto-09/">🔐 Crypto Ch.9</a> — zero-knowledge proofs: OS capability systems use the same principle of proving authorization without revealing secrets</li>
@@ -131,6 +132,7 @@ for s, o, op in tests:
       <li><a href="https://en.wikipedia.org/wiki/Capability-based_security">Capability-based security</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Disk_encryption">Disk encryption</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-09/">&larr; I/O Systems</a>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lovelace Ch.6 — Decision Making" favicon="🧠">
@@ -193,13 +194,14 @@ print("This finds the best candidate ~37% of the time.")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cognitive-science/lovelace-05/">Lovelace Ch.5</a> — reinforcement learning as sequential decision making</li>
       <li><a href="/reading/game-theory/">Game theory pages</a> — strategic decision making with multiple agents</li>
       <li><a href="https://en.wikipedia.org/wiki/Prospect_theory">Prospect theory</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Bounded_rationality">Bounded rationality</a></li>
     </ul>
+    </Neighbors>
 
 
     <h3>Translation notes</h3>

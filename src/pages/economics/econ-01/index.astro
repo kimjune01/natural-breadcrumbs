@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.1 — Division of Labor" favicon="💰">
@@ -193,12 +194,13 @@ print("Productivity multiplier: " + str(int(multiplier)) + "x")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Division_of_labour">W Division of labour</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Pin_factory">W Pin factory</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Specialization_(economics)">W Specialization</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OpenIntro Ch.5 — Foundations for Inference" favicon="📊">
@@ -200,7 +201,7 @@ print(f"95% CI: ({x_bar - margin:.2f}, {x_bar + margin:.2f})")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
@@ -213,6 +214,7 @@ print(f"95% CI: ({x_bar - margin:.2f}, {x_bar + margin:.2f})")
       <li><a href="/reading/scientific-method/ioannidis-2005/">🔬 Ioannidis 2005</a> &mdash; why the tools in this chapter are often misused</li>
       <li><a href="/reading/machine-learning/ml-01/">🤖 ML Ch.1</a> &mdash; statistical learning as inference from data</li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

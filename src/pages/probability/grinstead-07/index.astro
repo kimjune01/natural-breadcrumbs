@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 7 — Sums of Random Variables" favicon="🎰">
@@ -218,7 +219,7 @@ print(f"SD of X+Y:    {var**0.5:.4f}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Probability chapters</p>
     <ul class="neighbors">
@@ -233,6 +234,7 @@ print(f"SD of X+Y:    {var**0.5:.4f}")
       <li><a href="https://en.wikipedia.org/wiki/Sum_of_random_variables">&#x1F150; Sum of random variables</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Covariance">&#x1F150; Covariance</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf">Read Grinstead &amp; Snell</a>, Chapter 7.

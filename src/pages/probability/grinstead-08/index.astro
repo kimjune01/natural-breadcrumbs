@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Grinstead &amp; Snell Ch 8 — Law of Large Numbers" favicon="🎰">
@@ -212,7 +213,7 @@ for n in [100, 1000, 10000]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Probability chapters</p>
     <ul class="neighbors">
@@ -227,6 +228,7 @@ for n in [100, 1000, 10000]:
       <li><a href="https://en.wikipedia.org/wiki/Chebyshev%27s_inequality">&#x1F150; Chebyshev's inequality</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy">&#x1F150; Gambler's fallacy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://math.dartmouth.edu/~prob/prob/prob.pdf">Read Grinstead &amp; Snell</a>, Chapter 8.

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Fritz, Perrone, Rezagholi 2021 — Support as Monad Morphism" favicon="🍞">
@@ -273,7 +274,7 @@ for src in ["cat", "dog", "rock"]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -288,6 +289,7 @@ for src in ["cat", "dog", "rock"]:
       <li><a href="https://en.wikipedia.org/wiki/Power_set">🅦 Power set</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Support_(measure_theory)">🅦 Support (measure theory)</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

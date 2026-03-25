@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Logic Ch.10 — Soundness and Completeness" favicon="🔑">
@@ -172,7 +173,7 @@ print(f"P -> Q is tautology: {is_tautology(impl, 2)}")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/theory-of-computation/toc-07/">🔀 ToC Ch.7</a> &mdash; decidability and the limits of computation</li>
     
@@ -180,6 +181,7 @@ print(f"P -> Q is tautology: {is_tautology(impl, 2)}")
       <li><a href="/reading/lean/axioms/">✏️ Axioms.lean</a> &mdash; what Lean's type theory assumes, and what it cannot prove</li>
       <li><a href="/reading/category-theory/milewski-23/">🐱 Category Theory Ch.23</a> &mdash; topoi have an internal logic with their own completeness properties</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

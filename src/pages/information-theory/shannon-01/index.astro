@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 01 — Surprise: the atomic unit" favicon="📡">
@@ -199,7 +200,7 @@ print(f"joint P:    {self_info(0.5 * 1/6):.4f} bits")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-02/">📡 Shannon 02</a> &mdash; entropy is expected surprise</li>
@@ -209,6 +210,7 @@ print(f"joint P:    {self_info(0.5 * 1/6):.4f} bits")
       <li><a href="https://en.wikipedia.org/wiki/Bit">🅦 Bit</a></li>
       <li><a href="/reading/probability/grinstead-01/">🎰 Probability Ch.1</a> — probability is the foundation: self-information is -log P(event)</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="DB Ch.6 — Transactions" favicon="🗄">
@@ -177,7 +178,7 @@ transfer(conn, "Bob", "Alice", 200)  # should rollback
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/operating-systems/os-04/">🖥 OS Ch.4</a> — synchronization: transactions are the database equivalent of critical sections and mutual exclusion</li>
@@ -189,6 +190,7 @@ transfer(conn, "Bob", "Alice", 200)  # should rollback
       <li><a href="https://en.wikipedia.org/wiki/Serializability">Serializability</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Precedence_graph">Precedence graph</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

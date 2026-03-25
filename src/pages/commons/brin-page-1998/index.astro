@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Brin & Page 1998 — The Anatomy of a Search Engine" favicon="⚖">
@@ -53,7 +54,7 @@ import Layout from '../../../layouts/Base.astro';
 
     <p class="text-sm text-gray-500 mt-6">The enclosure isn't malice. Network effects in search create a natural monopoly — the more people use one engine, the better its results, the more people use it. The equilibrium is one winner. The original paper warned about exactly this. <a href="https://june.kim/paradox-of-open-competition"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Paradox of Open Competition</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/commons/berners-lee-1989/">⚖ Berners-Lee 1989</a> — the commons that Google indexed</li>
       <li><a href="/reading/commons/boyle-2003/">⚖ Boyle 2003</a> — the pattern named: the second enclosure movement</li>
@@ -64,6 +65,7 @@ import Layout from '../../../layouts/Base.astro';
     </ul>
 
     <!-- Paper link -->
+    </Neighbors>
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       The paper is freely available. <a href="http://infolab.stanford.edu/~backrub/google.html">Read it at Stanford</a>. Pay special attention to Appendix A.
     </div>

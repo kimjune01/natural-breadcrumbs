@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.4 — Logistic Regression" favicon="🤖">
@@ -269,7 +270,7 @@ for x, y in data:
     <p class="mt-2">Cross-entropy is measured in nats here (natural log). Shannon's original formulation uses log base 2 (bits). The optimization is the same either way &mdash; only the scale changes. The connection between cross-entropy and information content runs deep: a <a href="https://june.kim/freshness-filter">freshness filter</a> uses exactly this measure of surprise to detect whether a signal carries substance or is just noise.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-01/">📡 Shannon Ch.1</a> &mdash; information and surprise: cross-entropy is the expected surprise under the wrong distribution</li>
       <li><a href="/reading/probability/grinstead-04/">🎲 Grinstead Ch.4</a> &mdash; Bayes' theorem: the probabilistic foundation for maximum likelihood</li>
@@ -278,6 +279,7 @@ for x, y in data:
       <li><a href="/reading/probability/grinstead-04/">🎰 Probability Ch.4</a> &mdash; Bayes' theorem connects posterior probability to the logistic function</li>
       <li><a href="/reading/statistics/openintro-05/">📊 Statistics Ch.5</a> &mdash; hypothesis testing applies the same maximum likelihood framework</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 12 and <a href="https://d2l.ai/chapter_linear-classification/">D2L Ch. 4</a>.

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lebl Ch.3 — Series" favicon="∞">
@@ -220,7 +221,7 @@ for x in [1, 2, -1, 0.5]:
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/real-analysis/lebl-02/">Ch. 2: Sequences</a> — series convergence reduces to sequence convergence</li>
       <li><a href="/reading/real-analysis/lebl-07/">Ch. 7: Sequences of Functions</a> — power series are sequences of functions</li>
@@ -228,6 +229,7 @@ for x in [1, 2, -1, 0.5]:
       <li><a href="/reading/information-theory/shannon-02/">📡 Information Theory Ch.2</a> — entropy as an infinite series: log sums that converge only under certain conditions</li>
       <li><a href="/reading/probability/grinstead-10/">🎰 Probability Ch.10</a> — generating functions are formal power series encoding sequences</li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The harmonic series diverges slowly: 10,000 terms only reaches about 9.8. Our numerical partial sums illustrate convergence speed but cannot prove convergence or divergence. The comparison test is a proof technique, not a computation.</p>

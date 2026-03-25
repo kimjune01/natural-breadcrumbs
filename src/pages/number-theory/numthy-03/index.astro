@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Number Theory Ch.3 — Congruences" favicon="#">
@@ -115,10 +116,11 @@ print(f"17 and 7 congruent mod 5? {17 % 5 == 7 % 5}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/abstract-algebra/judson-01/">&rarr; Abstract Algebra Ch.1</a> — the integers mod n form a group under addition (and a ring under addition and multiplication)</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

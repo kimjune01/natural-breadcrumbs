@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SupportMonadMorphism.lean — Support as monad morphism" favicon="✏️">
@@ -48,11 +49,12 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/kleisli/">Kleisli.lean</a> &mdash; kernels compose in M; this shows support maps them to Reach coherently</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/fritz-perrone-2021/">🍞 Fritz-Perrone 2021</a></li>
       <li><a href="/reading/category-theory/milewski-17/">🐱 Milewski Ch17 Monads</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/corollary/">&larr; Corollary.lean &middot; 24 of 25</a>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.2 — Transfer Functions" favicon="🎛">
@@ -99,10 +100,11 @@ while t <= 10.0:
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Laplace_transform">&#x1F150; Laplace transform</a> &#x2014; the mathematical tool behind transfer functions</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-01/">&larr; Feedback</a>

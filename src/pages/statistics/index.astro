@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Statistics" favicon="📊">
@@ -95,13 +96,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/user/joshstarmer">StatQuest with Josh Starmer</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/probability/">🎰 Probability</a> &mdash; statistics applies probability theory to data</li>
       <li><a href="/reading/scientific-method/">🔬 Scientific Method</a> &mdash; p-values, significance, and replication live here</li>
       <li><a href="/reading/machine-learning/">🤖 Machine Learning</a> &mdash; regression and classification as statistical inference</li>
       <li><a href="/reading/information-theory/">📡 Information Theory</a> &mdash; KL divergence appears in both fields</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.1 — What is ML?" favicon="🤖">
@@ -229,7 +230,7 @@ print("Accuracy:", correct / len(test) * 100, "%")
     <p class="mt-2">Real ML frameworks (scikit-learn, PyTorch) add indexing structures for speed, but the core idea is identical: find the function that best explains the data.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/programming/sicp-01/">🪄 SICP Ch.1</a> &mdash; expressions as data: the foundation for representing training examples</li>
       <li><a href="/reading/probability/grinstead-01/">🎲 Grinstead Ch.1</a> &mdash; sample spaces: the probabilistic framing behind every ML model</li>
@@ -238,6 +239,7 @@ print("Accuracy:", correct / len(test) * 100, "%")
       <li><a href="/reading/probability/grinstead-01/">🎰 Probability Ch.1</a> &mdash; the probabilistic framing underlying most ML models</li>
       <li><a href="/reading/linear-algebra/hefferon-01/">📐 Linear Algebra Ch.1</a> &mdash; the mathematical backbone of most ML algorithms</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 8 and <a href="https://d2l.ai/">Dive into Deep Learning</a> Ch. 1.

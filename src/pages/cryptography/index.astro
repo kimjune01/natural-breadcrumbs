@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Cryptography" favicon="🔐">
@@ -120,13 +121,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/channel/UC1usFRN4LCMcfIV7UjHNuQg">Christof Paar: Introduction to Cryptography</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/number-theory/">&#35; Number Theory</a> &mdash; RSA is Euler's theorem, key exchange is discrete logarithm</li>
       <li><a href="/reading/abstract-algebra/">🔗 Abstract Algebra</a> &mdash; elliptic curves are abelian groups</li>
       <li><a href="/reading/information-theory/">📡 Information Theory</a> &mdash; Shannon's perfect secrecy is information-theoretic security</li>
       <li><a href="/reading/theory-of-computation/">🔀 Theory of Computation</a> &mdash; computational hardness assumptions underlie every scheme</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

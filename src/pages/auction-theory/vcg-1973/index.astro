@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="VCG Mechanism — Clarke 1971, Groves 1973" favicon="💎">
@@ -128,7 +129,7 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/economics/">💰 Economics</a> &mdash; econ-20: mechanism design</li>
       <li><a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> &mdash; VCG reduces to second-price for single items</li>
@@ -138,6 +139,7 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
       <li><a href="/reading/economics/econ-20/">💰 Economics Ch.20</a> &mdash; mechanism design: VCG as the canonical incentive-compatible mechanism</li>
       <li><a href="/reading/auction-theory/lahaie-lubin-2025/">💎 Lahaie &amp; Lubin 2025</a> &mdash; VCG as a linear program</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://doi.org/10.2307/1914085">Clarke 1971</a> and <a href="https://doi.org/10.2307/1914085">Groves 1973</a>.

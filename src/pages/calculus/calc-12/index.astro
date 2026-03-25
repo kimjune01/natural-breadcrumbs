@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.12 — Optimization" favicon="∫">
@@ -222,7 +223,7 @@ print(f"Exact: x=y=1/sqrt(2)={1/np.sqrt(2):.4f}, f=0.5")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Calculus sequence</p>
     <ul class="neighbors">
@@ -243,6 +244,7 @@ print(f"Exact: x=y=1/sqrt(2)={1/np.sqrt(2):.4f}, f=0.5")
       <li><a href="https://en.wikipedia.org/wiki/Lagrange_multiplier">Lagrange multiplier</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Saddle_point">Saddle point</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-11/">&larr; Partial Derivatives</a>

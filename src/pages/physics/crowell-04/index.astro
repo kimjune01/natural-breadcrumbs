@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.4 — Thermodynamics" favicon="⚛">
@@ -189,7 +190,7 @@ for name, Th, Tc in cases:
 
 
     <!-- Cross-links -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-02/">&#x1F4E1; Shannon Ch. 2</a> &mdash; Shannon entropy is Boltzmann entropy with a different logarithm base</li>
       <li><a href="/reading/real-analysis/lebl-08/">&#x221E; Analysis Ch. 8</a> &mdash; metric spaces provide the topology for phase space</li>
@@ -198,6 +199,7 @@ for name, Th, Tc in cases:
       <li><a href="/reading/information-theory/shannon-02/">📡 Information Theory Ch.2</a> &mdash; Shannon entropy and Boltzmann entropy are the same formula</li>
       <li><a href="/reading/real-analysis/lebl-06/">∞ Real Analysis Ch.6</a> &mdash; the Riemann integral formalizes the work calculation used in thermodynamics</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Milewski Ch.5 — Products and Coproducts" favicon="🐱">
@@ -380,7 +381,7 @@ print(f"m(Right('hello')) == show_str('hello')? {m(Right('hello')) == show_str('
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
     <ul class="neighbors">
@@ -400,6 +401,7 @@ print(f"m(Right('hello')) == show_str('hello')? {m(Right('hello')) == show_str('
       <li><a href="https://en.wikipedia.org/wiki/Tagged_union">🅦 Tagged union</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Universal_property">🅦 Universal property</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

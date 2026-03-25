@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.20 — Mechanism Design" favicon="💰">
@@ -175,7 +176,7 @@ for bid, label in [(50, "Truthful"), (80, "Overbid"), (40, "Underbid")]:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
@@ -194,6 +195,7 @@ for bid, label in [(50, "Truthful"), (80, "Overbid"), (40, "Underbid")]:
       <li><a href="https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_mechanism">VCG mechanism</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Incentive_compatibility">Incentive compatibility</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

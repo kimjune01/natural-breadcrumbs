@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lebl Ch.7 — Sequences of Functions" favicon="∞">
@@ -181,7 +182,7 @@ print("Convergence is uniform because the bound is x-independent")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/real-analysis/lebl-02/">Ch. 2: Sequences</a> — sequences of numbers vs sequences of functions</li>
       <li><a href="/reading/real-analysis/lebl-03/">Ch. 3: Series</a> — power series are the main application</li>
@@ -190,6 +191,7 @@ print("Convergence is uniform because the bound is x-independent")
       <li><a href="/reading/machine-learning/ml-07/">🤖 ML Ch.7</a> — Gaussian processes are distributions over functions, where convergence questions arise</li>
       <li><a href="/reading/control/ctrl-07/">🎛 Control Ch.7</a> — Fourier series: trigonometric function sequences and their convergence behavior</li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The x^n example is the canonical counterexample in every analysis course. Our numerical evaluation shows pointwise convergence (each x^n &rarr; 0 for x &lt; 1), but the lack of uniform convergence is a theoretical fact about the supremum, not something a finite computation proves.</p>

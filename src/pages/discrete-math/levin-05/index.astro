@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Levin Ch.5 — Additional Topics" favicon="🔢">
@@ -262,7 +263,7 @@ print(f"Fibonacci: {fib}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other chapter pages</p>
     <ul class="neighbors">
@@ -277,6 +278,7 @@ print(f"Fibonacci: {fib}")
       <li><a href="https://en.wikipedia.org/wiki/Ramsey_theory">Ramsey theory</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Generating_function">Generating function</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

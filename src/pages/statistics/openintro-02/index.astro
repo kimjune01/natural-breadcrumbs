@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OpenIntro Ch.2 — Summarizing Data" favicon="📊">
@@ -159,7 +160,7 @@ print(f"Mode: {mode}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
@@ -167,6 +168,7 @@ print(f"Mode: {mode}")
       <li><a href="https://en.wikipedia.org/wiki/Box_plot">&#x2460; Box plot</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Contingency_table">&#x2460; Contingency table</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

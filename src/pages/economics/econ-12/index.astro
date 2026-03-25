@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.12 — Monopoly and Competition" favicon="💰">
@@ -244,7 +245,7 @@ print("Monopoly restricts " + str(q_c - q_m) + " units, charges $" + str(p_m - p
     </div>
 
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Perfect_competition">Perfect competition</a></li>
@@ -252,6 +253,7 @@ print("Monopoly restricts " + str(q_c - q_m) + " units, charges $" + str(p_m - p
       <li><a href="https://en.wikipedia.org/wiki/Deadweight_loss">Deadweight loss</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Natural_monopoly">Natural monopoly</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.3 — Higher-Order Functions" favicon="🪄">
@@ -394,7 +395,7 @@ print(f"cbrt(8)  = {cbrt(8):.6f}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other reading pages</p>
     <ul class="neighbors">
@@ -412,6 +413,7 @@ print(f"cbrt(8)  = {cbrt(8):.6f}")
       <li><a href="https://en.wikipedia.org/wiki/Fixed-point_combinator">Fixed-point combinator</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a></li>
     </ul>
+    </Neighbors>
 
 
     <!-- Translation notes -->

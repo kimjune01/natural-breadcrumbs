@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.4 — MACs and Authentication" favicon="🔐">
@@ -184,7 +185,7 @@ print(f"HMAC(42, 'Hellp') = {hmac(key, [72,101,108,108,112])}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Foundations (Wikipedia)</p>
     <ul class="neighbors">
@@ -192,6 +193,7 @@ print(f"HMAC(42, 'Hellp') = {hmac(key, [72,101,108,108,112])}")
       <li><a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Authenticated_encryption">Authenticated encryption</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cryptography/crypto-03/">&larr; Hash Functions</a>

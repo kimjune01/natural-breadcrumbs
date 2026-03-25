@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.8 — Generic Operations" favicon="🪄">
@@ -389,7 +390,7 @@ print(f"p1 + p2: {p1 + p2}")
     <p class="mt-2">The polynomial example shows the real payoff: because polynomial coefficients use the same generic arithmetic, you get polynomials over rationals, polynomials over complex numbers, and even polynomials over polynomials (multivariate) for free. This is the algebraic structure that type classes in Haskell and protocols in Swift formalize.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">SICP chapters</p>
     <ul class="neighbors">
@@ -407,6 +408,7 @@ print(f"p1 + p2: {p1 + p2}")
       <li><a href="https://en.wikipedia.org/wiki/Type_coercion">🅦 Type coercion</a> — implicit conversion between types</li>
       <li><a href="https://en.wikipedia.org/wiki/Algebraic_data_type">🅦 Algebraic data type</a> — the type theory behind tagged unions</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-18.html#%_sec_2.5">Read SICP &sect;2.5</a>.

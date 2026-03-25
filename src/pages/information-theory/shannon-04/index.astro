@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Shannon 04 — Mutual information" favicon="📡">
@@ -205,7 +206,7 @@ print(f"H(U) - H(U|W) = {h_u - (h_joint - h_w):.4f} bits")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-03/">📡 Shannon 03</a> &mdash; joint and conditional entropy</li>
@@ -215,6 +216,7 @@ print(f"H(U) - H(U|W) = {h_u - (h_joint - h_w):.4f} bits")
       <li><a href="https://en.wikipedia.org/wiki/Mutual_information">🅦 Mutual information</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Information_diagram">🅦 Information diagram</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

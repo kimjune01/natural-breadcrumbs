@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Di Lavore, Román, Sobocinski 2025 — Partial Markov Categories" favicon="🍞">
@@ -219,7 +220,7 @@ print(f"P(>10):  {condition(dist, lambda x: x > 10)}")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -235,6 +236,7 @@ print(f"P(>10):  {condition(dist, lambda x: x > 10)}")
       <li><a href="https://en.wikipedia.org/wiki/Bayesian_inference">🅦 Bayesian inference</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Probability_kinematics">🅦 Probability kinematics (Jeffrey conditioning)</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>The examples use finite distributions with explicit zero-probability checks. The paper works with restriction categories and subdistribution monads, where partiality is built into the categorical structure via restriction idempotents. For example: the conditioning function on this page returns <code>'undefined</code> when the event has zero probability. In the paper, this is a restriction idempotent — a morphism e with e;e = e that acts as a partial identity, and the zero-probability case is where the restriction is the zero morphism. The division-by-zero guard is the same; the categorical abstraction is not.</p>

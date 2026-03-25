@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.9 — Kalman Filter" favicon="🎛">
@@ -123,7 +124,7 @@ print(f"Final estimate: {x_est:.2f} (true: {true_value})")
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/statistics/openintro-05/">&#x1F4CA; OpenIntro Ch. 5 — Inference</a> &#x2014; the Kalman update is Bayesian inference with Gaussian priors</li>
       <li><a href="/reading/probability/grinstead-06/">&#x1F3B0; Grinstead Ch. 6 — Expected Value</a> &#x2014; the Kalman filter minimizes expected squared error</li>
@@ -132,6 +133,7 @@ print(f"Final estimate: {x_est:.2f} (true: {true_value})")
       <li><a href="/reading/linear-algebra/hefferon-05/">📐 Linear Algebra Ch.5</a> &mdash; eigenvalues of the covariance matrix determine filter gain</li>
       <li><a href="/reading/machine-learning/ml-07/">🤖 ML Ch.7</a> &mdash; Gaussian processes are infinite-dimensional Kalman filters</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

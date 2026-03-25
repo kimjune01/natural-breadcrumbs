@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OpenIntro Ch.8 — Simple Linear Regression" favicon="📊">
@@ -309,7 +310,7 @@ print(f"Reject H0? {'Yes' if abs(t) > 2.571 else 'No'}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/ch-01/">Linear Algebra Ch.1</a> &mdash; solving systems of equations, the algebraic backbone of least squares</li>
@@ -324,6 +325,7 @@ print(f"Reject H0? {'Yes' if abs(t) > 2.571 else 'No'}")
       <li><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">Coefficient of determination (R-squared)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Prediction_interval">Prediction interval</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

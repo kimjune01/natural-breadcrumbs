@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.2 — Scheduling" favicon="🖥">
@@ -190,7 +191,7 @@ for entry in round_robin(procs, 2):
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/algorithms/algo-03/">&#x2699; Sorting</a> — scheduling is sorting by priority, burst time, or arrival</li>
       <li><a href="/reading/control/ctrl-03/">🎛 Control Ch.3</a> — PID control: CPU schedulers like CFS use feedback from CPU utilization to adjust time-slice allocation</li>
@@ -204,6 +205,7 @@ for entry in round_robin(procs, 2):
       <li><a href="https://en.wikipedia.org/wiki/Round-robin_scheduling">Round-robin scheduling</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Shortest_job_next">Shortest job next</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-01/">&larr; Processes</a>

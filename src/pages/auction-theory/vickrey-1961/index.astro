@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Vickrey 1961 — Second-Price Sealed-Bid Auction" favicon="💎">
@@ -150,7 +151,7 @@ print(second_price([45, 50, 30]))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/economics/">💰 Economics</a> &mdash; econ-24: market mechanisms</li>
       <li><a href="/reading/game-theory/">🎲 Game Theory</a> &mdash; nordstrom-06: dominant strategies</li>
@@ -160,6 +161,7 @@ print(second_price([45, 50, 30]))
       <li><a href="/reading/auction-theory/vcg-1973/">💎 VCG Mechanism</a> &mdash; the multi-item generalization</li>
       <li><a href="/reading/probability/grinstead-06/">🎰 Probability Ch.6</a> &mdash; expected revenue requires integrating over bidder distributions</li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://doi.org/10.2307/2977633">Read the paper</a>.

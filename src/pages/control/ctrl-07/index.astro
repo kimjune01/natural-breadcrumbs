@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.7 — State Space" favicon="🎛">
@@ -120,10 +121,11 @@ for step in range(200):
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/linear-algebra/hefferon-03/">&#x1F4D0; Hefferon Ch. 3 — Linear Maps</a> &#x2014; A is a linear map from state space to state space</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-06/">&larr; Frequency Response</a>

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Nordstrom §3.1 — Repeated Games" favicon="🎲">
@@ -234,7 +235,7 @@ print(f"Avg (1000 rounds): {mixed_play(game, 0.6, 0.5, 1000):.3f}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Nordstrom series</p>
     <ul class="neighbors">
@@ -248,6 +249,7 @@ print(f"Avg (1000 rounds): {mixed_play(game, 0.6, 0.5, 1000):.3f}")
       <li><a href="https://en.wikipedia.org/wiki/Rock_paper_scissors">🅦 Rock-Paper-Scissors</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)#Mixed_strategy">🅦 Mixed strategy</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Source: <a href="https://nordstrommath.com/IntroGameTheory/S_IntroRepeated.html">Nordstrom §3.1</a>. Licensed CC BY-SA 4.0.

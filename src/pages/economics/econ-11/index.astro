@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.11 — Public Goods" favicon="💰">
@@ -175,7 +176,7 @@ print("Commons depleted by individual rationality")
 
 
     <!-- Cross-reference -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Related chapters</p>
     <ul class="neighbors">
@@ -189,6 +190,7 @@ print("Commons depleted by individual rationality")
       <li><a href="https://en.wikipedia.org/wiki/Tragedy_of_the_commons">Tragedy of the commons</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Elinor_Ostrom">Elinor Ostrom</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

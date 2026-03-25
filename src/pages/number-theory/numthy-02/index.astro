@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Number Theory Ch.2 — Primes" favicon="#">
@@ -197,10 +198,11 @@ print(f"Primes up to 50: {sieve(50)}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cryptography/crypto-06/">&rarr; Cryptography Ch.6</a> — RSA encryption relies on the difficulty of factoring large numbers into primes</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

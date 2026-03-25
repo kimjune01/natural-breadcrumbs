@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.4 — Searching" favicon="⚙">
@@ -146,11 +147,12 @@ print(f"Search for 10: index {binary_search(arr, 10)}")
     <h3>Interpolation search</h3>
     <p>When keys are uniformly distributed, guess where the target is by linear interpolation. Expected O(log log n) for uniform data. Falls back to O(n) in the worst case.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/algorithms/algo-05/">⚙ Ch.5</a> &mdash; trees: BSTs give O(log n) search with ordering</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/algorithms/algo-03/">&larr; Sorting</a>

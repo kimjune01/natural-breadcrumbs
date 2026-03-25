@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.4 — The Derivative" favicon="∫">
@@ -221,7 +222,7 @@ print("Tangent approximation is good near a, worse far away")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-03/">∫ Ch.3 Limits</a> — the derivative is defined as a limit</li>
       <li><a href="/reading/calculus/calc-05/">∫ Ch.5 Derivative Rules</a> — shortcuts so you do not need the limit every time</li>
@@ -229,6 +230,7 @@ print("Tangent approximation is good near a, worse far away")
       <li><a href="/reading/physics/crowell-01/">⚛ Physics Ch.1</a> — derivatives as rates of change in mechanics</li>
       <li><a href="/reading/machine-learning/ml-03/">🤖 ML Ch.3</a> — gradient descent is iterative derivative-following</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-03/">&larr; Limits and Continuity</a>

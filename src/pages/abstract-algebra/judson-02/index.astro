@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Judson Ch.2 — Subgroups" favicon="🔗">
@@ -201,7 +202,7 @@ for a in range(1, 12):
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Algebra track</p>
     <ul class="neighbors">
@@ -213,6 +214,7 @@ for a in range(1, 12):
     <ul>
       <li><a href="/reading/category-theory/milewski-03/">Milewski Ch.3</a> &mdash; a monoid viewed as a one-object category is a cyclic group when every morphism is invertible</li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

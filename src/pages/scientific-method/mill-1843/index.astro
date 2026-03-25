@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Base.astro';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Mill 1843 — A System of Logic" favicon="🔬">
@@ -96,13 +97,14 @@ import Layout from '../../../layouts/Base.astro';
 
     <p>These are not flaws in Mill's thinking. They are honest boundary conditions. Fisher's randomization solved the "hold everything constant" problem probabilistically. Modern causal inference (<a href="https://en.wikipedia.org/wiki/Judea_Pearl">🅦 Pearl</a>, Rubin) solved the "direct vs. indirect" problem structurally. But every solution still operates within the framework Mill laid out: isolate causes by systematic variation and elimination.</p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <ul class="neighbors">
       <li><a href="/reading/scientific-method/">scientific method</a></li>
       <li><a href="/reading/scientific-method/boole-1854/">Boole 1854</a></li>
       <li><a href="/reading/scientific-method/peirce-1878/">Peirce 1878</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

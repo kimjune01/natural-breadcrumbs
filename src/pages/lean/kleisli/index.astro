@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Kleisli.lean — Stochastic functions compose" favicon="✏️">
@@ -99,11 +100,12 @@ print(f"pipeline('cat'): {pipeline('cat')}")
       <li><a href="/reading/lean/contracts/">Contracts.lean</a> &mdash; contract preservation is defined on kernels</li>
     </ul>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-04/">🐱 Milewski Ch4 Kleisli</a></li>
       <li><a href="/reading/fritz-2020/">🍞 Fritz 2020</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/lean/support/">&larr; Support.lean &middot; 1 of 25</a>

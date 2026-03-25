@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crypto Ch.10 — TLS Handshake" favicon="🔐">
@@ -165,7 +166,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">This series</p>
     <ul class="neighbors">
@@ -182,6 +183,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
       <li><a href="https://en.wikipedia.org/wiki/Forward_secrecy">&#x1F150; Forward secrecy</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Cipher_suite">&#x1F150; Cipher suite</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cryptography/crypto-09/">&#8592; Zero-Knowledge Proofs</a>

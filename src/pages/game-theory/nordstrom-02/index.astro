@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Nordstrom §1.2 — Game Matrices" favicon="🎲">
@@ -209,7 +210,7 @@ for r in ["A", "B", "C"]:
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Prev / Next</p>
     <ul class="neighbors">
@@ -228,6 +229,7 @@ for r in ["A", "B", "C"]:
       <li><a href="https://en.wikipedia.org/wiki/Normal-form_game">🅦 Normal-form game</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Best_response">🅦 Best response</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://nordstrommath.com/IntroGameTheory/S_IntroMatrices.html">Read Nordstrom §1.2</a>. Try the exercises with 3x3 matrices.

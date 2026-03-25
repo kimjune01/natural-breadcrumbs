@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OS Ch.9 — I/O Systems" favicon="🖥">
@@ -117,7 +118,7 @@ scan([20, 40, 80, 110, 160], start=50)
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/control/ctrl-06/">🎛 Control Ch.6</a> — frequency response: interrupt-driven I/O uses polling rate vs. latency tradeoffs analogous to control system bandwidth</li>
       <li><a href="/reading/algorithms/algo-07/">⚙ Algorithms Ch.7</a> — priority queues: I/O schedulers use priority queues to merge and reorder disk requests for throughput</li>
@@ -130,6 +131,7 @@ scan([20, 40, 80, 110, 160], start=50)
       <li><a href="https://en.wikipedia.org/wiki/I/O_scheduling">I/O scheduling</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Device_driver">Device driver</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/operating-systems/os-08/">&larr; File Systems</a>

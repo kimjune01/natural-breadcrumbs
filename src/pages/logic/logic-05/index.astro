@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Logic Ch.5 — Natural Deduction" favicon="🔑">
@@ -166,7 +167,7 @@ print(f"Modus tollens: not wet + (rain->wet) = not rain: {modus_tollens(True, Tr
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/natural-breadcrumbs/staton-2025/">🍞 Staton 2025</a> &mdash; Hoare logic rules are proof rules for programs</li>
     
@@ -174,6 +175,7 @@ print(f"Modus tollens: not wet + (rain->wet) = not rain: {modus_tollens(True, Tr
       <li><a href="/reading/lean/hoare-core/">✏️ Hoare/Core.lean</a> &mdash; Hoare triples use sequent-style reasoning</li>
       <li><a href="/reading/category-theory/milewski-01/">🐱 Category Theory Ch.1</a> &mdash; composition laws mirror the sequencing rules of natural deduction</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

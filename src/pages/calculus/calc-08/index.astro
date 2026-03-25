@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.8 — Techniques of Integration" favicon="∫">
@@ -300,7 +301,7 @@ print("Diverges: ln(b) grows without bound")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-07/">∫ Ch.7 The Integral</a> — what these techniques are finding (antiderivatives)</li>
       <li><a href="/reading/calculus/calc-05/">∫ Ch.5 Derivative Rules</a> — each integration technique reverses a differentiation rule</li>
@@ -308,6 +309,7 @@ print("Diverges: ln(b) grows without bound")
       <li><a href="/reading/real-analysis/lebl-06/">∞ Real Analysis Ch.6</a> — the Riemann integral formalized: when do these techniques converge?</li>
       <li><a href="/reading/probability/grinstead-02/">🎰 Probability Ch.2</a> — continuous probability uses the same integration techniques for density functions</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-07/">&larr; The Integral</a>

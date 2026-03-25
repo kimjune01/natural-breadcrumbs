@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.17 — Logic Programming" favicon="🪄">
@@ -490,7 +491,7 @@ print(f"NOT (engineering - programmer): {engineers - programmers}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other reading pages</p>
     <ul class="neighbors">
@@ -504,6 +505,7 @@ print(f"NOT (engineering - programmer): {engineers - programmers}")
       <li><a href="https://en.wikipedia.org/wiki/Unification_(computer_science)">Unification (computer science)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Logic_programming">Logic programming</a></li>
     </ul>
+    </Neighbors>
 
 
     <!-- Translation notes -->

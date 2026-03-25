@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Linear Algebra" favicon="📐">
@@ -89,7 +90,7 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.3blue1brown.com/topics/linear-algebra">3Blue1Brown: Essence of Linear Algebra</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/machine-learning/">🤖 Machine Learning</a> &mdash; linear regression, PCA, and neural networks are linear algebra in disguise</li>
       <li><a href="/reading/calculus/">∫ Calculus</a> &mdash; multivariable calculus runs on vectors and matrices</li>
@@ -97,6 +98,7 @@ import Layout from '../../layouts/Base.astro';
       <li><a href="/reading/geometry/">△ Geometry</a> &mdash; transformations and dot products connect</li>
       <li><a href="/reading/control/">🎛 Control Theory</a> &mdash; state space representation is matrix algebra</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

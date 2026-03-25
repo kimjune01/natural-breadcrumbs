@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.6 — Frequency Response" favicon="🎛">
@@ -112,10 +113,11 @@ for w in [0.1, 1.0, 5.0, 10.0, 20.0, 50.0, 100.0]:
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/physics/crowell-05/">&#x2699; Crowell Ch. 5 — Waves</a> &#x2014; frequency is the shared concept between waves and frequency response</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-05/">&larr; Root Locus</a>

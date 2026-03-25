@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Lovelace Ch.7 — Language and Communication" favicon="🧠">
@@ -235,13 +236,14 @@ print("Result: hearing 'some' implies 'not all'")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-07/">Shannon Ch.7</a> — channel capacity and the noisy channel coding theorem</li>
       <li><a href="/reading/cognitive-science/lovelace-02/">Lovelace Ch.2</a> — the Bayesian inference that RSA builds on</li>
       <li><a href="/reading/information-theory/shannon-01/">📡 Shannon 01 Surprise</a> — information content in language: surprisal as the fundamental unit</li>
       <li><a href="https://en.wikipedia.org/wiki/Rational_speech_act_models">Rational Speech Acts</a></li>
     </ul>
+    </Neighbors>
 
 
     <h3>Translation notes</h3>

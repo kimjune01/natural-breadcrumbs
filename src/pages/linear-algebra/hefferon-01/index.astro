@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Hefferon Ch.1 — Linear Systems" favicon="📐">
@@ -327,7 +328,7 @@ print("Solution is a line through (3, 0, 1).")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Next chapters</p>
     <ul class="neighbors">
@@ -344,6 +345,7 @@ print("Solution is a line through (3, 0, 1).")
       <li><a href="https://en.wikipedia.org/wiki/Row_echelon_form">W Row echelon form</a></li>
       <li><a href="https://en.wikipedia.org/wiki/System_of_linear_equations">W System of linear equations</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

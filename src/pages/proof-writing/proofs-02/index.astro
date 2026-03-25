@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Proofs Ch.2 — Direct Proof" favicon="✎">
@@ -141,11 +142,12 @@ for a, b in [(4, 6), (10, 22), (0, 8), (2, 2)]:
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/proof-writing/proofs-01/">✎ Proofs Ch.1</a> — the logical foundations that justify each step</li>
       <li><a href="/reading/proof-writing/proofs-03/">✎ Proofs Ch.3</a> — what to do when direct proof is hard</li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

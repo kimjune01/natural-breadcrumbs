@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Control Ch.10 — Lyapunov Stability" favicon="🎛">
@@ -105,10 +106,11 @@ print(f"  final   x={x:+.4f}  V={0.5*x**2:.6f}")
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/real-analysis/lebl-04/">&#x221E; Lebl Ch. 4 — Continuity</a> &#x2014; Lyapunov functions must be continuous</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/control/ctrl-09/">&larr; Kalman Filter</a>

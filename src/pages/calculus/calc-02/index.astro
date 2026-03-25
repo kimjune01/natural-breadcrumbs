@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.2 — Trigonometry" favicon="∫">
@@ -306,13 +307,14 @@ print("atan2(-1, -1) = {:.4f}".format(math.atan2(-1, -1)))
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-05/">∫ Ch.5 Derivative Rules</a> — derivatives of trig functions use these identities</li>
       <li><a href="/reading/calculus/calc-08/">∫ Ch.8 Integration Techniques</a> — trig substitution requires inverse trig</li>
       <li><a href="/reading/geometry/geom-01/">📐 Geometry Ch.1</a> — angles, arcs, and circles as the geometric source of trigonometric functions</li>
       <li><a href="/reading/physics/crowell-01/">⚛ Physics Ch.1</a> — trigonometry is the language of vectors and waves</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-01/">&larr; Functions and Graphs</a>

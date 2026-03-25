@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.10 — Sequence Models" favicon="🤖">
@@ -274,11 +275,12 @@ for t in range(len(sequence) - 1):
     <p class="text-sm text-gray-400">The scalar RNN above is pedagogical. Real RNNs use matrix multiplications: h<sub>t</sub> = tanh(W<sub>hh</sub> &middot; h<sub>t-1</sub> + W<sub>xh</sub> &middot; x<sub>t</sub> + b) where W<sub>hh</sub> is (hidden_dim &times; hidden_dim) and W<sub>xh</sub> is (hidden_dim &times; input_dim). GRUs are a simpler alternative to LSTMs with two gates instead of three.</p>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/programming/sicp-13/">&#x1F4D6; SICP Ch.13</a> &mdash; streams as lazy sequences, the functional view of time</li>
       <li><a href="/reading/cognitive-science/lovelace-07/">&#x1F9E0; Lovelace Ch.7</a> &mdash; language models and cognition</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-09/">&larr; Convolutional Networks</a>

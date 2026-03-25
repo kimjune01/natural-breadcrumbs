@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.11 — Quantum Mechanics" favicon="⚛">
@@ -230,7 +231,7 @@ print(f"Green photon: {E:.3e} J = {E/1.6e-19:.2f} eV")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/probability/grinstead-02/">Probability Ch.2</a> — continuous distributions: |psi|^2 is a probability density</li>
@@ -244,6 +245,7 @@ print(f"Green photon: {E:.3e} J = {E/1.6e-19:.2f} eV")
       <li><a href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation">Schrodinger equation</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Double-slit_experiment">Double-slit experiment</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

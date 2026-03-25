@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Parzygnat 2020 — Quantum Markov Categories" favicon="🍞">
@@ -217,7 +218,7 @@ print(f"dagger (transpose):\\n{dagger}")
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
     <ul class="neighbors">
@@ -234,6 +235,7 @@ print(f"dagger (transpose):\\n{dagger}")
       <li><a href="https://en.wikipedia.org/wiki/No-broadcasting_theorem">🅦 No-broadcasting theorem</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Dagger_category">🅦 Dagger category</a></li>
     </ul>
+    </Neighbors>
 
     <h3>Translation notes</h3>
     <p>All examples use classical stochastic matrices as stand-ins for quantum channels. The paper works with completely positive trace-preserving maps on matrix algebras, where the dagger is the Hilbert-Schmidt adjoint and Bayesian inversion is Petz recovery. For example: the Bayesian inverse on this page computes Bayes' rule for a 2×2 stochastic matrix. In the paper, the same construction works for arbitrary CPTP maps on C*-algebras — the inverse involves the modular automorphism group and recovers the Petz recovery map. The factorization structure (joint = forward × backward) is identical. The operator algebra is not.</p>

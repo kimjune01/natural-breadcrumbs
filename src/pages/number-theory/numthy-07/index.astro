@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Number Theory Ch.7 — Primitive Roots" favicon="#">
@@ -155,13 +156,14 @@ print(f"Powers of 2 mod 13: {[pow(2, k, 13) for k in range(12)]}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/cryptography/crypto-05/">&rarr; Cryptography Ch.5</a> — Diffie-Hellman key exchange relies on the hardness of discrete logarithms</li>
     
       <li><a href="/reading/cryptography/crypto-05/">🔐 Cryptography Ch.5</a> &mdash; Diffie-Hellman key exchange is the discrete logarithm problem</li>
       <li><a href="/reading/abstract-algebra/judson-01/">🔗 Abstract Algebra Ch.1</a> &mdash; cyclic groups are the algebraic structure of primitive roots</li>
     </ul>
+    </Neighbors>
 
 
 

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.6 — Differential Geometry" favicon="△">
@@ -222,7 +223,7 @@ print(f"Osculating radius: {1/k2}")
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-11/">&#8747; Calculus Ch.11</a> — partial derivatives: curvature requires derivatives of multivariable functions</li>
@@ -241,6 +242,7 @@ print(f"Osculating radius: {1/k2}")
       <li><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesic</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Theorema_Egregium">Theorema Egregium</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">

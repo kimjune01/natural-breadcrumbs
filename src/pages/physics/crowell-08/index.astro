@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.8 — Electromagnetism" favicon="⚛">
@@ -206,7 +207,7 @@ print(f"Ratio:       {c/299792458:.6f}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-15/">Calculus Ch.15</a> — Green, Stokes, Divergence theorems: Maxwell's equations ARE these theorems applied to E and B</li>
@@ -219,6 +220,7 @@ print(f"Ratio:       {c/299792458:.6f}")
       <li><a href="https://en.wikipedia.org/wiki/Maxwell%27s_equations">Maxwell's equations</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Electromagnetic_radiation">Electromagnetic radiation</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

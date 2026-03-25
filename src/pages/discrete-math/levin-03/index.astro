@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Levin Ch.3 — Symbolic Logic" favicon="🔢">
@@ -253,7 +254,7 @@ print(f"All pass (1..100)? {check}")
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other chapter pages</p>
     <ul class="neighbors">
@@ -267,6 +268,7 @@ print(f"All pass (1..100)? {check}")
       <li><a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">De Morgan's laws</a></li>
       <li><a href="https://en.wikipedia.org/wiki/First-order_logic">First-order logic</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

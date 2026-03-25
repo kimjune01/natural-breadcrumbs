@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Econ Ch.8 — Market Equilibrium" favicon="💰">
@@ -178,12 +179,13 @@ for _ in range(6):
       </table>
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="https://en.wikipedia.org/wiki/Economic_equilibrium">W Economic equilibrium</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Price_ceiling">W Price ceiling</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Price_floor">W Price floor</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/economics/econ-07/">&larr; Opportunity Cost</a>

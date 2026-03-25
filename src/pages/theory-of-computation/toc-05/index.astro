@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="ToC Ch.5 — Pushdown Automata" favicon="🔀">
@@ -165,12 +166,13 @@ print("This language is not context-free.")
 `} />
     </div>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/programming/sicp-08/">🪄 SICP Ch.8</a> — the call stack is a pushdown automaton: function calls push frames, returns pop them</li>
       <li><a href="/reading/operating-systems/os-02/">💻 OS Ch.2</a> — process stacks and call stack management implement PDA mechanics</li>
       <li><a href="/reading/category-theory/milewski-19/">🐱 Category Theory Ch.19</a> — algebraic data types model recursive structures recognized by PDAs</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/theory-of-computation/toc-04/">&larr; Context-Free Grammars</a>

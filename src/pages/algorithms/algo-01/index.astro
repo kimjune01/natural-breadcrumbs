@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.1 — Complexity and O-Notation" favicon="⚙">
@@ -117,11 +118,12 @@ for n in [1, 5, 10, 100, 1000]:
 (display "O(2^n)     = way too big to print")
 `} />
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/discrete-math/dm-01/">🔢 Discrete Math Ch.1</a> &mdash; counting: the combinatorics behind growth rates</li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

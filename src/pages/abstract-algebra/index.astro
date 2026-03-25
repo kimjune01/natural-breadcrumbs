@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Base.astro';
+import Neighbors from "../../components/Neighbors.astro";
 ---
 
 <Layout title="Abstract Algebra" favicon="🔗">
@@ -119,13 +120,14 @@ import Layout from '../../layouts/Base.astro';
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/18-703-modern-algebra-spring-2013/">MIT 18.703 Modern Algebra</a></p>
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/category-theory/">🐱 Category Theory</a> &mdash; groups, rings, and monoids reappear as objects in a category</li>
       <li><a href="/reading/number-theory/">&#35; Number Theory</a> &mdash; modular arithmetic is the integers mod n</li>
       <li><a href="/reading/cryptography/">🔐 Cryptography</a> &mdash; RSA and elliptic curves are applied abstract algebra</li>
       <li><a href="/reading/linear-algebra/">📐 Linear Algebra</a> &mdash; vector spaces are a special case of modules</li>
     </ul>
+    </Neighbors>
 
   </main>
 </Layout>

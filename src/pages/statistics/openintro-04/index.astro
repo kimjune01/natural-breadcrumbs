@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="OpenIntro Ch.4 — Distributions" favicon="📊">
@@ -163,7 +164,7 @@ print(f"Score at Z=2: {sat_mean + 2 * sat_sd}")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Related chapters</p>
     <ul class="neighbors">
@@ -177,6 +178,7 @@ print(f"Score at Z=2: {sat_mean + 2 * sat_sd}")
       <li><a href="https://en.wikipedia.org/wiki/Binomial_distribution">&#x2460; Binomial distribution</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Poisson_distribution">&#x2460; Poisson distribution</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

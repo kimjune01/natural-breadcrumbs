@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.7 — Magnetism" favicon="⚛">
@@ -242,7 +243,7 @@ print(f"Cyclotron radius: {r:.1f} m ({r/1000:.1f} km)")
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-14/">Calculus Ch.14</a> — line integrals: the math behind Ampere's law</li>
@@ -255,6 +256,7 @@ print(f"Cyclotron radius: {r:.1f} m ({r/1000:.1f} km)")
       <li><a href="https://en.wikipedia.org/wiki/Amp%C3%A8re%27s_circuital_law">Ampere's circuital law</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Solenoid">Solenoid</a></li>
     </ul>
+    </Neighbors>
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>

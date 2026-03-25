@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Ch.11 — Partial Derivatives" favicon="∫">
@@ -265,7 +266,7 @@ for label, x, y in [("(1, 2)", 1.0, 2.0), ("(1.1, 2.1)", 1.1, 2.1), ("(3, 4)", 3
     </div>
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Calculus sequence</p>
     <ul class="neighbors">
@@ -284,6 +285,7 @@ for label, x, y in [("(1, 2)", 1.0, 2.0), ("(1.1, 2.1)", 1.1, 2.1), ("(3, 4)", 3
       <li><a href="https://en.wikipedia.org/wiki/Gradient">Gradient</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Directional_derivative">Directional derivative</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/calculus/calc-10/">&larr; Vectors and Geometry</a>

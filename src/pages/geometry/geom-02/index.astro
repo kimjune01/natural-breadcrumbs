@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Geometry Ch.2 — Coordinate Geometry" favicon="△">
@@ -166,7 +167,7 @@ print(f"Perpendicular? slopes 2 and -0.5: {2 * -0.5 == -1}")
 `} />
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
     <p class="text-sm text-gray-500 mb-2">Cross-references</p>
     <ul class="neighbors">
       <li><a href="/reading/calculus/calc-01/">&#8747; Calculus Ch.1</a> — functions and graphs: coordinate geometry is the prerequisite</li>
@@ -178,6 +179,7 @@ print(f"Perpendicular? slopes 2 and -0.5: {2 * -0.5 == -1}")
       <li><a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian coordinate system</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Conic_section">Conic section</a></li>
     </ul>
+    </Neighbors>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/geometry/geom-01/">← Euclidean Geometry</a>

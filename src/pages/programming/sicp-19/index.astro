@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="SICP Ch.19 — Register Machine Simulator" favicon="🪄">
@@ -400,7 +401,7 @@ fact_recursive(10)
 
 
     <!-- Neighbors -->
-    <h3>Neighbors</h3>
+    <Neighbors>
 
     <p class="text-sm text-gray-500 mb-2">Other reading pages</p>
     <ul class="neighbors">
@@ -413,6 +414,7 @@ fact_recursive(10)
       <li><a href="https://en.wikipedia.org/wiki/Assembly_language#Assembler">Assembler (computing)</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual machine</a></li>
     </ul>
+    </Neighbors>
 
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">

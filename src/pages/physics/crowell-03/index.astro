@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Base.astro';
 import Repl from '../../../components/Repl';
 import SchemeRepl from '../../../components/SchemeRepl';
+import Neighbors from "../../../components/Neighbors.astro";
 ---
 
 <Layout title="Crowell Ch.3 — Conservation of Angular Momentum" favicon="⚛">
@@ -178,10 +179,11 @@ print(f"Speed increase: {omega_in / omega_out:.1f}x")
 `} />
 
 
-    <h3>Neighbors</h3>
+    <Neighbors>
     <ul class="neighbors">
       <li><a href="/reading/physics/crowell-02/">&#x2190; Ch. 2: Conservation of Momentum</a></li>
     </ul>
+    </Neighbors>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://lightandmatter.com/area1sn.html">Read Crowell's chapter</a>.
