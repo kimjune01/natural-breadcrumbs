@@ -126,7 +126,7 @@ print("|v(-50)| / v(50) = " + "{:.4f}".format(abs(prospect_value(-50)) / prospec
 
     <!-- Bounded rationality -->
     <h3>Bounded rationality and satisficing</h3>
-    <p>Herbert Simon argued that real decision-makers face limited time, limited information, and limited computation. <strong>Bounded rationality</strong> asks: given these constraints, what decision procedures perform well? <strong>Satisficing</strong> means searching until you find an option that meets a threshold, then stopping. It often outperforms optimization in uncertain environments because it avoids overfitting to noisy estimates.</p>
+    <p>Herbert Simon argued that real decision-makers face limited time, limited information, and limited computation. <strong>Bounded rationality</strong> asks: given these constraints, what decision procedures perform well? <strong>Satisficing</strong> means searching until you find an option that meets a threshold, then stopping. This is structurally similar to <a href="https://june.kim/salience">competitive inhibition</a>: a winner-take-all gate that passes the first signal above threshold and suppresses the rest. It often outperforms optimization in uncertain environments because it avoids overfitting to noisy estimates.</p>
 
     <SchemeRepl client:load initialCode={`; Satisficing vs optimizing
 ; Scenario: hiring. You interview candidates sequentially.
@@ -194,9 +194,7 @@ print("This finds the best candidate ~37% of the time.")
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/cognitive-science/lovelace-05/">Lovelace Ch.5</a> — reinforcement learning as sequential decision making</li>
       <li><a href="/reading/game-theory/">Game theory pages</a> — strategic decision making with multiple agents</li>
       <li><a href="https://en.wikipedia.org/wiki/Prospect_theory">Prospect theory</a></li>

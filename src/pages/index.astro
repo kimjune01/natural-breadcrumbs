@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Base.astro';
+import Search from '../components/Search';
 ---
 
 <Layout title="Runnable Textbooks" favicon="📚">
@@ -38,6 +39,8 @@ import Layout from '../layouts/Base.astro';
         </table>
       </div>
     </details>
+
+    <Search client:load />
 
     <h2 class="text-xl font-semibold mb-4">Mathematics</h2>
     <div class="overflow-x-auto mb-6">

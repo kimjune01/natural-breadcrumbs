@@ -20,7 +20,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 1. Natural transformations -->
     <h3>Natural transformations: morphisms between functors</h3>
-    <p>A functor maps objects and morphisms from one category to another. A <strong>natural transformation</strong> maps between two such functors. For functors F and G from category C to D, a natural transformation alpha provides, for each object <code>a</code> in C, a morphism <code>alpha_a : F(a) -> G(a)</code> in D. These morphisms are called <strong>components</strong>.</p>
+    <p>A functor maps objects and morphisms from one category to another. A <strong>natural transformation</strong> maps between two such functors. For functors F and G from category C to D, a natural transformation alpha provides, for each object <code>a</code> in C, a morphism <code>alpha_a : F(a) -> G(a)</code> in D. These morphisms are called <strong>components</strong>. Natural transformations are how <a href="https://june.kim/the-natural-framework">the natural framework</a> connects its six processing stages: each stage is a functor, and the transitions between them are natural transformations that preserve the information structure.</p>
 
     <SchemeRepl client:load initialCode={`; A natural transformation alpha : F -> G
 ; gives a component alpha_a : F(a) -> G(a) for every type a.
@@ -368,7 +368,7 @@ print(f"equal? {p1 == p2}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-08/">🍞 Chapter 8</a> — Functoriality: bifunctors, contravariance, profunctors</li>
       <li>(prev) <a href="/reading/category-theory/milewski-07/">🍞 Chapter 7</a> — Functors: structure-preserving maps</li>
     </ul>

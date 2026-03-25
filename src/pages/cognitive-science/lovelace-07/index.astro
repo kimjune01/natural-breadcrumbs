@@ -18,7 +18,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- Shannon's communication model -->
     <h3>The communication channel</h3>
-    <p>Shannon's model: a sender encodes a message, transmits it through a noisy channel, and a receiver decodes it. The fundamental theorem of information theory says that reliable communication is possible at any rate below the channel capacity. Language production and comprehension fit this framework: the speaker compresses meaning into words, the listener decompresses.</p>
+    <p>Shannon's model: a sender encodes a message, transmits it through a noisy channel, and a receiver decodes it. The fundamental theorem of information theory says that reliable communication is possible at any rate below the channel capacity. Language production and comprehension fit this framework: the speaker compresses meaning into words, the listener decompresses. The same perceive-to-attend pipeline appears in non-linguistic cognition, where a <a href="https://june.kim/perception-pipe">salience layer</a> filters the stream before attention allocates resources.</p>
 
     <!-- SVG: Shannon's communication model -->
     <div class="flex justify-center my-6">
@@ -236,9 +236,7 @@ print("Result: hearing 'some' implies 'not all'")
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-07/">Shannon Ch.7</a> — channel capacity and the noisy channel coding theorem</li>
       <li><a href="/reading/cognitive-science/lovelace-02/">Lovelace Ch.2</a> — the Bayesian inference that RSA builds on</li>
       <li><a href="/reading/information-theory/shannon-01/">📡 Shannon 01 Surprise</a> — information content in language: surprisal as the fundamental unit</li>

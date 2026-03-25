@@ -141,7 +141,7 @@ print("Predicted class:", nn[2])
 
     <!-- 3. Evaluating accuracy -->
     <h3>Evaluating accuracy</h3>
-    <p>Accuracy is the fraction of test examples the model gets right. It is the most basic metric &mdash; good enough to start, too coarse for serious work.</p>
+    <p>Accuracy is the fraction of test examples the model gets right. It is the most basic metric &mdash; good enough to start, too coarse for serious work. Function approximation alone is not <a href="https://june.kim/general-intelligence">intelligence</a>; that requires closed feedback loops where the system consolidates what it has learned back into its own processing.</p>
 
     <SchemeRepl client:load initialCode={`; Evaluate accuracy of nearest-neighbor
 (define train '((1 1 "A") (2 3 "A") (3 2 "A")
@@ -230,17 +230,19 @@ print("Accuracy:", correct / len(test) * 100, "%")
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/programming/sicp-01/">🪄 SICP Ch.1</a> &mdash; expressions as data: the foundation for representing training examples</li>
       <li><a href="/reading/probability/grinstead-01/">🎲 Grinstead Ch.1</a> &mdash; sample spaces: the probabilistic framing behind every ML model</li>
+    
+      <li><a href="/reading/statistics/openintro-01/">📊 Statistics Ch.1</a> &mdash; statistics and ML share the same core problem: inferring patterns from data</li>
+      <li><a href="/reading/probability/grinstead-01/">🎰 Probability Ch.1</a> &mdash; the probabilistic framing underlying most ML models</li>
+      <li><a href="/reading/linear-algebra/hefferon-01/">📐 Linear Algebra Ch.1</a> &mdash; the mathematical backbone of most ML algorithms</li>
     </ul>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 8 and <a href="https://d2l.ai/">Dive into Deep Learning</a> Ch. 1.
     </div>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/statistics/openintro-01/">📊 Statistics Ch.1</a> — statistics and ML share the same core problem: inferring patterns from data · <a href="/reading/probability/grinstead-01/">🎰 Probability Ch.1</a> — the probabilistic framing underlying most ML models · <a href="/reading/linear-algebra/hefferon-01/">📐 Linear Algebra Ch.1</a> — the mathematical backbone of most ML algorithms</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <span></span>

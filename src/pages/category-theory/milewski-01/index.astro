@@ -232,7 +232,7 @@ print(f"Equal? {left(3) == right(3)}")
 
     <!-- 5. Why composition matters -->
     <h3>Why composition matters</h3>
-    <p>Milewski's argument: human cognition has a limited chunk budget. We manage complexity by decomposing problems into pieces and recomposing solutions. Composition is not an optional design pattern. It's how finite minds handle infinite complexity. Surface area grows slower than volume: good interfaces expose less than they hide.</p>
+    <p>Milewski's argument: human cognition has a limited chunk budget. We manage complexity by decomposing problems into pieces and recomposing solutions. Composition is not an optional design pattern. It's how finite minds handle infinite complexity. Surface area grows slower than volume: good interfaces expose less than they hide. This chunking constraint is the starting point for <a href="https://june.kim/the-natural-framework">the natural framework</a>, which models information processing as a six-stage pipeline where each stage composes into the next.</p>
 
     <SchemeRepl client:load initialCode={`; The chunking argument: decompose, solve, recompose.
 ; A complex function built from simple composed pieces.
@@ -289,7 +289,7 @@ print(f"Equal? {left(3) == right(3)}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Other paper pages</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/spivak-2013/">🍞 Spivak 2013</a> — categories applied to databases and data migration</li>
       <li><a href="/reading/leinster-2021/">🍞 Leinster 2021</a> — entropy as a functor, another category-theoretic lens</li>
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a> — composition of programs follows the same axioms</li>

@@ -355,7 +355,7 @@ print(f"uncurried: {f_uncurried((10, 3))}")
 
     <!-- 7. Curry-Howard -->
     <h3>Curry-Howard: functions as proofs</h3>
-    <p>Under the Curry-Howard correspondence, the function type <code>a → b</code> is logical implication: "if a then b." The <code>eval</code> morphism proves modus ponens: given <code>(a ⇒ b)</code> and <code>a</code>, produce <code>b</code>. Currying proves the deduction theorem: to prove <code>a ⇒ (b ⇒ c)</code>, assume <code>a</code> and <code>b</code>, then prove <code>c</code>.</p>
+    <p>Under the Curry-Howard correspondence, the function type <code>a → b</code> is logical implication: "if a then b." The <code>eval</code> morphism proves modus ponens: given <code>(a ⇒ b)</code> and <code>a</code>, produce <code>b</code>. Currying proves the deduction theorem: to prove <code>a ⇒ (b ⇒ c)</code>, assume <code>a</code> and <code>b</code>, then prove <code>c</code>. Cartesian closed categories constrain what compositions are physically realizable — <a href="https://june.kim/type-forcing">type forcing</a> shows how physical constraints collapse Spivak's operad of possible wirings down to the ones that actually typecheck.</p>
 
     <SchemeRepl client:load initialCode={`; Curry-Howard correspondence:
 ; Types         ↔  Propositions
@@ -415,7 +415,7 @@ print(f"uncurried: {f_uncurried((10, 3))}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-08/">🍞 Chapter 8</a> — Functoriality: bifunctors, contravariance, profunctors</li>
       <li>(next) <a href="/reading/category-theory/milewski-10/">Chapter 10</a> — Natural Transformations: polymorphic functions</li>
     </ul>

@@ -41,7 +41,7 @@ import Layout from '../../../layouts/Base.astro';
     <p>Consolidate cannot be spliced into the forward chain. Even if some stage produced persisted (Consolidate's input), the next stage would need to consume policy (Consolidate's output), and no forward stage does.</p>
 
     <h3>theorem pipeline_unique</h3>
-    <p>The combined uniqueness result: (1) the forward ordering is forced by the type chain, (2) Consolidate's output type has no forward consumer, (3) Consolidate's input type has no forward consumer. Therefore: five forward stages in canonical order plus Consolidate as backward pass is the only configuration whose types compose.</p>
+    <p>The combined uniqueness result: (1) the forward ordering is forced by the type chain, (2) Consolidate's output type has no forward consumer, (3) Consolidate's input type has no forward consumer. Therefore: five forward stages in canonical order plus Consolidate as backward pass is the only configuration whose types compose. This is why <a href="https://june.kim/the-natural-framework">the framework</a> claims exactly six roles in exactly this order.</p>
 
     <h3>Connections</h3>
     <ul>
@@ -49,5 +49,9 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/contracts/">Contracts.lean</a> &mdash; imported; the handshake condition on type compatibility</li>
       <li><a href="/reading/lean/handshake/">Handshake.lean</a> &mdash; the cross-cycle coupling that Consolidate participates in</li>
     </ul>
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/lean/boundary/">&larr; Boundary.lean &middot; 7 of 25</a>
+      <a href="/reading/lean/removal/">Removal.lean &middot; 9 of 25 &rarr;</a>
+    </div>
   </main>
 </Layout>

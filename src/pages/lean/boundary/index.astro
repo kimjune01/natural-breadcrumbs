@@ -10,7 +10,7 @@ import Layout from '../../../layouts/Base.astro';
     <p class="text-gray-400 text-sm mb-6"><a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Boundary.lean">View source on GitHub</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Proves that removing any pipeline stage leads to a measurable bad outcome &mdash; each stage is forced by the axioms, not optional.</p>
+      <p class="text-lg" style="max-width:none">Proves that removing any pipeline stage leads to a measurable bad outcome &mdash; each stage is forced by the axioms, not optional. Each proof here is a formal instance of why <a href="https://june.kim/theory-is-load-bearing">theory is load-bearing</a>: the stages exist because the math demands them.</p>
     </div>
 
     <h3>theorem perceive_forced</h3>
@@ -46,5 +46,9 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/removal/">Removal.lean</a> &mdash; the full removal table, combining all boundary arguments</li>
       <li><a href="/reading/lean/corollary/">Corollary.lean</a> &mdash; derives the competitive core and control/data separation from these proofs</li>
     </ul>
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/lean/handshake/">&larr; Handshake.lean &middot; 6 of 25</a>
+      <a href="/reading/lean/uniqueness/">Uniqueness.lean &middot; 8 of 25 &rarr;</a>
+    </div>
   </main>
 </Layout>

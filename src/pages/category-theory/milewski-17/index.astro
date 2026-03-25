@@ -425,16 +425,20 @@ print(f"log:    {result[1]}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-04/">🍞 Chapter 4</a> — Kleisli Categories (where the fish operator was born)</li>
       <li><a href="/reading/category-theory/milewski-07/">🍞 Chapter 7</a> — Functors (every monad is a functor)</li>
       <li><a href="/reading/category-theory/milewski-10/">🍞 Chapter 10</a> — Natural Transformations (return and join are natural transformations)</li>
       <li><a href="/reading/category-theory/milewski-16/">🍞 Chapter 16</a> — Adjunctions (every adjunction gives a monad)</li>
+    
+      <li><a href="/reading/lean/kleisli/">✏️ Kleisli.lean</a> &mdash; Kleisli composition of the probability monad</li>
+      <li><a href="/reading/programming/sicp-04/">🪄 Programming Ch.4</a> &mdash; data abstraction is a monadic pattern</li>
+      <li><a href="/reading/natural-breadcrumbs/kidney-wu-2021/">🍞 Kidney, Wu 2021</a> &mdash; one monad parameterized by a semiring</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Paper pages that use these concepts</p>
     <ul>
-      <li><a href="/reading/fritz-2020/">🍞 Fritz 2020</a> — Markov categories axiomatize the probability monad</li>
+      <li><a href="/reading/fritz-2020/">🍞 Fritz 2020</a> — Markov categories axiomatize the probability monad. The Giry monad (and its Kleisli category <strong>Stoch</strong>) is the formal backbone of <a href="https://june.kim/the-handshake">the handshake</a> between category theory and probability.</li>
       <li><a href="/reading/staton-2025/">🍞 Staton 2025</a> — monads structure the semantics of effectful programs</li>
     </ul>
 
@@ -454,7 +458,6 @@ print(f"log:    {result[1]}")
     </div>
 
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/lean/kleisli/">✏️ Kleisli.lean</a> — Kleisli composition of the probability monad · <a href="/reading/programming/sicp-04/">🪄 Programming Ch.4</a> — data abstraction is a monadic pattern · <a href="/reading/natural-breadcrumbs/kidney-wu-2021/">🍞 Kidney, Wu 2021</a> — one monad parameterized by a semiring</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/category-theory/milewski-16/">← Adjunctions</a>

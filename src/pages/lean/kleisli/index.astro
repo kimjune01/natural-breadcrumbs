@@ -16,7 +16,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <h3>def Kernel</h3>
-    <p>A Kernel is a function from <code>a</code> to <code>M b</code> &mdash; given an input, it produces a computation that may be stochastic. When <code>M = Id</code>, this is just a plain function <code>a &rarr; b</code>. Every pipeline stage is a Kernel.</p>
+    <p>A Kernel is a function from <code>a</code> to <code>M b</code> &mdash; given an input, it produces a computation that may be stochastic. When <code>M = Id</code>, this is just a plain function <code>a &rarr; b</code>. Every pipeline stage is a Kernel. This is the Kleisli arrow that <a href="https://june.kim/the-handshake">the formal backbone</a> uses to model morphisms in the Stoch category.</p>
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">def</span> <span class="text-green-300">Kernel</span> (M : Type &rarr; Type) (&alpha; &beta; : Type) := &alpha; &rarr; M &beta;</code></pre>
 
     <h3>def Kernel.comp</h3>
@@ -99,6 +99,15 @@ print(f"pipeline('cat'): {pipeline('cat')}")
       <li><a href="/reading/lean/contracts/">Contracts.lean</a> &mdash; contract preservation is defined on kernels</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mt-8">See also: <a href="/reading/category-theory/milewski-04/">🐱 Milewski Ch4 Kleisli</a> · <a href="/reading/fritz-2020/">🍞 Fritz 2020</a></p>
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/category-theory/milewski-04/">🐱 Milewski Ch4 Kleisli</a></li>
+      <li><a href="/reading/fritz-2020/">🍞 Fritz 2020</a></li>
+    </ul>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/lean/support/">&larr; Support.lean &middot; 1 of 25</a>
+      <a href="/reading/lean/axioms/">Axioms.lean &middot; 3 of 25 &rarr;</a>
+    </div>
   </main>
 </Layout>

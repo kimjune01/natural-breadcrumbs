@@ -184,9 +184,12 @@ for q in [(0,0), (3,3), (5,5), (6,1)]:
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Geometry chapters</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/geometry/geom-08/">&#9651; Chapter 8</a> &mdash; Convex Geometry</li>
       <li><a href="/reading/geometry/geom-10/">&#9651; Chapter 10</a> &mdash; Delaunay Triangulation (the dual)</li>
+    
+      <li><a href="/reading/algorithms/algo-08/">⚙ Algorithms Ch.8</a> &mdash; the Fortune sweep algorithm for computing Voronoi diagrams</li>
+      <li><a href="/reading/auction-theory/aurenhammer-1987/">🏷 Aurenhammer 1987</a> &mdash; power diagrams generalize Voronoi to weighted sites</li>
     </ul>
 
     <p class="text-sm text-gray-500 mb-2 mt-4">Cross-references</p>
@@ -205,7 +208,6 @@ for q in [(0,0), (3,3), (5,5), (6,1)]:
     <h3>Translation notes</h3>
     <p>Fortune's algorithm is described conceptually here, not implemented. A full implementation requires a priority queue for site and circle events, and a balanced BST for the beach line. The Voronoi SVG is schematic: real Voronoi cells would have edges that are exact perpendicular bisectors. The nearest-site code uses brute-force O(n) lookup per query; a real Voronoi structure enables O(log n) point location.</p>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/algorithms/algo-08/">⚙ Algorithms Ch.8</a> — the Fortune sweep algorithm for computing Voronoi diagrams · <a href="/reading/auction-theory/aurenhammer-1987/">🏷 Aurenhammer 1987</a> — power diagrams generalize Voronoi to weighted sites</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/geometry/geom-08/">&larr; Convex Geometry</a>

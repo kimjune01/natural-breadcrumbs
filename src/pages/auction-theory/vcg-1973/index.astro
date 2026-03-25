@@ -108,7 +108,7 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
     </div>
 
     <h3>Three properties</h3>
-    <p><strong>Truthful</strong>: bidding your true value is a <a href="https://en.wikipedia.org/wiki/Dominant_strategy">🅦 dominant strategy</a>. <strong>Efficient</strong>: items go to those who value them most. <strong>Individually rational</strong>: every participant is at least as well off as not participating.</p>
+    <p><strong>Truthful</strong>: bidding your true value is a <a href="https://en.wikipedia.org/wiki/Dominant_strategy">🅦 dominant strategy</a>. <strong>Efficient</strong>: items go to those who value them most. <strong>Individually rational</strong>: every participant is at least as well off as not participating. These three properties make VCG the theoretical backbone of <a href="https://june.kim/vector-space">embedding-space ad auctions</a>, where truthfulness matters because advertisers bid continuously without room to iterate.</p>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">
@@ -133,13 +133,21 @@ print(vcg_multi([10, 7, 4, 3, 1], k=2))
       <li><a href="/reading/economics/">💰 Economics</a> &mdash; econ-20: mechanism design</li>
       <li><a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> &mdash; VCG reduces to second-price for single items</li>
       <li><a href="/reading/auction-theory/lahaie-lubin-2025/">💎 Lahaie &amp; Lubin 2025</a> &mdash; VCG as a linear program</li>
+    
+      <li><a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> &mdash; the second-price auction is the single-item special case of VCG</li>
+      <li><a href="/reading/economics/econ-20/">💰 Economics Ch.20</a> &mdash; mechanism design: VCG as the canonical incentive-compatible mechanism</li>
+      <li><a href="/reading/auction-theory/lahaie-lubin-2025/">💎 Lahaie &amp; Lubin 2025</a> &mdash; VCG as a linear program</li>
     </ul>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://doi.org/10.2307/1914085">Clarke 1971</a> and <a href="https://doi.org/10.2307/1914085">Groves 1973</a>.
     </div>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> — the second-price auction is the single-item special case of VCG · <a href="/reading/economics/econ-20/">💰 Economics Ch.20</a> — mechanism design: VCG as the canonical incentive-compatible mechanism · <a href="/reading/auction-theory/lahaie-lubin-2025/">💎 Lahaie &amp; Lubin 2025</a> — VCG as a linear program</p>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/auction-theory/vickrey-1961/">&larr; Vickrey 1961 &middot; 1 of 8</a>
+      <a href="/reading/auction-theory/gsp-2007/">GSP 2007 &middot; 3 of 8 &rarr;</a>
+    </div>
 
   </main>
 </Layout>

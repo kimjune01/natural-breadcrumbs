@@ -248,12 +248,11 @@ for pt in data:
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p class="text-sm text-gray-400">PCA is a change of basis that diagonalizes the covariance matrix. The principal components form an orthonormal basis aligned with the data's natural axes. Dimensionality reduction is projection onto a subspace -- the same operation as in linear algebra, but chosen to maximize information retention.</p>
+    <p class="text-sm text-gray-400">PCA is a change of basis that diagonalizes the covariance matrix. The principal components form an orthonormal basis aligned with the data's natural axes. Dimensionality reduction is projection onto a subspace -- the same operation as in linear algebra, but chosen to maximize information retention. The <a href="https://june.kim/embedding-gap">embedding gap</a> explores what happens when this kind of projection fails to capture the structure that matters.</p>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/linear-algebra/hefferon-04/">Linear Algebra Ch.4</a> — determinants and eigenvalues: the math behind PCA</li>
       <li><a href="/reading/machine-learning/ml-05/">ML Ch.5 Kernel Methods</a> — kernel PCA extends this to nonlinear structure</li>
     </ul>

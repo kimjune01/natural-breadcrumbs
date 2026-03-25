@@ -198,7 +198,7 @@ for temp, label in [(1.0,"normal"), (0.3,"sharp"), (3.0,"flat")]:
 
     <!-- 3. Simple prompt template -->
     <h3>Prompt template</h3>
-    <p>In-context learning works by formatting examples into the prompt. The model doesn't update its weights &mdash; it uses the pattern in the context to infer the task. This is why prompt engineering matters: the format of the examples is the program.</p>
+    <p>In-context learning works by formatting examples into the prompt. The model doesn't update its weights &mdash; it uses the pattern in the context to infer the task. This is why prompt engineering matters: the format of the examples is the program. Fitting more signal into fewer tokens is the problem <a href="https://june.kim/context-density">context density</a> addresses.</p>
 
     <SchemeRepl client:load initialCode={`; Prompt template: few-shot in-context learning
 ; The model sees examples, then completes the pattern
@@ -280,12 +280,11 @@ print("Context window: ~4k to ~1M tokens")
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p class="text-sm text-gray-400">The jump from transformer to LLM is primarily one of scale: billions of parameters, trillions of tokens, thousands of GPUs. Emergent abilities (chain-of-thought reasoning, code generation, tool use) appear at scale thresholds that we can't predict from smaller models. Whether this is true emergence or smooth scaling is debated. What's not debated: the practical capabilities are real.</p>
+    <p class="text-sm text-gray-400">The jump from transformer to LLM is primarily one of scale: billions of parameters, trillions of tokens, thousands of GPUs. Emergent abilities (chain-of-thought reasoning, code generation, tool use) appear at scale thresholds that we can't predict from smaller models. Whether this is true emergence or smooth scaling is debated. What's not debated: the practical capabilities are real. Whether scale alone produces <a href="https://june.kim/general-intelligence">general intelligence</a> is a separate question &mdash; one that depends on whether the system has a closed consolidation loop, not just a larger forward pass.</p>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-01/">&#x1F4E1; Shannon Ch.1</a> &mdash; next-token prediction is minimizing surprise (cross-entropy)</li>
       <li><a href="/reading/cognitive-science/lovelace-08/">&#x1F9E0; Lovelace Ch.8</a> &mdash; cognitive architectures and the question of understanding</li>
       <li><a href="/reading/programming/sicp-14/">&#x1F4D6; SICP Ch.14</a> &mdash; the metacircular evaluator: programs that interpret programs, self-reference all the way down</li>

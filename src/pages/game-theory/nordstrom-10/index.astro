@@ -18,7 +18,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 1. The indifference principle -->
     <h3>The indifference principle</h3>
-    <p>If Player 2 can tell that one column is better against your mix, they'll play it. Your mix is only optimal when Player 2 gets the same expected payoff no matter which column they pick. Set the expected values equal and solve for your probabilities.</p>
+    <p>If Player 2 can tell that one column is better against your mix, they'll play it. Your mix is only optimal when Player 2 gets the same expected payoff no matter which column they pick. Set the expected values equal and solve for your probabilities. This indifference condition is the same principle behind optimal <a href="https://june.kim/one-shot-bidding">one-shot bidding</a>: your bid should make competitors indifferent to marginal changes in theirs.</p>
 
     <!-- SVG: Two equations as balance scales -->
     <div class="flex justify-center my-6">
@@ -208,7 +208,7 @@ print(f"Indifferent? {abs(ev_C - ev_D) < 1e-10}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Nordstrom sequence</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/game-theory/nordstrom-09/">🎲 Nordstrom 3.2</a> — Mixed Strategies: Graphical (previous)</li>
       <li><a href="/reading/game-theory/nordstrom-11/">🎲 Nordstrom 4.1</a> — Non-Zero-Sum Intro (next)</li>
     </ul>

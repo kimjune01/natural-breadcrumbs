@@ -116,7 +116,7 @@ print(f"I(X;Z) <= I(X;Y)? {ixz <= ixy}")
 
     <!-- 2. Why it matters -->
     <h3>Why it matters</h3>
-    <p>DPI is the reason compression and summarization are lossy. If your pipeline is X &rarr; Y &rarr; Z, then Z cannot know more about X than Y does. No clever algorithm applied to Y can recover what Y already lost. This bounds every learning algorithm, every codec, every statistical estimator.</p>
+    <p>DPI is the reason compression and summarization are lossy. If your pipeline is X &rarr; Y &rarr; Z, then Z cannot know more about X than Y does. No clever algorithm applied to Y can recover what Y already lost. This bounds every learning algorithm, every codec, every statistical estimator. It also constrains <a href="https://june.kim/embedding-pipe">multi-stage embedding pipelines</a>: each stage in the chain can only preserve or destroy information, never create it.</p>
 
     <SchemeRepl client:load initialCode={`; DPI in action: a pipeline of lossy steps
 (define (log2 x) (/ (log x) (log 2)))

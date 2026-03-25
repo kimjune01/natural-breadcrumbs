@@ -203,21 +203,23 @@ print("Diverged! x = {:.2f}, f(x) = {:.2f}".format(x, f(x)))
     <!-- Translation notes -->
     <h3>Translation notes</h3>
     <p>Gradient descent is a natural fit for tail recursion: each call passes the updated state forward, and no work remains after the recursive call returns. The Scheme version makes this explicit &mdash; <code>descend</code> is a loop with no stack growth. Python's <code>for</code> loop achieves the same thing with mutable assignment.</p>
-    <p class="mt-2">The divergence example is the most important one. Learning rate selection is the first hyperparameter choice every practitioner faces, and the failure mode is dramatic: the loss explodes exponentially. In practice, learning rate schedules (decay, warmup) and adaptive methods (Adam, RMSProp) handle this automatically.</p>
+    <p class="mt-2">The divergence example is the most important one. Learning rate selection is the first hyperparameter choice every practitioner faces, and the failure mode is dramatic: the loss explodes exponentially. In practice, learning rate schedules (decay, warmup) and adaptive methods (Adam, RMSProp) handle this automatically. Even with good optimization, <a href="https://june.kim/the-plateau">learning plateaus</a> emerge from the recursive structure of consolidation: the system cannot improve further until it reorganizes what it already knows.</p>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/calculus/calc-12/">∫ Calculus Ch.12</a> &mdash; gradient: the mathematical foundation for the direction of steepest descent</li>
       <li><a href="/reading/real-analysis/lebl-04/">📏 Analysis Ch.4</a> &mdash; continuity: the smoothness conditions that make gradient descent work</li>
+    
+      <li><a href="/reading/calculus/calc-06/">∫ Calculus Ch.6</a> &mdash; applications of derivatives: gradient descent is optimization by following the derivative downhill</li>
+      <li><a href="/reading/linear-algebra/hefferon-05/">📐 Linear Algebra Ch.5</a> &mdash; eigenvalues determine convergence rates of gradient methods</li>
+      <li><a href="/reading/algorithms/algo-02/">⚙ Algorithms Ch.2</a> &mdash; dynamic programming shares the optimal substructure property with convex optimization</li>
     </ul>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 7 and <a href="https://d2l.ai/chapter_optimization/">D2L Ch. 12</a>.
     </div>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/calculus/calc-06/">∫ Calculus Ch.6</a> — applications of derivatives: gradient descent is optimization by following the derivative downhill · <a href="/reading/linear-algebra/hefferon-05/">📐 Linear Algebra Ch.5</a> — eigenvalues determine convergence rates of gradient methods · <a href="/reading/algorithms/algo-02/">⚙ Algorithms Ch.2</a> — dynamic programming shares the optimal substructure property with convex optimization</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-02/">&larr; Linear Regression</a>

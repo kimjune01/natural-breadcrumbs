@@ -17,7 +17,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     </div>
 
     <h3>Ranked slots with decreasing click rates</h3>
-    <p>In search advertising, higher positions get more clicks. GSP assigns the highest bidder to position 1, second-highest to position 2, and so on. Each advertiser pays the bid of the one below them (per click).</p>
+    <p>In search advertising, higher positions get more clicks. GSP assigns the highest bidder to position 1, second-highest to position 2, and so on. Each advertiser pays the bid of the one below them (per click). The entire model assumes <a href="https://june.kim/keywords-are-tiny-circles">keywords as discrete units</a>; once you move to continuous embedding spaces, the slot metaphor breaks down.</p>
 
     <!-- SVG: Ranked ad slots with decreasing click rates -->
     <div class="flex justify-center my-6">
@@ -98,7 +98,7 @@ print(gsp([10, 8, 2], [100, 60, 20]))
     </div>
 
     <h3>Not truthful, but stable</h3>
-    <p>Unlike <a href="/reading/auction-theory/vcg-1973/">💎 VCG</a>, bidders in GSP can sometimes benefit by bidding below their true value to get a cheaper slot. The paper shows that GSP has a locally envy-free equilibrium equivalent to the VCG outcome. Advertisers shade their bids just enough that no one envies an adjacent slot.</p>
+    <p>Unlike <a href="/reading/auction-theory/vcg-1973/">💎 VCG</a>, bidders in GSP can sometimes benefit by bidding below their true value to get a cheaper slot. The paper shows that GSP has a locally envy-free equilibrium equivalent to the VCG outcome. Advertisers shade their bids just enough that no one envies an adjacent slot. The shading problem disappears in <a href="https://june.kim/buying-space-not-keywords">space-based auctions</a>, where advertisers buy continuous regions rather than ranked positions.</p>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">
@@ -127,6 +127,11 @@ print(gsp([10, 8, 2], [100, 60, 20]))
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.1.242">Read the paper</a>.
+    </div>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/auction-theory/vcg-1973/">&larr; VCG 1973 &middot; 2 of 8</a>
+      <a href="/reading/auction-theory/milgrom-weber-1982/">Milgrom &amp; Weber 1982 &middot; 4 of 8 &rarr;</a>
     </div>
 
   </main>

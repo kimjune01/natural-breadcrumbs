@@ -111,7 +111,7 @@ print("Two items:  ", vcg_lp([10, 7, 4, 3], k=2))
     </div>
 
     <h3>Why the LP matters</h3>
-    <p>For combinatorial auctions (multiple items, complex bundles), brute-force VCG requires solving the allocation problem once per bidder. The LP formulation solves it once, and the dual gives all prices simultaneously. This is what makes VCG practical at scale.</p>
+    <p>For combinatorial auctions (multiple items, complex bundles), brute-force VCG requires solving the allocation problem once per bidder. The LP formulation solves it once, and the dual gives all prices simultaneously. This is what makes VCG practical at scale, and what makes <a href="https://june.kim/vector-space">embedding-space ad auctions</a> computationally feasible: the allocation over continuous query space reduces to an LP whose dual prices the regions.</p>
 
     <h3>Neighbors</h3>
     <ul class="neighbors">
@@ -122,6 +122,11 @@ print("Two items:  ", vcg_lp([10, 7, 4, 3], k=2))
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? <a href="https://arxiv.org/abs/2507.03252">Read the paper</a>.
+    </div>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/auction-theory/aurenhammer-1987/">&larr; Aurenhammer 1987 &middot; 5 of 8</a>
+      <a href="/reading/auction-theory/hartline-2023/">Hartline 2023 &middot; 7 of 8 &rarr;</a>
     </div>
 
   </main>

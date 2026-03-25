@@ -81,7 +81,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- 2. Mixed strategy for no-equilibrium games -->
     <h3>Mixed strategy: when there is no equilibrium</h3>
-    <p>Without an equilibrium, playing the same strategy every round is exploitable. Instead, randomize. A mixed strategy assigns a probability to each pure strategy. Over many rounds, the expected payoff converges to a predictable value, even though individual outcomes are random.</p>
+    <p>Without an equilibrium, playing the same strategy every round is exploitable. Instead, randomize. A mixed strategy assigns a probability to each pure strategy. Over many rounds, the expected payoff converges to a predictable value, even though individual outcomes are random. This cycle of perceiving outcomes, updating beliefs, and adjusting strategy is the same feedback loop that appears in <a href="https://june.kim/the-natural-framework">the natural framework</a> for information processing.</p>
 
     <!-- SVG: Timeline with varying choices -->
     <div class="flex justify-center my-6">
@@ -237,7 +237,7 @@ print(f"Avg (1000 rounds): {mixed_play(game, 0.6, 0.5, 1000):.3f}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Nordstrom series</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/game-theory/nordstrom-07/">🍞 §2.5 Zero-Sum Summary</a> — previous section</li>
       <li><a href="/reading/game-theory/nordstrom-09/">🍞 §3.2 Mixed Strategies: Graphical</a> — next section</li>
     </ul>

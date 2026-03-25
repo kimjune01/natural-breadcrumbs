@@ -13,7 +13,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <p class="text-gray-400 text-sm mb-6">MML (CC BY 4.0) &middot; D2L (CC BY-SA 4.0) &middot; 10 of 12</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">RNNs process sequences by maintaining hidden state. LSTMs add gates to control what to remember and forget. The hidden state is a lossy compression of the past &mdash; the bottleneck that attention solves.</p>
+      <p class="text-lg" style="max-width:none">RNNs process sequences by maintaining hidden state. LSTMs add gates to control what to remember and forget. The hidden state is a <a href="https://june.kim/context-density">lossy compression</a> of the past &mdash; the bottleneck that attention solves.</p>
     </div>
 
     <!-- SVG: RNN unrolled over time -->
@@ -275,8 +275,7 @@ for t in range(len(sequence) - 1):
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/programming/sicp-13/">&#x1F4D6; SICP Ch.13</a> &mdash; streams as lazy sequences, the functional view of time</li>
       <li><a href="/reading/cognitive-science/lovelace-07/">&#x1F9E0; Lovelace Ch.7</a> &mdash; language models and cognition</li>
     </ul>

@@ -94,7 +94,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 `} />
 
     <h3>Infinite repetition: tit-for-tat cooperates</h3>
-    <p>When the game has no known endpoint, the future matters. <strong>Tit-for-tat</strong>: cooperate on round 1, then copy your opponent's last move. It is responsive (punishes defection), nice (starts cooperative), and forgiving (returns to cooperation). Axelrod's tournaments showed it outperforms pure strategies.</p>
+    <p>When the game has no known endpoint, the future matters. <strong>Tit-for-tat</strong>: cooperate on round 1, then copy your opponent's last move. It is responsive (punishes defection), nice (starts cooperative), and forgiving (returns to cooperation). Axelrod's tournaments showed it outperforms pure strategies. Tit-for-tat is a closed feedback loop: perceive the opponent's last move, remember it, act on it. This is the same structure that makes <a href="https://june.kim/general-intelligence">general intelligence</a> work -- consolidation over repeated interactions.</p>
 
     <SchemeRepl client:load initialCode={`; Tit-for-tat vs various strategies over N rounds
 
@@ -217,7 +217,7 @@ print(f"always-C vs D:   {play(always_c, always_d)}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Game theory foundations</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/game-theory/nordstrom-12/">🎲 Nordstrom 12</a> — Prisoner's Dilemma and Chicken (the one-shot case)</li>
       <li><a href="/reading/game-theory/nordstrom-13/">🎲 Nordstrom 13</a> — Volunteer's Dilemma</li>
     </ul>

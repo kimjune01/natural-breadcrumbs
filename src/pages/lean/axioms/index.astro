@@ -10,7 +10,7 @@ import Layout from '../../../layouts/Base.astro';
     <p class="text-gray-400 text-sm mb-6"><a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Axioms.lean">View source on GitHub</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Declares the five empirical assumptions that ground the framework &mdash; reject any one and the dependent theorems break.</p>
+      <p class="text-lg" style="max-width:none">Declares the five empirical assumptions that ground the framework &mdash; reject any one and the dependent theorems break. This is where <a href="https://june.kim/theory-is-load-bearing">theoretical grounding</a> becomes literal: each axiom carries structural weight.</p>
     </div>
 
     <h3>axiom capacity_bound</h3>
@@ -56,5 +56,9 @@ import Layout from '../../../layouts/Base.astro';
       <li><a href="/reading/lean/stochasticity/">Stochasticity.lean</a> &mdash; uses capacity_bound + BoundedTransducer to show deterministic limits</li>
       <li><a href="/reading/lean/pigeonhole/">Pigeonhole.lean</a> &mdash; the collision that capacity_bound enables</li>
     </ul>
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/lean/kleisli/">&larr; Kleisli.lean &middot; 2 of 25</a>
+      <a href="/reading/lean/pipeline/">Pipeline.lean &middot; 4 of 25 &rarr;</a>
+    </div>
   </main>
 </Layout>

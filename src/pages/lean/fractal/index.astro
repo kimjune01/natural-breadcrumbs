@@ -25,7 +25,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     bits_at_depth initial (d + 1) &lt; bits_at_depth initial d</code></pre>
 
     <h3>def tower_consolidate</h3>
-    <p>The recursive construction. At depth 0: passthrough. At depth d+1: encode (policy, persisted) as raw input, run the inner pipeline's cycle, extract the updated policy. The inner pipeline shares forward stages with the base but uses depth-d consolidation.</p>
+    <p>The recursive construction. At depth 0: passthrough. At depth d+1: encode (policy, persisted) as raw input, run the inner pipeline's cycle, extract the updated policy. The inner pipeline shares forward stages with the base but uses depth-d consolidation. This self-similarity is what makes <a href="https://june.kim/the-natural-framework">the six roles</a> appear at every scale.</p>
     <pre class="bg-zinc-800 rounded-lg p-4 font-mono text-sm text-blue-300"><code><span class="text-blue-300">def</span> <span class="text-green-300">tower_consolidate</span> [Monad M] [LawfulMonad M]
     &#123;I : InterfaceTypes&#125;
     (base : Pipeline M I)
@@ -111,6 +111,14 @@ print("Terminates: budget hits 0 at depth=initial")
       <li><a href="/reading/lean/contracts/">Contracts.lean</a> &mdash; passthrough preserves any Contract</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mt-8">See also: <a href="/reading/information-theory/shannon-06/">📡 Shannon Ch6 DPI</a></p>
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/information-theory/shannon-06/">📡 Shannon Ch6 DPI</a></li>
+    </ul>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/lean/induction/">&larr; Induction.lean &middot; 13 of 25</a>
+      <a href="/reading/lean/hoare-core/">Hoare/Core.lean &middot; 15 of 25 &rarr;</a>
+    </div>
   </main>
 </Layout>

@@ -282,17 +282,18 @@ for pos in range(4):
 
     <!-- Translation notes -->
     <h3>Translation notes</h3>
-    <p class="text-sm text-gray-400">"<a href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">🅦 Attention Is All You Need</a>" (Vaswani et al., 2017) introduced the transformer. The encoder-decoder architecture processes both input and output sequences. Modern LLMs typically use decoder-only transformers. The self-attention mechanism has O(n&#xB2;) complexity in sequence length &mdash; the motivation behind recent work on linear attention, sparse attention, and state-space models.</p>
+    <p class="text-sm text-gray-400">"<a href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">🅦 Attention Is All You Need</a>" (Vaswani et al., 2017) introduced the transformer. The encoder-decoder architecture processes both input and output sequences. Modern LLMs typically use decoder-only transformers. The self-attention mechanism has O(n&#xB2;) complexity in sequence length &mdash; the motivation behind recent work on linear attention, sparse attention, and state-space models. The quadratic cost makes <a href="https://june.kim/context-density">context density</a> a practical concern: when the context window is finite, every token must earn its place.</p>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/linear-algebra/hefferon-03/">&#x1F4D0; Hefferon Ch.3</a> &mdash; linear maps as the Q, K, V projections</li>
       <li><a href="/reading/category-theory/milewski-10/">&#x1F408; Milewski Ch.10</a> &mdash; natural transformations: maps between functors, the category theory of "attention"</li>
+    
+      <li><a href="/reading/linear-algebra/hefferon-05/">📐 Linear Algebra Ch.5</a> &mdash; eigendecomposition is the mathematical foundation of PCA</li>
+      <li><a href="/reading/cognitive-architecture/vaswani-2017/">🏛️ Attention Is All You Need</a> &mdash; transformers use attention rather than PCA, but both find structure in high-dimensional representations</li>
     </ul>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/linear-algebra/hefferon-05/">📐 Linear Algebra Ch.5</a> — eigendecomposition is the mathematical foundation of PCA · <a href="/reading/cognitive-architecture/vaswani-2017/">🏛️ Attention Is All You Need</a> — transformers use attention rather than PCA, but both find structure in high-dimensional representations</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-10/">&larr; Sequence Models</a>

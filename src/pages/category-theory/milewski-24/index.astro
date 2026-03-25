@@ -388,7 +388,7 @@ print(f"100/5/0: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 0))}")
 
     <!-- 7. Lawvere theories vs monads -->
     <h3>Lawvere theories vs monads &mdash; when they diverge</h3>
-    <p>Every Lawvere theory gives a finitary monad. Every finitary monad comes from a Lawvere theory. But not every monad is finitary. The <strong>continuation monad</strong> (<code>r<sup>r<sup>a</sup></sup></code>) is the classic counterexample: it cannot be expressed as a Lawvere theory because it is not determined by its action on finite sets. The advantage of Lawvere theories: they compose via <strong>coproducts</strong> (combine operations from two theories) and <strong>tensor products</strong> (interleave operations). Monads have no generic composition recipe.</p>
+    <p>Every Lawvere theory gives a finitary monad. Every finitary monad comes from a Lawvere theory. But not every monad is finitary. The <strong>continuation monad</strong> (<code>r<sup>r<sup>a</sup></sup></code>) is the classic counterexample: it cannot be expressed as a Lawvere theory because it is not determined by its action on finite sets. The advantage of Lawvere theories: they compose via <strong>coproducts</strong> (combine operations from two theories) and <strong>tensor products</strong> (interleave operations). Monads have no generic composition recipe. This composability is what makes Lawvere theories a natural fit for <a href="https://june.kim/type-forcing">typed wiring diagrams</a>, where operations from different theories must plug together along typed interfaces.</p>
 
     <SchemeRepl client:load initialCode={`; Finitary = determined by action on finite sets.
 ; The list monad is finitary: a list is a finite sequence.
@@ -458,7 +458,7 @@ print(f"100/5/0: {maybe_bind(safe_div(100, 5), lambda r: safe_div(r, 0))}")
     <h3>Neighbors</h3>
 
     <p class="text-sm text-gray-500 mb-2">Milewski chapters</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/category-theory/milewski-17/">🍞 Chapter 17</a> &mdash; Monads (the standard approach Lawvere theories generalize)</li>
       <li><a href="/reading/category-theory/milewski-16/">🍞 Chapter 16</a> &mdash; Adjunctions (free/forgetful adjunction induces the monad)</li>
     </ul>

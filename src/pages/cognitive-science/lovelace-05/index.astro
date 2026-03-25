@@ -18,7 +18,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
 
     <!-- Agent-environment loop -->
     <h3>The agent-environment loop</h3>
-    <p>At each time step, the agent observes a state, chooses an action, receives a reward, and transitions to a new state. The goal is to maximize cumulative reward over time. This loop is the universal interface between learner and world.</p>
+    <p>At each time step, the agent observes a state, chooses an action, receives a reward, and transitions to a new state. The goal is to maximize cumulative reward over time. This loop is the universal interface between learner and world. When the loop closes all the way through consolidation, you get <a href="https://june.kim/general-intelligence">general intelligence</a>.</p>
 
     <!-- SVG: agent-environment loop -->
     <div class="flex justify-center my-6">
@@ -250,13 +250,16 @@ update_q(0, 1, 0.0, 1)
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/cognitive-science/lovelace-06/">Lovelace Ch.6</a> — decision making and utility theory</li>
       <li><a href="/reading/game-theory/hedges-2018/">Hedges 2018</a> — open games formalize the same agent-environment structure categorically</li>
       <li><a href="/reading/game-theory/nordstrom-09/">🎲 Nordstrom 3.2 Mixed Strategies</a> — mixed strategies: randomization over actions as an RL exploration mechanism</li>
       <li><a href="https://en.wikipedia.org/wiki/Temporal_difference_learning">Temporal difference learning</a></li>
+    
+      <li><a href="/reading/control/ctrl-08/">🎛 Control Ch.8</a> &mdash; optimal control is reinforcement learning with a known model</li>
+      <li><a href="/reading/algorithms/algo-09/">⚙ Algorithms Ch.9</a> &mdash; dynamic programming is the mathematical backbone of RL</li>
+      <li><a href="/reading/cognitive-architecture/laird-2022/">🏛️ Soar</a> &mdash; reinforcement learning formalized in a cognitive architecture</li>
+      <li><a href="https://june.kim/diagnosis-soar">Diagnosis of Soar</a> &mdash; where the RL cell fits and which cells remain empty</li>
     </ul>
 
 
@@ -267,7 +270,6 @@ update_q(0, 1, 0.0, 1)
       Read the original: <a href="https://computationalcognitivescience.github.io/lovelace/chapter5">Lovelace, Chapter 5</a>.
     </div>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/control/ctrl-08/">🎛 Control Ch.8</a> — optimal control is reinforcement learning with a known model · <a href="/reading/algorithms/algo-09/">⚙ Algorithms Ch.9</a> — dynamic programming is the mathematical backbone of RL · <a href="/reading/cognitive-architecture/laird-2022/">🏛️ Soar</a> — reinforcement learning formalized in a cognitive architecture</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/cognitive-science/lovelace-04/">&larr; Neural Networks</a>

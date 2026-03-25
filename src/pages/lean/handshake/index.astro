@@ -12,7 +12,7 @@ import SchemeRepl from '../../../components/SchemeRepl';
     <p class="text-gray-400 text-sm mb-6"><a href="https://github.com/kimjune01/natural-framework/blob/master/NaturalFramework/Handshake.lean">View source on GitHub</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">Formalizes the composition argument: stage N's postcondition implies stage N+1's precondition, including the cross-cycle coupling where Consolidate writes policy that Attend reads next cycle.</p>
+      <p class="text-lg" style="max-width:none">Formalizes <a href="https://june.kim/the-handshake">the composition argument</a>: stage N's postcondition implies stage N+1's precondition, including the cross-cycle coupling where Consolidate writes policy that Attend reads next cycle.</p>
     </div>
 
     <h3>structure Handshake</h3>
@@ -82,7 +82,7 @@ print("\\nAll handshakes hold — pipeline composes safely.")
     <p>Composing two non-expanding kernels gives a non-expanding kernel. Information can only decrease, never increase, through composition.</p>
 
     <h3>structure PipelineFunctor / def FunctorNatural</h3>
-    <p>A structure-preserving map between two pipeline instances. If domain A and domain B both implement six roles with compatible types, the mapping between them is a functor. Naturality means: mapping commutes with each role.</p>
+    <p>A structure-preserving map between two pipeline instances. If domain A and domain B both implement six roles with compatible types, the mapping between them is a functor. Naturality means: mapping commutes with each role. The <a href="https://june.kim/framework-lexicon">framework lexicon</a> maps how this functor language translates across mathematical communities.</p>
 
     <h3>structure TracedPipeline</h3>
     <p>The feedback trace: Remember's output feeds back to Perceive's input. In the self-recursive case, <code>persisted = raw</code>. A traced pipeline can run autonomously, feeding each cycle's output into the next cycle's input.</p>
@@ -96,6 +96,15 @@ print("\\nAll handshakes hold — pipeline composes safely.")
       <li><a href="/reading/lean/hoare-divergence/">Hoare/Divergence.lean</a> &mdash; NonExpanding characterized as threshold triples</li>
     </ul>
 
-    <p class="text-sm text-gray-500 mt-8">See also: <a href="/reading/kura-2026/">🍞 Kura 2026</a> · <a href="/reading/staton-2025/">🍞 Staton 2025</a></p>
+    <h3>Neighbors</h3>
+    <ul class="neighbors">
+      <li><a href="/reading/kura-2026/">🍞 Kura 2026</a></li>
+      <li><a href="/reading/staton-2025/">🍞 Staton 2025</a></li>
+    </ul>
+
+    <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
+      <a href="/reading/lean/contracts/">&larr; Contracts.lean &middot; 5 of 25</a>
+      <a href="/reading/lean/boundary/">Boundary.lean &middot; 7 of 25 &rarr;</a>
+    </div>
   </main>
 </Layout>

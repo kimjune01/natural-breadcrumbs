@@ -266,21 +266,23 @@ for x, y in data:
     <!-- Translation notes -->
     <h3>Translation notes</h3>
     <p>The sigmoid is the bridge between linear models and probability. Scheme's <code>(exp z)</code> maps directly to Python's <code>math.exp(z)</code> &mdash; same function, same numerical behavior. The gradient (p - y) &middot; x looks identical to linear regression's gradient, but p is now the sigmoid output instead of the raw linear prediction. This unification is the power of the generalized linear model.</p>
-    <p class="mt-2">Cross-entropy is measured in nats here (natural log). Shannon's original formulation uses log base 2 (bits). The optimization is the same either way &mdash; only the scale changes. See the information theory cross-link for more on this connection.</p>
+    <p class="mt-2">Cross-entropy is measured in nats here (natural log). Shannon's original formulation uses log base 2 (bits). The optimization is the same either way &mdash; only the scale changes. The connection between cross-entropy and information content runs deep: a <a href="https://june.kim/freshness-filter">freshness filter</a> uses exactly this measure of surprise to detect whether a signal carries substance or is just noise.</p>
 
     <!-- Neighbors -->
     <h3>Neighbors</h3>
-    <p class="text-sm text-gray-500 mb-2">Cross-links</p>
-    <ul>
+    <ul class="neighbors">
       <li><a href="/reading/information-theory/shannon-01/">📡 Shannon Ch.1</a> &mdash; information and surprise: cross-entropy is the expected surprise under the wrong distribution</li>
       <li><a href="/reading/probability/grinstead-04/">🎲 Grinstead Ch.4</a> &mdash; Bayes' theorem: the probabilistic foundation for maximum likelihood</li>
+    
+      <li><a href="/reading/information-theory/shannon-02/">📡 Information Theory Ch.2</a> &mdash; cross-entropy loss is KL divergence from the true distribution</li>
+      <li><a href="/reading/probability/grinstead-04/">🎰 Probability Ch.4</a> &mdash; Bayes' theorem connects posterior probability to the logistic function</li>
+      <li><a href="/reading/statistics/openintro-05/">📊 Statistics Ch.5</a> &mdash; hypothesis testing applies the same maximum likelihood framework</li>
     </ul>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Ready for the real thing? Read <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> Ch. 12 and <a href="https://d2l.ai/chapter_linear-classification/">D2L Ch. 4</a>.
     </div>
 
-    <p class="text-gray-500 text-sm mt-8">See also: <a href="/reading/information-theory/shannon-02/">📡 Information Theory Ch.2</a> — cross-entropy loss is KL divergence from the true distribution · <a href="/reading/probability/grinstead-04/">🎰 Probability Ch.4</a> — Bayes' theorem connects posterior probability to the logistic function · <a href="/reading/statistics/openintro-05/">📊 Statistics Ch.5</a> — hypothesis testing applies the same maximum likelihood framework</p>
 
     <div class="flex justify-between items-center mt-12 pt-6 border-t border-zinc-800 text-sm">
       <a href="/reading/machine-learning/ml-03/">&larr; Optimization</a>
