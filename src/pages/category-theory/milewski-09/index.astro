@@ -357,7 +357,7 @@ print(f"uncurried: {f_uncurried((10, 3))}")
 
     <!-- 7. Curry-Howard -->
     <h3>Curry-Howard: functions as proofs</h3>
-    <p>Under the Curry-Howard correspondence, the function type <code>a → b</code> is logical implication: "if a then b." The <code>eval</code> morphism proves modus ponens: given <code>(a ⇒ b)</code> and <code>a</code>, produce <code>b</code>. Currying proves the deduction theorem: to prove <code>a ⇒ (b ⇒ c)</code>, assume <code>a</code> and <code>b</code>, then prove <code>c</code>. Cartesian closed categories constrain what compositions are physically realizable — <a href="https://june.kim/type-forcing">type forcing</a> shows how physical constraints collapse Spivak's operad of possible wirings down to the ones that actually typecheck.</p>
+    <p>Under the Curry-Howard correspondence, the function type <code>a → b</code> is logical implication: "if a then b." The <code>eval</code> morphism proves modus ponens: given <code>(a ⇒ b)</code> and <code>a</code>, produce <code>b</code>. Currying proves the deduction theorem: to prove <code>a ⇒ (b ⇒ c)</code>, assume <code>a</code> and <code>b</code>, then prove <code>c</code>. Cartesian closed categories constrain what compositions are physically realizable — <a href="https://june.kim/type-forcing"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>type forcing</a> shows how physical constraints collapse Spivak's operad of possible wirings down to the ones that actually typecheck.</p>
 
     <SchemeRepl client:load initialCode={`; Curry-Howard correspondence:
 ; Types         ↔  Propositions

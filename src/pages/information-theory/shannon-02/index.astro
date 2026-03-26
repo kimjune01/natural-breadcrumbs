@@ -133,7 +133,7 @@ print(f"certain:     {entropy([1.0]):.4f} bits")
 
     <!-- 3. Shannon's telegraph example -->
     <h3>Shannon's telegraph example</h3>
-    <p>Shannon's original motivation: English text is not uniform. The letter E appears far more often than Z. Because the distribution is skewed, the entropy per letter is lower than log<sub>2</sub>(27) = 4.75 bits. Shannon estimated about 1 to 1.5 bits per character in English. That gap is what compression exploits, and it is the principle behind <a href="https://june.kim/context-density">context density</a> as a measure of how much meaning is packed into a given span of text.</p>
+    <p>Shannon's original motivation: English text is not uniform. The letter E appears far more often than Z. Because the distribution is skewed, the entropy per letter is lower than log<sub>2</sub>(27) = 4.75 bits. Shannon estimated about 1 to 1.5 bits per character in English. That gap is what compression exploits, and it is the principle behind <a href="https://june.kim/context-density"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>context density</a> as a measure of how much meaning is packed into a given span of text.</p>
 
     <SchemeRepl client:load initialCode={`; English is not uniform: entropy per letter is much
 ; less than log2(27) = 4.75 bits

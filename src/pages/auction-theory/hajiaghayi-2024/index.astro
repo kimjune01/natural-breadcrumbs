@@ -19,7 +19,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     </div>
 
     <h3>The RAG ad pipeline</h3>
-    <p>User sends a query. The system retrieves relevant documents AND ad candidates from an embedding index. An auction selects the winning ad. The ad context is injected into the LLM prompt alongside organic results. The LLM generates a unified response. The alternative architecture is a <a href="https://june.kim/vectorspace-adserver">dedicated vector-space ad server</a> that handles the auction before the retrieval step, keeping the ad selection independent of the LLM.</p>
+    <p>User sends a query. The system retrieves relevant documents AND ad candidates from an embedding index. An auction selects the winning ad. The ad context is injected into the LLM prompt alongside organic results. The LLM generates a unified response. The alternative architecture is a <a href="https://june.kim/vectorspace-adserver"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>dedicated vector-space ad server</a> that handles the auction before the retrieval step, keeping the ad selection independent of the LLM.</p>
 
     <!-- SVG: RAG pipeline with ad injection point -->
     <div class="flex justify-center my-6">
@@ -141,11 +141,11 @@ for name, rel, bid, score in rag_auction(query, ads):
     </div>
 
     <h3>The design space</h3>
-    <p>Key questions: How to price (VCG on the embedding scores? GSP?). How to ensure ad quality (reserve on relevance?). How to prevent the LLM from distorting the ad. The paper proposes using the retrieval relevance score as the quality signal, combined with a second-price payment rule. This is the RAG approach to what <a href="https://june.kim/the-last-ad-layer">the last ad layer</a> calls the serving problem: where in the stack does the ad get inserted, and who controls the context window?</p>
+    <p>Key questions: How to price (VCG on the embedding scores? GSP?). How to ensure ad quality (reserve on relevance?). How to prevent the LLM from distorting the ad. The paper proposes using the retrieval relevance score as the quality signal, combined with a second-price payment rule. This is the RAG approach to what <a href="https://june.kim/the-last-ad-layer"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>the last ad layer</a> calls the serving problem: where in the stack does the ad get inserted, and who controls the context window?</p>
 
     <Neighbors>
     <ul class="neighbors">
-      <li><a href="https://june.kim/vector-space">june.kim/vector-space</a> &mdash; the blog series this paper competes with</li>
+      <li><a href="https://june.kim/vector-space"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>june.kim/vector-space</a> &mdash; the blog series this paper competes with</li>
       <li><a href="/reading/cryptography/">🔐 Cryptography</a> &mdash; crypto-12: TEE enclaves as alternative architecture for trusted ad serving</li>
       <li><a href="/reading/auction-theory/aurenhammer-1987/">💎 Aurenhammer 1987</a> &mdash; geometric allocation via power diagrams</li>
       <li><a href="/reading/auction-theory/gsp-2007/">💎 GSP 2007</a> &mdash; the pricing rule this paper adapts</li>

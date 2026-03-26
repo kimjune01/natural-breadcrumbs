@@ -22,7 +22,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- 1. Natural transformations -->
     <h3>Natural transformations: morphisms between functors</h3>
-    <p>A functor maps objects and morphisms from one category to another. A <strong>natural transformation</strong> maps between two such functors. For functors F and G from category C to D, a natural transformation alpha provides, for each object <code>a</code> in C, a morphism <code>alpha_a : F(a) -> G(a)</code> in D. These morphisms are called <strong>components</strong>. Natural transformations are how <a href="https://june.kim/the-natural-framework">the natural framework</a> connects its six processing stages: each stage is a functor, and the transitions between them are natural transformations that preserve the information structure.</p>
+    <p>A functor maps objects and morphisms from one category to another. A <strong>natural transformation</strong> maps between two such functors. For functors F and G from category C to D, a natural transformation alpha provides, for each object <code>a</code> in C, a morphism <code>alpha_a : F(a) -> G(a)</code> in D. These morphisms are called <strong>components</strong>. Natural transformations are how <a href="https://june.kim/the-natural-framework"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>the natural framework</a> connects its six processing stages: each stage is a functor, and the transitions between them are natural transformations that preserve the information structure.</p>
 
     <SchemeRepl client:load initialCode={`; A natural transformation alpha : F -> G
 ; gives a component alpha_a : F(a) -> G(a) for every type a.

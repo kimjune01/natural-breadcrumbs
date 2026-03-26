@@ -268,7 +268,7 @@ for x, y in data:
     <!-- Translation notes -->
     <h3>Translation notes</h3>
     <p>The sigmoid is the bridge between linear models and probability. Scheme's <code>(exp z)</code> maps directly to Python's <code>math.exp(z)</code> &mdash; same function, same numerical behavior. The gradient (p - y) &middot; x looks identical to linear regression's gradient, but p is now the sigmoid output instead of the raw linear prediction. This unification is the power of the generalized linear model.</p>
-    <p class="mt-2">Cross-entropy is measured in nats here (natural log). Shannon's original formulation uses log base 2 (bits). The optimization is the same either way &mdash; only the scale changes. The connection between cross-entropy and information content runs deep: a <a href="https://june.kim/freshness-filter">freshness filter</a> uses exactly this measure of surprise to detect whether a signal carries substance or is just noise.</p>
+    <p class="mt-2">Cross-entropy is measured in nats here (natural log). Shannon's original formulation uses log base 2 (bits). The optimization is the same either way &mdash; only the scale changes. The connection between cross-entropy and information content runs deep: a <a href="https://june.kim/freshness-filter"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>freshness filter</a> uses exactly this measure of surprise to detect whether a signal carries substance or is just noise.</p>
 
     <!-- Neighbors -->
     <Neighbors>

@@ -15,7 +15,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-gray-400 text-sm mb-6">Lovelace textbook &middot; CC BY-SA 4.0 &middot; <a href="https://computationalcognitivescience.github.io/lovelace/home">computationalcognitivescience.github.io/lovelace/home</a></p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">A <strong>cognitive architecture</strong> is a fixed computational infrastructure within which knowledge and skills operate. <strong>ACT-R</strong> and <strong>Soar</strong> are the two most influential architectures. Both use <strong>production rules</strong> (if-then rules that fire on working memory contents) as their central mechanism. The question is not which module does what, but how the modules compose into a unified system that perceives, remembers, decides, and acts. <a href="https://june.kim/the-natural-framework">The Natural Framework</a> decomposes this into six functional roles.</p>
+      <p class="text-lg" style="max-width:none">A <strong>cognitive architecture</strong> is a fixed computational infrastructure within which knowledge and skills operate. <strong>ACT-R</strong> and <strong>Soar</strong> are the two most influential architectures. Both use <strong>production rules</strong> (if-then rules that fire on working memory contents) as their central mechanism. The question is not which module does what, but how the modules compose into a unified system that perceives, remembers, decides, and acts. <a href="https://june.kim/the-natural-framework"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>The Natural Framework</a> decomposes this into six functional roles.</p>
     </div>
 
     <!-- Production systems -->
@@ -164,7 +164,7 @@ print("Higher activation = faster retrieval = lower RT")
 
     <!-- Soar -->
     <h3>Soar</h3>
-    <p>Soar models cognition as search through a problem space. When no production rule applies (an <strong>impasse</strong>), Soar creates a subgoal and searches for a resolution. Once resolved, the result is <strong>chunked</strong> into a new production rule so the impasse never recurs. This is learning by problem-solving: every solved impasse becomes compiled knowledge. But chunking only covers one of Soar's learning mechanisms; a <a href="https://june.kim/diagnosis-soar">diagnostic analysis</a> reveals gaps in the architecture's semantic and episodic learning cells, and a <a href="https://june.kim/prescription-soar">prescriptive follow-up</a> proposes consolidation mechanisms to fill them.</p>
+    <p>Soar models cognition as search through a problem space. When no production rule applies (an <strong>impasse</strong>), Soar creates a subgoal and searches for a resolution. Once resolved, the result is <strong>chunked</strong> into a new production rule so the impasse never recurs. This is learning by problem-solving: every solved impasse becomes compiled knowledge. But chunking only covers one of Soar's learning mechanisms; a <a href="https://june.kim/diagnosis-soar"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>diagnostic analysis</a> reveals gaps in the architecture's semantic and episodic learning cells, and a <a href="https://june.kim/prescription-soar"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>prescriptive follow-up</a> proposes consolidation mechanisms to fill them.</p>
 
     <SchemeRepl client:load initialCode={`; Soar-style chunking: solve an impasse, compile the result
 ; into a new production rule
@@ -247,9 +247,9 @@ solve("3+4")  # second time: retrieved directly
     <!-- Neighbors -->
     <Neighbors>
     <ul class="neighbors">
-      <li><a href="https://june.kim/diagnosis-soar">Diagnosis of Soar</a> — where Soar's learning cells are empty</li>
-      <li><a href="https://june.kim/prescription-soar">Prescription for Soar</a> — consolidation mechanisms to fill the gaps</li>
-      <li><a href="https://june.kim/memory">Memory</a> — memory as a RESTful interface vs consolidation as async scheduler</li>
+      <li><a href="https://june.kim/diagnosis-soar"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Diagnosis of Soar</a> — where Soar's learning cells are empty</li>
+      <li><a href="https://june.kim/prescription-soar"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Prescription for Soar</a> — consolidation mechanisms to fill the gaps</li>
+      <li><a href="https://june.kim/memory"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>Memory</a> — memory as a RESTful interface vs consolidation as async scheduler</li>
       <li><a href="/reading/cognitive-science/lovelace-04/">Lovelace Ch.4</a> — neural networks as an alternative substrate</li>
       <li><a href="/reading/cognitive-science/lovelace-05/">Lovelace Ch.5</a> — reinforcement learning for action selection</li>
       <li><a href="https://en.wikipedia.org/wiki/ACT-R">ACT-R</a></li>
@@ -259,7 +259,7 @@ solve("3+4")  # second time: retrieved directly
 
 
     <h3>Translation notes</h3>
-    <p>The Lovelace textbook covers ACT-R and Soar in detail, including their module architectures, learning mechanisms, and how they have been applied to model tasks like arithmetic, driving, and air traffic control. This page focuses on the shared core: production systems as the computational mechanism, and the key differences (ACT-R's activation-based retrieval vs Soar's impasse-driven learning). The textbook also discusses EPIC, CLARION, and the debate about whether a single architecture can capture all of cognition. One structural reason architectures stall is that <a href="https://june.kim/the-plateau">consolidation has its own recursive consolidation</a>, and missing that recursion creates learning plateaus.</p>
+    <p>The Lovelace textbook covers ACT-R and Soar in detail, including their module architectures, learning mechanisms, and how they have been applied to model tasks like arithmetic, driving, and air traffic control. This page focuses on the shared core: production systems as the computational mechanism, and the key differences (ACT-R's activation-based retrieval vs Soar's impasse-driven learning). The textbook also discusses EPIC, CLARION, and the debate about whether a single architecture can capture all of cognition. One structural reason architectures stall is that <a href="https://june.kim/the-plateau"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>consolidation has its own recursive consolidation</a>, and missing that recursion creates learning plateaus.</p>
 
     <div class="bg-zinc-800 rounded-lg p-4 text-center text-sm text-gray-400 mt-10">
       Read the original: <a href="https://computationalcognitivescience.github.io/lovelace/chapter8">Lovelace, Chapter 8</a>.

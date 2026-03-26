@@ -96,7 +96,7 @@ import PrevNext from "../../../components/PrevNext.astro";
 `} />
 
     <h3>Infinite repetition: tit-for-tat cooperates</h3>
-    <p>When the game has no known endpoint, the future matters. <strong>Tit-for-tat</strong>: cooperate on round 1, then copy your opponent's last move. It is responsive (punishes defection), nice (starts cooperative), and forgiving (returns to cooperation). Axelrod's tournaments showed it outperforms pure strategies. Tit-for-tat is a closed feedback loop: perceive the opponent's last move, remember it, act on it. This is the same structure that makes <a href="https://june.kim/general-intelligence">general intelligence</a> work -- consolidation over repeated interactions.</p>
+    <p>When the game has no known endpoint, the future matters. <strong>Tit-for-tat</strong>: cooperate on round 1, then copy your opponent's last move. It is responsive (punishes defection), nice (starts cooperative), and forgiving (returns to cooperation). Axelrod's tournaments showed it outperforms pure strategies. Tit-for-tat is a closed feedback loop: perceive the opponent's last move, remember it, act on it. This is the same structure that makes <a href="https://june.kim/general-intelligence"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>general intelligence</a> work -- consolidation over repeated interactions.</p>
 
     <SchemeRepl client:load initialCode={`; Tit-for-tat vs various strategies over N rounds
 

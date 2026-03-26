@@ -89,7 +89,6 @@ const { title, favicon } = Astro.props;
           /* SVGs: currentColor at 0.2 opacity is invisible on white.
              Make it a dark gray so low-opacity structural elements stay visible. */
           svg { color: #18181b; }
-          ::selection { background: #bbf7d0; color: #09090b; }
         }
 
         /* Paragraph spacing: space between, no indent */
@@ -169,12 +168,6 @@ const { title, favicon } = Astro.props;
           letter-spacing: 0.05em;
         }
 
-        /* Selection */
-        ::selection {
-          background: #365314;
-          color: #fafafa;
-        }
-
         /* Highlights */
       }
     </style>
@@ -191,8 +184,8 @@ const { title, favicon } = Astro.props;
       textarea::-webkit-scrollbar, pre::-webkit-scrollbar { -webkit-appearance: none; width: 8px; height: 8px; }
       textarea::-webkit-scrollbar-thumb, pre::-webkit-scrollbar-thumb { background: #52525b; border-radius: 4px; }
       textarea::-webkit-scrollbar-track, pre::-webkit-scrollbar-track { background: #27272a; }
-      img[alt="jk"], img[alt="arxiv"] { filter: invert(1); }
-      :root.light img[alt="jk"], :root.light img[alt="arxiv"] { filter: none; }
+      img[alt="jk"], img[alt="arxiv"], img[alt="gh"], img[src$="-pipeline.svg"] { filter: invert(1); }
+      :root.light img[alt="jk"], :root.light img[alt="arxiv"], :root.light img[alt="gh"], :root.light img[src$="-pipeline.svg"] { filter: none; }
       :root:not(.light) a, :root:not(.light) a:link, :root:not(.light) a:visited { color: #e4e4e7; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
       :root:not(.light) a.visited-link { color: #bbbbc4; background: rgba(255,255,255,0.04); }
       :root:not(.light) a:hover { color: #fafafa; background: #3f3f46; }
@@ -218,9 +211,13 @@ const { title, favicon } = Astro.props;
         box-shadow: 0 1px 3px rgba(0,0,0,0.3);
       }
       #hl-btn:hover { background: #86efac; }
+      :root:not(.light) #hl-btn { background: rgba(74,222,128,0.3); color: #d4d4d8; border: 1px solid rgba(74,222,128,0.4); }
+      :root:not(.light) #hl-btn:hover { background: rgba(74,222,128,0.45); }
       /* @layer base loses to browser defaults (e.g. <mark> yellow). Put overrides here in is:global. */
-      mark.user-highlight { background: #365314 !important; color: #fafafa !important; border-radius: 2px; padding: 0; }
-      :root.light mark.user-highlight { background: #bbf7d0 !important; color: #09090b !important; }
+      ::selection { background: rgba(74,222,128,0.3) !important; color: inherit !important; }
+      :root.light ::selection { background: rgba(134,239,172,0.4) !important; color: inherit !important; }
+      mark.user-highlight { background: rgba(74,222,128,0.3) !important; color: inherit !important; border-radius: 2px; padding: 0; }
+      :root.light mark.user-highlight { background: rgba(134,239,172,0.4) !important; color: inherit !important; }
       /* REPL background — used by inline styles in components */
       :root { --repl-bg: #18181b; --repl-caret: #93c5fd; }
       :root.light { --repl-bg: #fafaf9; --repl-caret: #1d4ed8; }

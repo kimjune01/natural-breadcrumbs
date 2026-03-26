@@ -19,7 +19,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     </div>
 
     <h3>Ranked slots with decreasing click rates</h3>
-    <p>In search advertising, higher positions get more clicks. GSP assigns the highest bidder to position 1, second-highest to position 2, and so on. Each advertiser pays the bid of the one below them (per click). The entire model assumes <a href="https://june.kim/keywords-are-tiny-circles">keywords as discrete units</a>; once you move to continuous embedding spaces, the slot metaphor breaks down.</p>
+    <p>In search advertising, higher positions get more clicks. GSP assigns the highest bidder to position 1, second-highest to position 2, and so on. Each advertiser pays the bid of the one below them (per click). The entire model assumes <a href="https://june.kim/keywords-are-tiny-circles"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>keywords as discrete units</a>; once you move to continuous embedding spaces, the slot metaphor breaks down.</p>
 
     <!-- SVG: Ranked ad slots with decreasing click rates -->
     <div class="flex justify-center my-6">
@@ -100,7 +100,7 @@ print(gsp([10, 8, 2], [100, 60, 20]))
     </div>
 
     <h3>Not truthful, but stable</h3>
-    <p>Unlike <a href="/reading/auction-theory/vcg-1973/">💎 VCG</a>, bidders in GSP can sometimes benefit by bidding below their true value to get a cheaper slot. The paper shows that GSP has a locally envy-free equilibrium equivalent to the VCG outcome. Advertisers shade their bids just enough that no one envies an adjacent slot. The shading problem disappears in <a href="https://june.kim/buying-space-not-keywords">space-based auctions</a>, where advertisers buy continuous regions rather than ranked positions.</p>
+    <p>Unlike <a href="/reading/auction-theory/vcg-1973/">💎 VCG</a>, bidders in GSP can sometimes benefit by bidding below their true value to get a cheaper slot. The paper shows that GSP has a locally envy-free equilibrium equivalent to the VCG outcome. Advertisers shade their bids just enough that no one envies an adjacent slot. The shading problem disappears in <a href="https://june.kim/buying-space-not-keywords"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>space-based auctions</a>, where advertisers buy continuous regions rather than ranked positions.</p>
 
     <h3>Notation reference</h3>
     <div class="overflow-x-auto">
@@ -122,7 +122,7 @@ print(gsp([10, 8, 2], [100, 60, 20]))
 
     <Neighbors>
     <ul class="neighbors">
-      <li><a href="https://june.kim/one-shot-bidding">june.kim/one-shot-bidding</a> &mdash; GSP in practice</li>
+      <li><a href="https://june.kim/one-shot-bidding"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>june.kim/one-shot-bidding</a> &mdash; GSP in practice</li>
       <li><a href="/reading/auction-theory/vickrey-1961/">💎 Vickrey 1961</a> &mdash; the single-item version GSP generalizes</li>
       <li><a href="/reading/auction-theory/vcg-1973/">💎 VCG 1973</a> &mdash; the truthful alternative GSP approximates</li>
     </ul>

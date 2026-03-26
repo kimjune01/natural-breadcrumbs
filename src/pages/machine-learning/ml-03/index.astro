@@ -205,7 +205,7 @@ print("Diverged! x = {:.2f}, f(x) = {:.2f}".format(x, f(x)))
     <!-- Translation notes -->
     <h3>Translation notes</h3>
     <p>Gradient descent is a natural fit for tail recursion: each call passes the updated state forward, and no work remains after the recursive call returns. The Scheme version makes this explicit &mdash; <code>descend</code> is a loop with no stack growth. Python's <code>for</code> loop achieves the same thing with mutable assignment.</p>
-    <p class="mt-2">The divergence example is the most important one. Learning rate selection is the first hyperparameter choice every practitioner faces, and the failure mode is dramatic: the loss explodes exponentially. In practice, learning rate schedules (decay, warmup) and adaptive methods (Adam, RMSProp) handle this automatically. Even with good optimization, <a href="https://june.kim/the-plateau">learning plateaus</a> emerge from the recursive structure of consolidation: the system cannot improve further until it reorganizes what it already knows.</p>
+    <p class="mt-2">The divergence example is the most important one. Learning rate selection is the first hyperparameter choice every practitioner faces, and the failure mode is dramatic: the loss explodes exponentially. In practice, learning rate schedules (decay, warmup) and adaptive methods (Adam, RMSProp) handle this automatically. Even with good optimization, <a href="https://june.kim/the-plateau"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>learning plateaus</a> emerge from the recursive structure of consolidation: the system cannot improve further until it reorganizes what it already knows.</p>
 
     <!-- Neighbors -->
     <Neighbors>

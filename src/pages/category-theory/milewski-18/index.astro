@@ -267,7 +267,7 @@ print(f"blurred at 5: {blurred.fn(5)}")           # 77
 
     <!-- 3. 1D cellular automaton -->
     <h3>Cellular automaton via extend</h3>
-    <p>A cellular automaton is a co-Kleisli arrow: it reads the neighborhood (the comonadic context) and produces the next value. <code>extend</code> applies this rule everywhere at once. One step of the automaton is one call to <code>extend</code>. Iteration is composition of co-Kleisli arrows. Conway's Game of Life works the same way with a 2D Store. This extract-then-extend loop is the categorical shape of any system that reads its environment and updates: the same pattern appears in <a href="https://june.kim/general-intelligence">closed feedback loops</a> where perception feeds action feeds consolidation.</p>
+    <p>A cellular automaton is a co-Kleisli arrow: it reads the neighborhood (the comonadic context) and produces the next value. <code>extend</code> applies this rule everywhere at once. One step of the automaton is one call to <code>extend</code>. Iteration is composition of co-Kleisli arrows. Conway's Game of Life works the same way with a 2D Store. This extract-then-extend loop is the categorical shape of any system that reads its environment and updates: the same pattern appears in <a href="https://june.kim/general-intelligence"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>closed feedback loops</a> where perception feeds action feeds consolidation.</p>
 
     <SchemeRepl client:load initialCode={`; 1D cellular automaton using Store comonad
 ; Rule: a cell becomes 1 if exactly one neighbor is 1, else 0.

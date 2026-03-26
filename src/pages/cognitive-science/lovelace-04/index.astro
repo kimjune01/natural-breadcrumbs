@@ -107,7 +107,7 @@ for x in [(0,0),(0,1),(1,0),(1,1)]:
 
     <!-- Backpropagation -->
     <h3>Backpropagation</h3>
-    <p>Backpropagation computes the gradient of the loss with respect to each weight by applying the chain rule layer by layer, from output back to input. Each weight is then nudged in the direction that reduces the loss. The learning rate controls the step size. This is gradient descent applied to a compositional function. The same backward-pass structure appears in cognitive architectures as <a href="https://june.kim/consolidation">consolidation</a>: a process that reads from experience and writes parameter changes back to the substrate.</p>
+    <p>Backpropagation computes the gradient of the loss with respect to each weight by applying the chain rule layer by layer, from output back to input. Each weight is then nudged in the direction that reduces the loss. The learning rate controls the step size. This is gradient descent applied to a compositional function. The same backward-pass structure appears in cognitive architectures as <a href="https://june.kim/consolidation"><img src="/reading/jk.png" alt="jk" style="display:inline;height:1em;vertical-align:-0.1em;margin-right:0.2em;"/>consolidation</a>: a process that reads from experience and writes parameter changes back to the substrate.</p>
 
     <SchemeRepl client:load initialCode={`; Backpropagation on a tiny network: 1 input, 1 hidden, 1 output
 ; Sigmoid activation, MSE loss
