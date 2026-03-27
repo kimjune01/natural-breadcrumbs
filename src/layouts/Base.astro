@@ -40,10 +40,10 @@ const { title, favicon } = Astro.props;
             background: #fafaf9;       /* stone-50 */
           }
           h1, h2, h3, h4 { color: #18181b; }
-          a, a:link, a:visited { color: #09090b; text-decoration: none; background: #e7e5e4 !important; }
-          a.visited-link { color: #57534e; background: rgba(0,0,0,0.04) !important; }
-          a.bare-link, a.bare-link:link, a.bare-link:visited, a.bare-link:hover { background: transparent !important; }
-          a:hover, a:visited:hover { color: #09090b; background: #d6d3d1 !important; }
+          a, a:link, a:visited { color: #09090b; text-decoration: none; background: #e7e5e4; padding: 0.1em 0.3em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+          a.visited-link { color: #57534e; background: rgba(0,0,0,0.04); }
+          a.bare-link, a.bare-link:link, a.bare-link:visited, a.bare-link:hover { background: transparent; }
+          a:hover, a:visited:hover { color: #09090b; background: #d6d3d1; }
           code:not(pre code) {
             background: #f0f0f0;
             color: #18181b;
