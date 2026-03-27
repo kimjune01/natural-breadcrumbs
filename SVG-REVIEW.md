@@ -2,6 +2,18 @@
 
 Reviewed 2026-03-23.
 
+### Finance SVG audit — 2026-03-27
+
+Visually audited and fixed 7 finance SVGs:
+
+- **fin-01**: expanded viewBox, added caption, replaced Unicode superscript
+- **fin-02**: added caption
+- **fin-03**: redesigned to show PV convergence, widened viewBox
+- **fin-04**: added normality caveat to 68% label, expanded viewBox
+- **fin-05**: shortened caption to fit viewBox
+- **fin2-09**: redrawn from barrier model to correct Merton (maturity-only default)
+- **fin2-10**: added caption
+
 ## Lessons learned
 
 **ViewBox clipping is the most common bug.** If the bottom element sits at y=193 and the viewBox height is 200, descenders and stroke widths get cut. Always add 5-10px of breathing room below the lowest element. Found this in sicp-04, sicp-05, sicp-14.
@@ -162,5 +174,5 @@ To update after review, re-run the generation script and overwrite `svg-inventor
 
 - **Total SVGs**: 461 across the site
 - **Reviewed**: 461 (all)
-- **Fixed**: 7 (5 SICP, 1 calculus calc-15, 1 game-theory index)
+- **Fixed**: 14 (5 SICP, 1 calculus calc-15, 1 game-theory index, 7 finance)
 - **Multi-SVG pages**: milewski-06, milewski-14, os-02, ml-08, sicp-03
