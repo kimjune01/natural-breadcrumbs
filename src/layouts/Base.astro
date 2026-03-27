@@ -175,10 +175,9 @@ const { title, favicon } = Astro.props;
       h1, h2, h3, h4 { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif !important; font-weight: 500 !important; }
       ul, ol { list-style: none !important; padding-left: 0 !important; }
       ul.neighbors { line-height: 1.8; }
+      th, td { padding: 0.5em 0.8em; }
       thead tr { background: rgba(255,255,255,0.06) !important; }
       tbody tr:nth-child(even) { background: rgba(255,255,255,0.03) !important; }
-      th, td { text-align: left !important; padding: 0.5em 0.8em !important; }
-      td.text-right { text-align: right !important; }
       :root.light thead tr { background: rgba(0,0,0,0.04) !important; }
       :root.light tbody tr:nth-child(even) { background: rgba(0,0,0,0.03) !important; }
       textarea, pre { overflow: auto !important; scrollbar-width: thin; scrollbar-color: #52525b transparent; }
@@ -187,7 +186,7 @@ const { title, favicon } = Astro.props;
       textarea::-webkit-scrollbar-track, pre::-webkit-scrollbar-track { background: #27272a; }
       img[alt="jk"], img[alt="arxiv"], img[alt="gh"], img[alt="wp"], img[src$="-pipeline.svg"] { filter: invert(1); }
       :root.light img[alt="jk"], :root.light img[alt="arxiv"], :root.light img[alt="gh"], :root.light img[alt="wp"], :root.light img[src$="-pipeline.svg"] { filter: none; }
-      :root:not(.light) a, :root:not(.light) a:link, :root:not(.light) a:visited { color: #e4e4e7; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; }
+      :root:not(.light) a, :root:not(.light) a:link, :root:not(.light) a:visited { color: #e4e4e7; text-decoration: none; background: #27272a; padding: 0.1em 0.3em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
       :root:not(.light) a.visited-link { color: #bbbbc4; background: rgba(255,255,255,0.04); }
       :root:not(.light) a:hover { color: #fafafa; background: #3f3f46; }
       /* REPL textarea — selection keeps text hidden, shows highlight only */

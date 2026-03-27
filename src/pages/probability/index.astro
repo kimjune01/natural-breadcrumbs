@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -36,95 +37,20 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-01/">Discrete Probability</a></td>
-            <td class="pr-3 text-gray-400">Sample spaces, events, and assigning probabilities to outcomes you can count</td>
-            <td><a href="/reading/probability/grinstead-01/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-02/">Continuous Probability</a></td>
-            <td class="pr-3 text-gray-400">When outcomes are real numbers, probabilities are areas under curves</td>
-            <td><a href="/reading/probability/grinstead-02/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-03/">Combinatorics</a></td>
-            <td class="pr-3 text-gray-400">Counting arrangements: permutations, combinations, binomial coefficients</td>
-            <td><a href="/reading/probability/grinstead-03/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-04/">Conditional Probability</a></td>
-            <td class="pr-3 text-gray-400">P(A|B) = P(A and B) / P(B), and why Bayes' theorem follows</td>
-            <td><a href="/reading/probability/grinstead-04/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-05/">Distributions</a></td>
-            <td class="pr-3 text-gray-400">Binomial, Poisson, geometric, normal: the named distributions and when they arise</td>
-            <td><a href="/reading/probability/grinstead-05/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-06/">Expected Value</a></td>
-            <td class="pr-3 text-gray-400">The weighted average of outcomes, and variance as spread around it</td>
-            <td><a href="/reading/probability/grinstead-06/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-07/">Sums of Random Variables</a></td>
-            <td class="pr-3 text-gray-400">Add independent random variables: means add, variances add, distributions convolve</td>
-            <td><a href="/reading/probability/grinstead-07/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-08/">Law of Large Numbers</a></td>
-            <td class="pr-3 text-gray-400">Averages converge to the expected value as sample size grows</td>
-            <td><a href="/reading/probability/grinstead-08/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-09/">Central Limit Theorem</a></td>
-            <td class="pr-3 text-gray-400">Sums of many independent variables approach a normal distribution</td>
-            <td><a href="/reading/probability/grinstead-09/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-10/">Generating Functions</a></td>
-            <td class="pr-3 text-gray-400">Encode a distribution as a polynomial, then multiply polynomials to convolve</td>
-            <td><a href="/reading/probability/grinstead-10/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">11.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-11/">Markov Chains</a></td>
-            <td class="pr-3 text-gray-400">Memoryless state machines: the next state depends only on the current one</td>
-            <td><a href="/reading/probability/grinstead-11/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">12.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/probability/grinstead-12/">Random Walks</a></td>
-            <td class="pr-3 text-gray-400">Step left or right with equal probability: will you return to the origin?</td>
-            <td><a href="/reading/probability/grinstead-12/" class="text-yellow-300 hover:text-yellow-200">🎰</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/probability/grinstead-01/", title: "Discrete Probability", desc: "Sample spaces, events, and assigning probabilities to outcomes you can count" },
+  { href: "/reading/probability/grinstead-02/", title: "Continuous Probability", desc: "When outcomes are real numbers, probabilities are areas under curves" },
+  { href: "/reading/probability/grinstead-03/", title: "Combinatorics", desc: "Counting arrangements: permutations, combinations, binomial coefficients" },
+  { href: "/reading/probability/grinstead-04/", title: "Conditional Probability", desc: "P(A|B) = P(A and B) / P(B), and why Bayes' theorem follows" },
+  { href: "/reading/probability/grinstead-05/", title: "Distributions", desc: "Binomial, Poisson, geometric, normal: the named distributions and when they arise" },
+  { href: "/reading/probability/grinstead-06/", title: "Expected Value", desc: "The weighted average of outcomes, and variance as spread around it" },
+  { href: "/reading/probability/grinstead-07/", title: "Sums of Random Variables", desc: "Add independent random variables: means add, variances add, distributions convolve" },
+  { href: "/reading/probability/grinstead-08/", title: "Law of Large Numbers", desc: "Averages converge to the expected value as sample size grows" },
+  { href: "/reading/probability/grinstead-09/", title: "Central Limit Theorem", desc: "Sums of many independent variables approach a normal distribution" },
+  { href: "/reading/probability/grinstead-10/", title: "Generating Functions", desc: "Encode a distribution as a polynomial, then multiply polynomials to convolve" },
+  { href: "/reading/probability/grinstead-11/", title: "Markov Chains", desc: "Memoryless state machines: the next state depends only on the current one" },
+  { href: "/reading/probability/grinstead-12/", title: "Random Walks", desc: "Step left or right with equal probability: will you return to the origin?" }
+]} icon="🎰" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/">MIT 6.041SC Probabilistic Systems Analysis</a></p>

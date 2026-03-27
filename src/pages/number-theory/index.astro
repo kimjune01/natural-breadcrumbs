@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -71,71 +72,16 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-01/">Divisibility</a></td>
-            <td class="pr-3 text-gray-400">The divides relation, division algorithm, GCD, and the Euclidean algorithm</td>
-            <td><a href="/reading/number-theory/numthy-01/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-02/">Primes</a></td>
-            <td class="pr-3 text-gray-400">Fundamental theorem of arithmetic, infinitude of primes, sieve of Eratosthenes</td>
-            <td><a href="/reading/number-theory/numthy-02/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-03/">Congruences</a></td>
-            <td class="pr-3 text-gray-400">Modular arithmetic, congruence classes, and solving linear congruences</td>
-            <td><a href="/reading/number-theory/numthy-03/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-04/">Euler and Fermat</a></td>
-            <td class="pr-3 text-gray-400">Euler's totient, Fermat's little theorem, and fast modular exponentiation</td>
-            <td><a href="/reading/number-theory/numthy-04/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-05/">Chinese Remainder Theorem</a></td>
-            <td class="pr-3 text-gray-400">Solving systems of congruences with a constructive algorithm</td>
-            <td><a href="/reading/number-theory/numthy-05/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-06/">Quadratic Residues</a></td>
-            <td class="pr-3 text-gray-400">Squares mod p, the Legendre symbol, and quadratic reciprocity</td>
-            <td><a href="/reading/number-theory/numthy-06/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-07/">Primitive Roots</a></td>
-            <td class="pr-3 text-gray-400">Generators of cyclic groups and the discrete logarithm problem</td>
-            <td><a href="/reading/number-theory/numthy-07/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/number-theory/numthy-08/">Continued Fractions</a></td>
-            <td class="pr-3 text-gray-400">Best rational approximations, periodic expansions, and Pell's equation</td>
-            <td><a href="/reading/number-theory/numthy-08/" class="text-yellow-300 hover:text-yellow-200">#</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/number-theory/numthy-01/", title: "Divisibility", desc: "The divides relation, division algorithm, GCD, and the Euclidean algorithm" },
+  { href: "/reading/number-theory/numthy-02/", title: "Primes", desc: "Fundamental theorem of arithmetic, infinitude of primes, sieve of Eratosthenes" },
+  { href: "/reading/number-theory/numthy-03/", title: "Congruences", desc: "Modular arithmetic, congruence classes, and solving linear congruences" },
+  { href: "/reading/number-theory/numthy-04/", title: "Euler and Fermat", desc: "Euler's totient, Fermat's little theorem, and fast modular exponentiation" },
+  { href: "/reading/number-theory/numthy-05/", title: "Chinese Remainder Theorem", desc: "Solving systems of congruences with a constructive algorithm" },
+  { href: "/reading/number-theory/numthy-06/", title: "Quadratic Residues", desc: "Squares mod p, the Legendre symbol, and quadratic reciprocity" },
+  { href: "/reading/number-theory/numthy-07/", title: "Primitive Roots", desc: "Generators of cyclic groups and the discrete logarithm problem" },
+  { href: "/reading/number-theory/numthy-08/", title: "Continued Fractions", desc: "Best rational approximations, periodic expansions, and Pell's equation" }
+]} icon="#" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/">MIT 18.781 Theory of Numbers</a></p>

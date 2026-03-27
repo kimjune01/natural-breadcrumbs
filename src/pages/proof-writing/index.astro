@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -45,71 +46,16 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-01/">Statements and Logic</a></td>
-            <td class="pr-3 text-gray-400">Propositions, connectives, truth tables, and the conditional that trips everyone up</td>
-            <td><a href="/reading/proof-writing/proofs-01/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-02/">Direct Proof</a></td>
-            <td class="pr-3 text-gray-400">Assume P, deduce Q in a straight line</td>
-            <td><a href="/reading/proof-writing/proofs-02/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-03/">Contrapositive and Contradiction</a></td>
-            <td class="pr-3 text-gray-400">When the front door is locked, try the back door or blow up the building</td>
-            <td><a href="/reading/proof-writing/proofs-03/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-04/">Mathematical Induction</a></td>
-            <td class="pr-3 text-gray-400">Prove the base, prove the step, knock down infinitely many dominoes</td>
-            <td><a href="/reading/proof-writing/proofs-04/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-05/">Sets</a></td>
-            <td class="pr-3 text-gray-400">Element-chasing: to prove A is a subset of B, pick x in A and show x is in B</td>
-            <td><a href="/reading/proof-writing/proofs-05/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-06/">Functions</a></td>
-            <td class="pr-3 text-gray-400">Injective, surjective, bijective: the three properties that control invertibility</td>
-            <td><a href="/reading/proof-writing/proofs-06/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-07/">Relations</a></td>
-            <td class="pr-3 text-gray-400">Equivalence relations partition a set into non-overlapping classes</td>
-            <td><a href="/reading/proof-writing/proofs-07/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/proof-writing/proofs-08/">Cardinality</a></td>
-            <td class="pr-3 text-gray-400">Some infinities are bigger than others, and Cantor proved it with a diagonal</td>
-            <td><a href="/reading/proof-writing/proofs-08/" class="text-yellow-300 hover:text-yellow-200">✎</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/proof-writing/proofs-01/", title: "Statements and Logic", desc: "Propositions, connectives, truth tables, and the conditional that trips everyone up" },
+  { href: "/reading/proof-writing/proofs-02/", title: "Direct Proof", desc: "Assume P, deduce Q in a straight line" },
+  { href: "/reading/proof-writing/proofs-03/", title: "Contrapositive and Contradiction", desc: "When the front door is locked, try the back door or blow up the building" },
+  { href: "/reading/proof-writing/proofs-04/", title: "Mathematical Induction", desc: "Prove the base, prove the step, knock down infinitely many dominoes" },
+  { href: "/reading/proof-writing/proofs-05/", title: "Sets", desc: "Element-chasing: to prove A is a subset of B, pick x in A and show x is in B" },
+  { href: "/reading/proof-writing/proofs-06/", title: "Functions", desc: "Injective, surjective, bijective: the three properties that control invertibility" },
+  { href: "/reading/proof-writing/proofs-07/", title: "Relations", desc: "Equivalence relations partition a set into non-overlapping classes" },
+  { href: "/reading/proof-writing/proofs-08/", title: "Cardinality", desc: "Some infinities are bigger than others, and Cantor proved it with a diagonal" }
+]} icon="✎" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/">MIT 6.042J Mathematics for Computer Science</a></p>

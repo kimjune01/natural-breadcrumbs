@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -48,53 +49,13 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/linear-algebra/hefferon-01/">Linear Systems</a></td>
-            <td class="pr-3 text-gray-400">Row reduction turns any system of equations into echelon form, making solutions obvious</td>
-            <td><a href="/reading/linear-algebra/hefferon-01/">📐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/linear-algebra/hefferon-02/">Vector Spaces</a></td>
-            <td class="pr-3 text-gray-400">Subspaces, linear independence, basis, and dimension — the vocabulary for everything that follows</td>
-            <td><a href="/reading/linear-algebra/hefferon-02/">📐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/linear-algebra/hefferon-03/">Maps Between Spaces</a></td>
-            <td class="pr-3 text-gray-400">Homomorphisms are structure-preserving maps, and every one of them is a matrix in disguise</td>
-            <td><a href="/reading/linear-algebra/hefferon-03/">📐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/linear-algebra/hefferon-04/">Determinants</a></td>
-            <td class="pr-3 text-gray-400">A single number that tells you whether a matrix is invertible and how it scales volume</td>
-            <td><a href="/reading/linear-algebra/hefferon-04/">📐</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/linear-algebra/hefferon-05/">Similarity</a></td>
-            <td class="pr-3 text-gray-400">Eigenvalues, eigenvectors, and Jordan form — choosing the basis that makes a map simplest</td>
-            <td><a href="/reading/linear-algebra/hefferon-05/">📐</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/linear-algebra/hefferon-01/", title: "Linear Systems", desc: "Row reduction turns any system of equations into echelon form, making solutions obvious" },
+  { href: "/reading/linear-algebra/hefferon-02/", title: "Vector Spaces", desc: "Subspaces, linear independence, basis, and dimension — the vocabulary for everything that follows" },
+  { href: "/reading/linear-algebra/hefferon-03/", title: "Maps Between Spaces", desc: "Homomorphisms are structure-preserving maps, and every one of them is a matrix in disguise" },
+  { href: "/reading/linear-algebra/hefferon-04/", title: "Determinants", desc: "A single number that tells you whether a matrix is invertible and how it scales volume" },
+  { href: "/reading/linear-algebra/hefferon-05/", title: "Similarity", desc: "Eigenvalues, eigenvectors, and Jordan form — choosing the basis that makes a map simplest" }
+]} icon="📐" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.3blue1brown.com/topics/linear-algebra">3Blue1Brown: Essence of Linear Algebra</a></p>

@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -52,83 +53,18 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-01/">The Relational Model</a></td>
-            <td class="pr-3 text-gray-400">Tables, rows, columns, and keys: Codd's foundation for all structured data</td>
-            <td><a href="/reading/databases/db-01/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-02/">Relational Algebra</a></td>
-            <td class="pr-3 text-gray-400">Select, project, join, union, difference: the formal operations on relations</td>
-            <td><a href="/reading/databases/db-02/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-03/">SQL Basics</a></td>
-            <td class="pr-3 text-gray-400">CREATE, SELECT, JOIN, GROUP BY: the language that implements relational algebra</td>
-            <td><a href="/reading/databases/db-03/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-04/">Normalization</a></td>
-            <td class="pr-3 text-gray-400">Eliminate redundancy by decomposing tables according to functional dependencies</td>
-            <td><a href="/reading/databases/db-04/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-05/">Indexing</a></td>
-            <td class="pr-3 text-gray-400">B-trees, B+ trees, and hash indexes: trade space for speed on lookups</td>
-            <td><a href="/reading/databases/db-05/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-06/">Transactions</a></td>
-            <td class="pr-3 text-gray-400">ACID properties guarantee correctness when multiple operations must succeed or fail together</td>
-            <td><a href="/reading/databases/db-06/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-07/">Concurrency Control</a></td>
-            <td class="pr-3 text-gray-400">Locks, two-phase locking, and MVCC: let multiple transactions run without corrupting data</td>
-            <td><a href="/reading/databases/db-07/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-08/">Recovery</a></td>
-            <td class="pr-3 text-gray-400">Write-ahead logging and checkpoints: survive crashes without losing committed data</td>
-            <td><a href="/reading/databases/db-08/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-09/">Query Processing</a></td>
-            <td class="pr-3 text-gray-400">Query plans, join algorithms, and cost estimation: how the engine picks the fastest path</td>
-            <td><a href="/reading/databases/db-09/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/databases/db-10/">NoSQL and Beyond</a></td>
-            <td class="pr-3 text-gray-400">Key-value, document, column-family, graph: when relations are not the right shape</td>
-            <td><a href="/reading/databases/db-10/" class="text-yellow-300 hover:text-yellow-200">🗄</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/databases/db-01/", title: "The Relational Model", desc: "Tables, rows, columns, and keys: Codd's foundation for all structured data" },
+  { href: "/reading/databases/db-02/", title: "Relational Algebra", desc: "Select, project, join, union, difference: the formal operations on relations" },
+  { href: "/reading/databases/db-03/", title: "SQL Basics", desc: "CREATE, SELECT, JOIN, GROUP BY: the language that implements relational algebra" },
+  { href: "/reading/databases/db-04/", title: "Normalization", desc: "Eliminate redundancy by decomposing tables according to functional dependencies" },
+  { href: "/reading/databases/db-05/", title: "Indexing", desc: "B-trees, B+ trees, and hash indexes: trade space for speed on lookups" },
+  { href: "/reading/databases/db-06/", title: "Transactions", desc: "ACID properties guarantee correctness when multiple operations must succeed or fail together" },
+  { href: "/reading/databases/db-07/", title: "Concurrency Control", desc: "Locks, two-phase locking, and MVCC: let multiple transactions run without corrupting data" },
+  { href: "/reading/databases/db-08/", title: "Recovery", desc: "Write-ahead logging and checkpoints: survive crashes without losing committed data" },
+  { href: "/reading/databases/db-09/", title: "Query Processing", desc: "Query plans, join algorithms, and cost estimation: how the engine picks the fastest path" },
+  { href: "/reading/databases/db-10/", title: "NoSQL and Beyond", desc: "Key-value, document, column-family, graph: when relations are not the right shape" }
+]} icon="🗄" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g">CMU 15-445: Database Systems (Andy Pavlo)</a></p>

@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -44,83 +45,18 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-01/">What Makes It Hard</a></td>
-            <td class="pr-3 text-gray-400">Network partitions, partial failure, no global clock, Byzantine faults</td>
-            <td><a href="/reading/distributed-systems/dist-01/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-02/">Time and Clocks</a></td>
-            <td class="pr-3 text-gray-400">Physical clocks drift; logical clocks capture causality without synchronization</td>
-            <td><a href="/reading/distributed-systems/dist-02/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-03/">Replication</a></td>
-            <td class="pr-3 text-gray-400">Copy data across nodes for fault tolerance, then fight consistency</td>
-            <td><a href="/reading/distributed-systems/dist-03/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-04/">Consensus</a></td>
-            <td class="pr-3 text-gray-400">Getting nodes to agree on a value, and why it is impossible in general</td>
-            <td><a href="/reading/distributed-systems/dist-04/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-05/">Raft</a></td>
-            <td class="pr-3 text-gray-400">Leader election and log replication made understandable</td>
-            <td><a href="/reading/distributed-systems/dist-05/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-06/">Byzantine Fault Tolerance</a></td>
-            <td class="pr-3 text-gray-400">When nodes can lie: 3f+1 to tolerate f traitors</td>
-            <td><a href="/reading/distributed-systems/dist-06/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-07/">CAP Theorem</a></td>
-            <td class="pr-3 text-gray-400">Consistency, availability, partition tolerance: pick two</td>
-            <td><a href="/reading/distributed-systems/dist-07/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-08/">Distributed Transactions</a></td>
-            <td class="pr-3 text-gray-400">Two-phase commit, three-phase commit, and the saga pattern</td>
-            <td><a href="/reading/distributed-systems/dist-08/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-09/">Gossip Protocols</a></td>
-            <td class="pr-3 text-gray-400">Epidemic dissemination: tell two friends, who tell two friends</td>
-            <td><a href="/reading/distributed-systems/dist-09/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/distributed-systems/dist-10/">CRDTs</a></td>
-            <td class="pr-3 text-gray-400">Eventual consistency without consensus, via join-semilattices</td>
-            <td><a href="/reading/distributed-systems/dist-10/" class="text-yellow-300 hover:text-yellow-200">🌐</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/distributed-systems/dist-01/", title: "What Makes It Hard", desc: "Network partitions, partial failure, no global clock, Byzantine faults" },
+  { href: "/reading/distributed-systems/dist-02/", title: "Time and Clocks", desc: "Physical clocks drift; logical clocks capture causality without synchronization" },
+  { href: "/reading/distributed-systems/dist-03/", title: "Replication", desc: "Copy data across nodes for fault tolerance, then fight consistency" },
+  { href: "/reading/distributed-systems/dist-04/", title: "Consensus", desc: "Getting nodes to agree on a value, and why it is impossible in general" },
+  { href: "/reading/distributed-systems/dist-05/", title: "Raft", desc: "Leader election and log replication made understandable" },
+  { href: "/reading/distributed-systems/dist-06/", title: "Byzantine Fault Tolerance", desc: "When nodes can lie: 3f+1 to tolerate f traitors" },
+  { href: "/reading/distributed-systems/dist-07/", title: "CAP Theorem", desc: "Consistency, availability, partition tolerance: pick two" },
+  { href: "/reading/distributed-systems/dist-08/", title: "Distributed Transactions", desc: "Two-phase commit, three-phase commit, and the saga pattern" },
+  { href: "/reading/distributed-systems/dist-09/", title: "Gossip Protocols", desc: "Epidemic dissemination: tell two friends, who tell two friends" },
+  { href: "/reading/distributed-systems/dist-10/", title: "CRDTs", desc: "Eventual consistency without consensus, via join-semilattices" }
+]} icon="🌐" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB">Martin Kleppmann: Distributed Systems</a></p>

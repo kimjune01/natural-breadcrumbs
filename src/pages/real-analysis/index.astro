@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -41,71 +42,16 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-01/">Real Numbers</a></td>
-            <td class="pr-3 text-gray-400">The axioms, completeness, supremum, and why the rationals aren't enough</td>
-            <td><a href="/reading/real-analysis/lebl-01/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-02/">Sequences</a></td>
-            <td class="pr-3 text-gray-400">Convergence, monotone sequences, Bolzano-Weierstrass, and Cauchy completeness</td>
-            <td><a href="/reading/real-analysis/lebl-02/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-03/">Series</a></td>
-            <td class="pr-3 text-gray-400">When infinite sums converge: comparison, ratio, root tests, and power series</td>
-            <td><a href="/reading/real-analysis/lebl-03/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-04/">Continuous Functions</a></td>
-            <td class="pr-3 text-gray-400">Epsilon-delta continuity, IVT, EVT, and uniform continuity</td>
-            <td><a href="/reading/real-analysis/lebl-04/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-05/">The Derivative</a></td>
-            <td class="pr-3 text-gray-400">Definition, chain rule, mean value theorem, L'Hopital, and Taylor's theorem</td>
-            <td><a href="/reading/real-analysis/lebl-05/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-06/">The Riemann Integral</a></td>
-            <td class="pr-3 text-gray-400">Partitions, upper/lower sums, integrability, and the fundamental theorem</td>
-            <td><a href="/reading/real-analysis/lebl-06/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-07/">Sequences of Functions</a></td>
-            <td class="pr-3 text-gray-400">Pointwise vs uniform convergence, interchange of limits, Weierstrass M-test</td>
-            <td><a href="/reading/real-analysis/lebl-07/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/real-analysis/lebl-08/">Metric Spaces</a></td>
-            <td class="pr-3 text-gray-400">Open/closed sets, compactness, connectedness, and completeness in the abstract</td>
-            <td><a href="/reading/real-analysis/lebl-08/" class="text-yellow-300 hover:text-yellow-200">∞</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/real-analysis/lebl-01/", title: "Real Numbers", desc: "The axioms, completeness, supremum, and why the rationals aren't enough" },
+  { href: "/reading/real-analysis/lebl-02/", title: "Sequences", desc: "Convergence, monotone sequences, Bolzano-Weierstrass, and Cauchy completeness" },
+  { href: "/reading/real-analysis/lebl-03/", title: "Series", desc: "When infinite sums converge: comparison, ratio, root tests, and power series" },
+  { href: "/reading/real-analysis/lebl-04/", title: "Continuous Functions", desc: "Epsilon-delta continuity, IVT, EVT, and uniform continuity" },
+  { href: "/reading/real-analysis/lebl-05/", title: "The Derivative", desc: "Definition, chain rule, mean value theorem, L'Hopital, and Taylor's theorem" },
+  { href: "/reading/real-analysis/lebl-06/", title: "The Riemann Integral", desc: "Partitions, upper/lower sums, integrability, and the fundamental theorem" },
+  { href: "/reading/real-analysis/lebl-07/", title: "Sequences of Functions", desc: "Pointwise vs uniform convergence, interchange of limits, Weierstrass M-test" },
+  { href: "/reading/real-analysis/lebl-08/", title: "Metric Spaces", desc: "Open/closed sets, compactness, connectedness, and completeness in the abstract" }
+]} icon="∞" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/18-100b-real-analysis-spring-2025/">MIT 18.100B Real Analysis</a></p>

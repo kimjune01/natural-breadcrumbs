@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -35,179 +36,30 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Part I: Building Abstractions with Procedures -->
-          <tr class="border-b border-zinc-700 bg-zinc-900/50">
-            <td class="py-2 pr-3 text-gray-500 font-semibold" colspan="3">Part I — Building Abstractions with Procedures</td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-01/">Expressions ★</a></td>
-            <td class="pr-3 text-gray-400">Prefix notation, environment model, and the substitution rule</td>
-            <td><a href="/reading/programming/sicp-01/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-02/">Recursion &amp; Iteration ★</a></td>
-            <td class="pr-3 text-gray-400">Recursive processes vs iterative processes — shape, not syntax</td>
-            <td><a href="/reading/programming/sicp-02/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-03/">Higher-Order Functions ★</a></td>
-            <td class="pr-3 text-gray-400">Functions as arguments and return values — abstraction over patterns</td>
-            <td><a href="/reading/programming/sicp-03/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-
-          <!-- Part II: Building Abstractions with Data -->
-          <tr class="border-b border-zinc-700 bg-zinc-900/50">
-            <td class="py-2 pr-3 text-gray-500 font-semibold" colspan="3">Part II — Building Abstractions with Data</td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-04/">Data Abstraction ★</a></td>
-            <td class="pr-3 text-gray-400">Pairs, constructors, selectors — separating use from representation</td>
-            <td><a href="/reading/programming/sicp-04/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-05/">Hierarchical Data ★</a></td>
-            <td class="pr-3 text-gray-400">Lists, trees, and the closure property of cons</td>
-            <td><a href="/reading/programming/sicp-05/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-06/">Symbolic Data ★</a></td>
-            <td class="pr-3 text-gray-400">Quotation, symbolic differentiation, and sets as data</td>
-            <td><a href="/reading/programming/sicp-06/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-07/">Multiple Representations</a></td>
-            <td class="pr-3 text-gray-400">Tagged data, data-directed programming, and message passing</td>
-            <td><a href="/reading/programming/sicp-07/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-08/">Generic Operations</a></td>
-            <td class="pr-3 text-gray-400">Coercion, type towers, and a generic arithmetic system</td>
-            <td><a href="/reading/programming/sicp-08/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-
-          <!-- Part III: Modularity, Objects, and State -->
-          <tr class="border-b border-zinc-700 bg-zinc-900/50">
-            <td class="py-2 pr-3 text-gray-500 font-semibold" colspan="3">Part III — Modularity, Objects, and State</td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-09/">Assignment &amp; State ★</a></td>
-            <td class="pr-3 text-gray-400">set! breaks substitution — the environment model replaces it</td>
-            <td><a href="/reading/programming/sicp-09/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-10/">Environment Model</a></td>
-            <td class="pr-3 text-gray-400">Frames, bindings, and how closures really work</td>
-            <td><a href="/reading/programming/sicp-10/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">11.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-11/">Mutable Data ★</a></td>
-            <td class="pr-3 text-gray-400">set-car!, set-cdr!, queues, and identity vs equality</td>
-            <td><a href="/reading/programming/sicp-11/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">12.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-12/">Concurrency</a></td>
-            <td class="pr-3 text-gray-400">Serializers, deadlock, and the problem with shared state</td>
-            <td><a href="/reading/programming/sicp-12/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">13.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-13/">Streams ★</a></td>
-            <td class="pr-3 text-gray-400">Lazy lists — infinite sequences without mutation</td>
-            <td><a href="/reading/programming/sicp-13/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-
-          <!-- Part IV: Metalinguistic Abstraction -->
-          <tr class="border-b border-zinc-700 bg-zinc-900/50">
-            <td class="py-2 pr-3 text-gray-500 font-semibold" colspan="3">Part IV — Metalinguistic Abstraction</td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">14.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-14/">Metacircular Evaluator ★</a></td>
-            <td class="pr-3 text-gray-400">A Scheme interpreter written in Scheme — eval and apply</td>
-            <td><a href="/reading/programming/sicp-14/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">15.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-15/">Lazy Evaluation</a></td>
-            <td class="pr-3 text-gray-400">Normal-order evaluation — thunks and memoization</td>
-            <td><a href="/reading/programming/sicp-15/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">16.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-16/">Nondeterministic Computing</a></td>
-            <td class="pr-3 text-gray-400">amb and backtracking search — logic as programming</td>
-            <td><a href="/reading/programming/sicp-16/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">17.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-17/">Logic Programming</a></td>
-            <td class="pr-3 text-gray-400">A query language — unification and pattern matching</td>
-            <td><a href="/reading/programming/sicp-17/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-
-          <!-- Part V: Computing with Register Machines -->
-          <tr class="border-b border-zinc-700 bg-zinc-900/50">
-            <td class="py-2 pr-3 text-gray-500 font-semibold" colspan="3">Part V — Computing with Register Machines</td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">18.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-18/">Register Machines</a></td>
-            <td class="pr-3 text-gray-400">Designing machines — data paths and controllers</td>
-            <td><a href="/reading/programming/sicp-18/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">19.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-19/">Register Machine Simulator</a></td>
-            <td class="pr-3 text-gray-400">Simulating machines in software — the assembler</td>
-            <td><a href="/reading/programming/sicp-19/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">20.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-20/">Storage &amp; Garbage Collection</a></td>
-            <td class="pr-3 text-gray-400">Memory as vectors, stop-and-copy GC</td>
-            <td><a href="/reading/programming/sicp-20/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">21.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-21/">Explicit-Control Evaluator</a></td>
-            <td class="pr-3 text-gray-400">The metacircular evaluator, compiled to a register machine</td>
-            <td><a href="/reading/programming/sicp-21/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">22.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/programming/sicp-22/">Compilation</a></td>
-            <td class="pr-3 text-gray-400">Compiling Scheme to register-machine code</td>
-            <td><a href="/reading/programming/sicp-22/" class="text-yellow-300 hover:text-yellow-200">🪄</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/programming/sicp-01/", title: "Expressions ★", desc: "Prefix notation, environment model, and the substitution rule" },
+  { href: "/reading/programming/sicp-02/", title: "Recursion &amp; Iteration ★", desc: "Recursive processes vs iterative processes — shape, not syntax" },
+  { href: "/reading/programming/sicp-03/", title: "Higher-Order Functions ★", desc: "Functions as arguments and return values — abstraction over patterns" },
+  { href: "/reading/programming/sicp-04/", title: "Data Abstraction ★", desc: "Pairs, constructors, selectors — separating use from representation" },
+  { href: "/reading/programming/sicp-05/", title: "Hierarchical Data ★", desc: "Lists, trees, and the closure property of cons" },
+  { href: "/reading/programming/sicp-06/", title: "Symbolic Data ★", desc: "Quotation, symbolic differentiation, and sets as data" },
+  { href: "/reading/programming/sicp-07/", title: "Multiple Representations", desc: "Tagged data, data-directed programming, and message passing" },
+  { href: "/reading/programming/sicp-08/", title: "Generic Operations", desc: "Coercion, type towers, and a generic arithmetic system" },
+  { href: "/reading/programming/sicp-09/", title: "Assignment &amp; State ★", desc: "set! breaks substitution — the environment model replaces it" },
+  { href: "/reading/programming/sicp-10/", title: "Environment Model", desc: "Frames, bindings, and how closures really work" },
+  { href: "/reading/programming/sicp-11/", title: "Mutable Data ★", desc: "set-car!, set-cdr!, queues, and identity vs equality" },
+  { href: "/reading/programming/sicp-12/", title: "Concurrency", desc: "Serializers, deadlock, and the problem with shared state" },
+  { href: "/reading/programming/sicp-13/", title: "Streams ★", desc: "Lazy lists — infinite sequences without mutation" },
+  { href: "/reading/programming/sicp-14/", title: "Metacircular Evaluator ★", desc: "A Scheme interpreter written in Scheme — eval and apply" },
+  { href: "/reading/programming/sicp-15/", title: "Lazy Evaluation", desc: "Normal-order evaluation — thunks and memoization" },
+  { href: "/reading/programming/sicp-16/", title: "Nondeterministic Computing", desc: "amb and backtracking search — logic as programming" },
+  { href: "/reading/programming/sicp-17/", title: "Logic Programming", desc: "A query language — unification and pattern matching" },
+  { href: "/reading/programming/sicp-18/", title: "Register Machines", desc: "Designing machines — data paths and controllers" },
+  { href: "/reading/programming/sicp-19/", title: "Register Machine Simulator", desc: "Simulating machines in software — the assembler" },
+  { href: "/reading/programming/sicp-20/", title: "Storage &amp; Garbage Collection", desc: "Memory as vectors, stop-and-copy GC" },
+  { href: "/reading/programming/sicp-21/", title: "Explicit-Control Evaluator", desc: "The metacircular evaluator, compiled to a register machine" },
+  { href: "/reading/programming/sicp-22/", title: "Compilation", desc: "Compiling Scheme to register-machine code" }
+]} icon="🪄" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-001-structure-and-interpretation-of-computer-programs-spring-2005/">MIT 6.001 SICP Lectures</a></p>

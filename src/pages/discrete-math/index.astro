@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -36,53 +37,13 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/discrete-math/levin-01/">Counting</a></td>
-            <td class="pr-3 text-gray-400">Additive and multiplicative principles, binomial coefficients, stars and bars, inclusion-exclusion</td>
-            <td><span class="text-gray-600">🔢</span></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/discrete-math/levin-02/">Sequences</a></td>
-            <td class="pr-3 text-gray-400">Arithmetic and geometric sequences, recurrence relations, and proof by induction</td>
-            <td><span class="text-gray-600">🔢</span></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/discrete-math/levin-03/">Symbolic Logic</a></td>
-            <td class="pr-3 text-gray-400">Propositional connectives, predicates, quantifiers, and the structure of proofs</td>
-            <td><span class="text-gray-600">🔢</span></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/discrete-math/levin-04/">Graph Theory</a></td>
-            <td class="pr-3 text-gray-400">Graphs, trees, planarity, coloring, and Euler/Hamilton paths</td>
-            <td><span class="text-gray-600">🔢</span></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/discrete-math/levin-05/">Additional Topics</a></td>
-            <td class="pr-3 text-gray-400">Matching, Ramsey theory, and generating functions</td>
-            <td><span class="text-gray-600">🔢</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/discrete-math/levin-01/", title: "Counting", desc: "Additive and multiplicative principles, binomial coefficients, stars and bars, inclusion-exclusion" },
+  { href: "/reading/discrete-math/levin-02/", title: "Sequences", desc: "Arithmetic and geometric sequences, recurrence relations, and proof by induction" },
+  { href: "/reading/discrete-math/levin-03/", title: "Symbolic Logic", desc: "Propositional connectives, predicates, quantifiers, and the structure of proofs" },
+  { href: "/reading/discrete-math/levin-04/", title: "Graph Theory", desc: "Graphs, trees, planarity, coloring, and Euler/Hamilton paths" },
+  { href: "/reading/discrete-math/levin-05/", title: "Additional Topics", desc: "Matching, Ramsey theory, and generating functions" }
+]} icon="🔢" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/">MIT 6.042J Mathematics for Computer Science</a></p>

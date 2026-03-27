@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -37,154 +38,16 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Micro (1&ndash;14)</td></tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-01/">Division of Labor</a></td>
-            <td class="pr-3 text-gray-400">Specialization multiplies output: one worker makes one pin, ten workers make 4,800</td>
-            <td><a href="/reading/economics/econ-01/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-02/">Supply and Demand</a></td>
-            <td class="pr-3 text-gray-400">Demand slopes down, supply slopes up, price settles where they cross</td>
-            <td><a href="/reading/economics/econ-02/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-03/">Comparative Advantage</a></td>
-            <td class="pr-3 text-gray-400">Both countries gain from trade even when one is better at everything</td>
-            <td><a href="/reading/economics/econ-03/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-04/">Diminishing Returns</a></td>
-            <td class="pr-3 text-gray-400">Each additional unit of input yields less additional output</td>
-            <td><a href="/reading/economics/econ-04/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-05/">Elasticity</a></td>
-            <td class="pr-3 text-gray-400">How much quantity responds to a price change, and why it matters for revenue</td>
-            <td><a href="/reading/economics/econ-05/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-06/">Marginal Utility</a></td>
-            <td class="pr-3 text-gray-400">Each additional unit is worth less than the last</td>
-            <td><a href="/reading/economics/econ-06/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-07/">Opportunity Cost</a></td>
-            <td class="pr-3 text-gray-400">The cost of any choice is the best alternative you gave up</td>
-            <td><a href="/reading/economics/econ-07/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/economics/econ-08/">Market Equilibrium</a></td>
-            <td class="pr-3 text-gray-400">Surplus drives price down, shortage drives price up, until the market clears</td>
-            <td><a href="/reading/economics/econ-08/" class="text-yellow-300 hover:text-yellow-200">💰</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">9. Consumer Choice</td>
-            <td class="pr-3 text-gray-400">Indifference curves meet budget constraints at the optimal bundle</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">10. Production and Costs</td>
-            <td class="pr-3 text-gray-400">Fixed costs, variable costs, and the U-shaped average cost curve</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">11. Perfect Competition</td>
-            <td class="pr-3 text-gray-400">Price equals marginal cost when no firm has market power</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">12. Monopoly</td>
-            <td class="pr-3 text-gray-400">A single seller restricts output to raise price above marginal cost</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">13. Externalities</td>
-            <td class="pr-3 text-gray-400">When costs or benefits spill over to bystanders, markets misprice</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">14. Public Goods</td>
-            <td class="pr-3 text-gray-400">Non-rival and non-excludable: the market undersupplies them</td>
-            <td></td>
-          </tr>
-          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Macro (15&ndash;19)</td></tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">15. GDP and National Income</td>
-            <td class="pr-3 text-gray-400">Measuring the whole economy: output equals income equals expenditure</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">16. Inflation and Money</td>
-            <td class="pr-3 text-gray-400">Too much money chasing too few goods raises the price level</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">17. Unemployment</td>
-            <td class="pr-3 text-gray-400">Frictional, structural, cyclical: three kinds, three different fixes</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">18. Fiscal Policy</td>
-            <td class="pr-3 text-gray-400">Government spending and taxes as levers on aggregate demand</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">19. Monetary Policy</td>
-            <td class="pr-3 text-gray-400">Central banks set interest rates to steer inflation and employment</td>
-            <td></td>
-          </tr>
-          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Applied (20&ndash;24)</td></tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">20. International Trade</td>
-            <td class="pr-3 text-gray-400">Tariffs, quotas, and why free trade has winners and losers</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">21. Labor Markets</td>
-            <td class="pr-3 text-gray-400">Wages are prices too: supply and demand for workers</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">22. Income Inequality</td>
-            <td class="pr-3 text-gray-400">Lorenz curves and Gini coefficients measure how income is distributed</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">23. Market Failures</td>
-            <td class="pr-3 text-gray-400">Asymmetric information, moral hazard, and adverse selection</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3 text-gray-300">24. Behavioral Economics</td>
-            <td class="pr-3 text-gray-400">Bounded rationality, loss aversion, and nudges</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/economics/econ-01/", title: "Division of Labor", desc: "Specialization multiplies output: one worker makes one pin, ten workers make 4,800" },
+  { href: "/reading/economics/econ-02/", title: "Supply and Demand", desc: "Demand slopes down, supply slopes up, price settles where they cross" },
+  { href: "/reading/economics/econ-03/", title: "Comparative Advantage", desc: "Both countries gain from trade even when one is better at everything" },
+  { href: "/reading/economics/econ-04/", title: "Diminishing Returns", desc: "Each additional unit of input yields less additional output" },
+  { href: "/reading/economics/econ-05/", title: "Elasticity", desc: "How much quantity responds to a price change, and why it matters for revenue" },
+  { href: "/reading/economics/econ-06/", title: "Marginal Utility", desc: "Each additional unit is worth less than the last" },
+  { href: "/reading/economics/econ-07/", title: "Opportunity Cost", desc: "The cost of any choice is the best alternative you gave up" },
+  { href: "/reading/economics/econ-08/", title: "Market Equilibrium", desc: "Surplus drives price down, shortage drives price up, until the market clears" }
+]} icon="💰" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/14-01-principles-of-microeconomics-fall-2023/">MIT 14.01 Microeconomics</a> · <a href="https://oyc.yale.edu/economics/econ-252">Yale ECON 252: Financial Markets (Shiller)</a></p>

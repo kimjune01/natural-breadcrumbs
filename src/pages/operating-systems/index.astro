@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -32,83 +33,18 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-01/">Processes</a></td>
-            <td class="pr-3 text-gray-400">A program in execution with its own state, context, and lifecycle</td>
-            <td><a href="/reading/operating-systems/os-01/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-02/">Scheduling</a></td>
-            <td class="pr-3 text-gray-400">Deciding which process runs next and for how long</td>
-            <td><a href="/reading/operating-systems/os-02/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-03/">Threads and Concurrency</a></td>
-            <td class="pr-3 text-gray-400">Lightweight execution within a process sharing the same address space</td>
-            <td><a href="/reading/operating-systems/os-03/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-04/">Synchronization</a></td>
-            <td class="pr-3 text-gray-400">Coordinating concurrent access to shared resources without corruption</td>
-            <td><a href="/reading/operating-systems/os-04/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-05/">Deadlock</a></td>
-            <td class="pr-3 text-gray-400">When processes wait forever in a cycle of held resources</td>
-            <td><a href="/reading/operating-systems/os-05/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-06/">Memory Management</a></td>
-            <td class="pr-3 text-gray-400">Translating virtual addresses to physical memory through paging and segmentation</td>
-            <td><a href="/reading/operating-systems/os-06/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-07/">Virtual Memory</a></td>
-            <td class="pr-3 text-gray-400">The illusion of infinite memory backed by disk and page replacement</td>
-            <td><a href="/reading/operating-systems/os-07/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-08/">File Systems</a></td>
-            <td class="pr-3 text-gray-400">Organizing persistent data into files, directories, and metadata</td>
-            <td><a href="/reading/operating-systems/os-08/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-09/">I/O Systems</a></td>
-            <td class="pr-3 text-gray-400">Moving data between CPU and devices via polling, interrupts, and DMA</td>
-            <td><a href="/reading/operating-systems/os-09/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/operating-systems/os-10/">Protection and Security</a></td>
-            <td class="pr-3 text-gray-400">Controlling who can access what through access matrices and encryption</td>
-            <td><a href="/reading/operating-systems/os-10/" class="text-yellow-300 hover:text-yellow-200">🖥</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/operating-systems/os-01/", title: "Processes", desc: "A program in execution with its own state, context, and lifecycle" },
+  { href: "/reading/operating-systems/os-02/", title: "Scheduling", desc: "Deciding which process runs next and for how long" },
+  { href: "/reading/operating-systems/os-03/", title: "Threads and Concurrency", desc: "Lightweight execution within a process sharing the same address space" },
+  { href: "/reading/operating-systems/os-04/", title: "Synchronization", desc: "Coordinating concurrent access to shared resources without corruption" },
+  { href: "/reading/operating-systems/os-05/", title: "Deadlock", desc: "When processes wait forever in a cycle of held resources" },
+  { href: "/reading/operating-systems/os-06/", title: "Memory Management", desc: "Translating virtual addresses to physical memory through paging and segmentation" },
+  { href: "/reading/operating-systems/os-07/", title: "Virtual Memory", desc: "The illusion of infinite memory backed by disk and page replacement" },
+  { href: "/reading/operating-systems/os-08/", title: "File Systems", desc: "Organizing persistent data into files, directories, and metadata" },
+  { href: "/reading/operating-systems/os-09/", title: "I/O Systems", desc: "Moving data between CPU and devices via polling, interrupts, and DMA" },
+  { href: "/reading/operating-systems/os-10/", title: "Protection and Security", desc: "Controlling who can access what through access matrices and encryption" }
+]} icon="🖥" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-828-operating-system-engineering-fall-2012/">MIT 6.828 Operating System Engineering</a></p>

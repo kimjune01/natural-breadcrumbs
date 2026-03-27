@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -32,113 +33,23 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-01/">Functions and Graphs</a></td>
-            <td class="pr-3 text-gray-400">Domain, range, composition, inverses: the vocabulary everything else builds on</td>
-            <td><a href="/reading/calculus/calc-01/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-02/">Trigonometry</a></td>
-            <td class="pr-3 text-gray-400">Unit circle, sin/cos/tan, identities, inverse trig: periodic functions decoded</td>
-            <td><a href="/reading/calculus/calc-02/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-03/">Limits and Continuity</a></td>
-            <td class="pr-3 text-gray-400">What "approaching" means, made precise with epsilon-delta</td>
-            <td><a href="/reading/calculus/calc-03/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-04/">The Derivative</a></td>
-            <td class="pr-3 text-gray-400">Instantaneous rate of change as a limit of secant slopes</td>
-            <td><a href="/reading/calculus/calc-04/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-05/">Derivative Rules</a></td>
-            <td class="pr-3 text-gray-400">Power, product, quotient, chain: the shortcuts that make differentiation mechanical</td>
-            <td><a href="/reading/calculus/calc-05/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-06/">Applications of Derivatives</a></td>
-            <td class="pr-3 text-gray-400">Optimization, related rates, curve sketching: what derivatives are for</td>
-            <td><a href="/reading/calculus/calc-06/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-07/">The Integral</a></td>
-            <td class="pr-3 text-gray-400">Riemann sums, definite integrals, and the Fundamental Theorem that ties it all together</td>
-            <td><a href="/reading/calculus/calc-07/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-08/">Techniques of Integration</a></td>
-            <td class="pr-3 text-gray-400">Substitution, parts, partial fractions: the toolkit for antiderivatives</td>
-            <td><a href="/reading/calculus/calc-08/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-09/">Applications of Integrals</a></td>
-            <td class="pr-3 text-gray-400">Area, volume, arc length, work: what integrals are for</td>
-            <td><a href="/reading/calculus/calc-09/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-10/">Vectors and Geometry</a></td>
-            <td class="pr-3 text-gray-400">Dot products, cross products, lines, planes: calculus goes multidimensional</td>
-            <td><a href="/reading/calculus/calc-10/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">11.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-11/">Partial Derivatives</a></td>
-            <td class="pr-3 text-gray-400">Derivatives of functions with multiple inputs: hold one variable fixed, vary the other</td>
-            <td><a href="/reading/calculus/calc-11/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">12.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-12/">Optimization</a></td>
-            <td class="pr-3 text-gray-400">Lagrange multipliers and gradient descent: finding extrema with constraints</td>
-            <td><a href="/reading/calculus/calc-12/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">13.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-13/">Multiple Integrals</a></td>
-            <td class="pr-3 text-gray-400">Double and triple integrals: area becomes volume, volume becomes mass</td>
-            <td><a href="/reading/calculus/calc-13/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">14.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-14/">Line and Surface Integrals</a></td>
-            <td class="pr-3 text-gray-400">Integrating along curves and over surfaces: work, flux, circulation</td>
-            <td><a href="/reading/calculus/calc-14/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">15.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/calculus/calc-15/">Fundamental Theorems</a></td>
-            <td class="pr-3 text-gray-400">Green, Stokes, Divergence: the boundary-interior duality that unifies calculus</td>
-            <td><a href="/reading/calculus/calc-15/" class="text-yellow-300 hover:text-yellow-200">∫</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/calculus/calc-01/", title: "Functions and Graphs", desc: "Domain, range, composition, inverses: the vocabulary everything else builds on" },
+  { href: "/reading/calculus/calc-02/", title: "Trigonometry", desc: "Unit circle, sin/cos/tan, identities, inverse trig: periodic functions decoded" },
+  { href: "/reading/calculus/calc-03/", title: "Limits and Continuity", desc: "What 'approaching' means, made precise with epsilon-delta" },
+  { href: "/reading/calculus/calc-04/", title: "The Derivative", desc: "Instantaneous rate of change as a limit of secant slopes" },
+  { href: "/reading/calculus/calc-05/", title: "Derivative Rules", desc: "Power, product, quotient, chain: the shortcuts that make differentiation mechanical" },
+  { href: "/reading/calculus/calc-06/", title: "Applications of Derivatives", desc: "Optimization, related rates, curve sketching: what derivatives are for" },
+  { href: "/reading/calculus/calc-07/", title: "The Integral", desc: "Riemann sums, definite integrals, and the Fundamental Theorem that ties it all together" },
+  { href: "/reading/calculus/calc-08/", title: "Techniques of Integration", desc: "Substitution, parts, partial fractions: the toolkit for antiderivatives" },
+  { href: "/reading/calculus/calc-09/", title: "Applications of Integrals", desc: "Area, volume, arc length, work: what integrals are for" },
+  { href: "/reading/calculus/calc-10/", title: "Vectors and Geometry", desc: "Dot products, cross products, lines, planes: calculus goes multidimensional" },
+  { href: "/reading/calculus/calc-11/", title: "Partial Derivatives", desc: "Derivatives of functions with multiple inputs: hold one variable fixed, vary the other" },
+  { href: "/reading/calculus/calc-12/", title: "Optimization", desc: "Lagrange multipliers and gradient descent: finding extrema with constraints" },
+  { href: "/reading/calculus/calc-13/", title: "Multiple Integrals", desc: "Double and triple integrals: area becomes volume, volume becomes mass" },
+  { href: "/reading/calculus/calc-14/", title: "Line and Surface Integrals", desc: "Integrating along curves and over surfaces: work, flux, circulation" },
+  { href: "/reading/calculus/calc-15/", title: "Fundamental Theorems", desc: "Green, Stokes, Divergence: the boundary-interior duality that unifies calculus" }
+]} icon="∫" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.3blue1brown.com/topics/calculus">3Blue1Brown: Essence of Calculus</a></p>

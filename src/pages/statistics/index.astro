@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -34,73 +35,13 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/statistics/openintro-01/">Introduction to Data</a></td>
-            <td class="pr-3 text-gray-400">Observations, variables, study design, and sampling strategies</td>
-            <td><a href="/reading/statistics/openintro-01/" class="text-yellow-300 hover:text-yellow-200">📊</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/statistics/openintro-02/">Summarizing Data</a></td>
-            <td class="pr-3 text-gray-400">Histograms, box plots, measures of center and spread, contingency tables</td>
-            <td><a href="/reading/statistics/openintro-02/" class="text-yellow-300 hover:text-yellow-200">📊</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/statistics/openintro-03/">Probability</a></td>
-            <td class="pr-3 text-gray-400">Rules, conditional probability, Bayes' theorem, independence</td>
-            <td><a href="/reading/statistics/openintro-03/" class="text-yellow-300 hover:text-yellow-200">📊</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/statistics/openintro-04/">Distributions</a></td>
-            <td class="pr-3 text-gray-400">Normal, binomial, Poisson, and geometric distributions with Z-scores</td>
-            <td><a href="/reading/statistics/openintro-04/" class="text-yellow-300 hover:text-yellow-200">📊</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/statistics/openintro-05/">Foundations for Inference</a></td>
-            <td class="pr-3 text-gray-400">Point estimates, confidence intervals, hypothesis testing, p-values</td>
-            <td><a href="/reading/statistics/openintro-05/" class="text-yellow-300 hover:text-yellow-200">📊</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">6. Inference for Proportions</td>
-            <td class="pr-3 text-gray-400">One- and two-sample proportion tests and confidence intervals</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">7. Inference for Means</td>
-            <td class="pr-3 text-gray-400">t-tests, paired data, and the t-distribution</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-300">8. Simple Regression</td>
-            <td class="pr-3 text-gray-400">Least squares, residuals, correlation, and prediction</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3 text-gray-300">9. Multiple Regression</td>
-            <td class="pr-3 text-gray-400">Multiple predictors, adjusted R-squared, and model selection</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/statistics/openintro-01/", title: "Introduction to Data", desc: "Observations, variables, study design, and sampling strategies" },
+  { href: "/reading/statistics/openintro-02/", title: "Summarizing Data", desc: "Histograms, box plots, measures of center and spread, contingency tables" },
+  { href: "/reading/statistics/openintro-03/", title: "Probability", desc: "Rules, conditional probability, Bayes' theorem, independence" },
+  { href: "/reading/statistics/openintro-04/", title: "Distributions", desc: "Normal, binomial, Poisson, and geometric distributions with Z-scores" },
+  { href: "/reading/statistics/openintro-05/", title: "Foundations for Inference", desc: "Point estimates, confidence intervals, hypothesis testing, p-values" }
+]} icon="📊" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/user/joshstarmer">StatQuest with Josh Starmer</a></p>

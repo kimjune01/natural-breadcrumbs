@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -37,95 +38,20 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-01/">Euclidean Geometry</a></td>
-            <td class="pr-3 text-gray-400">Five axioms, compass and straightedge, and the theorem that launched a thousand proofs</td>
-            <td><a href="/reading/geometry/geom-01/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-02/">Coordinate Geometry</a></td>
-            <td class="pr-3 text-gray-400">Descartes put numbers on geometry: distance, slope, lines, and conic sections</td>
-            <td><a href="/reading/geometry/geom-02/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-03/">Transformations</a></td>
-            <td class="pr-3 text-gray-400">Translate, rotate, reflect, scale — and discover that symmetries form a group</td>
-            <td><a href="/reading/geometry/geom-03/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-04/">Projective Geometry</a></td>
-            <td class="pr-3 text-gray-400">Add points at infinity so parallel lines meet, then watch points and lines swap roles</td>
-            <td><a href="/reading/geometry/geom-04/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-05/">Non-Euclidean Geometry</a></td>
-            <td class="pr-3 text-gray-400">Drop the parallel postulate: on a saddle there are many parallels, on a sphere there are none</td>
-            <td><a href="/reading/geometry/geom-05/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-06/">Differential Geometry</a></td>
-            <td class="pr-3 text-gray-400">Curves bend, surfaces curve, and curvature is a number you can compute</td>
-            <td><a href="/reading/geometry/geom-06/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-07/">Metric Spaces</a></td>
-            <td class="pr-3 text-gray-400">Distance functions, open balls, and metric spaces as enriched categories</td>
-            <td><a href="/reading/geometry/geom-07/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-08/">Convex Geometry</a></td>
-            <td class="pr-3 text-gray-400">Convex sets, convex hulls, separation theorems, and Minkowski sums</td>
-            <td><a href="/reading/geometry/geom-08/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-09/">Voronoi Diagrams</a></td>
-            <td class="pr-3 text-gray-400">Nearest-neighbor partitions, Voronoi cells, and Fortune's algorithm</td>
-            <td><a href="/reading/geometry/geom-09/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-10/">Delaunay Triangulation</a></td>
-            <td class="pr-3 text-gray-400">Dual of Voronoi, circumcircle property, convex hull in one higher dimension</td>
-            <td><a href="/reading/geometry/geom-10/">△</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">11.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-11/">Power Diagrams</a></td>
-            <td class="pr-3 text-gray-400">Weighted Voronoi diagrams and the geometry behind ad auctions</td>
-            <td><a href="/reading/geometry/geom-11/">△</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">12.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/geometry/geom-12/">The Erlangen Program</a></td>
-            <td class="pr-3 text-gray-400">Klein's insight: a geometry is defined by its symmetry group</td>
-            <td><a href="/reading/geometry/geom-12/">△</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/geometry/geom-01/", title: "Euclidean Geometry", desc: "Five axioms, compass and straightedge, and the theorem that launched a thousand proofs" },
+  { href: "/reading/geometry/geom-02/", title: "Coordinate Geometry", desc: "Descartes put numbers on geometry: distance, slope, lines, and conic sections" },
+  { href: "/reading/geometry/geom-03/", title: "Transformations", desc: "Translate, rotate, reflect, scale — and discover that symmetries form a group" },
+  { href: "/reading/geometry/geom-04/", title: "Projective Geometry", desc: "Add points at infinity so parallel lines meet, then watch points and lines swap roles" },
+  { href: "/reading/geometry/geom-05/", title: "Non-Euclidean Geometry", desc: "Drop the parallel postulate: on a saddle there are many parallels, on a sphere there are none" },
+  { href: "/reading/geometry/geom-06/", title: "Differential Geometry", desc: "Curves bend, surfaces curve, and curvature is a number you can compute" },
+  { href: "/reading/geometry/geom-07/", title: "Metric Spaces", desc: "Distance functions, open balls, and metric spaces as enriched categories" },
+  { href: "/reading/geometry/geom-08/", title: "Convex Geometry", desc: "Convex sets, convex hulls, separation theorems, and Minkowski sums" },
+  { href: "/reading/geometry/geom-09/", title: "Voronoi Diagrams", desc: "Nearest-neighbor partitions, Voronoi cells, and Fortune's algorithm" },
+  { href: "/reading/geometry/geom-10/", title: "Delaunay Triangulation", desc: "Dual of Voronoi, circumcircle property, convex hull in one higher dimension" },
+  { href: "/reading/geometry/geom-11/", title: "Power Diagrams", desc: "Weighted Voronoi diagrams and the geometry behind ad auctions" },
+  { href: "/reading/geometry/geom-12/", title: "The Erlangen Program", desc: "Klein's insight: a geometry is defined by its symmetry group" }
+]} icon="△" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/18-900-geometry-and-topology-in-the-plane-spring-2023/">MIT 18.900 Geometry and Topology</a></p>

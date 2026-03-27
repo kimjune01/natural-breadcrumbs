@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -49,71 +50,16 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-01/">Finite Automata</a></td>
-            <td class="pr-3 text-gray-400">Five components define a machine that reads input and accepts or rejects</td>
-            <td><a href="/reading/theory-of-computation/toc-01/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-02/">Nondeterminism</a></td>
-            <td class="pr-3 text-gray-400">Multiple paths at once, epsilon jumps, and the subset construction that removes them</td>
-            <td><a href="/reading/theory-of-computation/toc-02/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-03/">Regular Expressions</a></td>
-            <td class="pr-3 text-gray-400">A pattern language exactly as powerful as finite automata, plus a pumping lemma to prove limits</td>
-            <td><a href="/reading/theory-of-computation/toc-03/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-04/">Context-Free Grammars</a></td>
-            <td class="pr-3 text-gray-400">Production rules, parse trees, and the grammars behind every programming language</td>
-            <td><a href="/reading/theory-of-computation/toc-04/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-05/">Pushdown Automata</a></td>
-            <td class="pr-3 text-gray-400">A finite automaton with a stack, exactly as powerful as context-free grammars</td>
-            <td><a href="/reading/theory-of-computation/toc-05/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-06/">Turing Machines</a></td>
-            <td class="pr-3 text-gray-400">An infinite tape, a head, and states: the simplest model of general computation</td>
-            <td><a href="/reading/theory-of-computation/toc-06/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-07/">Decidability</a></td>
-            <td class="pr-3 text-gray-400">Some problems have no algorithm: the halting problem and diagonalization</td>
-            <td><a href="/reading/theory-of-computation/toc-07/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/theory-of-computation/toc-08/">Complexity</a></td>
-            <td class="pr-3 text-gray-400">P, NP, and the million-dollar question of whether brute force can always be beaten</td>
-            <td><a href="/reading/theory-of-computation/toc-08/" class="text-yellow-300 hover:text-yellow-200">🔀</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/theory-of-computation/toc-01/", title: "Finite Automata", desc: "Five components define a machine that reads input and accepts or rejects" },
+  { href: "/reading/theory-of-computation/toc-02/", title: "Nondeterminism", desc: "Multiple paths at once, epsilon jumps, and the subset construction that removes them" },
+  { href: "/reading/theory-of-computation/toc-03/", title: "Regular Expressions", desc: "A pattern language exactly as powerful as finite automata, plus a pumping lemma to prove limits" },
+  { href: "/reading/theory-of-computation/toc-04/", title: "Context-Free Grammars", desc: "Production rules, parse trees, and the grammars behind every programming language" },
+  { href: "/reading/theory-of-computation/toc-05/", title: "Pushdown Automata", desc: "A finite automaton with a stack, exactly as powerful as context-free grammars" },
+  { href: "/reading/theory-of-computation/toc-06/", title: "Turing Machines", desc: "An infinite tape, a head, and states: the simplest model of general computation" },
+  { href: "/reading/theory-of-computation/toc-07/", title: "Decidability", desc: "Some problems have no algorithm: the halting problem and diagonalization" },
+  { href: "/reading/theory-of-computation/toc-08/", title: "Complexity", desc: "P, NP, and the million-dollar question of whether brute force can always be beaten" }
+]} icon="🔀" iconClass="text-yellow-300 hover:text-yellow-200" />
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/">MIT 6.045J Automata, Computability, and Complexity</a></p>
 

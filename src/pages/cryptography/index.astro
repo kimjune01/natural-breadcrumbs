@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -41,92 +42,14 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Part 1: Symmetric primitives</td></tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-01/">Symmetric Ciphers</a></td>
-            <td class="pr-3 text-gray-400">XOR, Caesar, substitution: encryption and decryption share the same secret</td>
-            <td><a href="/reading/cryptography/crypto-01/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-02/">Block Ciphers</a></td>
-            <td class="pr-3 text-gray-400">Feistel networks and AES: fixed-size blocks, multiple rounds, diffusion and confusion</td>
-            <td><a href="/reading/cryptography/crypto-02/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-03/">Hash Functions</a></td>
-            <td class="pr-3 text-gray-400">One-way compression: any input to a fixed-length fingerprint, no way back</td>
-            <td><a href="/reading/cryptography/crypto-03/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-04/">MACs and Authentication</a></td>
-            <td class="pr-3 text-gray-400">HMAC: a keyed hash that proves the message was not tampered with</td>
-            <td><a href="/reading/cryptography/crypto-04/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
-          </tr>
-          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Part 2: Public-key cryptography</td></tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-05/">Key Exchange</a></td>
-            <td class="pr-3 text-gray-400">Diffie-Hellman: two strangers agree on a shared secret over a public channel</td>
-            <td><a href="/reading/cryptography/crypto-05/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cryptography/crypto-06/">RSA</a></td>
-            <td class="pr-3 text-gray-400">Public key encrypts, private key decrypts: the factoring problem makes it hard</td>
-            <td><a href="/reading/cryptography/crypto-06/" class="text-yellow-300 hover:text-yellow-200">🔐</a></td>
-          </tr>
-          <tr class="bg-zinc-900"><td colspan="3" class="py-2 pr-3 text-gray-300 font-semibold">Part 3: Protocols and trust</td></tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-500">7. Digital Signatures</td>
-            <td class="pr-3 text-gray-600">Sign with a private key, verify with the public key: non-repudiation</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-500">8. Certificates and PKI</td>
-            <td class="pr-3 text-gray-600">Certificate chains, root CAs, and the web of trust</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-500">9. TLS</td>
-            <td class="pr-3 text-gray-600">The handshake: key exchange + authentication + symmetric encryption</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-500">10. Zero-Knowledge Proofs</td>
-            <td class="pr-3 text-gray-600">Prove you know a secret without revealing it</td>
-            <td></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 pr-3 text-gray-500">11. Secure Multi-Party Computation</td>
-            <td class="pr-3 text-gray-600">Jointly compute a function without sharing inputs</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="py-2 pr-3 text-gray-500">12. TEE Enclaves</td>
-            <td class="pr-3 text-gray-600">Hardware-enforced isolation: code runs in a tamper-proof enclave</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/cryptography/crypto-01/", title: "Symmetric Ciphers", desc: "XOR, Caesar, substitution: encryption and decryption share the same secret" },
+  { href: "/reading/cryptography/crypto-02/", title: "Block Ciphers", desc: "Feistel networks and AES: fixed-size blocks, multiple rounds, diffusion and confusion" },
+  { href: "/reading/cryptography/crypto-03/", title: "Hash Functions", desc: "One-way compression: any input to a fixed-length fingerprint, no way back" },
+  { href: "/reading/cryptography/crypto-04/", title: "MACs and Authentication", desc: "HMAC: a keyed hash that proves the message was not tampered with" },
+  { href: "/reading/cryptography/crypto-05/", title: "Key Exchange", desc: "Diffie-Hellman: two strangers agree on a shared secret over a public channel" },
+  { href: "/reading/cryptography/crypto-06/", title: "RSA", desc: "Public key encrypts, private key decrypts: the factoring problem makes it hard" }
+]} icon="🔐" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/channel/UC1usFRN4LCMcfIV7UjHNuQg">Christof Paar: Introduction to Cryptography</a></p>

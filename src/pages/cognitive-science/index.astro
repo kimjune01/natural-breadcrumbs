@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -39,71 +40,16 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-01/">What is Computational Cognitive Science?</a></td>
-            <td class="pr-3 text-gray-400">Models as precise theories of cognition, tested at Marr's computational, algorithmic, and implementational levels</td>
-            <td><a href="/reading/cognitive-science/lovelace-01/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-02/">Probability and Bayes</a></td>
-            <td class="pr-3 text-gray-400">Bayes' theorem inverts conditional probabilities, turning evidence into updated beliefs</td>
-            <td><a href="/reading/cognitive-science/lovelace-02/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-03/">Bayesian Models of Cognition</a></td>
-            <td class="pr-3 text-gray-400">Concept learning and causal reasoning as probabilistic inference over structured hypotheses</td>
-            <td><a href="/reading/cognitive-science/lovelace-03/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-04/">Neural Networks</a></td>
-            <td class="pr-3 text-gray-400">Perceptrons, backpropagation, and how distributed representations learn features from data</td>
-            <td><a href="/reading/cognitive-science/lovelace-04/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-05/">Reinforcement Learning</a></td>
-            <td class="pr-3 text-gray-400">Agents learn policies by maximizing reward, balancing exploration against exploitation</td>
-            <td><a href="/reading/cognitive-science/lovelace-05/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-06/">Decision Making</a></td>
-            <td class="pr-3 text-gray-400">Utility theory, prospect theory, and why bounded rationality beats unbounded optimization</td>
-            <td><a href="/reading/cognitive-science/lovelace-06/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-07/">Language and Communication</a></td>
-            <td class="pr-3 text-gray-400">Probabilistic models of language production, comprehension, and pragmatic inference</td>
-            <td><a href="/reading/cognitive-science/lovelace-07/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/cognitive-science/lovelace-08/">Cognitive Architecture</a></td>
-            <td class="pr-3 text-gray-400">Production systems like ACT-R and Soar that unify memory, learning, and action selection — see also <a href="/reading/cognitive-architecture/">🏛️ Cognitive Architectures</a></td>
-            <td><a href="/reading/cognitive-science/lovelace-08/" class="text-yellow-300 hover:text-yellow-200">🧠</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/cognitive-science/lovelace-01/", title: "What is Computational Cognitive Science?", desc: "Models as precise theories of cognition, tested at Marr's computational, algorithmic, and implementational levels" },
+  { href: "/reading/cognitive-science/lovelace-02/", title: "Probability and Bayes", desc: "Bayes' theorem inverts conditional probabilities, turning evidence into updated beliefs" },
+  { href: "/reading/cognitive-science/lovelace-03/", title: "Bayesian Models of Cognition", desc: "Concept learning and causal reasoning as probabilistic inference over structured hypotheses" },
+  { href: "/reading/cognitive-science/lovelace-04/", title: "Neural Networks", desc: "Perceptrons, backpropagation, and how distributed representations learn features from data" },
+  { href: "/reading/cognitive-science/lovelace-05/", title: "Reinforcement Learning", desc: "Agents learn policies by maximizing reward, balancing exploration against exploitation" },
+  { href: "/reading/cognitive-science/lovelace-06/", title: "Decision Making", desc: "Utility theory, prospect theory, and why bounded rationality beats unbounded optimization" },
+  { href: "/reading/cognitive-science/lovelace-07/", title: "Language and Communication", desc: "Probabilistic models of language production, comprehension, and pragmatic inference" },
+  { href: "/reading/cognitive-science/lovelace-08/", title: "Cognitive Architecture", desc: "Production systems like ACT-R and Soar that unify memory, learning, and action selection — see also" }
+]} icon="🧠" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://oyc.yale.edu/psychology/psyc-110">Yale PSYC 110: Introduction to Psychology (Paul Bloom)</a></p>

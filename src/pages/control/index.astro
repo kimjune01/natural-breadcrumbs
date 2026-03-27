@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -55,83 +56,18 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-01/">Feedback</a></td>
-            <td class="pr-3 text-gray-400">Open-loop guesses; closed-loop measures and corrects</td>
-            <td><a href="/reading/control/ctrl-01/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-02/">Transfer Functions</a></td>
-            <td class="pr-3 text-gray-400">Laplace transforms turn differential equations into algebra</td>
-            <td><a href="/reading/control/ctrl-02/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-03/">PID Control</a></td>
-            <td class="pr-3 text-gray-400">Three knobs that handle most real-world control problems</td>
-            <td><a href="/reading/control/ctrl-03/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-04/">Stability</a></td>
-            <td class="pr-3 text-gray-400">A system is stable when bounded inputs produce bounded outputs</td>
-            <td><a href="/reading/control/ctrl-04/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-05/">Root Locus</a></td>
-            <td class="pr-3 text-gray-400">Watch the poles migrate as you turn up the gain</td>
-            <td><a href="/reading/control/ctrl-05/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-06/">Frequency Response</a></td>
-            <td class="pr-3 text-gray-400">Bode plots show how a system amplifies or attenuates each frequency</td>
-            <td><a href="/reading/control/ctrl-06/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-07/">State Space</a></td>
-            <td class="pr-3 text-gray-400">Replace one high-order ODE with a system of first-order equations</td>
-            <td><a href="/reading/control/ctrl-07/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-08/">Optimal Control</a></td>
-            <td class="pr-3 text-gray-400">Minimize a cost function to find the best control law</td>
-            <td><a href="/reading/control/ctrl-08/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-09/">Kalman Filter</a></td>
-            <td class="pr-3 text-gray-400">Optimally fuse noisy measurements with a model prediction</td>
-            <td><a href="/reading/control/ctrl-09/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/control/ctrl-10/">Lyapunov Stability</a></td>
-            <td class="pr-3 text-gray-400">Prove stability by finding an energy function that always decreases</td>
-            <td><a href="/reading/control/ctrl-10/" class="text-yellow-300 hover:text-yellow-200">🎛</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/control/ctrl-01/", title: "Feedback", desc: "Open-loop guesses; closed-loop measures and corrects" },
+  { href: "/reading/control/ctrl-02/", title: "Transfer Functions", desc: "Laplace transforms turn differential equations into algebra" },
+  { href: "/reading/control/ctrl-03/", title: "PID Control", desc: "Three knobs that handle most real-world control problems" },
+  { href: "/reading/control/ctrl-04/", title: "Stability", desc: "A system is stable when bounded inputs produce bounded outputs" },
+  { href: "/reading/control/ctrl-05/", title: "Root Locus", desc: "Watch the poles migrate as you turn up the gain" },
+  { href: "/reading/control/ctrl-06/", title: "Frequency Response", desc: "Bode plots show how a system amplifies or attenuates each frequency" },
+  { href: "/reading/control/ctrl-07/", title: "State Space", desc: "Replace one high-order ODE with a system of first-order equations" },
+  { href: "/reading/control/ctrl-08/", title: "Optimal Control", desc: "Minimize a cost function to find the best control law" },
+  { href: "/reading/control/ctrl-09/", title: "Kalman Filter", desc: "Optimally fuse noisy measurements with a model prediction" },
+  { href: "/reading/control/ctrl-10/", title: "Lyapunov Stability", desc: "Prove stability by finding an energy function that always decreases" }
+]} icon="🎛" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://www.youtube.com/user/ControlLectures">Brian Douglas: Control Systems Lectures</a></p>

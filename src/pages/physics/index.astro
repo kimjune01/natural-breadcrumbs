@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -34,95 +35,20 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-01/">Conservation of Energy</a></td>
-            <td class="pr-3 text-gray-400">Energy is never created or destroyed, only converted between kinetic and potential forms</td>
-            <td><a href="/reading/physics/crowell-01/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-02/">Conservation of Momentum</a></td>
-            <td class="pr-3 text-gray-400">Total momentum of an isolated system is constant, even through collisions</td>
-            <td><a href="/reading/physics/crowell-02/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-03/">Conservation of Angular Momentum</a></td>
-            <td class="pr-3 text-gray-400">Spinning things keep spinning unless a torque acts on them</td>
-            <td><a href="/reading/physics/crowell-03/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-04/">Thermodynamics</a></td>
-            <td class="pr-3 text-gray-400">Entropy always increases, and that arrow of time constrains every engine</td>
-            <td><a href="/reading/physics/crowell-04/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-05/">Waves</a></td>
-            <td class="pr-3 text-gray-400">Waves superpose, interfere, and decompose into Fourier components</td>
-            <td><a href="/reading/physics/crowell-05/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-06/">Electricity</a></td>
-            <td class="pr-3 text-gray-400">Charges create fields, fields do work, and circuits are the plumbing</td>
-            <td><a href="/reading/physics/crowell-06/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-07/">Magnetism</a></td>
-            <td class="pr-3 text-gray-400">Moving charges create magnetic fields; magnetic forces are always perpendicular to velocity</td>
-            <td><a href="/reading/physics/crowell-07/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-08/">Electromagnetism</a></td>
-            <td class="pr-3 text-gray-400">Changing electric fields create magnetic fields and vice versa: Maxwell's equations</td>
-            <td><a href="/reading/physics/crowell-08/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-09/">Optics</a></td>
-            <td class="pr-3 text-gray-400">Light is an electromagnetic wave: reflection, refraction, diffraction</td>
-            <td><a href="/reading/physics/crowell-09/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-10/">Relativity</a></td>
-            <td class="pr-3 text-gray-400">Space and time are one fabric; nothing outruns light</td>
-            <td><a href="/reading/physics/crowell-10/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">11.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-11/">Quantum Mechanics</a></td>
-            <td class="pr-3 text-gray-400">Particles are waves of probability; measurement collapses the wavefunction</td>
-            <td><a href="/reading/physics/crowell-11/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">12.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/physics/crowell-12/">The Atom</a></td>
-            <td class="pr-3 text-gray-400">Quantum mechanics explains the periodic table, spectral lines, and chemical bonds</td>
-            <td><a href="/reading/physics/crowell-12/" class="text-yellow-300 hover:text-yellow-200">⚛</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/physics/crowell-01/", title: "Conservation of Energy", desc: "Energy is never created or destroyed, only converted between kinetic and potential forms" },
+  { href: "/reading/physics/crowell-02/", title: "Conservation of Momentum", desc: "Total momentum of an isolated system is constant, even through collisions" },
+  { href: "/reading/physics/crowell-03/", title: "Conservation of Angular Momentum", desc: "Spinning things keep spinning unless a torque acts on them" },
+  { href: "/reading/physics/crowell-04/", title: "Thermodynamics", desc: "Entropy always increases, and that arrow of time constrains every engine" },
+  { href: "/reading/physics/crowell-05/", title: "Waves", desc: "Waves superpose, interfere, and decompose into Fourier components" },
+  { href: "/reading/physics/crowell-06/", title: "Electricity", desc: "Charges create fields, fields do work, and circuits are the plumbing" },
+  { href: "/reading/physics/crowell-07/", title: "Magnetism", desc: "Moving charges create magnetic fields; magnetic forces are always perpendicular to velocity" },
+  { href: "/reading/physics/crowell-08/", title: "Electromagnetism", desc: "Changing electric fields create magnetic fields and vice versa: Maxwell's equations" },
+  { href: "/reading/physics/crowell-09/", title: "Optics", desc: "Light is an electromagnetic wave: reflection, refraction, diffraction" },
+  { href: "/reading/physics/crowell-10/", title: "Relativity", desc: "Space and time are one fabric; nothing outruns light" },
+  { href: "/reading/physics/crowell-11/", title: "Quantum Mechanics", desc: "Particles are waves of probability; measurement collapses the wavefunction" },
+  { href: "/reading/physics/crowell-12/", title: "The Atom", desc: "Quantum mechanics explains the periodic table, spectral lines, and chemical bonds" }
+]} icon="⚛" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://oyc.yale.edu/physics/phys-200">Yale PHYS 200: Fundamentals of Physics (Ramamurti Shankar)</a></p>

@@ -1,4 +1,5 @@
 ---
+import ChapterTable from "../../components/ChapterTable.astro";
 import Layout from '../../layouts/Base.astro';
 import Neighbors from "../../components/Neighbors.astro";
 ---
@@ -42,83 +43,18 @@ import Neighbors from "../../components/Neighbors.astro";
       </svg>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-        <colgroup>
-          
-        </colgroup>
-        <thead>
-          <tr class="border-b border-zinc-700">
-            <th class="py-2"></th>
-            <th class="text-left py-2 pr-3 text-gray-400">Chapter</th>
-            <th class="text-left py-2 pr-3 text-gray-400">One sentence</th>
-            <th class="text-left py-2 text-gray-400"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">1.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-01/">Complexity and O-Notation</a></td>
-            <td class="pr-3 text-gray-400">Big-O, big-Omega, big-Theta: how to compare algorithms by their growth rates</td>
-            <td><a href="/reading/algorithms/algo-01/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">2.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-02/">Recursion</a></td>
-            <td class="pr-3 text-gray-400">Divide and conquer, recurrence relations, and the master theorem</td>
-            <td><a href="/reading/algorithms/algo-02/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">3.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-03/">Sorting</a></td>
-            <td class="pr-3 text-gray-400">Insertion sort, merge sort, quicksort, heapsort, and the n log n lower bound</td>
-            <td><a href="/reading/algorithms/algo-03/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">4.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-04/">Searching</a></td>
-            <td class="pr-3 text-gray-400">Binary search, hash tables, and interpolation search</td>
-            <td><a href="/reading/algorithms/algo-04/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">5.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-05/">Trees</a></td>
-            <td class="pr-3 text-gray-400">BSTs, AVL trees, B-trees, and the three traversal orders</td>
-            <td><a href="/reading/algorithms/algo-05/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">6.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-06/">Graphs</a></td>
-            <td class="pr-3 text-gray-400">BFS, DFS, topological sort, and connected components</td>
-            <td><a href="/reading/algorithms/algo-06/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">7.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-07/">Shortest Paths</a></td>
-            <td class="pr-3 text-gray-400">Dijkstra, Bellman-Ford, Floyd-Warshall, and negative cycles</td>
-            <td><a href="/reading/algorithms/algo-07/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">8.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-08/">Geometric Algorithms</a></td>
-            <td class="pr-3 text-gray-400">Convex hull, line intersection, closest pair, Voronoi diagrams</td>
-            <td><a href="/reading/algorithms/algo-08/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr class="border-b border-zinc-800">
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">9.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-09/">Dynamic Programming</a></td>
-            <td class="pr-3 text-gray-400">Optimal substructure and memoization: Fibonacci, knapsack, edit distance</td>
-            <td><a href="/reading/algorithms/algo-09/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-          <tr>
-            <td class="py-2 text-right text-gray-500 tabular-nums whitespace-nowrap">10.</td>
-            <td class="py-2 pr-3 text-gray-300"><a href="/reading/algorithms/algo-10/">NP-Completeness</a></td>
-            <td class="pr-3 text-gray-400">P vs NP, reductions, and the problems we believe are hard</td>
-            <td><a href="/reading/algorithms/algo-10/" class="text-yellow-300 hover:text-yellow-200">⚙</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ChapterTable chapters={[
+  { href: "/reading/algorithms/algo-01/", title: "Complexity and O-Notation", desc: "Big-O, big-Omega, big-Theta: how to compare algorithms by their growth rates" },
+  { href: "/reading/algorithms/algo-02/", title: "Recursion", desc: "Divide and conquer, recurrence relations, and the master theorem" },
+  { href: "/reading/algorithms/algo-03/", title: "Sorting", desc: "Insertion sort, merge sort, quicksort, heapsort, and the n log n lower bound" },
+  { href: "/reading/algorithms/algo-04/", title: "Searching", desc: "Binary search, hash tables, and interpolation search" },
+  { href: "/reading/algorithms/algo-05/", title: "Trees", desc: "BSTs, AVL trees, B-trees, and the three traversal orders" },
+  { href: "/reading/algorithms/algo-06/", title: "Graphs", desc: "BFS, DFS, topological sort, and connected components" },
+  { href: "/reading/algorithms/algo-07/", title: "Shortest Paths", desc: "Dijkstra, Bellman-Ford, Floyd-Warshall, and negative cycles" },
+  { href: "/reading/algorithms/algo-08/", title: "Geometric Algorithms", desc: "Convex hull, line intersection, closest pair, Voronoi diagrams" },
+  { href: "/reading/algorithms/algo-09/", title: "Dynamic Programming", desc: "Optimal substructure and memoization: Fibonacci, knapsack, edit distance" },
+  { href: "/reading/algorithms/algo-10/", title: "NP-Completeness", desc: "P vs NP, reductions, and the problems we believe are hard" }
+]} icon="⚙" iconClass="text-yellow-300 hover:text-yellow-200" />
 
 
     <p class="text-gray-500 text-sm mt-8">📺 Video lectures: <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/">MIT 6.006 Introduction to Algorithms</a></p>
