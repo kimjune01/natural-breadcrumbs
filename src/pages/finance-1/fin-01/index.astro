@@ -15,7 +15,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-gray-400 text-sm mb-6">OpenStax Principles of Finance (CC BY 4.0) · MIT OCW 15.401 (CC BY-NC-SA 4.0)</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">A dollar today is worth more than a dollar tomorrow. The <strong>discount rate</strong> bridges the two: it prices the cost of waiting. Every financial decision reduces to comparing present values.</p>
+      <p class="text-lg" style="max-width:none">A dollar today is worth more than a dollar tomorrow. The <strong>discount rate</strong> bridges the two: it bundles the cost of waiting, inflation expectations, and risk. Most financial decisions start by comparing present values.</p>
     </div>
 
     <!-- SVG: timeline showing PV → FV with discount/compound arrows -->
@@ -30,6 +30,7 @@ import PrevNext from "../../../components/PrevNext.astro";
         <text x="180" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=1</text>
         <line x1="280" y1="62" x2="280" y2="78" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
         <text x="280" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=2</text>
+        <text x="315" y="74" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.3">&#x2026;</text>
         <line x1="350" y1="62" x2="350" y2="78" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
         <text x="350" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=n</text>
         <!-- PV label -->
@@ -144,7 +145,7 @@ print(f"Difference: \${c - s:.2f}")
 
     <!-- 3. Net Present Value -->
     <h3>Net present value</h3>
-    <p><strong>NPV</strong> sums the present values of all cash flows, including the initial outlay. A positive NPV means the investment creates value. It is the single most important decision rule in corporate finance.</p>
+    <p><strong>NPV</strong> sums the present values of all cash flows, including the initial outlay (time 0). A positive NPV means the investment creates value &mdash; provided the discount rate reflects the true opportunity cost of capital. The core decision rule in corporate finance.</p>
 
     <SchemeRepl client:load initialCode={`; NPV = sum of PV of each cash flow
 ; Cash flows: list of (time . amount) pairs
@@ -187,7 +188,7 @@ for rate in [0.08, 0.12, 0.15]:
 
     <!-- 4. Annuities and Perpetuities -->
     <h3>Annuities and perpetuities</h3>
-    <p>An <strong>annuity</strong> pays a fixed amount C for n periods. Its PV = C &times; [1 - (1+r)<sup>-n</sup>] / r. A <strong>perpetuity</strong> pays forever: PV = C / r. These are closed-form shortcuts for the NPV sum.</p>
+    <p>An <strong>annuity</strong> pays a fixed amount C at the end of each period for n periods (ordinary annuity). Its PV = C &times; [1 - (1+r)<sup>-n</sup>] / r. A <strong>perpetuity</strong> pays forever: PV = C / r. A <strong>growing perpetuity</strong> with growth rate g has PV = C<sub>1</sub> / (r - g), where C<sub>1</sub> is the first payment (one period from now) and r &gt; g. These are closed-form shortcuts for the NPV sum. All assume end-of-period cash flows and a constant discount rate.</p>
 
     <SchemeRepl client:load initialCode={`; Annuity: PV = C * [1 - (1+r)^(-n)] / r
 (define (annuity-pv c r n)
@@ -207,11 +208,12 @@ for rate in [0.08, 0.12, 0.15]:
 (display (round (perpetuity-pv 500 0.06)))
 (newline)
 
-; Growing perpetuity: PV = C / (r - g)
-(define (growing-perpetuity-pv c r g)
-  (/ c (- r g)))
+; Growing perpetuity: PV = C1 / (r - g), where C1 is first payment, r > g
+(define (growing-perpetuity-pv c1 r g)
+  (/ c1 (- r g)))
 
-(display "Growing perpetuity ($500, 6%, 2% growth): $")
+; C1 = $500 is the first payment (one period from now)
+(display "Growing perpetuity (C1=$500, 6%, 2% growth): $")
 (display (round (growing-perpetuity-pv 500 0.06 0.02)))
 `} />
 
@@ -223,12 +225,13 @@ def annuity_pv(c, r, n):
 def perpetuity_pv(c, r):
     return c / r
 
-def growing_perpetuity_pv(c, r, g):
-    return c / (r - g)
+def growing_perpetuity_pv(c1, r, g):
+    """c1 = first payment (one period from now), requires r > g"""
+    return c1 / (r - g)
 
 print(f"Annuity PV ($500/yr, 30yr, 6%): \${annuity_pv(500, 0.06, 30):.2f}")
 print(f"Perpetuity PV ($500/yr, 6%): \${perpetuity_pv(500, 0.06):.2f}")
-print(f"Growing perpetuity ($500, 6%, 2% growth): \${growing_perpetuity_pv(500, 0.06, 0.02):.2f}")
+print(f"Growing perpetuity (C1=$500, 6%, 2% growth): \${growing_perpetuity_pv(500, 0.06, 0.02):.2f}")
 `} />
     </div>
 

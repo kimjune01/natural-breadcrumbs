@@ -15,7 +15,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     <p class="text-gray-400 text-sm mb-6">OpenStax Principles of Finance (CC BY 4.0) · MIT OCW 15.401 (CC BY-NC-SA 4.0)</p>
 
     <div class="bg-zinc-800 rounded-lg p-5 mb-8 callout">
-      <p class="text-lg" style="max-width:none">A stock is worth the present value of all future dividends. Unlike bonds, those cash flows are uncertain &mdash; so valuation requires assumptions about growth, and every model is only as good as those assumptions.</p>
+      <p class="text-lg" style="max-width:none">A stock is worth the present value of expected cash returned to shareholders &mdash; dividends, buybacks, or liquidation proceeds. The <strong>dividend discount model</strong> is the cleanest form, but the cash flows are uncertain, so every valuation is only as good as its growth assumptions.</p>
     </div>
 
     <!-- SVG: growing dividend stream -->
@@ -59,7 +59,9 @@ import PrevNext from "../../../components/PrevNext.astro";
     <h3>Dividend discount model</h3>
     <p>The <strong>dividend discount model</strong> (DDM) values a stock as the sum of all future dividends discounted at the required return r. If you hold the stock forever, price equals &sum; D<sub>t</sub>/(1+r)<sup>t</sup>. For a finite holding period, you discount dividends received plus the sale price.</p>
 
-    <SchemeRepl client:load initialCode={`; DDM: P = sum of D_t / (1+r)^t
+    <SchemeRepl client:load initialCode={`(define (range a b) (if (> a b) '() (cons a (range (+ a 1) b))))
+
+; DDM: P = sum of D_t / (1+r)^t
 ; Finite holding: P = sum(D_t/(1+r)^t) + P_sell/(1+r)^n
 
 (define (ddm-finite dividends sell-price r)
@@ -67,7 +69,7 @@ import PrevNext from "../../../components/PrevNext.astro";
     (+ (apply + (map (lambda (d t)
                        (/ d (expt (+ 1 r) t)))
                      dividends
-                     (cdr (iota (+ n 1)))))
+                     (range 1 n)))
        (/ sell-price (expt (+ 1 r) n)))))
 
 ; Expected dividends: $2, $2.10, $2.20 over 3 years
