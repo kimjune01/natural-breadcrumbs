@@ -20,33 +20,35 @@ import PrevNext from "../../../components/PrevNext.astro";
 
     <!-- SVG: timeline showing PV → FV with discount/compound arrows -->
     <div class="flex justify-center my-6">
-      <svg viewBox="0 0 420 140" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
+      <svg viewBox="0 0 420 160" class="w-full max-w-md" style="font-family: ui-monospace, monospace;">
         <!-- Timeline -->
-        <line x1="40" y1="70" x2="380" y2="70" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3"/>
+        <line x1="40" y1="80" x2="380" y2="80" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3"/>
         <!-- Tick marks -->
-        <line x1="80" y1="62" x2="80" y2="78" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
-        <text x="80" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=0</text>
-        <line x1="180" y1="62" x2="180" y2="78" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
-        <text x="180" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=1</text>
-        <line x1="280" y1="62" x2="280" y2="78" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
-        <text x="280" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=2</text>
-        <text x="315" y="74" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.3">&#x2026;</text>
-        <line x1="350" y1="62" x2="350" y2="78" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
-        <text x="350" y="95" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=n</text>
+        <line x1="80" y1="72" x2="80" y2="88" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <text x="80" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=0</text>
+        <line x1="180" y1="72" x2="180" y2="88" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <text x="180" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=1</text>
+        <line x1="280" y1="72" x2="280" y2="88" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <text x="280" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=2</text>
+        <text x="315" y="84" text-anchor="middle" fill="currentColor" font-size="14" fill-opacity="0.3">&#x2026;</text>
+        <line x1="350" y1="72" x2="350" y2="88" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+        <text x="350" y="105" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.5">t=n</text>
         <!-- PV label -->
-        <text x="80" y="45" text-anchor="middle" fill="#60a5fa" font-size="12" fill-opacity="0.8">PV</text>
-        <circle cx="80" cy="70" r="4" fill="#60a5fa" fill-opacity="0.6"/>
+        <text x="80" y="55" text-anchor="middle" fill="#60a5fa" font-size="12" fill-opacity="0.8">PV</text>
+        <circle cx="80" cy="80" r="4" fill="#60a5fa" fill-opacity="0.6"/>
         <!-- FV label -->
-        <text x="350" y="45" text-anchor="middle" fill="#f59e0b" font-size="12" fill-opacity="0.8">FV</text>
-        <circle cx="350" cy="70" r="4" fill="#f59e0b" fill-opacity="0.6"/>
+        <text x="350" y="55" text-anchor="middle" fill="#f59e0b" font-size="12" fill-opacity="0.8">FV</text>
+        <circle cx="350" cy="80" r="4" fill="#f59e0b" fill-opacity="0.6"/>
         <!-- Compound arrow (top) -->
-        <path d="M 90,55 Q 215,15 340,55" fill="none" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
-        <polygon points="340,52 334,48 336,57" fill="#60a5fa" fill-opacity="0.4"/>
-        <text x="215" y="22" text-anchor="middle" fill="#60a5fa" font-size="9" fill-opacity="0.5">&#xd7; (1+r)&#x207F;</text>
+        <path d="M 90,65 Q 215,25 340,65" fill="none" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.4"/>
+        <polygon points="340,62 334,58 336,67" fill="#60a5fa" fill-opacity="0.4"/>
+        <text x="215" y="30" text-anchor="middle" fill="#60a5fa" font-size="9" fill-opacity="0.5">compound: &#xd7;(1+r)n</text>
         <!-- Discount arrow (bottom) -->
-        <path d="M 340,85 Q 215,125 90,85" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
-        <polygon points="90,82 96,78 94,87" fill="#f59e0b" fill-opacity="0.4"/>
-        <text x="215" y="128" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.5">&#xf7; (1+r)&#x207F;</text>
+        <path d="M 340,95 Q 215,135 90,95" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+        <polygon points="90,92 96,88 94,97" fill="#f59e0b" fill-opacity="0.4"/>
+        <text x="215" y="140" text-anchor="middle" fill="#f59e0b" font-size="9" fill-opacity="0.5">discount: &#xf7;(1+r)n</text>
+        <!-- Caption -->
+        <text x="210" y="155" text-anchor="middle" fill="currentColor" font-size="10" fill-opacity="0.35">Present value and future value on a timeline.</text>
       </svg>
     </div>
 
