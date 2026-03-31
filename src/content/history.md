@@ -66,13 +66,13 @@ Turing (1949) also wrote the first proof that a program was correct — a hand-c
 
 All five threads arrive at the same place: **behavioral predicates preserved under composition**.
 
-| Thread | Their word for it | Pipeline word |
-|--------|------------------|---------------|
-| Program correctness | Hoare triple | Contract |
-| Category theory | Morphism property | Kernel predicate |
-| Information theory | Data processing inequality | Non-expansion |
-| Game theory | Nash equilibrium | Compositional predicate |
-| Cybernetics | Goal / selection relation | Contract |
+| Thread | Their word for it | SE word | Pipeline word |
+|--------|------------------|---------|---------------|
+| Program correctness | Hoare triple | `assert` | Contract |
+| Category theory | Morphism property | Interface | Kernel predicate |
+| Information theory | Data processing inequality | Lossy pipeline | Non-expansion |
+| Game theory | Nash equilibrium | SLA | Compositional predicate |
+| Cybernetics | Goal / selection relation | Acceptance test | Contract |
 
 The Natural Framework is what happens when you notice this convergence and machine-check it.
 
