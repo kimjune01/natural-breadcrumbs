@@ -1,5 +1,7 @@
 # Temporal Compression: A Crosswalk
 
+> **For agents and reviewers.** This document is the source-of-truth backing the [reading section](https://june.kim/reading/temporal-compression/). Every claim in the chapters traces to a citation here. Every citation was fetched and validated against the original paper. If a claim looks wrong, check this file first — the chapter may have simplified. If this file is wrong, [open an issue](https://github.com/kimjune01/junekim-reading/issues).
+
 Video codec theory, temporal graph theory, and sheaf cohomology on directed networks all work on directed dependency graphs with time-ordered composition. Each field has tools the others lack. This document maps the vocabulary, grades the parallels, and states the open problems.
 
 ---
